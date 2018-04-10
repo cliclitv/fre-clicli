@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "webpack --config build/webpack.config.client.js",
-    "start": "webpack-dev-server --mode development --config build/webpack.config.client.js"
+    "client": "webpack --config build/webpack.config.client.js --mode production",
+    "server": "webpack --config build/webpack.config.server.js --mode production",
+    "start": "webpack-dev-server --mode development --config build/webpack.config.client.js",
+    "build":"yarn client && yarn server"
   },
   "repository": {
     "type": "git",

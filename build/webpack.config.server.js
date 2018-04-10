@@ -1,13 +1,17 @@
 const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
 
 const baseConfig = require('./webpack.config.base')
 
 module.exports = merge(baseConfig, {
-  target: 'web',
+  target: 'node',
+  entry: path.resolve(__dirname, '../src/server-entry.js'),
+  output: {
+    libraryTarget: 'commonjs2',
+    filename: 'js/server-build.js'
+  },
+  externals: Object.keys(require('../package.json').dependencies),
   module: {
     rules: [
       {
@@ -19,35 +23,11 @@ module.exports = merge(baseConfig, {
             'stylus-loader'
           ]
         })
-      },
+      }
     ]
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    },
-    runtimeChunk: true
-  },
+
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    }),
-    new ExtractTextPlugin("css/[name].css"),
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    hot: true,
-    compress: true,
-    port: 2333,
-    historyApiFallback: true,
-    proxy: {
-      '/user/': {
-        target: 'http://localhost:4000'
-      },
-      '/article/': {
-        target: 'http://localhost:4000'
-      }
-    }
-  }
+    new ExtractTextPlugin("css/[name].css")
+  ]
 })

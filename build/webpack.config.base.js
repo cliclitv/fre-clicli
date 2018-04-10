@@ -6,15 +6,6 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js'
   },
-  resolve: {
-    alias: {
-      component: path.resolve(__dirname, '../src/component'),
-      common: path.resolve(__dirname, '../src/common'),
-      api: path.resolve(__dirname, '../src/api'),
-      base: path.resolve(__dirname, '../src/base'),
-      store: path.resolve(__dirname, '../src/store')
-    }
-  },
   module: {
     rules: [
       {
