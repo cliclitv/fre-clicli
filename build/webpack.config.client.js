@@ -2,9 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const baseConfig = require('./webpack.config.base')
 const merge = require('webpack-merge')
 
+const baseConfig = require('./webpack.config.base')
 
 module.exports = merge(baseConfig, {
   module: {
@@ -38,7 +38,7 @@ module.exports = merge(baseConfig, {
     contentBase: path.join(__dirname, "dist"),
     hot: true,
     compress: true,
-    port: 1122,
+    port: 2333,
     historyApiFallback: true,
     proxy: {
       '/user/': {
