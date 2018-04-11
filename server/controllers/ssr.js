@@ -1,13 +1,13 @@
 const axios = require('axios')
-const fs = require('fs')
 const Router = require('koa-router')
+const fs = require('fs')
 const path = require('path')
 const MemoryFs = require('memory-fs')
 const webpack = require('webpack')
 const VueServerRenderer = require('vue-server-renderer')
+const ejs = require('ejs')
 
 const serverConfig = require('../../build/wp.server')
-const ssrRender = require('./ssr-render')
 
 const serverCompiler = webpack(serverConfig)
 
@@ -25,12 +25,37 @@ serverCompiler.watch({}, (err, stats) => {
   bundle = JSON.parse(mfs.readFileSync(bundlePath, 'utf-8'))
 })
 
-async function handleSSR(ctx) {
+// 渲染到模板上
+async function ssrRender(ctx, renderer, template) {
+  ctx.headers['Content-Type'] = 'text/html'
+
+  const context = {url: ctx.path}
+
+  try {
+    const appString = await renderer.renderToString(context)
+
+    let html = ejs.render(template, {
+      appString,
+      style: context.renderStyles(),
+      scripts: context.renderScripts()
+    })
+
+    ctx.body = html
+
+  } catch (e) {
+    console.log(e)
+    throw e
+  }
+}
+
+// 正式ssr逻辑
+const handleSSR = async (ctx) => {
   if (!bundle) {
     ctx.body = '等会儿……'
   }
-  const clientManifestRes = axios.get('http://127.0.0.1:2333/vue-ssr-client-manifest.json')
+  const clientManifestRes = await axios.get('http://localhost:2333/vue-ssr-client-manifest.json')
   const clientManifest = clientManifestRes.data
+  console.log(clientManifest)
   const template = fs.readFileSync(
     path.join(__dirname, '../server.template.ejs'),
     'utf-8'
@@ -43,7 +68,10 @@ async function handleSSR(ctx) {
   await ssrRender(ctx, renderer, template)
 }
 
+// 导出路由
 const router = new Router()
 
 router.get('*', handleSSR)
 module.exports = router
+
+
