@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 
 const baseConfig = require('./wp.base')
 
@@ -41,6 +42,7 @@ module.exports = merge(baseConfig, {
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
+    new VueClientPlugin(),
     new ExtractTextPlugin("css/[name].css"),
     new webpack.HotModuleReplacementPlugin()
   ],

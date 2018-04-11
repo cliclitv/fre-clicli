@@ -10,7 +10,8 @@ module.exports = merge(baseConfig, {
   entry: path.resolve(__dirname, '../client/server-entry.js'),
   output: {
     libraryTarget: 'commonjs2',
-    filename: 'js/server-build.js'
+    filename: 'js/server-build.js',
+    path: path.resolve(__dirname, '../dist')
   },
   externals: Object.keys(require('../package.json').dependencies),
   module: {

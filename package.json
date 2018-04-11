@@ -22,6 +22,7 @@
   "homepage": "https://github.com/132yse/vue-idanmu#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "ejs": "^2.5.8",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
