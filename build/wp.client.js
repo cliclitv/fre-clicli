@@ -10,11 +10,11 @@ module.exports = merge(baseConfig, {
   target: 'web',
   resolve: {
     alias: {
-      component: path.resolve(__dirname, '../src/component'),
-      common: path.resolve(__dirname, '../src/common'),
-      api: path.resolve(__dirname, '../src/api'),
-      base: path.resolve(__dirname, '../src/base'),
-      store: path.resolve(__dirname, '../src/store')
+      component: path.resolve(__dirname, '../client/component'),
+      common: path.resolve(__dirname, '../client/common'),
+      api: path.resolve(__dirname, '../client/api'),
+      base: path.resolve(__dirname, '../client/base'),
+      store: path.resolve(__dirname, '../client/store')
     }
   },
   module: {
