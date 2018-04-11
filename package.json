@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "webpack --config build/webpack.config.client.js --mode production",
-    "server": "webpack --config build/webpack.config.server.js --mode production",
-    "start": "webpack-dev-server --mode development --config build/webpack.config.client.js",
+    "client": "webpack --config build/wp.client.js --mode production",
+    "server": "webpack --config build/wp.server.js --mode production",
+    "start": "webpack-dev-server --mode development --config build/wp.client.js",
     "build":"yarn client && yarn server"
   },
   "repository": {
@@ -33,7 +33,6 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
-    "postcss-loader": "^2.1.3",
     "style-loader": "^0.20.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

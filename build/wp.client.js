@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
 
-const baseConfig = require('./webpack.config.base')
+const baseConfig = require('./wp.base')
 
 module.exports = merge(baseConfig, {
   target: 'web',

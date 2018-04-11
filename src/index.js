@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 
 import App from './app.vue'
 import createRouter from './router'
-import createStore from './store/store'
+import createStore from './store'
 
 import 'common/stylus/reset.styl'
 import 'common/stylus/index.styl'
