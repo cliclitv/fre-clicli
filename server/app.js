@@ -28,7 +28,6 @@ app.use(koaStatic(path.join( __dirname,  './dist')))
 // 配置路由
 app.use(routers.routes())
 
-
 // 启动
 app.listen(4000, () => {
     console.log('IIIIIIIIII am starting')
