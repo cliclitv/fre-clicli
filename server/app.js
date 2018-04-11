@@ -23,7 +23,6 @@ app.use(bodyparser())
 
 // 配置静态文件目录
 app.use(koaStaticServer({rootDir: 'react', rootPath: '/admin'}))
-app.use(koaStatic(path.join( __dirname,  './dist')))
 
 // 配置路由
 app.use(routers.routes())

@@ -1,12 +1,15 @@
 <template>
-    <div>
-        hello world
-        <router-view></router-view>
-    </div>
+  <div>
+    <c-header></c-header>
+  </div>
 </template>
 
 <script>
+  import CHeader from 'component/c-header/c-header.vue'
 
   export default {
+    components: {
+      CHeader
+    }
   }
 </script>

@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
-    publicPath: 'http://localhost:2333'
+    publicPath: 'http://localhost:2333/'
   },
   resolve: {
     alias: {
@@ -41,7 +41,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              name: 'static/img/[name].[ext]'
+              name: '[name].[ext]'
             }
           }
         ]
