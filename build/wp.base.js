@@ -1,10 +1,21 @@
 const path = require('path')
 
 module.exports = {
+  mode: 'production',
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'js/[name].js'
+    filename: 'js/[name].js',
+    publicPath: 'http://localhost:2333'
+  },
+  resolve: {
+    alias: {
+      component: path.resolve(__dirname, '../client/component'),
+      common: path.resolve(__dirname, '../client/common'),
+      api: path.resolve(__dirname, '../client/api'),
+      base: path.resolve(__dirname, '../client/base'),
+      store: path.resolve(__dirname, '../client/store')
+    }
   },
   module: {
     rules: [

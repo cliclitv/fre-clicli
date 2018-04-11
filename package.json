@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "webpack --config build/wp.client.js --mode production",
     "server": "webpack --config build/wp.server.js --mode production",
-    "start": "webpack-dev-server --mode development --config build/wp.client.js",
-    "build": "yarn client && yarn server"
+    "dev:client": "webpack-dev-server --mode development --config build/wp.client.js",
+    "build": "yarn client && yarn server",
+    "start": "concurrently \"yarn dev:client\" \"nodemon server/app.js\""
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "babel-loader": "^7.1.4",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",

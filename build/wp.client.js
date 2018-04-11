@@ -9,15 +9,6 @@ const baseConfig = require('./wp.base')
 
 module.exports = merge(baseConfig, {
   target: 'web',
-  resolve: {
-    alias: {
-      component: path.resolve(__dirname, '../client/component'),
-      common: path.resolve(__dirname, '../client/common'),
-      api: path.resolve(__dirname, '../client/api'),
-      base: path.resolve(__dirname, '../client/base'),
-      store: path.resolve(__dirname, '../client/store')
-    }
-  },
   module: {
     rules: [
       {
