@@ -1,11 +1,13 @@
 const axios = require('axios')
-const fs = ('fs')
+const fs = require('fs')
+const Router = require('koa-router')
 const path = require('path')
 const MemoryFs = require('memory-fs')
 const webpack = require('webpack')
 const VueServerRenderer = require('vue-server-renderer')
 
 const serverConfig = require('../../build/wp.server')
+const ssrRender = require('./ssr-render')
 
 const serverCompiler = webpack(serverConfig)
 
@@ -15,7 +17,7 @@ serverCompiler.outputFileSystem = mfs
 let bundle
 serverCompiler.watch({}, (err, stats) => {
   if (err) throw err
-  stats = stats.toJSON()
+  stats = stats.toJson()
   stats.errors.forEach(err => console.log(err))
   stats.warnings.forEach(warn => console.log(warn))
 
@@ -23,14 +25,25 @@ serverCompiler.watch({}, (err, stats) => {
   bundle = JSON.parse(mfs.readFileSync(bundlePath, 'utf-8'))
 })
 
-const handleSSR = async (ctx) => {
+async function handleSSR(ctx) {
   if (!bundle) {
     ctx.body = '等会儿……'
   }
-  const clientManifestRes = async
-  axios.get('http://127.0.0.1:2333/vue-ssr-client-manifest.json')
-  const template = fs.readFileSync(path.join(__dirname, '../server.template.ejs'))
+  const clientManifestRes = axios.get('http://127.0.0.1:2333/vue-ssr-client-manifest.json')
+  const clientManifest = clientManifestRes.data
+  const template = fs.readFileSync(
+    path.join(__dirname, '../server.template.ejs'),
+    'utf-8'
+  )
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {
-    inject: false
+    inject: false,
+    clientManifest
   })
+
+  await ssrRender(ctx, renderer, template)
 }
+
+const router = new Router()
+
+router.get('*', handleSSR)
+module.exports = router
