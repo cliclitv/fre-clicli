@@ -14,7 +14,9 @@
       ...mapState(['text', 'articles'])
     },
     created() {
-      this.getArticleList()
+      if (this.articles.length < 1) {
+        this.getArticleList()
+      }
 
     },
     asyncData({store}) {

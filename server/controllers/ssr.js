@@ -40,7 +40,8 @@ async function ssrRender(ctx, renderer, template) {
       appString,
       title: title.text(),
       style: context.renderStyles(),
-      scripts: context.renderScripts()
+      scripts: context.renderScripts(),
+      initalState: context.renderState()
     })
 
     ctx.body = html

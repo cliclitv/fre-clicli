@@ -18,9 +18,9 @@ export default context => {
             route: router.currentRoute
           })
         }
-      })).then((data) => {
-        console.log(store.state)
+      })).then(() => {
         context.meta = app.$meta()
+        context.state = store.state
         resolve(app)
       }).catch(reject)
     })
