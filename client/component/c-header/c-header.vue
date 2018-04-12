@@ -5,9 +5,21 @@
 </template>
 
 <script>
+  import {mapState, mapActions, mapMutations} from 'vuex'
   import Topbar from 'component/topbar/topbar.vue'
+
   export default {
-    components:{
+    computed: {
+      ...mapState(['text'])
+    },
+    mounted() {
+      console.log(this.$store)
+    },
+    methods: {
+      ...mapMutations(['getArticleList']),
+      ...mapActions(['articleList'])
+    },
+    components: {
       Topbar
     }
   }

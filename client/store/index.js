@@ -5,12 +5,12 @@ import mutations from './mutations'
 import action from './action'
 
 
-export default ()=>{
-  new Vuex.Store({
-    defaultState,
-    getters,
+export default () => {
+  return new Vuex.Store({
+    state: defaultState,
     mutations,
-    action
+    getters,
+    action,
   })
 }
 

@@ -9,7 +9,7 @@
 
   export default {
     metaInfo: {
-      title: '后庭花'
+      title: '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
     },
     components: {
       CHeader
