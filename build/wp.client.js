@@ -38,6 +38,7 @@ module.exports = merge(baseConfig, {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
+    headers: { 'Access-Control-Allow-Origin': '*' },
     contentBase: path.join(__dirname, "dist"),
     hot: true,
     compress: true,
