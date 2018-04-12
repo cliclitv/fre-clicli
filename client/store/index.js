@@ -2,7 +2,7 @@ import Vuex from 'vuex'
 import defaultState from './state'
 import getters from './getters'
 import mutations from './mutations'
-import action from './action'
+import actions from './actions'
 
 
 export default () => {
@@ -10,7 +10,7 @@ export default () => {
     state: defaultState,
     mutations,
     getters,
-    action,
+    actions,
   })
 }
 

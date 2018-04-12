@@ -3,7 +3,7 @@ import createApp from './create-app'
 
 export default context => {
   return new Promise((resolve, reject) => {
-    const {app, router} = createApp()
+    const {app, router, store} = createApp()
 
     router.push(context.url)
     router.onReady(() => {
@@ -11,8 +11,18 @@ export default context => {
       if (!matchedComponents) {
         return reject(new Error('no component matched'))
       }
-      context.meta = app.$meta()
-      resolve(app)
+      Promise.all(matchedComponents.map(Component => {
+        if (Component.asyncData) {
+          return Component.asyncData({
+            store,
+            route: router.currentRoute
+          })
+        }
+      })).then((data) => {
+        console.log(store.state)
+        context.meta = app.$meta()
+        resolve(app)
+      }).catch(reject)
     })
   })
 }

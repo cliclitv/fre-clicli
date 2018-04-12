@@ -1,23 +1,27 @@
 <template>
   <div class="header">
     <topbar></topbar>
+    <li v-for="item in articles">{{item.title}}</li>
   </div>
 </template>
 
 <script>
-  import {mapState, mapActions, mapMutations} from 'vuex'
+  import {mapState, mapActions} from 'vuex'
   import Topbar from 'component/topbar/topbar.vue'
 
   export default {
     computed: {
-      ...mapState(['text'])
+      ...mapState(['text', 'articles'])
     },
-    mounted() {
-      console.log(this.$store)
+    created() {
+      this.getArticleList()
+
+    },
+    asyncData({store}) {
+      return store.dispatch('getArticleList')
     },
     methods: {
-      ...mapMutations(['getArticleList']),
-      ...mapActions(['articleList'])
+      ...mapActions(['getArticleList'])
     },
     components: {
       Topbar

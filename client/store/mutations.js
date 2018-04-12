@@ -1,5 +1,5 @@
 export default {
-  getArticleList(state, articles) {
+  loadArticleList(state, articles) {
     state.articles = articles
   }
 }

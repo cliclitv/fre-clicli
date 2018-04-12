@@ -1,6 +1,7 @@
 import Router from 'vue-router'
 
 import App from '../app.vue'
+import CHeader from '../component/c-header/c-header.vue'
 
 
 export default () => {
@@ -9,7 +10,7 @@ export default () => {
     routes: [
       {
         path: '/',
-        component: App
+        component: CHeader
       },
     ],
 
