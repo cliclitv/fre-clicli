@@ -1,7 +1,6 @@
 import Router from 'vue-router'
 
-import Home from 'component/home/home.vue'
-import Anime from 'component/anime/anime.vue'
+import App from '../app.vue'
 
 
 export default () => {
@@ -10,16 +9,8 @@ export default () => {
     routes: [
       {
         path: '/',
-        redirect: '/wp'
+        component: App
       },
-      {
-        path: '/wp',
-        component: Home
-      },
-      {
-        path: '/anime',
-        component: Anime
-      }
     ],
 
     scrollBehavior() {

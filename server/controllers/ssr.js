@@ -34,8 +34,11 @@ async function ssrRender(ctx, renderer, template) {
   try {
     const appString = await renderer.renderToString(context)
 
+    const {title} = context.meta.inject()
+
     let html = ejs.render(template, {
       appString,
+      title: title.text(),
       style: context.renderStyles(),
       scripts: context.renderScripts()
     })

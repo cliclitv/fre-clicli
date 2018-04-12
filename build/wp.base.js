@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './client/index.js',
+  entry: './client/client-entry.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',

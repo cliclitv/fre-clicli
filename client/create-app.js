@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Meta from 'vue-meta'
 import Vuex from 'vuex'
 
 import App from './app.vue'
@@ -12,7 +13,7 @@ import 'common/stylus/index.styl'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
-
+Vue.use(Meta)
 
 export default () => {
   const router = createRouter()
