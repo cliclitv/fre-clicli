@@ -12,7 +12,7 @@
 
 >配套后台：[idanmu-admin](https://github.com/132yse/idanmu-admin)
 
-## bout
+## about
 
 * blog: [伊撒尔の窝](http://www.yisaer.com)
 * weibo: [@世界倒数第一公主殿下](http://weibo.com/oreshura)
