@@ -4,10 +4,11 @@
 这是对原vue-idanmu的重写，主要是移除vue-cli以及配置同构，同时也对网站进行重写设计、构建、编码……
 
 ### 技术栈
+* webpack4
 * vue2
 * vuex
 * vue-router
-* webpack4
+* stylus
 * koa2
 
 >配套后台：[idanmu-admin](https://github.com/132yse/idanmu-admin)
