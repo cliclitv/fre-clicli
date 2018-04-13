@@ -2,7 +2,7 @@
 * restful api 用户接口汇总
 */
 
-const user = require('../controllers/user')
+const user = require('../controller/user')
 const Router = require('koa-router')
 
 

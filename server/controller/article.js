@@ -1,4 +1,4 @@
-const Article = require('../models/article')
+const Article = require('../model/article')
 
 module.exports = {
   // 查询所有文章并分页

@@ -3,7 +3,7 @@
 */
 
 const Router = require('koa-router')
-const article = require('../controllers/article')
+const article = require('../controller/article')
 
 const router = new Router()
 

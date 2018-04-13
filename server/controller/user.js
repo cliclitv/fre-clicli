@@ -1,5 +1,5 @@
-const User = require('../models/user')
-const utils = require('../common/utils')
+const User = require('../model/user')
+const utils = require('../util/utils')
 const _ignore = {pwd: 0, __v: 0}
 module.exports = {
   // 查找所有用户并分页
