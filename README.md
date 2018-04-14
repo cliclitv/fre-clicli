@@ -8,7 +8,6 @@
 * vue2
 * vuex
 * vue-router
-* stylus
 * koa2
 
 >配套后台：[idanmu-admin](https://github.com/132yse/idanmu-admin)
