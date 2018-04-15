@@ -1,10 +1,10 @@
 <template>
-    <div>anime</div>
+  
 </template>
 
 <script>
   export default {
-    name: "anime"
+    name: "article-list.vue"
   }
 </script>
 

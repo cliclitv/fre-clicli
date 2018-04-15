@@ -4,7 +4,7 @@
       <div class="wrap">
         <ul class="menu">
           <router-link to="/" class="tab-item">
-            <li class="first-child"><i class="icon-font icon-home"></i>首页</li>
+            <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
           </router-link>
           <router-link to="/game" class="tab-item">
             <li>游戏中心</li>
@@ -20,7 +20,6 @@
 
 <script>
   import {mapState, mapActions} from 'vuex'
-  import Topbar from 'component/tap/tap.vue'
 
   export default {
     computed: {
@@ -39,7 +38,6 @@
       ...mapActions(['getArticleList'])
     },
     components: {
-      Topbar
     }
   }
 </script>
@@ -74,7 +72,7 @@
       display inline-block
       padding: 12px 25px
       color: #fff
-    li:hover
+      box-sizing: border-box
     .router-link-active li
       color: $a-color
 

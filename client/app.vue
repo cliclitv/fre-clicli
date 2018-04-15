@@ -3,8 +3,7 @@
     <c-header></c-header>
     <div class="wrap">
       <tap></tap>
-      <slider></slider>
-      <topic></topic>
+      <router-view></router-view>
     </div>
 
   </div>
@@ -12,8 +11,6 @@
 
 <script>
   import CHeader from 'component/c-header/c-header.vue'
-  import Slider from 'component/slider/slider.vue'
-  import Topic from 'component/topic/topic.vue'
   import Tap from 'component/tap/tap.vue'
 
   export default {
@@ -22,8 +19,6 @@
     },
     components: {
       CHeader,
-      Slider,
-      Topic,
       Tap
     }
   }
