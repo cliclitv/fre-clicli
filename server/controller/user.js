@@ -25,9 +25,8 @@ module.exports = {
       result
     }
   },
-  /*
-  * 用户注册
-  * */
+
+ // 用户注册
 
   async userRegister(ctx) {
     let data = ctx.request.body

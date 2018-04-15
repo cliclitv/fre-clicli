@@ -49,7 +49,7 @@
     width: 440px
     height: 220px
     position: relative
-    margin: 30px 30px 30px 0
+    margin: 30px 30px 0 0
     border-radius 4px
 
   .list

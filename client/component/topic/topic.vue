@@ -13,27 +13,13 @@
 </template>
 
 <script>
-  import {mapState, mapActions} from 'vuex'
 
   export default {
-    computed: {
-      ...mapState(['news'])
-    },
-    asyncData({store}) {
-      return store.dispatch('getNews')
-    },
-    mounted() {
-      if (this.news.length < 1) {
-        this.getNews()
-      }
-
-    },
+    props: ['news'],
     methods: {
-      ...mapActions(['getNews']),
       getSuo(content) {
         return content.match(/suo(.+?)(gif|png|jpg)/i)[0].slice(5)
       }
-
     },
   }
 </script>
@@ -41,12 +27,12 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
   .topic
-    width 630px
+    width 690px
     height 180px
     float right
     background $d-color
     padding: 20px
-    margin: 30px 0
+    margin-top: 30px
     border-radius 4px
     h1
       font-size: 18px
@@ -74,7 +60,7 @@
         font-size: 13px
         img
           height 84px
-          width 84px
+          width 94px
           object-fit: cover
       :last-child
         padding: 0

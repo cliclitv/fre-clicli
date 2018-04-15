@@ -2,5 +2,6 @@ export default {
   articles: [],
   news: [],
   anime: [],
-  comic: []
+  comic: [],
+  author:[]
 }

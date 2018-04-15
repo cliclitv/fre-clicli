@@ -1,4 +1,5 @@
 import {articleList, sortArticle} from '../api/article'
+import {userList} from '../api/user'
 
 
 export default {
@@ -22,5 +23,19 @@ export default {
     }).catch(e => {
       console.log(e)
     })
-  }
+  },
+  getComic({commit}) {
+    return sortArticle('comic').then(res => {
+      commit('loadComic', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
+  getAuthor({commit}) {
+    return userList().then(res => {
+      commit('loadAuthor', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
 }

@@ -28,6 +28,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
     "koa-static-server": "^1.3.4",
+    "moment": "^2.22.1",
     "mongoose": "^5.0.14",
     "utility": "^1.13.1",
     "vue": "^2.5.16",

@@ -1,0 +1,50 @@
+<template>
+  <div class="author">
+    <h1>作者们……</h1>
+    <ul>
+      <li v-for="item in author">
+        <img :src="getAvatar(item.qq)">
+        <p>{{item.name}}</p>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+
+  export default {
+    props: ['author'],
+    methods: {
+      getAvatar(qq) {
+        return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
+      },
+    }
+
+  }
+</script>
+
+<style lang="stylus" rel="stylesheet/stylus">
+  @import "~common/stylus/variable"
+  .author
+    h1
+      font-size: 18px
+    li
+      display inline-block
+      margin: 28px 28px 0 0
+      padding-bottom: 5px
+      text-align center
+      background $b-color
+      border-radius 4px
+      border: 2px solid $b-color
+      color: #fff
+      box-shadow 2px 1px 0px #d5f0fe5c
+      font-size 13px
+      img
+        height 64px
+        width 64px
+
+  li:nth-child(3), li:nth-child(6), li:nth-child(9), li:nth-child(12)
+    margin: 0
+
+
+</style>
