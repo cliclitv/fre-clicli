@@ -44,12 +44,12 @@
 <style lang="stylus" scoped>
   @import "~common/stylus/variable"
   .slider
+    display inline-block
     overflow: hidden
     width: 440px
     height: 220px
     position: relative
     margin: 30px 30px 30px 0
-    border: 2px solid $a-color
     border-radius 4px
 
   .list

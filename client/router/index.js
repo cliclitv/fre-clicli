@@ -8,7 +8,7 @@ export default () => {
     mode: 'history',
     routes: [
       {
-        path: '/',
+        path: '/wp',
         component: Home
       },
     ],

@@ -46,7 +46,7 @@ module.exports = {
   async sortArticle(ctx) {
     let sort = ctx.query.sort
     const result = await Article.find({sort: sort}).sort({'time': -1}).populate({path: 'author', select: 'name qq'})
-    const count = result.lenth
+    const count = result.length
     ctx.body = {
       code: 0,
       count,

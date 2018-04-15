@@ -18,6 +18,16 @@ export function authorArticle(id) {
   })
 }
 
+// 根据分类查找文章
+
+export function sortArticle(sort) {
+  return request.get('/article/sort', {
+    params: {
+      sort: sort
+    }
+  })
+}
+
 // 查找一篇文章
 export function getOneArticle(id) {
   return request.get('/article/one', {

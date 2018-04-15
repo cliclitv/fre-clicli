@@ -1,4 +1,6 @@
 export default {
   articles: [],
-  text: 'hello'
+  news: [],
+  anime: [],
+  comic: []
 }

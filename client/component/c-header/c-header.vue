@@ -15,29 +15,19 @@
         </ul>
       </div>
     </div>
+    <div class="wrap">
+      <search-box></search-box>
+    </div>
+
   </div>
 </template>
 
 <script>
-  import {mapState, mapActions} from 'vuex'
+  import SearchBox from 'base/search-box/search-box.vue'
 
   export default {
-    computed: {
-      ...mapState(['text', 'articles'])
-    },
-    created() {
-      if (this.articles.length < 1) {
-        this.getArticleList()
-      }
-
-    },
-    asyncData({store}) {
-      return store.dispatch('getArticleList')
-    },
-    methods: {
-      ...mapActions(['getArticleList'])
-    },
     components: {
+      SearchBox
     }
   }
 </script>
@@ -56,10 +46,12 @@
     background-attachment: fixed
     filter: blur(10px)
     z-index 0
+
   .header
     background: url("./banner.png")
     background-size: 100% 200px
     height: 200px
+    position: relative
     .topbar
       position absolute
       top: 0
@@ -67,7 +59,7 @@
       z-index 1000
       width 100%
       background rgba(22, 25, 33, 0.6)
-      box-shadow 0 2px 5px #080808
+      box-shadow 0 1px 3px #080808
     li
       display inline-block
       padding: 12px 25px
@@ -89,4 +81,5 @@
       span:last-child
         border-radius 0 18px 18px 0
         background: rgba(36, 33, 46, 0.8)
+
 </style>
