@@ -1,4 +1,5 @@
 const path = require('path')
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   mode: 'production',
@@ -6,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
-    publicPath: 'http://localhost:2333/'
+    publicPath: isDev ? 'http://localhost:2333/' : ''
   },
   resolve: {
     alias: {

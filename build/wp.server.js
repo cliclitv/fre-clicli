@@ -3,8 +3,20 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
 const webpack = require('webpack')
+const isDev = process.env.NODE_ENV === 'development'
 
 const baseConfig = require('./wp.base')
+
+const plugins = [
+  new ExtractTextPlugin("css/[name].css"),
+  new webpack.DefinePlugin({
+    'process.env.VUE_ENV': '"server"'
+  })
+]
+
+if (isDev) {
+  plugins.push(new VueServerPlugin())
+}
 
 module.exports = merge(baseConfig, {
   target: 'node',
@@ -29,11 +41,5 @@ module.exports = merge(baseConfig, {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin("css/[name].css"),
-    new VueServerPlugin("css/[name].css"),
-    new webpack.DefinePlugin({
-      'process.env.VUE_ENV': '"server"'
-    })
-  ]
+  plugins
 })

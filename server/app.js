@@ -14,20 +14,20 @@ const mongoose = require('mongoose')
 const DB_URL = 'mongodb://127.0.0.1:27017/idanmu'
 mongoose.connect(DB_URL)
 mongoose.connection.on('connected', () => {
-    console.log('连接成功啦~')
+  console.log('连接成功啦~')
 })
 
 // 配置bodyparser
 app.use(bodyparser())
 
 // 配置静态文件目录
-app.use(koaStatic(path.join( __dirname,  './static')))
+app.use(koaStatic(path.join(__dirname, '../dist')))
 
 // 配置路由
 app.use(routers.routes())
 
 // 启动
 app.listen(4000, () => {
-    console.log('IIIIIIIIII am starting')
+  console.log('IIIIIIIIII am starting')
 })
 

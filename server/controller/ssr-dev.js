@@ -5,7 +5,7 @@ const path = require('path')
 const MemoryFs = require('memory-fs')
 const webpack = require('webpack')
 const VueServerRenderer = require('vue-server-renderer')
-const ejs = require('ejs')
+const serverRender = require('../util/server-render')
 
 const serverConfig = require('../../build/wp.server')
 
@@ -25,32 +25,6 @@ serverCompiler.watch({}, (err, stats) => {
   bundle = JSON.parse(mfs.readFileSync(bundlePath, 'utf-8'))
 })
 
-// 渲染到模板上
-async function ssrRender(ctx, renderer, template) {
-  ctx.headers['Content-Type'] = 'text/html'
-
-  const context = {url: ctx.path}
-
-  try {
-    const appString = await renderer.renderToString(context)
-
-    const {title} = context.meta.inject()
-
-    let html = ejs.render(template, {
-      appString,
-      title: title.text(),
-      style: context.renderStyles(),
-      scripts: context.renderScripts(),
-      initalState: context.renderState()
-    })
-
-    ctx.body = html
-
-  } catch (e) {
-    console.log(e)
-    throw e
-  }
-}
 
 // 正式ssr逻辑
 const handleSSR = async (ctx) => {
@@ -68,7 +42,7 @@ const handleSSR = async (ctx) => {
     clientManifest
   })
 
-  await ssrRender(ctx, renderer, template)
+  await serverRender(ctx, renderer, template)
 }
 
 // 导出路由

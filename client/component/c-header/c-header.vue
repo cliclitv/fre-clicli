@@ -41,14 +41,14 @@
     position absolute
     top: 0
     bottom: 0
-    background url("./banner.png")
+    background url(https://i.loli.net/2018/04/16/5ad476ccc1448.png)
     background-size: 100% 200px
     background-attachment: fixed
     filter: blur(10px)
     z-index 0
 
   .header
-    background: url("./banner.png")
+    background: url(https://i.loli.net/2018/04/16/5ad476ccc1448.png)
     background-size: 100% 200px
     height: 200px
     position: relative

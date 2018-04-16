@@ -9,7 +9,7 @@
       </div>
       <div class="comic">
         <h1><i class="icon-font icon-book"></i>漫画<span>更多-></span></h1>
-        <article-list :articles="anime"></article-list>
+        <article-list :articles="comic"></article-list>
       </div>
     </div>
     <div class="side">
@@ -41,14 +41,17 @@
       if (this.author.length < 1) {
         this.getAuthor()
       }
+      if (this.author.length < 1) {
+        this.getComic()
+      }
 
     },
     asyncData({store}) {
-      return (store.dispatch('getAnime'), store.dispatch('getAuthor'), store.dispatch('getNews'))
+      return (store.dispatch('getAnime'), store.dispatch('getAuthor'), store.dispatch('getNews'), store.dispatch('getComic'))
 
     },
     methods: {
-      ...mapActions(['getAnime', 'getNews', 'getAuthor']),
+      ...mapActions(['getAnime', 'getNews', 'getAuthor','getComic']),
     },
     components: {
       Slider,

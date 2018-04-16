@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "webpack --config build/wp.client.js --mode production",
-    "server": "webpack --config build/wp.server.js --mode production",
-    "dev:client": "webpack-dev-server --mode development --config build/wp.client.js",
-    "build": "yarn client && yarn server",
-    "start": "concurrently \"yarn dev:client\" \"nodemon server/app.js\""
+    "client": "cross-env NODE_ENV=production webpack --config build/wp.client.js --mode production",
+    "server": "cross-env NODE_ENV=production webpack --config build/wp.server.js --mode production",
+    "dev:client": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.client.js",
+    "build": "cross-env yarn client && yarn server",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:client\" \"nodemon server/app.js\" --mode development ",
+    "start":"cross-env NODE_ENV=production node server/app.js"
   },
   "repository": {
     "type": "git",

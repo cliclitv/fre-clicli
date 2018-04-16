@@ -11,7 +11,7 @@ export default {
     })
   },
   getNews({commit}) {
-    return sortArticle('news').then(res => {
+    return sortArticle('news', 1, 6).then(res => {
       commit('loadNews', res.data.result)
     }).catch(e => {
       console.log(e)
@@ -25,7 +25,7 @@ export default {
     })
   },
   getComic({commit}) {
-    return sortArticle('comic').then(res => {
+    return sortArticle('comic', 1, 5).then(res => {
       commit('loadComic', res.data.result)
     }).catch(e => {
       console.log(e)
