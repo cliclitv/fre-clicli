@@ -3,10 +3,14 @@
     <slider></slider>
     <topic :news="news"></topic>
     <div class="main">
-      <h1><i class="icon-font icon-tv"></i>动画</h1>
-      <article-list :articles="anime"></article-list>
-      <h1><i class="icon-font icon-book"></i>漫画</h1>
-      <article-list :articles="anime"></article-list>
+      <div class="anime">
+        <h1><i class="icon-font icon-tv"></i>动画 <span>更多-></span></h1>
+        <article-list :articles="anime"></article-list>
+      </div>
+      <div class="comic">
+        <h1><i class="icon-font icon-book"></i>漫画<span>更多-></span></h1>
+        <article-list :articles="anime"></article-list>
+      </div>
     </div>
     <div class="side">
       <author :author="author"></author>
@@ -55,18 +59,26 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   @import "~common/stylus/variable"
-  h1
-    font-size: 22px
-    padding-top: 30px
-    .icon-font
-      font-size: 24px
-      padding-right 10px
-    .icon-tv
-      color: #55cdf0
-    .icon-book
-      color: #f0d055
+  .comic, .anime
+    h1
+      font-size: 22px
+      padding-top: 30px
+      span
+        float right
+        font-size: 13px
+        margin-right: 30px
+        background: $d-color
+        padding: 5px 10px
+        border-radius 10px
+      .icon-font
+        font-size: 24px
+        padding-right 13px
+      .icon-tv
+        color: #55cdf0
+      .icon-book
+        color: #f0d055
 
   .main
     width 940px
@@ -77,5 +89,7 @@
     width 260px
     margin-top: 30px
 
-
+  .comic
+    .article-list .suo img
+      height 200px !important
 </style>

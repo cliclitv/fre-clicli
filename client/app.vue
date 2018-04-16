@@ -5,13 +5,14 @@
       <tap></tap>
       <router-view></router-view>
     </div>
-
+    <c-footer></c-footer>
   </div>
 </template>
 
 <script>
   import CHeader from 'component/c-header/c-header.vue'
   import Tap from 'component/tap/tap.vue'
+  import CFooter from 'component/c-footer/c-footer.vue'
 
   export default {
     metaInfo: {
@@ -19,7 +20,8 @@
     },
     components: {
       CHeader,
-      Tap
+      Tap,
+      CFooter
     }
   }
 </script>

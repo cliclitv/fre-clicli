@@ -33,18 +33,16 @@
       margin: 28px 28px 0 0
       padding-bottom: 5px
       text-align center
-      background $b-color
+      background #000
       border-radius 4px
-      border: 2px solid $b-color
+      border: 4px solid #000
       color: #fff
-      box-shadow 2px 1px 0px #d5f0fe5c
       font-size 13px
       img
-        height 64px
-        width 64px
+        height 60px
+        width 60px
 
   li:nth-child(3), li:nth-child(6), li:nth-child(9), li:nth-child(12)
     margin: 0
-
 
 </style>

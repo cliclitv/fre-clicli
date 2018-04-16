@@ -44,11 +44,14 @@
       display inline-block
       padding: 20px 30px 20px 0
       transition 3s
-      .suo img
-        height 144px
-        width 158px
-        object-fit: cover
-        border-radius 4px
+      .suo
+        position relative
+        font-size: 0
+        img
+          height 144px
+          width 158px
+          object-fit: cover
+          border-radius 4px
       .avatar
         display flex
         align-items center
@@ -69,7 +72,17 @@
         padding-top: 5px
         transition 1s
 
-  li:hover .title
-    color: $a-color
-
+    li:hover .title
+      color: $a-color
+    .suo:before
+      content: ''
+      border-radius 4px
+      position: absolute
+      z-index: -1
+      width: 158px
+      height: 64px
+      background linear-gradient(to bottom, #090909,transparent)
+      transform: skewX(-20deg)
+      transform-origin: top
+      top: 0
 </style>
