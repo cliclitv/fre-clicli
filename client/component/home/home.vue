@@ -41,7 +41,7 @@
       if (this.author.length < 1) {
         this.getAuthor()
       }
-      if (this.author.length < 1) {
+      if (this.comic.length < 1) {
         this.getComic()
       }
 
