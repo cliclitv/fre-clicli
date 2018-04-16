@@ -46,10 +46,10 @@ module.exports = merge(baseConfig, {
     historyApiFallback: true,
     proxy: {
       '/user/': {
-        target: 'http://localhost:4000'
+        target: 'http://www.idanmu.cc'
       },
       '/article/': {
-        target: 'http://localhost:4000'
+        target: 'http://www.idanmu.cc'
       }
     }
   }

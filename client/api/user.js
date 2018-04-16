@@ -1,7 +1,9 @@
 import axios from 'axios'
+
 const request = axios.create({
-  baseURL: process.env.VUE_ENV === 'server' ? 'http://localhost:4000' : '/'
+  baseURL: process.env.VUE_ENV === 'server' ? 'http://www.idanmu.cc' : '/'
 })
+
 // 用户登录
 export function login(user) {
   return request.post('/user/login', user)
@@ -19,8 +21,13 @@ export function update(user) {
 }
 
 // 获取用户列表
-export function userList() {
-  return request.get('/user/user')
+export function userList(page, pageSize) {
+  return request.get('/user/user', {
+    params: {
+      page: page,
+      pageSize: pageSize
+    }
+  })
 }
 
 // 查找单一用户信息

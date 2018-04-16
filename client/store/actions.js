@@ -18,7 +18,7 @@ export default {
     })
   },
   getAnime({commit}) {
-    return sortArticle('anime').then(res => {
+    return sortArticle('anime', 1, 5).then(res => {
       commit('loadAnime', res.data.result)
     }).catch(e => {
       console.log(e)
@@ -32,7 +32,7 @@ export default {
     })
   },
   getAuthor({commit}) {
-    return userList().then(res => {
+    return userList(1, 12).then(res => {
       commit('loadAuthor', res.data.result)
     }).catch(e => {
       console.log(e)

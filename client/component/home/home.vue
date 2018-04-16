@@ -81,12 +81,12 @@
         color: #f0d055
 
   .main
-    width 940px
+    width 950px
     float: left
 
   .side
     float: right
-    width 260px
+    width 250px
     margin-top: 30px
 
   .comic

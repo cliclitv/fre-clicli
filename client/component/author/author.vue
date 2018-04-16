@@ -30,7 +30,7 @@
       font-size: 18px
     li
       display inline-block
-      margin: 28px 28px 0 0
+      margin: 23px 23px 0 0
       padding-bottom: 5px
       text-align center
       background #000
@@ -38,6 +38,10 @@
       border: 4px solid #000
       color: #fff
       font-size 13px
+      p
+        width: 60px
+        overflow: hidden
+        height: 16px
       img
         height 60px
         width 60px

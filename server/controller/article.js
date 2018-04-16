@@ -45,7 +45,13 @@ module.exports = {
   // 查找分类文章并分页
   async sortArticle(ctx) {
     let sort = ctx.query.sort
-    const result = await Article.find({sort: sort}).sort({'time': -1}).populate({path: 'author', select: 'name qq'})
+    let page = parseInt(ctx.query.page)
+    let pageSize = parseInt(ctx.query.pageSize)
+    const result = await Article.find({sort: sort}).sort({'time': -1}).populate({
+      path: 'author',
+      select: 'name qq'
+    }).skip((page - 1) * pageSize)
+      .limit(pageSize)
     const count = result.length
     ctx.body = {
       code: 0,

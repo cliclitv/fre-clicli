@@ -44,12 +44,13 @@
       display inline-block
       padding: 20px 30px 20px 0
       transition 3s
+      width 160px
       .suo
         position relative
         font-size: 0
         img
           height 144px
-          width 158px
+          width 160px
           object-fit: cover
           border-radius 4px
       .avatar
@@ -71,6 +72,8 @@
       .title
         padding-top: 5px
         transition 1s
+        height 40px
+        overflow hidden
 
     li:hover .title
       color: $a-color
@@ -79,9 +82,9 @@
       border-radius 4px
       position: absolute
       z-index: -1
-      width: 158px
+      width: 160px
       height: 64px
-      background linear-gradient(to bottom, #090909,transparent)
+      background linear-gradient(to bottom, #090909, transparent)
       transform: skewX(-20deg)
       transform-origin: top
       top: 0

@@ -4,7 +4,10 @@ const _ignore = {pwd: 0, __v: 0}
 module.exports = {
   // 查找所有用户并分页
   async getUser(ctx) {
-    const result = await User.find({})
+    let page = parseInt(ctx.query.page)
+    let pageSize = parseInt(ctx.query.pageSize)
+    const result = await User.find({}).skip((page - 1) * pageSize)
+      .limit(pageSize)
     ctx.body = {
       code: 0,
       count: result.length,

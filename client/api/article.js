@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: process.env.VUE_ENV === 'server' ? 'http://localhost:4000' : '/'
+  baseURL: process.env.VUE_ENV === 'server' ? 'http://www.idanmu.cc' : '/'
 })
 
 // 获取所有文章
@@ -20,10 +20,12 @@ export function authorArticle(id) {
 
 // 根据分类查找文章
 
-export function sortArticle(sort) {
+export function sortArticle(sort, page, pageSize) {
   return request.get('/article/sort', {
     params: {
-      sort: sort
+      sort: sort,
+      page: page,
+      pageSize: pageSize
     }
   })
 }
