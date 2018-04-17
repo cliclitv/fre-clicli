@@ -51,7 +51,7 @@
 <style lang="stylus">
   @import "~common/stylus/variable"
   .post
-    width 900px
+    width 870px
     display inline-block
     .content
       padding: 30px 0
@@ -73,7 +73,7 @@
       img
         padding: 20px
         box-shadow: 1px 1px 1px #000
-        max-width: 800px
+        max-width: 870px
         background: $d-color
         margin: 20px 0
     blockquote p

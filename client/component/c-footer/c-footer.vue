@@ -19,5 +19,5 @@
     background: #121316
     width 100%
     text-align center
-    padding: 30px
+    padding: 30px 0
 </style>
