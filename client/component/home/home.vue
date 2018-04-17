@@ -5,11 +5,11 @@
     <div class="main">
       <div class="anime">
         <h1><i class="icon-font icon-tv"></i>动画 <span>更多-></span></h1>
-        <article-list :articles="anime"></article-list>
+        <article-list :articles="anime" key="anime"></article-list>
       </div>
       <div class="comic">
         <h1><i class="icon-font icon-book"></i>漫画<span>更多-></span></h1>
-        <article-list :articles="comic"></article-list>
+        <article-list :articles="comic" key="comic"></article-list>
       </div>
     </div>
     <div class="side">
@@ -32,26 +32,26 @@
       ...mapState(['anime', 'comic', 'news', 'author'])
     },
     mounted() {
-      if (this.anime.length < 1) {
-        this.getAnime()
-      }
-      if (this.news.length < 1) {
-        this.getNews()
-      }
-      if (this.author.length < 1) {
-        this.getAuthor()
-      }
-      if (this.comic.length < 1) {
-        this.getComic()
-      }
+      // if (this.anime.length < 1) {
+      //   this.getAnime()
+      // }
+      // if (this.news.length < 1) {
+      //   this.getNews()
+      // }
+      // if (this.author.length < 1) {
+      //   this.getAuthor()
+      // }
+      // if (this.comic.length < 1) {
+      //   this.getComic()
+      // }
 
     },
     asyncData({store}) {
-      return (store.dispatch('getAnime'), store.dispatch('getAuthor'), store.dispatch('getNews'), store.dispatch('getComic'))
+      return (store.dispatch('getAnime'), store.dispatch('getComic'), store.dispatch('getAuthor'), store.dispatch('getNews'))
 
     },
     methods: {
-      ...mapActions(['getAnime', 'getNews', 'getAuthor','getComic']),
+      ...mapActions(['getAnime', 'getNews', 'getAuthor', 'getComic']),
     },
     components: {
       Slider,

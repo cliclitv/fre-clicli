@@ -6,7 +6,7 @@ module.exports = {
   async getUser(ctx) {
     let page = parseInt(ctx.query.page)
     let pageSize = parseInt(ctx.query.pageSize)
-    const result = await User.find({}).skip((page - 1) * pageSize)
+    const result = await User.find({},_ignore).skip((page - 1) * pageSize)
       .limit(pageSize)
     ctx.body = {
       code: 0,
