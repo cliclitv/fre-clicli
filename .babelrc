@@ -1,5 +1,8 @@
 {
   "presets": [
     "stage-1"
+  ],
+  "plugins": [
+    "syntax-dynamic-import"
   ]
 }

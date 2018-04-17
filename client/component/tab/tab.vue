@@ -1,6 +1,6 @@
 <template>
   <div class="tap"><ul>
-    <router-link to="/"><li><i class="icon-font icon-home"></i>首页</li></router-link>
+    <a href="/"><li><i class="icon-font icon-home"></i>首页</li></a>
     <li><i class="icon-font icon-tv"></i>动画</li>
     <li><i class="icon-font icon-book"></i>漫画</li>
     <li><i class="icon-font icon-game"></i>游戏</li>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :key="post._id">
     <div class="post" v-if="post.author">
       <h1>{{post.title}}</h1>
       <li>Posted by
@@ -28,9 +28,6 @@
   export default {
     computed: {
       ...mapState(['post'])
-    },
-    mounted() {
-      console.log(this.post)
     },
     asyncData({store, route}) {
       return store.dispatch('getPost', route.params.id)

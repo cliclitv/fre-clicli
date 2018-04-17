@@ -2,13 +2,13 @@
   <div class="article-list">
     <ul>
       <li v-for="item in articles">
-        <router-link class="more" :to="'/post/'+item._id">
+        <a :href="'/post/'+item._id">
           <div class="suo">
             <img :src="getSuo(item.content)" alt="">
           </div>
 
           <p class="title">{{item.title}}</p>
-        </router-link>
+        </a>
         <div class="avatar">
           <img :src="getAvatar(item.author.qq)" alt="">
           <span>{{item.author.name}}</span>
