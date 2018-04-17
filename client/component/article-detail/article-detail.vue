@@ -73,7 +73,7 @@
       img
         padding: 20px
         box-shadow: 1px 1px 1px #000
-        max-width: 870px
+        max-width: 830px
         background: $d-color
         margin: 20px 0
     blockquote p
