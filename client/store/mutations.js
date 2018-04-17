@@ -13,5 +13,8 @@ export default {
   },
   loadAuthor(state, author) {
     state.author = author
+  },
+  loadPost(state, post) {
+    state.post = post
   }
 }

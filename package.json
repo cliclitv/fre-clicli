@@ -9,7 +9,7 @@
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.client.js",
     "build": "cross-env yarn client && yarn server",
     "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:client\" \"nodemon server/app.js\" --mode development ",
-    "start":"node server/app.js"
+    "start": "node server/app.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
     "koa-static-server": "^1.3.4",
+    "marked": "^0.3.19",
     "moment": "^2.22.1",
     "mongoose": "^5.0.14",
     "utility": "^1.13.1",

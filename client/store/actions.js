@@ -1,4 +1,4 @@
-import {articleList, sortArticle} from '../api/article'
+import {articleList, sortArticle, getOneArticle} from '../api/article'
 import {userList} from '../api/user'
 
 
@@ -34,6 +34,13 @@ export default {
   getAuthor({commit}) {
     return userList(1, 12).then(res => {
       commit('loadAuthor', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
+  getPost({commit}, id) {
+    return getOneArticle(id).then(res => {
+      commit('loadPost', res.data.result)
     }).catch(e => {
       console.log(e)
     })

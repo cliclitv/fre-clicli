@@ -2,11 +2,13 @@
   <div class="article-list">
     <ul>
       <li v-for="item in articles">
-        <div class="suo">
-          <img :src="getSuo(item.content)" alt="">
-        </div>
+        <router-link class="more" :to="'/post/'+item._id">
+          <div class="suo">
+            <img :src="getSuo(item.content)" alt="">
+          </div>
 
-        <p class="title">{{item.title}}</p>
+          <p class="title">{{item.title}}</p>
+        </router-link>
         <div class="avatar">
           <img :src="getAvatar(item.author.qq)" alt="">
           <span>{{item.author.name}}</span>
@@ -45,6 +47,7 @@
       padding: 20px 30px 20px 0
       transition 3s
       width 160px
+      color: $color
       .suo
         position relative
         font-size: 0
@@ -53,6 +56,8 @@
           width 160px
           object-fit: cover
           border-radius 4px
+      a
+        color: $color
       .avatar
         display flex
         align-items center
@@ -70,12 +75,13 @@
         margin 10px 10px 10px 0
 
       .title
+        font-size: 13px
         padding-top: 5px
         transition 1s
-        height 40px
+        height 35px
         overflow hidden
 
-    li:hover .title
+    li:hover a .title
       color: $a-color
     .suo:before
       content: ''

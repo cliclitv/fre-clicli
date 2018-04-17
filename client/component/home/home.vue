@@ -32,18 +32,18 @@
       ...mapState(['anime', 'comic', 'news', 'author'])
     },
     mounted() {
-      // if (this.anime.length < 1) {
-      //   this.getAnime()
-      // }
-      // if (this.news.length < 1) {
-      //   this.getNews()
-      // }
-      // if (this.author.length < 1) {
-      //   this.getAuthor()
-      // }
-      // if (this.comic.length < 1) {
-      //   this.getComic()
-      // }
+      if (this.anime.length < 1) {
+        this.getAnime()
+      }
+      if (this.news.length < 1) {
+        this.getNews()
+      }
+      if (this.author.length < 1) {
+        this.getAuthor()
+      }
+      if (this.comic.length < 1) {
+        this.getComic()
+      }
 
     },
     asyncData({store}) {
@@ -51,7 +51,7 @@
 
     },
     methods: {
-      ...mapActions(['getAnime', 'getNews', 'getAuthor', 'getComic']),
+      ...mapActions(['getAnime', 'getComic','getNews', 'getAuthor']),
     },
     components: {
       Slider,

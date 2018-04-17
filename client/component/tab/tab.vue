@@ -1,6 +1,6 @@
 <template>
-  <div class="tap">
-    <li><i class="icon-font icon-home"></i>首页</li>
+  <div class="tap"><ul>
+    <router-link to="/"><li><i class="icon-font icon-home"></i>首页</li></router-link>
     <li><i class="icon-font icon-tv"></i>动画</li>
     <li><i class="icon-font icon-book"></i>漫画</li>
     <li><i class="icon-font icon-game"></i>游戏</li>
@@ -9,6 +9,8 @@
     <li><i class="icon-font icon-novel"></i>小说</li>
     <li><i class="icon-font icon-news"></i>号外</li>
     <li><i class="icon-font icon-other"></i>其他</li>
+  </ul>
+
   </div>
 </template>
 
@@ -16,10 +18,12 @@
   export default {}
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "~common/stylus/variable"
   .tap
     border-bottom: 1px solid #2b2e37
+    a
+      color: $color
     li
       display inline-block
       padding: 20px 25px
