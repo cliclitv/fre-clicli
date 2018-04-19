@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
 const VueClientPlugin = require('vue-server-renderer/client-plugin')
@@ -13,13 +13,11 @@ module.exports = merge(baseConfig, {
     rules: [
       {
         test: /\.styl$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "vue-style-loader",
-          use: [
-            'css-loader',
-            'stylus-loader'
-          ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'stylus-loader'
+        ]
       },
     ]
   },
@@ -31,8 +29,14 @@ module.exports = merge(baseConfig, {
   },
   plugins: [
     new VueClientPlugin(),
-    new ExtractTextPlugin("css/[name].css"),
-    new webpack.HotModuleReplacementPlugin()
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    // new HtmlWebpackPlugin({
+    //   template: path.join(__dirname, 'template.html')
+    // }),
   ],
   devServer: {
     headers: {'Access-Control-Allow-Origin': '*'},

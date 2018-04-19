@@ -39,6 +39,7 @@ const handleSSR = async (ctx) => {
   )
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {
     inject: false,
+    basedir: path.join(__dirname,'../../dist/js'),
     clientManifest
   })
 

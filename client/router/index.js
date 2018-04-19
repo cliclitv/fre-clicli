@@ -1,7 +1,7 @@
 import Router from 'vue-router'
 
-import Home from 'component/home/home.vue'
-import ArticleDetail from 'component/article-detail/article-detail.vue'
+const Home = () => import('component/home/home.vue')
+const ArticleDetail = () => import('component/article-detail/article-detail.vue')
 
 
 export default () => {

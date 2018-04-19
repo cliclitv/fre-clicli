@@ -7,8 +7,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
-    publicPath: isDev ? 'http://localhost:2333/' : ''
+    publicPath: isDev ? 'http://localhost:2333/' : '/'
   },
+  optimization: {},
   resolve: {
     alias: {
       component: path.resolve(__dirname, '../client/component'),
@@ -35,8 +36,7 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          preserveWhitespace: true,
-          extractCSS: true
+          preserveWhitespace: true
         }
       },
       {

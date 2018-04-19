@@ -8,7 +8,6 @@
       <li v-for="item in news" :key="item._id"><a :href="'/post/'+item._id"><img :src='getSuo(item.content)'>
         <p>{{item.title}}</p></a></li>
     </ul>
-
   </div>
 </template>
 

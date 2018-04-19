@@ -1,5 +1,6 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const merge = require('webpack-merge')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
 const webpack = require('webpack')
@@ -8,7 +9,10 @@ const isDev = process.env.NODE_ENV === 'development'
 const baseConfig = require('./wp.base')
 
 const plugins = [
-  new ExtractTextPlugin("css/[name].css"),
+  new MiniCssExtractPlugin({
+    filename: "[name].css",
+    chunkFilename: "[id].css"
+  }),
   new webpack.DefinePlugin({
     'process.env.VUE_ENV': '"server"'
   })
@@ -23,21 +27,22 @@ module.exports = merge(baseConfig, {
   entry: path.resolve(__dirname, '../client/server-entry.js'),
   output: {
     libraryTarget: 'commonjs2',
-    filename: 'js/server-build.js',
-    path: path.resolve(__dirname, '../dist')
+    filename: 'server-build.js',
+    path: path.resolve(__dirname, '../dist/js')
+  },
+  optimization: {
+    splitChunks: false
   },
   externals: Object.keys(require('../package.json').dependencies),
   module: {
     rules: [
       {
         test: /\.styl$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "vue-style-loader",
           use: [
+            MiniCssExtractPlugin.loader,
             'css-loader',
             'stylus-loader'
           ]
-        })
       }
     ]
   },
