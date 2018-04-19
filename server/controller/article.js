@@ -1,4 +1,5 @@
 const Article = require('../model/article')
+const _ignore = {content: 0, __v: 0, sort: 0, status: 0}
 
 module.exports = {
   // 查询所有文章并分页
@@ -6,7 +7,7 @@ module.exports = {
   async getArticle(ctx) {
     let page = parseInt(ctx.query.page)
     let pageSize = parseInt(ctx.query.pageSize)
-    const result = await Article.find({}).sort({'time': -1}).populate({path: 'author', select: 'name qq'})
+    const result = await Article.find({},_ignore).sort({'time': -1}).populate({path: 'author', select: 'name qq'})
       .skip((page - 1) * pageSize)
       .limit(pageSize)
     const count = result.length
@@ -32,7 +33,7 @@ module.exports = {
 
   async authorArticle(ctx) {
     let authorId = ctx.query.id
-    const result = await Article.find({author: authorId})
+    const result = await Article.find({author: authorId},_ignore)
     const count = result.length
     ctx.body = {
       code: 0,
@@ -47,7 +48,7 @@ module.exports = {
     let sort = ctx.query.sort
     let page = parseInt(ctx.query.page)
     let pageSize = parseInt(ctx.query.pageSize)
-    const result = await Article.find({sort: sort}).sort({'time': -1}).populate({
+    const result = await Article.find({sort: sort},_ignore).sort({'time': -1}).populate({
       path: 'author',
       select: 'name qq'
     }).skip((page - 1) * pageSize)
