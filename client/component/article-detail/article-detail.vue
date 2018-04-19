@@ -42,7 +42,7 @@
         return moment(time).format('YYYY-MM-DD')
       },
       marked(content) {
-        return marked(content)
+        return marked(content, {breaks: true})
       },
     },
   }
@@ -78,6 +78,21 @@
         margin: 20px 0
     blockquote p
       padding: 0
+    details
+      background #000
+      padding: 10px
+      outline none
+      summary
+        background: #2b2e37
+        padding: 5px 10px
+        margin: 10px
+        border-radius: 10px
+        outline none
+        cursor pointer
+        text-align center
+        transition  .5s
+      summary:hover
+        background #000
 
   .user-info
     position relative

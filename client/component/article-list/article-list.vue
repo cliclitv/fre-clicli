@@ -45,7 +45,7 @@
     li
       display inline-block
       padding: 20px 30px 20px 0
-      transition 3s
+      transition 1s
       width 160px
       color: $color
       .suo
