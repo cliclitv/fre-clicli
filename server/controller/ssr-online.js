@@ -20,8 +20,7 @@ const router = new Router()
 
 router.get('*', async (ctx) => {
   const context = {
-    url: ctx.path,
-    title: '后庭花……'
+    url: ctx.path
   }
 
   const app = await bundle(context)

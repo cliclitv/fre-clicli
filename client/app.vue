@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <c-header></c-header>
     <div class="wrap">
       <tap></tap>
@@ -15,9 +15,6 @@
   import CFooter from 'component/c-footer/c-footer.vue'
 
   export default {
-    metaInfo: {
-      title: '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
-    },
     components: {
       CHeader,
       Tap,

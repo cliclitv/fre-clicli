@@ -30,8 +30,13 @@
   import Topic from 'component/topic/topic.vue'
   import ArticleList from 'component/article-list/article-list.vue'
   import Author from 'component/author/author.vue'
+  import titleMixin from 'common/mixin/title-mixin'
 
   export default {
+    mixins: [titleMixin],
+    title () {
+      return '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
+    },
     computed: {
       ...mapState(['anime', 'comic','game', 'news', 'author'])
     },

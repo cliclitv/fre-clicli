@@ -24,8 +24,14 @@
   import {mapActions, mapState} from 'vuex'
   import moment from 'moment'
   import marked from 'marked'
+  import titleMixin from 'common/mixin/title-mixin'
 
   export default {
+    mixins: [titleMixin],
+    title() {
+      return this.post.title + '-后庭花'
+    },
+
     computed: {
       ...mapState(['post'])
     },
@@ -90,7 +96,7 @@
         outline none
         cursor pointer
         text-align center
-        transition  .5s
+        transition .5s
       summary:hover
         background #000
 
