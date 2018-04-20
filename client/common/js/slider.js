@@ -85,11 +85,17 @@ export default function (width, len, interval) {
     })
   }
 
-  play()
   dotClick()
 
   container.onmouseover = stop
   container.onmouseout = play
-  window.onblur = stop
-  window.onfocus = play
+  window.onblur = () => {
+    stop()
+  }
+  window.onfocus = () => {
+    stop()
+    play()
+  }
+
+  play()
 }

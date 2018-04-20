@@ -54,9 +54,15 @@
       margin: 20px 0
       li
         display inline-block
-        padding: 5px 25px 0 0
+        padding: 0 25px 0 0
         text-align center
         font-size: 13px
+        a
+          color: $color
+        p
+          width 94px
+          height: 32px
+          overflow: hidden
         img
           height 84px
           width 94px
