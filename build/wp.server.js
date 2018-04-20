@@ -10,8 +10,8 @@ const baseConfig = require('./wp.base')
 
 const plugins = [
   new MiniCssExtractPlugin({
-    filename: "[name].css",
-    chunkFilename: "[id].css"
+    filename: "../css/[name].css",
+    chunkFilename: "css/[id].css"
   }),
   new webpack.DefinePlugin({
     'process.env.VUE_ENV': '"server"'
@@ -24,6 +24,7 @@ if (isDev) {
 
 module.exports = merge(baseConfig, {
   target: 'node',
+  devtool: 'source-map',
   entry: path.resolve(__dirname, '../client/server-entry.js'),
   output: {
     libraryTarget: 'commonjs2',

@@ -11,7 +11,7 @@ const user = require('./user')
 if (process.env.NODE_ENV === 'development') {
   ssr = require('../controller/ssr-dev')
 } else {
-  ssr = require('../controller/ssr')
+  ssr = require('../controller/ssr-online')
 }
 
 // 注册子路由

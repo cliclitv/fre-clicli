@@ -5,7 +5,6 @@ const path = require('path')
 const MemoryFs = require('memory-fs')
 const webpack = require('webpack')
 const VueServerRenderer = require('vue-server-renderer')
-const serverRender = require('../util/server-render')
 
 const serverConfig = require('../../build/wp.server')
 
@@ -34,16 +33,21 @@ const handleSSR = async (ctx) => {
   const clientManifestRes = await axios.get('http://localhost:2333/vue-ssr-client-manifest.json')
   const clientManifest = clientManifestRes.data
   const template = fs.readFileSync(
-    path.join(__dirname, '../server.template.ejs'),
+    path.join(__dirname, '../template.html'),
     'utf-8'
   )
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {
-    inject: false,
-    basedir: path.join(__dirname,'../../dist/js'),
+    template,
     clientManifest
   })
 
-  await serverRender(ctx, renderer, template)
+  const context = {
+    url: ctx.path,
+    title:'开发开发'
+  }
+  const appString = await renderer.renderToString(context)
+
+  ctx.body = appString
 }
 
 // 导出路由

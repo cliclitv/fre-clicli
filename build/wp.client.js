@@ -30,8 +30,8 @@ module.exports = merge(baseConfig, {
   plugins: [
     new VueClientPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "../css/[name].css",
+      chunkFilename: "css/[id].css"
     }),
     new webpack.HotModuleReplacementPlugin(),
     // new HtmlWebpackPlugin({
