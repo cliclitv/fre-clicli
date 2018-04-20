@@ -11,6 +11,9 @@ export default {
   loadComic(state, comic) {
     state.comic = comic
   },
+  loadGame(state, game) {
+    state.game = game
+  },
   loadAuthor(state, author) {
     state.author = author
   },

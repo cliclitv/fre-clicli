@@ -4,6 +4,7 @@
       <li v-for="item in articles">
         <a :href="'/post/'+item._id">
           <div class="suo">
+            <i class="icon-font icon-eye"></i>
             <img :src="getSuo(item.content)" alt="">
           </div>
 
@@ -51,11 +52,21 @@
       .suo
         position relative
         font-size: 0
+        .icon-eye
+          display none
+          font-size: 40px
+          color: #fff
+          position absolute
+          left: 50%
+          top: 50%
+          transform translate(-50%, -50%)
+          transition 1s
         img
           height 144px
           width 160px
           object-fit: cover
           border-radius 4px
+          transition 1s
       a
         color: $color
       .avatar
@@ -83,6 +94,11 @@
 
     li:hover a .title
       color: $a-color
+    li:hover a .suo img
+      background $a-color
+      opacity .4
+    li:hover a .suo .icon-eye
+      display block
     .suo:before
       content: ''
       border-radius 4px

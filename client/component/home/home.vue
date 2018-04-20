@@ -11,6 +11,10 @@
         <h1><i class="icon-font icon-book"></i>漫画<span>更多-></span></h1>
         <article-list :articles="comic" key="comic"></article-list>
       </div>
+      <div class="game">
+        <h1><i class="icon-font icon-game"></i>游戏<span>更多-></span></h1>
+        <article-list :articles="game" key="game"></article-list>
+      </div>
     </div>
     <div class="side">
       <author :author="author"></author>
@@ -29,7 +33,7 @@
 
   export default {
     computed: {
-      ...mapState(['anime', 'comic', 'news', 'author'])
+      ...mapState(['anime', 'comic','game', 'news', 'author'])
     },
     mounted() {
       if (this.anime.length < 1) {
@@ -44,14 +48,17 @@
       if (this.comic.length < 1) {
         this.getComic()
       }
+      if (this.game.length < 1) {
+        this.getGame()
+      }
 
     },
     asyncData({store}) {
-      return (store.dispatch('getAnime'), store.dispatch('getComic'), store.dispatch('getAuthor'), store.dispatch('getNews'))
+      return (store.dispatch('getAnime'), store.dispatch('getComic'), store.dispatch('getGame'), store.dispatch('getAuthor'), store.dispatch('getNews'))
 
     },
     methods: {
-      ...mapActions(['getAnime', 'getComic','getNews', 'getAuthor']),
+      ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor']),
     },
     components: {
       Slider,
@@ -64,7 +71,7 @@
 
 <style lang="stylus">
   @import "~common/stylus/variable"
-  .comic, .anime
+  .comic, .anime, .game
     h1
       font-size: 22px
       padding-top: 30px
@@ -82,6 +89,8 @@
         color: #55cdf0
       .icon-book
         color: #f0d055
+      .icon-game
+        color #77ee77
 
   .main
     width 950px
