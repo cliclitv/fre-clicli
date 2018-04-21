@@ -2,31 +2,20 @@
   <div class="slider">
     <ul class="list" style="left:-440px">
       <li>
-        <img src="./3.jpg" alt="3">
-        <p>啦啦啦啦</p>
+        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg" alt="3"></a>
+        <p>投稿投稿啦~</p>
       </li>
       <li>
-        <img src="./1.png" alt="1">
-        <p>啦啦啦啦</p>
-
+        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg" alt="3"></a>
+        <p>投稿投稿啦~</p>
       </li>
       <li>
-        <img src="./2.jpg" alt="2">
-        <p>啦啦啦啦</p>
-      </li>
-      <li>
-        <img src="./3.jpg" alt="3">
-        <p>啦啦啦啦</p>
-      </li>
-      <li>
-        <img src="./1.png" alt="1">
-        <p>啦啦啦啦</p>
+        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg" alt="3"></a>
+        <p>投稿投稿啦~</p>
       </li>
     </ul>
     <div class="dots">
       <span class="active"></span>
-      <span></span>
-      <span></span>
     </div>
   </div>
 </template>
@@ -36,7 +25,7 @@
 
   export default {
     mounted() {
-      slider(440, 3, 5000)
+      slider(440, 1, 5000)
     }
   }
 </script>

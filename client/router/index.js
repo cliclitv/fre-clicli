@@ -8,6 +8,7 @@ const Sort = () => import('component/sort/sort.vue')
 export default () => {
   return new Router({
     mode: 'history',
+    fallback: false,
     routes: [
       {
         path: '/',

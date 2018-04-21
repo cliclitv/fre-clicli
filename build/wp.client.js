@@ -7,7 +7,9 @@ const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const baseConfig = require('./wp.base')
 
 module.exports = merge(baseConfig, {
-  target: 'web',
+  entry: {
+    app: './client/client-entry.js'
+  },
   module: {
     rules: [
       {
@@ -39,16 +41,17 @@ module.exports = merge(baseConfig, {
   ],
   devServer: {
     headers: {'Access-Control-Allow-Origin': '*'},
-    contentBase: path.join(__dirname, "dist"),
     hot: true,
     compress: true,
     port: 2333,
-    historyApiFallback: true,
     proxy: {
       '/user/': {
         target: 'http://www.idanmu.cc'
       },
       '/article/': {
+        target: 'http://www.idanmu.cc'
+      },
+      '/option/': {
         target: 'http://www.idanmu.cc'
       }
     }
