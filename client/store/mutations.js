@@ -19,5 +19,8 @@ export default {
   },
   loadPost(state, post) {
     state.post = post
+  },
+  loadSortArticle(state, sortArticle) {
+    state.sortArticle = sortArticle
   }
 }

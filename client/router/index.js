@@ -2,6 +2,7 @@ import Router from 'vue-router'
 
 const Home = () => import('component/home/home.vue')
 const ArticleDetail = () => import('component/article-detail/article-detail.vue')
+const Sort = () => import('component/sort/sort.vue')
 
 
 export default () => {
@@ -15,6 +16,10 @@ export default () => {
       {
         path: '/post/:id',
         component: ArticleDetail
+      },
+      {
+        path: '/sort/:sort',
+        component: Sort
       },
     ],
 

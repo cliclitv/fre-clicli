@@ -4,15 +4,15 @@
     <topic :news="news"></topic>
     <div class="main">
       <div class="anime">
-        <h1><i class="icon-font icon-tv"></i>动画 <span>更多-></span></h1>
+        <h1><i class="icon-font icon-tv"></i>动画 <a href="/sort/anime">more-></a></h1>
         <article-list :articles="anime" key="anime"></article-list>
       </div>
       <div class="comic">
-        <h1><i class="icon-font icon-book"></i>漫画<span>更多-></span></h1>
+        <h1><i class="icon-font icon-book"></i>漫画 <a href="/sort/comic">more-></a></h1>
         <article-list :articles="comic" key="comic"></article-list>
       </div>
       <div class="game">
-        <h1><i class="icon-font icon-game"></i>游戏<span>更多-></span></h1>
+        <h1><i class="icon-font icon-game"></i>游戏 <a href="/sort/game">more-></a></h1>
         <article-list :articles="game" key="game"></article-list>
       </div>
     </div>
@@ -34,11 +34,11 @@
 
   export default {
     mixins: [titleMixin],
-    title () {
+    title() {
       return '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
     },
     computed: {
-      ...mapState(['anime', 'comic','game', 'news', 'author'])
+      ...mapState(['anime', 'comic', 'game', 'news', 'author'])
     },
     mounted() {
       if (this.anime.length < 1) {
@@ -80,13 +80,17 @@
     h1
       font-size: 22px
       padding-top: 30px
-      span
+      a
         float right
         font-size: 13px
         margin-right: 30px
         background: $d-color
-        padding: 5px 10px
+        padding: 2px 10px
         border-radius 10px
+        color: $color
+        transition .3s
+      a:hover
+        background $bg-color
       .icon-font
         font-size: 24px
         padding-right 13px

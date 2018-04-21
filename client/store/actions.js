@@ -52,4 +52,11 @@ export default {
       console.log(e)
     })
   },
+  getSortArticle({commit}, sort) {
+    return sortArticle(sort).then(res => {
+      commit('loadSortArticle', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
 }

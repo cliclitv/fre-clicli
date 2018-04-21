@@ -1,5 +1,5 @@
 export default {
-  articles: [],
+  sortArticle:[],
   news: [],
   anime: [],
   comic: [],
