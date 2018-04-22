@@ -5,8 +5,8 @@
       <span class="weibo"><i class="icon-font icon-weibo"></i>关注</span>
     </h1>
     <ul>
-      <li v-for="item in news" :key="item._id"><a :href="'/post/'+item._id"><img :src='getSuo(item.content)'>
-        <p>{{item.title}}</p></a></li>
+      <li v-for="item in news" :key="item._id"><router-link :to="'/post/'+item._id"><img :src='getSuo(item.content)'>
+        <p>{{item.title}}</p></router-link></li>
     </ul>
   </div>
 </template>

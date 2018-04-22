@@ -2,6 +2,7 @@ const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',

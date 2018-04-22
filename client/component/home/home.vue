@@ -4,15 +4,15 @@
     <topic :news="news"></topic>
     <div class="main">
       <div class="anime">
-        <h1><i class="icon-font icon-tv"></i>动画 <a href="/sort/anime">more-></a></h1>
+        <h1><i class="icon-font icon-tv"></i>动画 <router-link to="/sort/anime">more-></router-link></h1>
         <article-list :articles="anime" key="anime"></article-list>
       </div>
       <div class="comic">
-        <h1><i class="icon-font icon-book"></i>漫画 <a href="/sort/comic">more-></a></h1>
+        <h1><i class="icon-font icon-book"></i>漫画 <router-link to="/sort/comic">more-></router-link></h1>
         <article-list :articles="comic" key="comic"></article-list>
       </div>
       <div class="game">
-        <h1><i class="icon-font icon-game"></i>游戏 <a href="/sort/game">more-></a></h1>
+        <h1><i class="icon-font icon-game"></i>游戏 <router-link to="/sort/game">more-></router-link></h1>
         <article-list :articles="game" key="game"></article-list>
       </div>
     </div>

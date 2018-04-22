@@ -16,9 +16,6 @@ module.exports = {
 
   async update(ctx) {
     let data = ctx.request.body
-    await Option.create({
-      banner: data.banner
-    })
     await Option.update({
       $set: {
         banner: data.banner

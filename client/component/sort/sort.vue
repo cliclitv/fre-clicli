@@ -1,6 +1,6 @@
 <template>
   <div class="sort">
-    <article-list :articles="sortArticle"></article-list>
+    <article-list :articles="sortArticle" key="this.$route.params.sort"></article-list>
   </div>
 
 </template>
@@ -15,6 +15,9 @@
     mixins: [titleMixin],
     title() {
       return '后庭花'
+    },
+    beforeMount() {
+      this.getSortArticle(this.$route.params.sort)
     },
 
     computed: {

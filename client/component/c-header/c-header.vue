@@ -1,5 +1,6 @@
 <template>
-  <div class="header">
+  <div class="header" ref="header">
+    <div class="before" ref="hBefore"></div>
     <div class="bio">
       <a href="http://admin.idanmu.cc">
         <li class="login">
@@ -28,8 +29,26 @@
 
 <script>
   import SearchBox from 'base/search-box/search-box.vue'
+  import {getOption} from 'api/option'
 
   export default {
+
+    data() {
+      return {
+        banner: ''
+      }
+    },
+
+    beforeMount() {
+      getOption().then((res) => {
+        this.banner = res.data.result[0].banner
+        this.$refs.header.style.background = 'url(' + this.banner + ') center'
+        this.$refs.hBefore.style.background = 'url(' + this.banner + ') center'
+      }).catch(e => {
+        console.log(e)
+      })
+    },
+
     components: {
       SearchBox
     }
@@ -43,22 +62,19 @@
     a
       color: #fff
 
-  .header:before
+  .header .before
     content: ""
     width 100%
-    height 50px
+    height 40px
     position absolute
     top: 0
     bottom: 0
-    background url(https://i.loli.net/2018/04/16/5ad476ccc1448.png)
-    background-size: 100% 200px
-    background-attachment: fixed
+    background $d-color
     filter: blur(10px)
     z-index 0
 
   .header
-    background: url(https://i.loli.net/2018/04/16/5ad476ccc1448.png)
-    background-size: 100% 200px
+    background $d-color
     height: 200px
     position: relative
     .topbar
@@ -80,9 +96,10 @@
       color: $a-color
     .icon-home
       margin-right: 10px
+
   .bio
     width 1200px
-    margin:0 auto
+    margin: 0 auto
     position relative
     .login
       position absolute

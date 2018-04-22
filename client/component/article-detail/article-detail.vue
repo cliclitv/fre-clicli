@@ -32,12 +32,15 @@
       return this.post.title + '-后庭花'
     },
 
+    mounted() {
+      this.getPost(this.$route.params.id)
+    },
+
     computed: {
       ...mapState(['post'])
     },
     asyncData({store, route}) {
       return store.dispatch('getPost', route.params.id)
-
     },
     methods: {
       ...mapActions(['getPost']),

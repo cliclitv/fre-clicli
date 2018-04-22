@@ -1,33 +1,33 @@
 <template>
   <div class="tap">
     <ul>
-      <a href="/">
+      <router-link to="/">
         <li><i class="icon-font icon-home"></i>首页</li>
-      </a>
-      <a href="/sort/anime">
+      </router-link>
+      <router-link to="/sort/anime">
         <li><i class="icon-font icon-tv"></i>动画</li>
-      </a>
-      <a href="/sort/comic">
+      </router-link>
+      <router-link to="/sort/comic">
         <li><i class="icon-font icon-book"></i>漫画</li>
-      </a>
-      <a href="/sort/game">
+      </router-link>
+      <router-link to="/sort/game">
         <li><i class="icon-font icon-game"></i>游戏</li>
-      </a>
-      <a href="/sort/imgpack">
+      </router-link>
+      <router-link to="/sort/imgpack">
         <li><i class="icon-font icon-img"></i>图包</li>
-      </a>
-      <a href="/sort/music">
+      </router-link>
+      <router-link to="/sort/music">
         <li><i class="icon-font icon-music"></i>音乐</li>
-      </a>
-      <a href="/sort/novel">
+      </router-link>
+      <router-link to="/sort/novel">
         <li><i class="icon-font icon-novel"></i>小说</li>
-      </a>
-      <a href="/sort/topic">
+      </router-link>
+      <router-link to="/sort/topic">
         <li><i class="icon-font icon-news"></i>号外</li>
-      </a>
-      <a href="/sort/other">
+      </router-link>
+      <router-link to="/sort/other">
         <li><i class="icon-font icon-other"></i>其他</li>
-      </a>
+      </router-link>
     </ul>
 
   </div>

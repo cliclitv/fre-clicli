@@ -8,6 +8,7 @@ const isDev = process.env.NODE_ENV === 'development'
 const baseConfig = require('./wp.base')
 
 const plugins = [
+  new VueServerPlugin(),
   new MiniCssExtractPlugin({
     filename: "../css/[name].css",
     chunkFilename: "css/[id].css"
@@ -17,17 +18,13 @@ const plugins = [
   })
 ]
 
-if (isDev) {
-  plugins.push(new VueServerPlugin())
-}
-
 module.exports = merge(baseConfig, {
   target: 'node',
   entry: path.resolve(__dirname, '../client/server-entry.js'),
   output: {
     libraryTarget: 'commonjs2',
     filename: 'server-build.js',
-    path: path.resolve(__dirname, '../dist/js')
+    path: path.resolve(__dirname, '../dist')
   },
   optimization: {
     splitChunks: false
