@@ -4,15 +4,21 @@
     <topic :news="news"></topic>
     <div class="main">
       <div class="anime">
-        <h1><i class="icon-font icon-tv"></i>动画 <router-link to="/sort/anime">more-></router-link></h1>
+        <h1><i class="icon-font icon-tv"></i>动画
+          <router-link to="/sort/anime">more-></router-link>
+        </h1>
         <article-list :articles="anime" key="anime"></article-list>
       </div>
       <div class="comic">
-        <h1><i class="icon-font icon-book"></i>漫画 <router-link to="/sort/comic">more-></router-link></h1>
+        <h1><i class="icon-font icon-book"></i>漫画
+          <router-link to="/sort/comic">more-></router-link>
+        </h1>
         <article-list :articles="comic" key="comic"></article-list>
       </div>
       <div class="game">
-        <h1><i class="icon-font icon-game"></i>游戏 <router-link to="/sort/game">more-></router-link></h1>
+        <h1><i class="icon-font icon-game"></i>游戏
+          <router-link to="/sort/game">more-></router-link>
+        </h1>
         <article-list :articles="game" key="game"></article-list>
       </div>
     </div>
@@ -56,11 +62,9 @@
       if (this.game.length < 1) {
         this.getGame()
       }
-
     },
     asyncData({store}) {
       return (store.dispatch('getAnime'), store.dispatch('getComic'), store.dispatch('getGame'), store.dispatch('getAuthor'), store.dispatch('getNews'))
-
     },
     methods: {
       ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor']),

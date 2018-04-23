@@ -3,7 +3,7 @@
     <c-header></c-header>
     <div class="wrap">
       <tap></tap>
-      <router-view :key="$route.path"></router-view>
+        <router-view :key="$route.path"></router-view>
     </div>
     <c-footer></c-footer>
   </div>

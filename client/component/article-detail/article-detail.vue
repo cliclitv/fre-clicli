@@ -1,5 +1,9 @@
 <template>
   <div :key="post._id">
+    <transition name="fade">
+      <loading v-show="isShow"></loading>
+    </transition>
+
     <div class="post" v-if="post.author">
       <h1>{{post.title}}</h1>
       <li>Posted by
@@ -25,15 +29,25 @@
   import moment from 'moment'
   import marked from 'marked'
   import titleMixin from 'common/mixin/title-mixin'
+  import Loading from 'base/loading/loading.vue'
 
   export default {
     mixins: [titleMixin],
     title() {
       return this.post.title + '-后庭花'
     },
+    data() {
+      return {
+        isShow: false
+      }
+    },
 
-    mounted() {
-      this.getPost(this.$route.params.id)
+    beforeMount() {
+      this.isShow = true
+      this.getPost(this.$route.params.id).then(() => {
+        this.isShow = false
+      })
+
     },
 
     computed: {
@@ -54,11 +68,20 @@
         return marked(content, {breaks: true})
       },
     },
+    components: {
+      Loading
+    }
   }
 </script>
 
 <style lang="stylus">
   @import "~common/stylus/variable"
+  .fade-enter-active, .fade-leave-active
+    transition: opacity 1s
+
+  .fade-enter, .fade-leave-to
+    opacity: 0
+
   .post
     width 870px
     display inline-block
