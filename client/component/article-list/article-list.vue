@@ -27,7 +27,7 @@
     props: ['articles'],
     methods: {
       getSuo(content) {
-        return content.match(/suo(.+?)(gif|png|jpg)/i)[0].slice(5)
+        return content.match(/suo(.+?)(gif|png|jpg|jpeg)/i)[0].slice(5)
       },
       getAvatar(qq) {
         return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`

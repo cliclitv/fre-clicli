@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import {mapActions, mapState} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex'
   import moment from 'moment'
   import marked from 'marked'
   import titleMixin from 'common/mixin/title-mixin'
@@ -34,7 +34,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return this.post.title + '-后庭花'
+        return this.$store.state.post.title + '-后庭花'
     },
     data() {
       return {
@@ -51,7 +51,7 @@
     },
 
     computed: {
-      ...mapState(['post'])
+      ...mapGetters(['post'])
     },
     asyncData({store, route}) {
       return store.dispatch('getPost', route.params.id)

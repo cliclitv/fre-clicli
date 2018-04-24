@@ -46,7 +46,7 @@
     computed: {
       ...mapState(['anime', 'comic', 'game', 'news', 'author'])
     },
-    mounted() {
+    beforeMount() {
       if (this.anime.length < 1) {
         this.getAnime()
       }
@@ -62,9 +62,15 @@
       if (this.game.length < 1) {
         this.getGame()
       }
+
     },
     asyncData({store}) {
-      return (store.dispatch('getAnime'), store.dispatch('getComic'), store.dispatch('getGame'), store.dispatch('getAuthor'), store.dispatch('getNews'))
+      return Promise.all([
+        store.dispatch('getAnime'),
+        store.dispatch('getComic'),
+        store.dispatch('getGame'),
+        store.dispatch('getAuthor'),
+        store.dispatch('getNews')])
     },
     methods: {
       ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor']),

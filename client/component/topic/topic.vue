@@ -17,7 +17,7 @@
     props: ['news'],
     methods: {
       getSuo(content) {
-        return content.match(/suo(.+?)(gif|png|jpg)/i)[0].slice(5)
+        return content.match(/suo(.+?)(gif|png|jpg|jpeg)/i)[0].slice(5)
       }
     },
   }

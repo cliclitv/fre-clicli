@@ -2,8 +2,15 @@
   <div class="header" ref="header">
     <div class="before" ref="hBefore"></div>
     <div class="bio">
+      <ul class="biu">
+        <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
+        <li v-show="isShow">{{user.name}}</li>
+        <li v-show="isShow" @click="onLogout">退出</li>
+        <li @click="onLogin" v-show="!isShow">登陆</li>
+      </ul>
+
       <a href="http://admin.idanmu.cc">
-        <li class="login">
+        <li class="pr">
           投稿
         </li>
       </a>
@@ -23,19 +30,30 @@
     <div class="wrap">
       <search-box></search-box>
     </div>
+    <transition name="fade">
+      <login v-show="isLogin" @close="close" @loadInfo="loadInfo"></login>
+    </transition>
+
   </div>
 
 </template>
 
 <script>
   import SearchBox from 'base/search-box/search-box.vue'
+  import Login from 'component/login/login.vue'
   import {getOption} from 'api/option'
+  import {logout} from "api/user"
+  import {getStorage, removeStorage} from "common/js/localstorage"
 
   export default {
 
     data() {
       return {
-        banner: ''
+        banner: '',
+        isLogin: false,
+        user: {},
+        isShow: false,
+        msg: ''
       }
     },
 
@@ -48,9 +66,42 @@
         console.log(e)
       })
     },
+    mounted() {
+      this.loadInfo()
+    },
+
+    methods: {
+      onLogin() {
+        this.isLogin = true
+      },
+      close() {
+        this.isLogin = false
+      },
+      getAvatar(qq) {
+        return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
+      },
+      loadInfo() {
+        const user = getStorage('user-info')
+        if (user) {
+          this.isShow = true
+          this.user = user
+        } else {
+          this.isShow = false
+        }
+      },
+      onLogout() {
+        logout().then((res) => {
+          if (res.data.code === 0) {
+            removeStorage('user-info')
+            this.loadInfo()
+          }
+        })
+      }
+    },
 
     components: {
-      SearchBox
+      SearchBox,
+      Login
     }
   }
 </script>
@@ -101,7 +152,14 @@
     width 1200px
     margin: 0 auto
     position relative
-    .login
+    .avatar
+      line-height 0
+      img
+        margin-top: 5px
+        height: 30px
+        width: 30px
+        border-radius 15px
+    .pr
       position absolute
       right 0
       background linear-gradient(#ff7d90, #f84861)
@@ -110,4 +168,23 @@
       z-index: 99999
       padding: 15px 20px
 
+  .biu
+    position absolute
+    top: 0
+    right: 90px
+    z-index: 9999999
+    color #fff
+    display flex
+    align-items center
+    li
+      display inline-block
+      padding: 0 10px
+      line-height 40px
+      cursor pointer
+
+  .fade-enter-active, .fade-leave-active
+    transition: opacity 1s
+
+  .fade-enter, .fade-leave-to
+    opacity: 0
 </style>
