@@ -42,7 +42,7 @@
   import SearchBox from 'base/search-box/search-box.vue'
   import Login from 'component/login/login.vue'
   import {getOption} from 'api/option'
-  import {logout} from "api/user"
+  import {logout, getUserInfo} from "api/user"
   import {getStorage, removeStorage} from "common/js/localstorage"
 
   export default {
@@ -81,13 +81,14 @@
         return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
       },
       loadInfo() {
-        const user = getStorage('user-info')
-        if (user) {
-          this.isShow = true
-          this.user = user
-        } else {
-          this.isShow = false
-        }
+        getUserInfo().then(res => {
+          if (res.data.code === 0) {
+            this.isShow = true
+            this.user = res.data.result
+          } else {
+            this.isShow = false
+          }
+        })
       },
       onLogout() {
         logout().then((res) => {
