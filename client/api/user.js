@@ -20,6 +20,12 @@ export function update(user) {
   return request.post('/user/update', user)
 }
 
+// 删除用户
+
+export function deleteUser(id) {
+  return request.post('/user/delete', id)
+}
+
 // 获取用户列表
 export function userList(page, pageSize) {
   return request.get('/user/user', {

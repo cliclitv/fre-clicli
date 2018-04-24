@@ -1,10 +1,10 @@
 const Comment = require('../model/comment')
 
 module.exports = {
-  // 查询所有设置项
+  // 查询所有评论
 
-  async getOption(ctx) {
-    const result = await Option.find({})
+  async getAll(ctx) {
+    const result = await Comment.find({})
     const count = result.length
     ctx.body = {
       code: 0,
@@ -12,18 +12,29 @@ module.exports = {
       result
     }
   },
-// 更新某一个设置项
+// 发表评论
 
-  async update(ctx) {
+  async add(ctx) {
     let data = ctx.request.body
-    await Option.update({
-      $set: {
-        banner: data.banner
-      }
+    const id = ctx.cookies.get('id')
+    await Comment.create({
+      user: id,
+      title: data.title,
+      content: data.content
     })
     ctx.body = {
       code: 0,
-      msg: '更新成功啦！'
+      msg: '发表回复成功！'
+    }
+  },
+  // 删除评论
+
+  async deleteComment(ctx) {
+    let id = ctx.query.id
+    await Comment.remove({_id: id})
+    ctx.body = {
+      code: 0,
+      id
     }
   }
 }

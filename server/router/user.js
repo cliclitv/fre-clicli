@@ -14,5 +14,6 @@ router.post('/register',user.userRegister)
 router.post('/login',user.userLogin)
 router.post('/update',user.update)
 router.post('/logout',user.logout)
+router.delete('/delete',user.deleteUser)
 
 module.exports = router

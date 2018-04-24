@@ -6,7 +6,7 @@ module.exports = {
   async getUser(ctx) {
     let page = parseInt(ctx.query.page)
     let pageSize = parseInt(ctx.query.pageSize)
-    const result = await User.find({},_ignore).skip((page - 1) * pageSize)
+    const result = await User.find({}, _ignore).skip((page - 1) * pageSize)
       .limit(pageSize)
     ctx.body = {
       code: 0,
@@ -29,7 +29,7 @@ module.exports = {
     }
   },
 
- // 用户注册
+  // 用户注册
 
   async userRegister(ctx) {
     let data = ctx.request.body
@@ -78,8 +78,18 @@ module.exports = {
       msg: '更新成功啦！'
     }
   },
-  /*
-  * 用户登录*/
+// 删除用户
+  async deleteUser(ctx) {
+
+    let id = ctx.query.id
+    await User.remove({_id: id})
+    ctx.body = {
+      code: 0,
+      id
+    }
+
+  },
+// 用户登陆
 
   async userLogin(ctx) {
     let data = ctx.request.body
