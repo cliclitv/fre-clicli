@@ -20,10 +20,13 @@
       <li v-for="item in comments">
         <div class="avatar" v-if="item.user">
           <img :src="getAvatar(item.user.qq)">
+          <p class="name">{{item.user.name}}</p>
         </div>
+
         <div class="text">
           <p>{{item.content}}</p>
         </div>
+        <time>{{momentTime(item.time)}}</time>
       </li>
     </ul>
   </div>
@@ -33,6 +36,7 @@
   import {getComment, addComment} from 'api/comment'
   import {getStorage} from "common/js/localstorage"
   import {mapGetters, mapMutations} from 'vuex'
+  import moment from 'moment'
 
   export default {
     data() {
@@ -48,7 +52,6 @@
     mounted() {
       this.getUser()
       this.getComment()
-
     },
     computed: {
       ...mapGetters(['isLogin'])
@@ -69,6 +72,10 @@
         this.isOnLogin(true)
       },
       onComment() {
+        if (!this.content) {
+          this.msg = '不能不填！'
+          return
+        }
         addComment({
           pid: this.$route.params.id,
           content: this.content
@@ -83,6 +90,9 @@
           this.user = user
           this.isShow = true
         }
+      },
+      momentTime(time) {
+        return moment(time).format('YYYY-MM-DD')
       },
       ...mapMutations(['isOnLogin'])
     }
@@ -107,14 +117,17 @@
       display: flex
       align-items center
       justify-content center
-      padding: 10px 0
+      padding: 20px 0
       .avatar
         display inline-block
         width 60px
+        text-align center
         img
           height 50px
           width: 50px
           border-radius 25px
+        .name
+          padding: 5px
       .text
         flex 1
         padding: 0 20px
@@ -148,6 +161,8 @@
             color: #fff
             background #ff8294
             border-radius 10px
+      time
+        font-size: 11px
 
       .submit
         display inline-block
@@ -160,5 +175,10 @@
           border-radius 4px
           background $a-color
           color: #fff
+          cursor pointer
+          outline none
+          transition .3s
+        button:hover
+          background #fd8596
 
 </style>

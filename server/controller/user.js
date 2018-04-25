@@ -106,7 +106,9 @@ module.exports = {
     // 设置cookie
 
     ctx.cookies.set(
-      'id', id
+      'id', id, {
+        domain: '*.idanmu.cc'
+      }
     )
     ctx.body = {
       code: 0,

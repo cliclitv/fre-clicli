@@ -27,6 +27,7 @@
         user: {}
       }
     },
+
     methods: {
       close() {
         this.$emit('close')
@@ -37,7 +38,7 @@
             this.close()
             this.user = res.data.result
             setStorage('user-info', res.data.result)
-            this.$emit('loadInfo')
+            this.$router.go(0)
           }
         })
       }
@@ -90,6 +91,7 @@
         border-radius 20px
         box-shadow 0 3px 4px 0 rgba(237, 68, 92, 0.45)
         color: #fff
+        outline none
 
 
 </style>

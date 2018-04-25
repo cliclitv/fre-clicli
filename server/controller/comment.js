@@ -5,7 +5,7 @@ module.exports = {
 
   async getAll(ctx) {
     let pid = ctx.query.pid
-    const result = await Comment.find({pid: pid}).populate({path: 'user', select: 'name qq'})
+    const result = await Comment.find({pid: pid}).sort({'time': -1}).populate({path: 'user', select: 'name qq'})
     const count = result.length
     ctx.body = {
       code: 0,
