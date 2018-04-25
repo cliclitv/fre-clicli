@@ -9,7 +9,8 @@ const CommentSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  pid: {type: Schema.Types.ObjectId, require: true}
 })
 
-module.exports=mongoose.model('Comment', CommentSchema)
+module.exports = mongoose.model('Comment', CommentSchema)

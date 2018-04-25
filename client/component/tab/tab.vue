@@ -1,5 +1,5 @@
 <template>
-  <div class="tap">
+  <div class="tap wrap">
     <ul>
       <router-link to="/">
         <li><i class="icon-font icon-home"></i>首页</li>

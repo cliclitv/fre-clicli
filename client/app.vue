@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <c-header></c-header>
-    <div class="wrap">
       <tap></tap>
         <router-view :key="$route.path"></router-view>
-    </div>
     <c-footer></c-footer>
   </div>
 </template>

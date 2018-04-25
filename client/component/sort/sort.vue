@@ -1,5 +1,5 @@
 <template>
-  <div class="sort">
+  <div class="sort wrap">
     <article-list :articles="sortArticle" key="this.$route.params.sort"></article-list>
   </div>
 

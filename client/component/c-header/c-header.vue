@@ -7,6 +7,9 @@
         <li v-show="isShow">{{user.name}}</li>
         <li v-show="isShow" @click="onLogout">退出</li>
         <li @click="onLogin" v-show="!isShow">登陆</li>
+        <a href="http://admin.idanmu.cc/register">
+          <li v-show="!isShow">注册</li>
+        </a>
       </ul>
 
       <a href="http://admin.idanmu.cc">
@@ -42,6 +45,7 @@
   import SearchBox from 'base/search-box/search-box.vue'
   import Login from 'component/login/login.vue'
   import {getOption} from 'api/option'
+  import {mapGetters, mapMutations} from 'vuex'
   import {logout, getUserInfo} from "api/user"
   import {getStorage, removeStorage} from "common/js/localstorage"
 
@@ -50,11 +54,14 @@
     data() {
       return {
         banner: '',
-        isLogin: false,
         user: {},
         isShow: false,
         msg: ''
       }
+    },
+    computed: {
+      ...mapGetters(['isLogin'])
+
     },
 
     beforeMount() {
@@ -72,10 +79,10 @@
 
     methods: {
       onLogin() {
-        this.isLogin = true
+        this.isOnLogin(true)
       },
       close() {
-        this.isLogin = false
+        this.isOnLogin(false)
       },
       getAvatar(qq) {
         return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
@@ -86,6 +93,7 @@
             this.isShow = true
             this.user = res.data.result
           } else {
+            removeStorage('user-info')
             this.isShow = false
           }
         })
@@ -97,7 +105,8 @@
             this.loadInfo()
           }
         })
-      }
+      },
+      ...mapMutations(['isOnLogin'])
     },
 
     components: {

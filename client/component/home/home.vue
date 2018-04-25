@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home wrap">
     <slider></slider>
     <topic :news="news"></topic>
     <div class="main">

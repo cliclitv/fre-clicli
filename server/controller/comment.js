@@ -4,7 +4,8 @@ module.exports = {
   // 查询所有评论
 
   async getAll(ctx) {
-    const result = await Comment.find({})
+    let pid = ctx.query.pid
+    const result = await Comment.find({pid: pid}).populate({path: 'user', select: 'name qq'})
     const count = result.length
     ctx.body = {
       code: 0,
@@ -19,8 +20,8 @@ module.exports = {
     const id = ctx.cookies.get('id')
     await Comment.create({
       user: id,
-      title: data.title,
-      content: data.content
+      content: data.content,
+      pid: data.pid
     })
     ctx.body = {
       code: 0,

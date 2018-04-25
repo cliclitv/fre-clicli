@@ -22,5 +22,8 @@ export default {
   },
   loadSortArticle(state, sortArticle) {
     state.sortArticle = sortArticle
+  },
+  isOnLogin(state, isLogin) {
+    state.isLogin = isLogin
   }
 }

@@ -1,9 +1,10 @@
 export default {
-  sortArticle:[],
+  sortArticle: [],
   news: [],
   anime: [],
   comic: [],
   game: [],
   author: [],
-  post: []
+  post: [],
+  isLogin: false
 }

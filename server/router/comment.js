@@ -10,6 +10,6 @@ const router = new Router()
 
 router.get('/comment', comment.getAll)
 router.post('/add',comment.add)
-router.post('/delete',comment.deleteComment)
+router.delete('/delete',comment.deleteComment)
 
 module.exports = router
