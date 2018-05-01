@@ -38,6 +38,20 @@ export default {
       console.log(e)
     })
   },
+  getImgPack({commit}) {
+    return sortArticle('imgpack', 1, 5).then(res => {
+      commit('loadImgPack', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
+  getOther({commit}) {
+    return sortArticle('other', 1, 5).then(res => {
+      commit('loadOther', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
   getAuthor({commit}) {
     return userList(1, 12).then(res => {
       commit('loadAuthor', res.data.result)

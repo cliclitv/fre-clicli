@@ -15,11 +15,23 @@
         </h1>
         <article-list :articles="comic" key="comic"></article-list>
       </div>
+      <div class="imgpack">
+        <h1><i class="icon-font icon-img"></i>图包
+          <router-link to="/sort/imgpack">more-></router-link>
+        </h1>
+        <article-list :articles="imgpack" key="imgpack"></article-list>
+      </div>
       <div class="game">
         <h1><i class="icon-font icon-game"></i>游戏
           <router-link to="/sort/game">more-></router-link>
         </h1>
         <article-list :articles="game" key="game"></article-list>
+      </div>
+      <div class="other">
+        <h1><i class="icon-font icon-other"></i>杂物
+          <router-link to="/sort/other">more-></router-link>
+        </h1>
+        <article-list :articles="other" key="other"></article-list>
       </div>
     </div>
     <div class="side">
@@ -44,7 +56,7 @@
       return '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
     },
     computed: {
-      ...mapState(['anime', 'comic', 'game', 'news', 'author'])
+      ...mapState(['anime', 'comic', 'game', 'news', 'author','imgpack','other'])
     },
     beforeMount() {
       if (this.anime.length < 1) {
@@ -62,6 +74,12 @@
       if (this.game.length < 1) {
         this.getGame()
       }
+      if (this.other.length < 1) {
+        this.getOther()
+      }
+      if (this.other.length < 1) {
+        this.getImgPack()
+      }
 
     },
     asyncData({store}) {
@@ -70,10 +88,12 @@
         store.dispatch('getComic'),
         store.dispatch('getGame'),
         store.dispatch('getAuthor'),
+        store.dispatch('getOther'),
+        store.dispatch('getImgPack'),
         store.dispatch('getNews')])
     },
     methods: {
-      ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor']),
+      ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor','getOther','getImgPack']),
     },
     components: {
       Slider,
@@ -86,7 +106,7 @@
 
 <style lang="stylus">
   @import "~common/stylus/variable"
-  .comic, .anime, .game
+  .comic, .anime, .game, .other,.imgpack
     h1
       font-size: 22px
       padding-top: 30px
@@ -110,6 +130,10 @@
         color: #f0d055
       .icon-game
         color #77ee77
+      .icon-other
+        color #c177ee
+      .icon-img
+        color #c177ee
 
   .main
     width 950px

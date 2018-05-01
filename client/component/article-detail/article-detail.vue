@@ -139,7 +139,7 @@
       padding: 20px 0
       letter-spacing: 2px
       img
-        width 100%
+        max-width 100%
         padding: 10px 0
     blockquote p
       padding: 0

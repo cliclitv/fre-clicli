@@ -4,7 +4,9 @@ export default {
   anime: [],
   comic: [],
   game: [],
+  imgpack:[],
   author: [],
   post: [],
+  other:[],
   isLogin: false
 }

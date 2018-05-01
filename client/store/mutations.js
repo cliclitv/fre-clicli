@@ -14,6 +14,12 @@ export default {
   loadGame(state, game) {
     state.game = game
   },
+  loadImgPack(state, imgpack) {
+    state.imgpack = imgpack
+  },
+  loadOther(state, other) {
+    state.other = other
+  },
   loadAuthor(state, author) {
     state.author = author
   },
@@ -26,4 +32,5 @@ export default {
   isOnLogin(state, isLogin) {
     state.isLogin = isLogin
   }
+
 }

@@ -107,7 +107,7 @@ module.exports = {
 
     ctx.cookies.set(
       'id', id, {
-        domain: '*.idanmu.cc'
+        domain: 'idanmu.cc'
       }
     )
     ctx.body = {
@@ -120,8 +120,11 @@ module.exports = {
   // 用户退出
   async logout(ctx) {
     const id = ctx.cookies.get('id')
+    console.log(id)
     if (id) {
-      ctx.cookies.set('id', '')
+      ctx.cookies.set('id', '', {
+        domain: 'idanmu.cc'
+      })
       ctx.body = {
         code: 0,
         msg: '退出成功！'
