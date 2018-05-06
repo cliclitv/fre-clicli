@@ -96,6 +96,6 @@ export default function (width, len, interval) {
     stop()
     play()
   }
-
+  stop()
   play()
 }

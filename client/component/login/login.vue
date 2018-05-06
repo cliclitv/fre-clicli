@@ -35,9 +35,9 @@
       onLogin() {
         login(this.$data).then((res) => {
           if (res.data.code === 0) {
-            this.close()
             this.user = res.data.result
             setStorage('user-info', res.data.result)
+            this.close()
             this.$router.go(0)
           }
         })
