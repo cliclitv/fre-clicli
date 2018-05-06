@@ -24,10 +24,8 @@
       text-align center
       padding-bottom: 30px
     .next span
-      background #f4fbff
-      color: #0088cc
+      background $d-color
       padding: 10px 40px
-      border: 1px solid #0088cc
       border-radius: 30px
       display inline-block
       margin: 30px

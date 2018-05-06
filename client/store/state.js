@@ -1,5 +1,5 @@
 export default {
-  sortArticle: [],
+  sort: [],
   news: [],
   anime: [],
   comic: [],
@@ -8,5 +8,6 @@ export default {
   author: [],
   post: [],
   other:[],
+  music:[],
   isLogin: false
 }

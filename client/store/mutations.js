@@ -26,11 +26,15 @@ export default {
   loadPost(state, post) {
     state.post = post
   },
-  loadSortArticle(state, sortArticle) {
-    state.sortArticle = sortArticle
+  loadSortArticle(state, sort) {
+    state.sort = sort
   },
   isOnLogin(state, isLogin) {
     state.isLogin = isLogin
+  },
+
+  loadMusic(state, music) {
+    state.music = music
   }
 
 }

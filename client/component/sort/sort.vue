@@ -1,6 +1,7 @@
 <template>
   <div class="sort wrap">
-    <article-list :articles="sortArticle" key="this.$route.params.sort"></article-list>
+    <article-list :articles="articles" key="this.$route.params.sort"></article-list>
+    <pagination @next="next" v-show="isShow"></pagination>
   </div>
 
 </template>
@@ -10,18 +11,27 @@
   import moment from 'moment'
   import titleMixin from 'common/mixin/title-mixin'
   import ArticleList from 'component/article-list/article-list.vue'
+  import Pagination from 'base/pagination/pagination.vue'
+  import {sortArticle} from 'api/article'
 
   export default {
     mixins: [titleMixin],
+    data() {
+      return {
+        articles: [],
+        page: 1,
+        pageSize: 24,
+        isShow: false
+      }
+    },
     title() {
       return '后庭花'
     },
     beforeMount() {
-      this.getSortArticle(this.$route.params.sort)
+      this.sortArticle()
     },
-
     computed: {
-      ...mapState(['sortArticle'])
+      ...mapState(['sort'])
     },
     asyncData({store, route}) {
       return store.dispatch('getSortArticle', route.params.sort)
@@ -34,10 +44,30 @@
       },
       momentTime(time) {
         return moment(time).format('MM-DD')
+      },
+      sortArticle(flag) {
+        sortArticle(this.$route.params.sort, this.page, this.pageSize).then(res => {
+          if (res.data.code === 0) {
+            this.isShow = true
+            if (flag) {
+              this.articles = this.articles.concat(res.data.result)
+              if (res.data.count === 0) {
+                this.isShow = false
+              }
+            } else {
+              this.articles = res.data.result
+            }
+          }
+        })
+      },
+      next() {
+        this.page++
+        this.sortArticle(true)
       }
     },
     components: {
-      ArticleList
+      ArticleList,
+      Pagination
     }
   }
 </script>
@@ -54,7 +84,7 @@
       .suo img
         width 175px
 
-  .sort .article-list li:nth-child(6), .sort .article-list li:nth-child(12), .sort .article-list li:nth-child(18), .sort .article-list li:nth-child(24)
+  .sort .article-list li:nth-child(6n)
     padding 20px 0 20px 0
 
 </style>

@@ -27,7 +27,8 @@
     props: ['articles'],
     methods: {
       getSuo(content) {
-        return content.match(/suo(.+?)(gif|png|jpg|jpeg)/i)[0].slice(5)
+        const str = content.replace(/www.uraban.me/g, 'pic.51xiaoxin.com/www.uraban.me');
+        return str.match(/suo(.+?)(gif|png|jpg|jpeg)/i)[0].slice(5)
       },
       getAvatar(qq) {
         return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
@@ -35,7 +36,8 @@
       momentTime(time) {
         return moment(time).format('MM-DD')
       }
-    }
+    },
+
   }
 </script>
 

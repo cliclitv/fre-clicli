@@ -52,6 +52,13 @@ export default {
       console.log(e)
     })
   },
+  getMusic({commit}) {
+    return sortArticle('music', 1, 5).then(res => {
+      commit('loadMusic', res.data.result)
+    }).catch(e => {
+      console.log(e)
+    })
+  },
   getAuthor({commit}) {
     return userList(1, 12).then(res => {
       commit('loadAuthor', res.data.result)
@@ -67,7 +74,7 @@ export default {
     })
   },
   getSortArticle({commit}, sort) {
-    return sortArticle(sort).then(res => {
+    return sortArticle(sort, 1, 24).then(res => {
       commit('loadSortArticle', res.data.result)
     }).catch(e => {
       console.log(e)

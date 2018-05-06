@@ -27,6 +27,12 @@
         </h1>
         <article-list :articles="game" key="game"></article-list>
       </div>
+      <div class="music">
+        <h1><i class="icon-font icon-music"></i>音乐
+          <router-link to="/sort/music">more-></router-link>
+        </h1>
+        <article-list :articles="music" key="music"></article-list>
+      </div>
       <div class="other">
         <h1><i class="icon-font icon-other"></i>杂物
           <router-link to="/sort/other">more-></router-link>
@@ -56,7 +62,7 @@
       return '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
     },
     computed: {
-      ...mapState(['anime', 'comic', 'game', 'news', 'author','imgpack','other'])
+      ...mapState(['anime', 'comic', 'game', 'news', 'author', 'imgpack', 'other', 'music'])
     },
     beforeMount() {
       if (this.anime.length < 1) {
@@ -77,8 +83,11 @@
       if (this.other.length < 1) {
         this.getOther()
       }
-      if (this.other.length < 1) {
+      if (this.imgpack.length < 1) {
         this.getImgPack()
+      }
+      if (this.music.length < 1) {
+        this.getMusic()
       }
 
     },
@@ -90,10 +99,11 @@
         store.dispatch('getAuthor'),
         store.dispatch('getOther'),
         store.dispatch('getImgPack'),
+        store.dispatch('getMusic'),
         store.dispatch('getNews')])
     },
     methods: {
-      ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor','getOther','getImgPack']),
+      ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor', 'getOther', 'getImgPack', 'getMusic']),
     },
     components: {
       Slider,
@@ -106,7 +116,7 @@
 
 <style lang="stylus">
   @import "~common/stylus/variable"
-  .comic, .anime, .game, .other,.imgpack
+  .comic, .anime, .game, .other, .imgpack, .music
     h1
       font-size: 22px
       padding-top: 30px
@@ -133,7 +143,9 @@
       .icon-other
         color #c177ee
       .icon-img
-        color #c177ee
+        color #eeb163
+      .icon-music
+        color #38ecee
 
   .main
     width 950px
@@ -144,7 +156,7 @@
     width 250px
     margin-top: 30px
 
-  .comic
+  .comic, .imgpack, .other
     .article-list .suo img
       height 200px !important
 </style>

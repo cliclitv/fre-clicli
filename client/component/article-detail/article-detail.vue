@@ -81,7 +81,8 @@
         return moment(time).format('YYYY-MM-DD')
       },
       marked(content) {
-        return marked(content, {breaks: true})
+        const str = content.replace(/www.uraban.me/g, 'pic.51xiaoxin.com/www.uraban.me');
+        return marked(str, {breaks: true})
       },
     },
     components: {
