@@ -69,6 +69,8 @@
         this.banner = res.data.result[0].banner
         this.$refs.header.style.background = 'url(' + this.banner + ') center'
         this.$refs.hBefore.style.background = 'url(' + this.banner + ') center'
+        this.$refs.header.style.backgroundSize = 'contain'
+        this.$refs.hBefore.style.backgroundSize = 'contain'
       }).catch(e => {
         console.log(e)
       })
@@ -123,6 +125,9 @@
     a
       color: #fff
 
+  .header
+    background-size contain
+
   .header .before
     content: ""
     width 100%
@@ -133,6 +138,7 @@
     background $d-color
     filter: blur(10px)
     z-index 0
+    background-size contain
 
   .header
     background $d-color

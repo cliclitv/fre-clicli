@@ -5,13 +5,13 @@
         <router-link :to="'/post/'+item._id">
           <div class="suo">
             <i class="icon-font icon-eye"></i>
-            <img v-lazy="getSuo(item.content)" alt="">
+            <img v-lazy="getSuo(item.content)" :src="getSuo(item.content)">
           </div>
 
           <p class="title">{{item.title}}</p>
         </router-link>
         <div class="avatar">
-          <img v-lazy="getAvatar(item.author.qq)" alt="">
+          <img v-lazy="getAvatar(item.author.qq)" :src="getAvatar(item.author.qq)">
           <span>{{item.author.name}}</span>
           <time>{{momentTime(item.time)}}</time>
         </div>

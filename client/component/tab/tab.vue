@@ -28,6 +28,12 @@
       <router-link to="/sort/other">
         <li><i class="icon-font icon-other"></i>其他</li>
       </router-link>
+      <a href="http://app.idanmu.cc" class="mobile" target="_blank">
+        <span>
+          APP下载
+          <i class="icon-font icon-mobile"></i>
+        </span>
+      </a>
     </ul>
 
   </div>
@@ -66,5 +72,15 @@
       color: $a-color
     ul
       margin: 5px 0
+    .mobile
+      float right
+      .icon-font
+        font-size: 45px
+        color $a-color
+        margin-left 10px
+      span
+        color rgba(253, 133, 150, 0.9)
+        display flex
+        align-items center
 
 </style>

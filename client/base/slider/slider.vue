@@ -2,20 +2,26 @@
   <div class="slider">
     <ul class="list" style="left:-440px">
       <li>
-        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg" alt="3"></a>
+        <a href="https://item.taobao.com/item.htm?id=568316315061"><img src="http://ww1.sinaimg.cn/large/0065Zy9egy1frgqqqr4f7j30c8064dhg.jpg"></a>
+        <p>广告~</p>
+      </li>
+      <li>
+        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg"></a>
         <p>投稿投稿啦~</p>
       </li>
       <li>
-        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg" alt="3"></a>
-        <p>投稿投稿啦~</p>
+        <a href="https://item.taobao.com/item.htm?id=568316315061"><img src="http://ww1.sinaimg.cn/large/0065Zy9egy1frgqqqr4f7j30c8064dhg.jpg"></a>
+        <p>广告~</p>
       </li>
       <li>
-        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src="https://i.loli.net/2018/04/21/5adb210293da8.jpg" alt="3"></a>
+      <li>
+        <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img src=""></a>
         <p>投稿投稿啦~</p>
       </li>
     </ul>
     <div class="dots">
       <span class="active"></span>
+      <span></span>
     </div>
   </div>
 </template>
@@ -25,7 +31,7 @@
 
   export default {
     mounted() {
-      slider(440, 1, 5000)
+      slider(440, 2, 5000)
     }
   }
 </script>
