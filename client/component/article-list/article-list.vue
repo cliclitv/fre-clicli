@@ -5,13 +5,13 @@
         <router-link :to="'/post/'+item._id">
           <div class="suo">
             <i class="icon-font icon-eye"></i>
-            <img :src="getSuo(item.content)" alt="">
+            <img v-lazy="getSuo(item.content)" alt="">
           </div>
 
           <p class="title">{{item.title}}</p>
         </router-link>
         <div class="avatar">
-          <img :src="getAvatar(item.author.qq)" alt="">
+          <img v-lazy="getAvatar(item.author.qq)" alt="">
           <span>{{item.author.name}}</span>
           <time>{{momentTime(item.time)}}</time>
         </div>
@@ -31,7 +31,7 @@
         return str.match(/suo(.+?)(gif|png|jpg|jpeg)/i)[0].slice(5)
       },
       getAvatar(qq) {
-        return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
+        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
       },
       momentTime(time) {
         return moment(time).format('MM-DD')

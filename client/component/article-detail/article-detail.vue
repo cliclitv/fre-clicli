@@ -75,7 +75,7 @@
         this.$emit('onLogin')
       },
       getAvatar(avatar) {
-        return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
+        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
       },
       momentTime(time) {
         return moment(time).format('YYYY-MM-DD')

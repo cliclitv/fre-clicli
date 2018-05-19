@@ -59,7 +59,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return '★后庭花★-少年不知黄瓜坏，隔夜犹上后庭花'
+      return '★爱弹幕★-idanmu.cc'
     },
     computed: {
       ...mapState(['anime', 'comic', 'game', 'news', 'author', 'imgpack', 'other', 'music'])

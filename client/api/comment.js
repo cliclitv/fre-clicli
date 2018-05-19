@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: process.env.VUE_ENV === 'server' ? 'http://www.idanmu.cc' : '/'
+  baseURL: process.env.VUE_ENV === 'server' ? 'https://www.idanmu.cc' : '/'
 })
 
 // 根据pid查找评论

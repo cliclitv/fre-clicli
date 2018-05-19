@@ -46,13 +46,13 @@ module.exports = merge(baseConfig, {
     port: 2333,
     proxy: {
       '/user/': {
-        target: 'http://www.idanmu.cc'
+        target: 'https://www.idanmu.cc'
       },
       '/article/': {
-        target: 'http://www.idanmu.cc'
+        target: 'https://www.idanmu.cc'
       },
       '/option/': {
-        target: 'http://www.idanmu.cc'
+        target: 'https://www.idanmu.cc'
       }
     }
   }

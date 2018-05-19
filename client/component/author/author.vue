@@ -16,7 +16,7 @@
     props: ['author'],
     methods: {
       getAvatar(qq) {
-        return `http://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
+        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
       },
     }
 
