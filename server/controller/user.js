@@ -106,9 +106,7 @@ module.exports = {
     // 设置cookie
 
     ctx.cookies.set(
-      'id', id, {
-        domain: 'idanmu.cc'
-      }
+      'id', id
     )
     ctx.body = {
       code: 0,
@@ -122,9 +120,7 @@ module.exports = {
     const id = ctx.cookies.get('id')
     console.log(id)
     if (id) {
-      ctx.cookies.set('id', '', {
-        domain: 'idanmu.cc'
-      })
+      ctx.cookies.set('id', '')
       ctx.body = {
         code: 0,
         msg: '退出成功！'
