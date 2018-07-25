@@ -1,12 +1,22 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 const baseConfig = require('./wp.base')
+
+const plugins = [
+  new VueLoaderPlugin(),
+  new webpack.DefinePlugin({
+    'process.env.VUE_ENV': '"server"'
+  })
+]
+
+if (isDev) {
+  plugins.push(new VueServerPlugin())
+}
 
 module.exports = merge(baseConfig, {
   target: 'node',
@@ -25,8 +35,7 @@ module.exports = merge(baseConfig, {
       {
         test: /\.styl(us)?$/,
         use: [
-          isDev ? 'vue-style-loader' :
-            MiniCssExtractPlugin.loader,
+          'vue-style-loader',
           'css-loader',
           'stylus-loader'
         ]
@@ -34,8 +43,7 @@ module.exports = merge(baseConfig, {
       {
         test: /\.css$/,
         use: [
-          isDev ? 'vue-style-loader' :
-            MiniCssExtractPlugin.loader,
+          'vue-style-loader',
           'css-loader'
         ]
       },
@@ -48,15 +56,5 @@ module.exports = merge(baseConfig, {
       },
     ]
   },
-  plugins: [
-    new VueServerPlugin(),
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "../css/[name].css",
-      chunkFilename: "css/[id].css"
-    }),
-    new webpack.DefinePlugin({
-      'process.env.VUE_ENV': '"server"'
-    })
-  ]
+  plugins
 })

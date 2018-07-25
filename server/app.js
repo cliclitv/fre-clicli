@@ -1,4 +1,6 @@
+const path = require('path')
 const Koa = require('koa')
+const koaStatic = require('koa-static')
 const app = new Koa()
 
 // 配置路由
@@ -10,11 +12,11 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   router = require('./ssr-online')
 }
-
+app.use(koaStatic(path.join(__dirname, '../dist')))
 app.use(router.routes())
 
 // 启动
-app.listen(4000, () => {
+app.listen(3000, () => {
   console.log('IIIIIIIIII am starting')
 })
 

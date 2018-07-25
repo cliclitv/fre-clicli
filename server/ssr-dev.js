@@ -24,16 +24,15 @@ serverCompiler.watch({}, (err, stats) => {
   bundle = JSON.parse(mfs.readFileSync(bundlePath, 'utf-8'))
 })
 
-
 // 正式ssr逻辑
 const handleSSR = async (ctx) => {
-  if (!bundle) {
-    ctx.body = '等会儿……'
+  if (bundle === 'undefined') {
+    ctx.body = '刷新试试？'
   }
   const clientManifestRes = await axios.get('http://localhost:2333/vue-ssr-client-manifest.json')
   const clientManifest = clientManifestRes.data
   const template = fs.readFileSync(
-    path.join(__dirname, '../template.html'),
+    path.join(__dirname, './template.html'),
     'utf-8'
   )
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {
@@ -43,7 +42,7 @@ const handleSSR = async (ctx) => {
 
   const context = {
     url: ctx.path,
-    title:'开发开发'
+    title: '开发开发'
   }
   const appString = await renderer.renderToString(context)
 

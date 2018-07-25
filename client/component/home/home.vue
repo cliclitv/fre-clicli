@@ -1,6 +1,5 @@
 <template>
   <div class="home wrap">
-    <slider></slider>
     <topic :news="news"></topic>
     <div class="main">
       <div class="anime">
@@ -50,17 +49,11 @@
 <script>
   import {mapActions, mapState} from 'vuex'
 
-  import Slider from 'base/slider/slider.vue'
   import Topic from 'component/topic/topic.vue'
   import ArticleList from 'component/article-list/article-list.vue'
   import Author from 'component/author/author.vue'
-  import titleMixin from 'common/mixin/title-mixin'
 
   export default {
-    mixins: [titleMixin],
-    title() {
-      return '★爱弹幕★-idanmu.cc'
-    },
     computed: {
       ...mapState(['anime', 'comic', 'game', 'news', 'author', 'imgpack', 'other', 'music'])
     },
@@ -106,7 +99,6 @@
       ...mapActions(['getAnime', 'getComic', 'getGame', 'getNews', 'getAuthor', 'getOther', 'getImgPack', 'getMusic']),
     },
     components: {
-      Slider,
       Topic,
       ArticleList,
       Author
