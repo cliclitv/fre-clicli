@@ -42,9 +42,8 @@
 <script>
   import SearchBox from 'base/search-box/search-box.vue'
   import Login from 'component/login/login.vue'
-  import {getOption} from 'api/option'
   import {mapGetters, mapMutations} from 'vuex'
-  import {logout, getUserInfo} from "api/user"
+  import {logout, auth} from "api/user"
   import {getStorage, removeStorage} from "common/js/localstorage"
 
   export default {
@@ -76,13 +75,15 @@
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
       },
       loadInfo() {
-        getUserInfo().then(res => {
-          if (res.data.code === 0) {
-            this.isShow = true
-            this.user = res.data.result
-          } else {
-            removeStorage('user-info')
-            this.isShow = false
+        auth().then(res => {
+          if (res.status === 200) {
+            if (res.data.code === 401) {
+              removeStorage('user-info')
+              this.isShow = false
+            }else {
+              this.isShow = true
+              this.user = getStorage('user-info')
+            }
           }
         })
       },

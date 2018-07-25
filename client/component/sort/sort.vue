@@ -12,7 +12,7 @@
   import titleMixin from 'common/mixin/title-mixin'
   import ArticleList from 'component/article-list/article-list.vue'
   import Pagination from 'base/pagination/pagination.vue'
-  import {sortArticle} from 'api/article'
+  import {articleList} from 'api/article'
 
   export default {
     mixins: [titleMixin],
@@ -46,7 +46,7 @@
         return moment(time).format('MM-DD')
       },
       sortArticle(flag) {
-        sortArticle(this.$route.params.sort, this.page, this.pageSize).then(res => {
+        articleList(this.$route.params.sort, this.page, this.pageSize).then(res => {
           if (res.data.code === 0) {
             this.isShow = true
             if (flag) {

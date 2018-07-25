@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <c-header></c-header>
-      <tap></tap>
     <c-footer></c-footer>
   </div>
 </template>

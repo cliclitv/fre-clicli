@@ -1,52 +1,36 @@
 import axios from 'axios'
 
-const request = axios.create({
-  baseURL: process.env.VUE_ENV === 'server' ? 'https://www.idanmu.cc' : '/'
-})
-
 // 用户登录
 export function login(user) {
-  return request.post('/user/login', user)
+  return axios.post('/login', user)
 }
 
+export function auth() {
+  return axios.get('http://localhost:4000/auth')
+}
 
 // 用户注册
 export function register(user) {
-  return request.post('/user/register', user)
+  return axios.post('/register', {name: user.name, pwd: user.pwd, qq: parseInt(user.qq), role: 'user', desc: ''})
 }
 
 // 更新用户信息
 export function update(user) {
-  return request.post('/user/update', user)
-}
-
-// 删除用户
-
-export function deleteUser(id) {
-  return request.post('/user/delete', id)
+  return axios.post(`/user/update/${user.id}`, user)
 }
 
 // 获取用户列表
-export function userList(page, pageSize) {
-  return request.get('/user/user', {
-    params: {
-      page: page,
-      pageSize: pageSize
-    }
-  })
+export function userList() {
+  return axios.get('/users?role=user')
 }
 
 // 查找单一用户信息
 
 export function getUserInfo(id) {
-  return request.get('/user/info', {
-    params: {
-      id: id
-    }
-  })
+  return axios.get(`/user/${id}`)
 }
 
 // 用户退出
 export function logout() {
-  return request.post('/user/logout')
+  return axios.post('/user/logout')
 }
