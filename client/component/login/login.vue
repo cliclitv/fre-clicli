@@ -62,7 +62,7 @@
     z-index: 99999
 
   .on-login
-    width: 360px
+    width: 300px
     padding: 20px
     background: $d-color
     position fixed
@@ -70,26 +70,25 @@
     top: 50%
     left: 50%
     transform translate(-50%, -50%)
-    box-shadow: 5px 5px 50px #000
-    border-radius: 4px
+    box-shadow: 1px 1px 5px #090c13
     li
       width 100%
       padding: 20px 15px
       input
         width: 100%
-        border-bottom: 1px dashed #ff7d90
+        border-bottom: 1px dashed $blue-color
         padding: 5px
         color: #fff
         background $d-color
         letter-spacing: 3px
+        box-sizing border-box
       input:focus
-        border-bottom: 2px dashed #ff7d90
+        border-bottom: 2px dashed $blue-color
       button
-        background: $a-color
+        background: $blue-color
         width: 100%
         padding: 10px
         border-radius 20px
-        box-shadow 0 3px 4px 0 rgba(237, 68, 92, 0.45)
         color: #fff
         outline none
 

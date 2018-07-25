@@ -23,6 +23,10 @@
             background $bg-color
             width 250px
             box-shadow 0 1px 2px rgba(29, 36, 52, .8)
+            box-sizing: border-box
+        input:focus
+            border: 1px solid $blue-color
+            padding: 10px 28px 10px 13px
         .icon-search
             background $blue-color
             border-radius 50%

@@ -145,7 +145,6 @@
             right 0
             background $blue-color
             font-size: 16px
-            z-index: 99999
             padding: 5px 15px
             top: -10px
             span
