@@ -1,8 +1,8 @@
 <template>
-  <div class="search-box">
-    <input type="text" placeholder="搜索一下下菊花又不会坏……">
-    <i class="icon-font icon-search"></i>
-  </div>
+    <div class="search-box">
+        <input type="text" placeholder="搜索一下下菊花又不会坏……">
+        <i class="icon-font icon-search"></i>
+    </div>
 </template>
 
 <script>
@@ -10,19 +10,25 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
-  .search-box
-    float right
-    margin-top: 140px
-    input
-      padding: 6px 30px 6px 15px
-      border-radius 14px
-      background rgba(255, 255, 255, .8)
-      width 200px
-      box-shadow 0 1px 2px rgba(29,36,52,.8)
-    .icon-search
-      color: $d-color
-      position: relative
-      right: 32px
-      top: 2px
+    @import "~common/stylus/variable"
+    .search-box
+        position absolute
+        left: 50%
+        transform translate(-50%,0)
+        top: 10px
+        input
+            color: $color
+            padding: 12px 30px 12px 15px
+            border-radius 20px
+            background $bg-color
+            width 250px
+            box-shadow 0 1px 2px rgba(29, 36, 52, .8)
+        .icon-search
+            background $blue-color
+            border-radius 50%
+            color: #fff
+            padding: 5px
+            position: relative
+            right: 38px
+            top: 2px
 </style>

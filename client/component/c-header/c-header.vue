@@ -1,43 +1,41 @@
 <template>
-  <div class="header" ref="header">
-    <div class="before" ref="hBefore"></div>
-    <div class="bio">
-      <ul class="biu">
-        <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
-        <li v-show="isShow">{{user.name}}</li>
-        <li v-show="isShow" @click="onLogout">退出</li>
-        <li @click="onLogin" v-show="!isShow">登陆</li>
-        <a href="http://admin.idanmu.cc/register">
-          <li v-show="!isShow">注册</li>
-        </a>
-      </ul>
+    <div class="header">
+        <div class="bio">
+            <ul class="biu">
+                <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
+                <li v-show="isShow">{{user.name}}</li>
+                <li v-show="isShow" @click="onLogout">退出</li>
+                <li @click="onLogin" v-show="!isShow">登陆</li>
+                <a href="http://admin.idanmu.cc/register">
+                    <li v-show="!isShow">注册</li>
+                </a>
+            </ul>
 
-      <a href="http://admin.idanmu.cc">
-        <li class="pr">
-          投稿
-        </li>
-      </a>
-    </div>
-    <div class="topbar">
-      <div class="wrap">
-        <ul class="menu">
-          <router-link to="/" class="tab-item">
-            <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
-          </router-link>
-          <router-link to="/game" class="tab-item">
-            <li>游戏中心</li>
-          </router-link>
-        </ul>
-      </div>
-    </div>
-    <div class="wrap">
-      <search-box></search-box>
-    </div>
-    <transition name="fade">
-      <login v-show="isLogin" @close="close" @loadInfo="loadInfo"></login>
-    </transition>
+            <a href="http://admin.idanmu.cc">
+                <li class="pr">
+                    <span>投稿</span>
+                </li>
+            </a>
+        </div>
+        <div class="wrap">
+            <div class="logo">
+                <img src="../../common/img/logo.png" alt="">
+            </div>
+            <ul class="menu">
+                <router-link to="/" class="tab-item">
+                    <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
+                </router-link>
+                <router-link to="/game" class="tab-item">
+                    <li>游戏中心</li>
+                </router-link>
+            </ul>
+            <search-box></search-box>
+        </div>
+        <transition name="fade">
+            <login v-show="isLogin" @close="close" @loadInfo="loadInfo"></login>
+        </transition>
 
-  </div>
+    </div>
 
 </template>
 
@@ -62,18 +60,6 @@
     computed: {
       ...mapGetters(['isLogin'])
 
-    },
-
-    beforeMount() {
-      getOption().then((res) => {
-        this.banner = res.data.result[0].banner
-        this.$refs.header.style.background = 'url(' + this.banner + ') center'
-        this.$refs.hBefore.style.background = 'url(' + this.banner + ') center'
-        this.$refs.header.style.backgroundSize = 'contain'
-        this.$refs.hBefore.style.backgroundSize = 'contain'
-      }).catch(e => {
-        console.log(e)
-      })
     },
     mounted() {
       this.loadInfo()
@@ -119,88 +105,80 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
-  .header-wrap
-    position relative
-    a
-      color: #fff
-
-  .header
-    background-size contain
-
-  .header .before
-    content: ""
-    width 100%
-    height 40px
-    position absolute
-    top: 0
-    bottom: 0
-    background $d-color
-    filter: blur(10px)
-    z-index 0
-    background-size contain
-
-  .header
-    background $d-color
-    height: 200px
-    position: relative
-    .topbar
-      position absolute
-      top: 0
-      overflow hidden
-      z-index 1000
-      width 100%
-      background rgba(22, 25, 33, 0.6)
-      box-shadow 0 1px 3px #080808
-      .menu
+    @import "~common/stylus/variable"
+    .header
+        background $b-color
         position: relative
-    li
-      display inline-block
-      padding: 10px 25px
-      color: #fff
-      box-sizing: border-box
-    .router-link-active li
-      color: $a-color
-    .icon-home
-      margin-right: 10px
+        padding: 10px
+        .logo
+            position absolute
+            top: 5px
+            img
+                height 50px
+                width: 50px
+        .menu
+            display inline-block
+            margin-left 60px
+        li
+            display inline-block
+            padding: 10px
+            color: $color
+            box-sizing: border-box
+        .router-link-active li
+            color: $blue-color
+        .icon-home
+            margin-right: 10px
 
-  .bio
-    width 1200px
-    margin: 0 auto
-    position relative
-    .avatar
-      line-height 0
-      img
-        margin-top: 5px
-        height: 30px
-        width: 30px
-        border-radius 15px
-    .pr
-      position absolute
-      right 0
-      background linear-gradient(#ff7d90, #f84861)
-      font-size: 16px
-      border-radius 0 0 4px 4px
-      z-index: 99999
-      padding: 15px 20px
+    .bio
+        width 1100px
+        margin: 0 auto
+        position relative
+        .avatar
+            line-height 0
+            img
+                margin-top: 5px
+                height: 30px
+                width: 30px
+                border-radius 15px
+        .pr
+            position absolute
+            right 0
+            background $blue-color
+            font-size: 16px
+            z-index: 99999
+            padding: 5px 15px
+            top: -10px
+            span
+                position relative
+                top: 15px
 
-  .biu
-    position absolute
-    top: 0
-    right: 90px
-    z-index: 9999999
-    color #fff
-    display flex
-    align-items center
-    li
-      display inline-block
-      padding: 0 10px
-      line-height 40px
-      cursor pointer
+    .pr:before
+        content: ''
+        height 40px
+        width 64px
+        background $blue-color
+        position absolute
+        top: 30px
+        left: 0
+        border-radius 0 0 40px 40px
 
-  .fade-enter-active, .fade-leave-active
-    transition: opacity 1s
+    .biu
+        position absolute
+        top: 0
+        right: 80px
+        z-index: 9999999
+        color #fff
+        display flex
+        align-items center
+        li
+            display inline-block
+            padding: 0 10px
+            line-height 40px
+            cursor pointer
 
-  .fade-enter, .fade-leave-to
-    opacity: 0
+    .fade-enter-active, .fade-leave-active
+        transition: opacity 1s
+
+    .fade-enter, .fade-leave-to
+        opacity: 0
 </style>
