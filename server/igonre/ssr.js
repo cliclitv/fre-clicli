@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 const path = require('path')
 const fs = require('fs')
-const serverRender = require('../util/no-bundle')
+const serverRender = require('./no-bundle')
 const VueServerRenderer = require('vue-server-renderer')
 const clientManifest = require('../../dist/vue-ssr-client-manifest.json')
 

@@ -6,7 +6,7 @@ const MemoryFs = require('memory-fs')
 const webpack = require('webpack')
 const VueServerRenderer = require('vue-server-renderer')
 
-const serverConfig = require('../../build/wp.server')
+const serverConfig = require('../build/wp.server')
 
 const serverCompiler = webpack(serverConfig)
 

@@ -32,13 +32,6 @@ module.exports = {
         }
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          preserveWhitespace: true
-        }
-      },
-      {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
