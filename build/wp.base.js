@@ -26,7 +26,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['stage-1'],
+            presets: ['stage-0'],
             plugins: ['syntax-dynamic-import']
           }
         }

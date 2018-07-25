@@ -1,11 +1,10 @@
-const path = require('path')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const merge = require('webpack-merge')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const isDev = process.env.NODE_ENV === 'development'
 
+const isDev = process.env.NODE_ENV === 'development'
 const baseConfig = require('./wp.base')
 
 module.exports = merge(baseConfig, {
