@@ -109,6 +109,7 @@
         border-top 2px solid $blue-color
         background $b-color
         padding: 10px
+        box-shadow 0 2px 10px 0 rgba(4,21,39,0.2), 0 1px rgba(4,21,39,0.2)
         .logo
             position absolute
             top: 6px

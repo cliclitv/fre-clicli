@@ -23,9 +23,7 @@
             <router-link to="/sort/topic">
                 <li><i class="icon-font icon-news"></i>号外</li>
             </router-link>
-            <router-link to="/sort/other">
-                <li><i class="icon-font icon-other"></i>其他</li>
-            </router-link>
+
         </ul>
 
     </div>
