@@ -76,15 +76,13 @@
       },
       loadInfo() {
         auth().then(res => {
-          if (res.status === 200) {
             if (res.data.code === 401) {
-              removeStorage('user-info')
-              this.isShow = false
+              this.isShow = true
+              this.user = getStorage('user-info')
             }else {
               this.isShow = true
               this.user = getStorage('user-info')
             }
-          }
         })
       },
       onLogout() {
@@ -108,12 +106,12 @@
 <style lang="stylus" rel="stylesheet/stylus">
     @import "~common/stylus/variable"
     .header
+        border-top 2px solid $blue-color
         background $b-color
-        position: relative
         padding: 10px
         .logo
             position absolute
-            top: 5px
+            top: 6px
             img
                 height 50px
                 width: 50px
@@ -137,7 +135,6 @@
         .avatar
             line-height 0
             img
-                margin-top: 5px
                 height: 30px
                 width: 30px
                 border-radius 15px

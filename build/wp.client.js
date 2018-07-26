@@ -56,29 +56,10 @@ module.exports = merge(baseConfig, {
     // }),
   ],
   devServer: {
-    headers: {'Access-Control-Allow-Origin': '*'},
     hot: true,
     compress: true,
     port: 2333,
     proxy: {
-      '/user/': {
-        target: 'https://localhost:4000'
-      },
-      '/article/': {
-        target: 'https://localhost:4000'
-      },
-      '/option/': {
-        target: 'https://localhost:4000'
-      },
-      '/register/': {
-        target: 'https://localhost:4000'
-      },
-      '/login/': {
-        target: 'https://localhost:4000'
-      },
-      '/auth/': {
-        target: 'https://localhost:4000'
-      }
     }
   }
 })

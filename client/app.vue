@@ -1,8 +1,9 @@
 <template>
-  <div id="app">
-    <c-header></c-header>
-    <c-footer></c-footer>
-  </div>
+    <div id="app">
+        <c-header></c-header>
+        <router-view></router-view>
+        <c-footer></c-footer>
+    </div>
 </template>
 
 <script>

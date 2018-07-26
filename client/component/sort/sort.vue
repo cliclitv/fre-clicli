@@ -1,8 +1,8 @@
 <template>
-  <div class="sort wrap">
-    <article-list :articles="articles" key="this.$route.params.sort"></article-list>
-    <pagination @next="next" v-show="isShow"></pagination>
-  </div>
+    <div class="sort wrap">
+        <!--<article-list :articles="articles" key="this.$route.params.sort"></article-list>-->
+        <pagination @next="next" v-show="isShow"></pagination>
+    </div>
 
 </template>
 
@@ -10,10 +10,8 @@
   import {mapActions, mapState} from 'vuex'
   import moment from 'moment'
   import titleMixin from 'common/mixin/title-mixin'
-  import ArticleList from 'component/article-list/article-list.vue'
   import Pagination from 'base/pagination/pagination.vue'
   import {articleList} from 'api/article'
-
   export default {
     mixins: [titleMixin],
     data() {
@@ -35,7 +33,6 @@
     },
     asyncData({store, route}) {
       return store.dispatch('getSortArticle', route.params.sort)
-
     },
     methods: {
       ...mapActions(['getSortArticle']),
@@ -66,25 +63,22 @@
       }
     },
     components: {
-      ArticleList,
       Pagination
     }
   }
 </script>
 
 <style lang="stylus">
-  .sort
-    padding 20px 0
-    .article-list li
-      width 175px
-      .suo
-        width 175px
-      .suo:before
-        width 175px
-      .suo img
-        width 175px
-
-  .sort .article-list li:nth-child(6n)
-    padding 20px 0 20px 0
-
+    .sort
+        padding 20px 0
+        .article-list li
+            width 175px
+            .suo
+                width 175px
+            .suo:before
+                width 175px
+            .suo img
+                width 175px
+    .sort .article-list li:nth-child(6n)
+        padding 20px 0 20px 0
 </style>

@@ -24,8 +24,6 @@
         background: $b-color
         width 100%
         text-align center
-        position absolute
-        bottom 0
         p
             padding-top: 10px
 

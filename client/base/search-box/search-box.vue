@@ -15,7 +15,7 @@
         position absolute
         left: 50%
         transform translate(-50%,0)
-        top: 10px
+        top: 12px
         input
             color: $color
             padding: 12px 30px 12px 15px

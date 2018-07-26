@@ -37,7 +37,7 @@ export default function (width, len, interval) {
           slider.style.left = -width * len + 'px'
         }
         if (newOffset < -width * len) {
-          slider.style.left = '-440px'
+          slider.style.left = '-650px'
         }
         isAnimate = false
       }
