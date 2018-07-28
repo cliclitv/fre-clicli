@@ -26,7 +26,7 @@
                     <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
                 </router-link>
                 <router-link to="/game" class="tab-item">
-                    <li>游戏中心</li>
+                    <li>作者</li>
                 </router-link>
             </ul>
             <search-box></search-box>
