@@ -38,8 +38,6 @@
 
 <script>
   import {mapActions, mapGetters} from 'vuex'
-  import moment from 'moment'
-  import marked from 'marked'
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
   import Comment from 'component/comment/comment.vue'
@@ -73,17 +71,7 @@
       ...mapActions(['getPost']),
       onLogin() {
         this.$emit('onLogin')
-      },
-      getAvatar(avatar) {
-        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
-      },
-      momentTime(time) {
-        return moment(time).format('YYYY-MM-DD')
-      },
-      marked(content) {
-        const str = content.replace(/www.uraban.me/g, 'pic.51xiaoxin.com/www.uraban.me');
-        return marked(str, {breaks: true})
-      },
+      }
     },
     components: {
       Loading,

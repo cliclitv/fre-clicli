@@ -106,6 +106,11 @@
 <style lang="stylus" rel="stylesheet/stylus">
     @import "~common/stylus/variable"
     .header
+        position fixed
+        top: 0
+        left: 0
+        right: 0
+        z-index 9
         border-top 2px solid $blue-color
         background $b-color
         padding: 10px

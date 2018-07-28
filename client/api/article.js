@@ -4,13 +4,14 @@ const request = axios.create({
   baseURL: 'http://api.chinko.cc'
 })
 
-// 获取所有文章
-export function articleList() {
+// 根据分类获取文章
+export function articleList(sort,page,pageSize) {
   return request.get('/posts', {
     params: {
       status: 'public',
-      page: 1,
-      pageSize: 20
+      sort,
+      page,
+      pageSize,
     }
   })
 }

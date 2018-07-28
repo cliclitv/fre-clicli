@@ -7,6 +7,7 @@
         </div>
         <div class="main">
             <slider></slider>
+            <h1 class="common-title">推荐文章</h1>
             <router-view></router-view>
         </div>
         <div class="right">
@@ -37,6 +38,7 @@
     .home
         padding: 10px 0
         height 1000px
+        margin-top 60px
 
     .left
         width 160px
@@ -49,6 +51,10 @@
         width 650px
         float: left
         padding: 10px
+        .common-title
+            font-size: 13px
+            padding: 30px 0 10px 0
+            font-weight: lighter
 
     .right
         float: right

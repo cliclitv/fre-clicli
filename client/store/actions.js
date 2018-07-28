@@ -26,8 +26,8 @@ export default {
     })
   },
   getSortArticle({commit}, sort) {
-    return articleList(sort).then(res => {
-      commit('loadSortArticle', res.data.result)
+    return articleList(sort, 1, 5).then(res => {
+      commit('loadSortArticle', res.data.posts)
     }).catch(e => {
       console.log(e)
     })
