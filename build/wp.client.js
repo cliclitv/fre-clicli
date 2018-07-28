@@ -47,13 +47,6 @@ module.exports = merge(baseConfig, {
     new VueClientPlugin(),
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    // new MiniCssExtractPlugin({
-    //   filename: "../css/[name].css",
-    //   chunkFilename: "css/[id].css"
-    // }),
-    // new HtmlWebpackPlugin({
-    //   template: path.join(__dirname, 'template.html')
-    // }),
   ],
   devServer: {
     hot: true,
@@ -64,5 +57,16 @@ module.exports = merge(baseConfig, {
   }
 })
 
+// MiniCssExtractPlugin 暂不支持 ssr，暂时移除，坐等更新
+// https://github.com/webpack-contrib/mini-css-extract-plugin/issues/90
+
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 // const isDev = process.env.NODE_ENV === 'development'
+
+// new MiniCssExtractPlugin({
+//   filename: "../css/[name].css",
+//   chunkFilename: "css/[id].css"
+// }),
+// new HtmlWebpackPlugin({
+//   template: path.join(__dirname, 'template.html')
+// }),
