@@ -25,8 +25,11 @@
                 <router-link to="/" class="tab-item">
                     <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
                 </router-link>
-                <router-link to="/game" class="tab-item">
-                    <li>作者</li>
+                <router-link to="/authors" class="tab-item">
+                    <li>作者墙</li>
+                </router-link>
+                <router-link to="/authors" class="tab-item">
+                    <li>号外</li>
                 </router-link>
             </ul>
             <search-box></search-box>
