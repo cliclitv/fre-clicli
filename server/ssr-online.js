@@ -4,7 +4,7 @@ const fs = require('fs')
 const VueServerRenderer = require('vue-server-renderer')
 const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 
-const bundle = require('../dist/server-build.js').default
+const bundle = require('../dist/js/server-build.js').default
 const template = fs.readFileSync(path.join(__dirname, './template.html'), 'utf-8')
 const renderer = VueServerRenderer.createRenderer({
     template,

@@ -23,7 +23,7 @@ module.exports = merge(baseConfig, {
   entry: path.resolve(__dirname, '../client/server-entry.js'),
   output: {
     libraryTarget: 'commonjs2',
-    filename: 'server-build.js',
+    filename: 'js/server-build.js',
     path: path.resolve(__dirname, '../dist')
   },
   optimization: {
