@@ -1,8 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-
-const VueClientPlugin = require('vue-server-renderer/client-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 
@@ -11,10 +10,10 @@ const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = merge(baseConfig, {
   entry: {
-    app: './client/client-entry.js'
+    app: './client/index.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/spa'),
     filename: 'js/[name].js',
     publicPath: isDev ? 'http://localhost:2333/' : '/'
   },
@@ -51,16 +50,18 @@ module.exports = merge(baseConfig, {
     runtimeChunk: true
   },
   plugins: [
-    new VueClientPlugin(),
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: './client/template.html'
+    }),
   ],
   devServer: {
+    contentBase: path.join(__dirname, "dist/spa"),
     hot: true,
     compress: true,
     port: 2333,
-    proxy: {
-    }
+    historyApiFallback: true
   }
 })
 
