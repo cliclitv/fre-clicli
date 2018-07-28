@@ -9,7 +9,7 @@
     "build:spa": "cross-env NODE_ENV=production webpack --mode production --config build/wp.spa.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.client.js",
     "dev:spa": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.spa.js",
-    "build": "cross-env  yarn build:client && yarn build:server  --mode production",
+    "build": "yarn build:client && yarn build:server  --mode production",
     "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:client --mode development\" \"nodemon server/app.js\" ",
     "start": "node server/app.js"
   },
