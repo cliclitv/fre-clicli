@@ -11,7 +11,7 @@
                 </a>
             </ul>
 
-            <a href="http://admin.idanmu.cc">
+            <a href="http://admin.chinko.cc">
                 <li class="pr">
                     <span>投稿</span>
                 </li>
@@ -28,7 +28,7 @@
                 <router-link to="/authors" class="tab-item">
                     <li>作者墙</li>
                 </router-link>
-                <router-link to="/authors" class="tab-item">
+                <router-link to="/sort/news" class="tab-item">
                     <li>号外</li>
                 </router-link>
             </ul>
