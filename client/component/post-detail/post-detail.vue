@@ -1,7 +1,7 @@
 <template>
     <div class="post-list">
         <div class="avatar">
-            <img v-lazy="getAvatar(post.uqq)" :src="getAvatar(post.uqq)">
+            <img :src="getAvatar(post.uqq)">
             <span>{{post.uname}}</span>
         </div>
         <div class="post">

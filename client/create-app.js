@@ -9,11 +9,11 @@ import createStore from './store/index'
 
 import 'common/stylus/reset.styl'
 import 'common/stylus/index.styl'
-import VueLazyLoad from 'vue-lazyload'
+// import VueLazyLoad from 'vue-lazyload'
 
-Vue.use(VueLazyLoad, {
-  loading: require('common/img/lazy.jpg')
-})
+// Vue.use(VueLazyLoad, {
+//   loading: require('common/img/lazy.jpg')
+// })
 
 
 Vue.use(VueRouter)

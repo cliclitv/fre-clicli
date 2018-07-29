@@ -3,7 +3,7 @@
         <ul>
             <li v-for="item in posts">
                 <div class="avatar">
-                    <img v-lazy="getAvatar(item.uqq)" :src="getAvatar(item.uqq)">
+                    <img :src="getAvatar(item.uqq)">
                     <span>{{item.uname}}</span>
                 </div>
                 <div class="post">
@@ -15,7 +15,7 @@
                         <span>{{item.sort}}</span>
                     </div>
                     <div class="suo">
-                        <img v-lazy="getSuo(item.content)" :src="getSuo(item.content)">
+                        <img :src="getSuo(item.content)">
                     </div>
                 </div>
 
