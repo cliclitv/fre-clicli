@@ -19,7 +19,7 @@
         </div>
         <div class="wrap">
             <div class="logo">
-                <img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1ftqfxq1g6lj302s02sdg3.jpg" alt="">
+                <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
             </div>
             <ul class="menu">
                 <router-link to="/" class="tab-item">
@@ -117,13 +117,12 @@
         box-shadow 0 2px 10px 0 rgba(4,21,39,0.2), 0 1px rgba(4,21,39,0.2)
         .logo
             position absolute
-            top: 6px
+            top: 16px
             img
-                height 50px
-                width: 50px
+                height 25px
         .menu
             display inline-block
-            margin-left 60px
+            margin-left 140px
         li
             display inline-block
             padding: 10px
