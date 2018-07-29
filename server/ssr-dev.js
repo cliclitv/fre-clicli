@@ -41,8 +41,7 @@ const handleSSR = async (ctx) => {
   })
 
   const context = {
-    url: ctx.path,
-    title: '开发开发'
+    url: ctx.path
   }
   const appString = await renderer.renderToString(context)
 

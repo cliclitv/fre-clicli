@@ -24,7 +24,7 @@
       }
     },
     title() {
-      return translate(this.$route.params.sort) + '- ACG和谐区'
+      return translate(this.$route.params.sort) + '- ★ACG和谐区★'
     },
     beforeMount() {
       this.getSortArticle(this.$route.params.sort)

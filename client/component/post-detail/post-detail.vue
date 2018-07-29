@@ -21,8 +21,13 @@
 <script>
   import {getAvatar, mark} from "common/js/util"
   import {mapActions, mapGetters} from 'vuex'
+  import titleMixin from 'common/mixin/title-mixin'
 
   export default {
+    mixins: [titleMixin],
+    title() {
+      return this.$store.state.post.title + '- ★ACG和谐区★'
+    },
     computed: {
       ...mapGetters(['post'])
     },

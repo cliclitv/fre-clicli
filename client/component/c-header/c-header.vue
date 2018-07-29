@@ -111,7 +111,6 @@
         left: 0
         right: 0
         z-index 9
-        border-top 2px solid $blue-color
         background $b-color
         padding: 10px
         box-shadow 0 2px 10px 0 rgba(4,21,39,0.2), 0 1px rgba(4,21,39,0.2)

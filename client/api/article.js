@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {getStorage} from "common/js/localstorage"
-const request = axios.create({
+export const request = axios.create({
   baseURL: 'http://api.chinko.cc'
 })
 

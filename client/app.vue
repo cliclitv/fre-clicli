@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <progress-bar></progress-bar>
         <c-header></c-header>
         <div class="home wrap">
             <div class="left">
@@ -19,19 +20,26 @@
 </template>
 
 <script>
+  import ProgressBar from 'base/progress-bar/progress-bar.vue'
   import CHeader from 'component/c-header/c-header.vue'
   import CFooter from 'component/c-footer/c-footer.vue'
   import Notice from 'component/notice/notice.vue'
   import Tab from 'component/tab/tab.vue'
   import ReachBox from 'component/reach-box/reach-box.vue'
+  import titleMixin from 'common/mixin/title-mixin'
 
   export default {
+    mixins: [titleMixin],
+    title() {
+      return '★ACG和谐区★ - 绅士的和谐社区(acgzone.cn)'
+    },
     components: {
       CHeader,
       CFooter,
       Notice,
       Tab,
-      ReachBox
+      ReachBox,
+      ProgressBar
     }
   }
 </script>
@@ -40,7 +48,7 @@
     .home
         padding: 10px 0
         height 1000px
-        margin 60px auto!important
+        margin 60px auto !important
 
     .main
         margin-top: 10px

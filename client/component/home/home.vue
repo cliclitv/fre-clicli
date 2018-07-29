@@ -15,9 +15,9 @@
 
 
   export default {
-    mixin:['titleMixin'],
+    mixins: [titleMixin],
     title() {
-      return 'ACG和谐区 - 绅士的和谐社区'
+      return '★ACG和谐区★ - 绅士的和谐社区(acgzone.cn)'
     },
     name: "home",
     data() {
