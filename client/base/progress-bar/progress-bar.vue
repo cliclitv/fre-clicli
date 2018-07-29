@@ -11,7 +11,7 @@
   export default {
     data() {
       return {
-        width: 0,
+        width: 5,
         isShow: false
       }
     },

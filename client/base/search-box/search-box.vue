@@ -34,5 +34,5 @@
             padding: 5px
             position: relative
             right: 38px
-            top: 2px
+            top: 1px
 </style>

@@ -19,7 +19,9 @@
         </div>
         <div class="wrap">
             <div class="logo">
-                <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
+                <router-link to="/">
+                    <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
+                </router-link>
             </div>
             <ul class="menu">
                 <router-link to="/" class="tab-item">
@@ -116,7 +118,7 @@
         box-shadow 0 2px 10px 0 rgba(4,21,39,0.2), 0 1px rgba(4,21,39,0.2)
         .logo
             position absolute
-            top: 16px
+            top: 18px
             img
                 height 25px
         .menu

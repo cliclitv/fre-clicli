@@ -12,13 +12,13 @@
                 <p>投稿投稿啦~</p>
             </li>
             <li>
-                <a href="https://item.taobao.com/item.htm?id=568316315061"><img
+                <a href=""><img
                         src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftnm6qbkhuj311s0bs4ac.jpg"></a>
                 <p>广告~</p>
             </li>
             <li>
             <li>
-                <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img
+                <a href=""><img
                         src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftnm5ih419j311s0bs7gy.jpg"></a>
                 <p>投稿投稿啦~</p>
             </li>

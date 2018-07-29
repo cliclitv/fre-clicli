@@ -14,6 +14,7 @@
             <div class="right">
                 <notice></notice>
             </div>
+            <div class="clear"></div>
         </div>
         <c-footer></c-footer>
     </div>
@@ -47,7 +48,6 @@
 <style lang="stylus">
     .home
         padding: 10px 0
-        height 1000px
         margin 60px auto !important
 
     .main
