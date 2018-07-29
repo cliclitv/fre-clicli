@@ -19,7 +19,7 @@
         </div>
         <div class="wrap">
             <div class="logo">
-                <img src="../../common/img/logo.png" alt="">
+                <img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1ftqfxq1g6lj302s02sdg3.jpg" alt="">
             </div>
             <ul class="menu">
                 <router-link to="/" class="tab-item">
@@ -62,9 +62,6 @@
     computed: {
       ...mapGetters(['isLogin'])
 
-    },
-    mounted() {
-      this.loadInfo()
     },
 
     methods: {

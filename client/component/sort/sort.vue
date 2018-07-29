@@ -1,5 +1,5 @@
 <template>
-    <div class="sort wrap">
+    <div class="sort">
         <post-list :posts="sort" key="this.$route.params.sort"></post-list>
         <pagination @next="next" v-show="isShow"></pagination>
     </div>
@@ -11,7 +11,7 @@
   import {mapActions, mapState} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
   import Pagination from 'base/pagination/pagination.vue'
-  import {articleList} from 'api/article'
+  import {translate} from "common/js/util"
 
   export default {
     mixins: [titleMixin],
@@ -24,7 +24,7 @@
       }
     },
     title() {
-      return '后庭花'
+      return translate(this.$route.params.sort) + '- ACG和谐区'
     },
     beforeMount() {
       this.getSortArticle(this.$route.params.sort)
@@ -37,13 +37,6 @@
     },
     methods: {
       ...mapActions(['getSortArticle']),
-      // sortArticle() {
-      //   articleList(this.$route.params.sort, this.page, this.pageSize).then(res => {
-      //     if (res.data.code === 201) {
-      //       this.posts = res.data.posts
-      //     }
-      //   })
-      // },
       next() {
         this.page++
         this.sortArticle(true)

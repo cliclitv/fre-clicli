@@ -1,7 +1,7 @@
 import Router from 'vue-router'
 
 const Home = () => import('component/home/home.vue')
-const ArticleDetail = () => import('component/article-detail/article-detail.vue')
+const ArticleDetail = () => import('component/post-detail/post-detail.vue')
 const Sort = () => import('component/sort/sort.vue')
 
 
@@ -16,20 +16,17 @@ export default () => {
       },
       {
         path: '/home',
-        component: Home,
-        children:[
-          {
-            path: '/sort/:sort',
-            component: Sort
-          }
-        ]
+        component: Home
       },
       {
         path: '/post/:id',
         component: ArticleDetail
+      },
+      {
+        path: '/sort/:sort',
+        component: Sort
       }
     ],
-
     scrollBehavior(to) {
       return {
         x: 0,
