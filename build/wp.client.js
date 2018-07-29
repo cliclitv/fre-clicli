@@ -16,6 +16,7 @@ module.exports = merge(baseConfig, {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -53,14 +54,7 @@ module.exports = merge(baseConfig, {
     new VueClientPlugin(),
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-  ],
-  devServer: {
-    hot: true,
-    compress: true,
-    port: 2333,
-    proxy: {
-    }
-  }
+  ]
 })
 
 // MiniCssExtractPlugin 暂不支持 ssr，暂时移除，坐等更新

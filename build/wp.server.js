@@ -24,7 +24,8 @@ module.exports = merge(baseConfig, {
   output: {
     libraryTarget: 'commonjs2',
     filename: 'server-build.js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/'
   },
   optimization: {
     splitChunks: false
