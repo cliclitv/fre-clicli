@@ -18,18 +18,24 @@ const router = new Router()
 
 router.get('*', async (ctx) => {
   ctx.type = 'html'
-  const context = {
-    url: ctx.path
-  }
-  try {
-    const app = await bundle(context)
+  const cookie = ctx.cookies.get('uname')
+  if (cookie) {
+    let data = fs.readFileSync(path.join(__dirname,'../dist/spa/index.html'))
+    ctx.body = data.toString()
+  } else {
+    const context = {
+      url: ctx.path
+    }
+    try {
+      const app = await bundle(context)
 
-    const appString = await renderer.renderToString(app, context)
+      const appString = await renderer.renderToString(app, context)
 
-    ctx.body = appString
-  } catch (err) {
-    console.log('render error', err)
-    throw err
+      ctx.body = appString
+    } catch (err) {
+      console.log('render error', err)
+      throw err
+    }
   }
 
 

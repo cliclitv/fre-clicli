@@ -12,10 +12,6 @@ export default () => {
     routes: [
       {
         path: '/',
-        redirect: '/home'
-      },
-      {
-        path: '/home',
         component: Home
       },
       {
