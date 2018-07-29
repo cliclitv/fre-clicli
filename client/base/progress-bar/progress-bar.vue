@@ -15,8 +15,10 @@
         isShow: false
       }
     },
-    mounted() {
+    created() {
       this.loadStart(100)
+    },
+    mounted(){
       request.interceptors.request.use((config) => {
         this.isShow = true
         this.loadStart(80)
