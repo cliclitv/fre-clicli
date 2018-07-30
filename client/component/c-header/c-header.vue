@@ -107,6 +107,10 @@
           path: '/',
           domain: 'chinko.cc'
         })
+        Cookies.remove('uqq', {
+          path: '/',
+          domain: 'chinko.cc'
+        })
         removeStorage('user-info')
         this.isShow = false
 
