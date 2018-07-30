@@ -91,6 +91,7 @@
                 border-radius 20px
                 color: #fff
                 outline none
+                cursor pointer
 
 
 </style>
