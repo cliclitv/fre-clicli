@@ -48,6 +48,7 @@
   import SearchBox from 'base/search-box/search-box.vue'
   import Login from 'component/login/login.vue'
   import Cookies from 'js-cookie'
+  import {Base64} from 'js-base64'
   import {mapGetters, mapMutations} from 'vuex'
   import {logout, auth, getUserInfo} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
@@ -88,7 +89,7 @@
               this.isShow = true
               this.user = user
             } else {
-              const name = Cookies.get('uname')
+              const name = Base64.decode(Cookies.get('uname'))
               getUserInfo(name).then(res => {
                 setStorage('user-info', res.data.user)
                 this.user = res.data.user
@@ -102,9 +103,9 @@
         })
       },
       onLogout() {
-        Cookies.remove('uname',{
-          path:'/',
-          domain:'chinko.cc'
+        Cookies.remove('uname', {
+          path: '/',
+          domain: 'chinko.cc'
         })
         removeStorage('user-info')
         this.isShow = false

@@ -96,8 +96,9 @@
                     padding: 15px
                     background $bg-color
                     border-radius 5px
+                    margin: 5px 0
                 p
-                    padding: 5px 0
+                    padding: 10px 0
                     line-height: 1.5
         .post:before
             content ''

@@ -1,6 +1,6 @@
 export default {
-  loadArticleList(state, articles) {
-    state.articles = articles
+  loadArticleList(state, posts) {
+    state.posts = posts
   },
   loadAuthor(state, author) {
     state.author = author

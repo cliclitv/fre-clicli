@@ -4,9 +4,9 @@ export const request = axios.create({
   baseURL: 'http://api.chinko.cc'
 })
 
-// 根据分类获取文章
-export function articleList(sort,page,pageSize) {
-  return request.get('/posts', {
+// 根据分类获取发布状态的文章
+export function getPostsBySort(sort,page,pageSize) {
+  return request.get('/posts/both', {
     params: {
       status: 'public',
       sort,
@@ -16,9 +16,20 @@ export function articleList(sort,page,pageSize) {
   })
 }
 
+// 根据状态获取文章
+export function getPostsByStatus(page,pageSize) {
+  return request.get('/posts/type', {
+    params: {
+      status: 'public',
+      page,
+      pageSize,
+    }
+  })
+}
+
 // 根据作者获取文章
 export function authorArticle(id) {
-  return request.get('/posts', {
+  return request.get('/posts/type', {
     params: {
       uid: id,
       page: 1,

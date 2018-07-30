@@ -1,11 +1,12 @@
-import {articleList, getOneArticle} from '../api/article'
+import {getPostsByStatus, getPostsBySort, getOneArticle} from '../api/article'
 import {userList} from '../api/user'
 
 
 export default {
   getArticleList({commit}) {
-    return articleList().then((res) => {
-      commit('loadArticleList', res.data.result)
+    return getPostsByStatus(1, 5).then((res) => {
+      console.log(res.data)
+      commit('loadArticleList', res.data.posts)
     }).catch(e => {
       console.log(e)
     })
@@ -13,7 +14,7 @@ export default {
 
   getAuthor({commit}) {
     return userList(1, 12).then(res => {
-      commit('loadAuthor', res.data.result)
+      commit('loadAuthor', res.data.posts)
     }).catch(e => {
       console.log(e)
     })
@@ -26,7 +27,7 @@ export default {
     })
   },
   getSortArticle({commit}, sort) {
-    return articleList(sort, 1, 5).then(res => {
+    return getPostsBySort(sort, 1, 5).then(res => {
       commit('loadSortArticle', res.data.posts)
     }).catch(e => {
       console.log(e)

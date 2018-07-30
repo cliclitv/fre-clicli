@@ -1,9 +1,9 @@
 <template>
     <div class="reach-box">
-        <router-link to="/sort/anime">
+        <router-link to="/">
             <li><i class="icon-font icon-new"></i>最新发布</li>
         </router-link>
-        <router-link to="/sort/comic">
+        <router-link to="/new">
             <li><i class="icon-font icon-hot"></i>热门内容</li>
         </router-link>
     </div>

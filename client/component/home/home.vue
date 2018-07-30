@@ -2,7 +2,7 @@
     <div>
         <slider></slider>
         <h1 class="common-title">推荐文章</h1>
-        <post-list :posts="sort"></post-list>
+        <post-list :posts="posts"></post-list>
     </div>
 
 </template>
@@ -20,22 +20,17 @@
       return '★ACG和谐区★ - 绅士的和谐社区(acgzone.cn)'
     },
     name: "home",
-    data() {
-      return {
-        posts: []
-      }
-    },
     beforeMount() {
-      this.getSortArticle()
+      this.getArticleList()
     },
     computed: {
-      ...mapState(['sort'])
+      ...mapState(['posts'])
     },
     asyncData({store}) {
-      return store.dispatch('getSortArticle')
+      return store.dispatch('getArticleList')
     },
     methods: {
-      ...mapActions(['getSortArticle']),
+      ...mapActions(['getArticleList']),
     },
     components: {
       Slider,
