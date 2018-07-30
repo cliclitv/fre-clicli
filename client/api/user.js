@@ -4,7 +4,7 @@ const request = axios.create({
 })
 // 用户登录
 export function login(user) {
-  return request.post('/api/login', user)
+  return axios.post('/api/login', user)
 }
 
 
@@ -25,8 +25,8 @@ export function userList() {
 
 // 查找单一用户信息
 
-export function getUserInfo(id) {
-  return request.get(`/user/${id}`)
+export function getUserInfo(name) {
+  return request.get(`/user/${name}`)
 }
 
 // 用户退出
@@ -35,5 +35,5 @@ export function logout() {
 }
 
 export function auth() {
-  return request.get('/auth')
+  return axios.get('/auth')
 }

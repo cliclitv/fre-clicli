@@ -6,7 +6,7 @@
                 <li v-show="isShow">{{user.name}}</li>
                 <li v-show="isShow" @click="onLogout">退出</li>
                 <li @click="onLogin" v-show="!isShow">登陆</li>
-                <a href="http://admin.idanmu.cc/register">
+                <a href="http://admin.chinko.cc/register">
                     <li v-show="!isShow">注册</li>
                 </a>
             </ul>
@@ -37,7 +37,7 @@
             <search-box></search-box>
         </div>
         <transition name="fade">
-            <login v-show="isLogin" @close="close" @loadInfo="loadInfo"></login>
+            <login v-show="isLogin" @close="close"></login>
         </transition>
 
     </div>
@@ -47,9 +47,10 @@
 <script>
   import SearchBox from 'base/search-box/search-box.vue'
   import Login from 'component/login/login.vue'
+  import Cookies from 'js-cookie'
   import {mapGetters, mapMutations} from 'vuex'
-  import {logout, auth} from "api/user"
-  import {getStorage, removeStorage} from "common/js/localstorage"
+  import {logout, auth, getUserInfo} from "api/user"
+  import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
 
   export default {
 
@@ -65,6 +66,9 @@
       ...mapGetters(['isLogin'])
 
     },
+    mounted() {
+      this.auth()
+    },
 
     methods: {
       onLogin() {
@@ -76,24 +80,35 @@
       getAvatar(qq) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
       },
-      loadInfo() {
+      auth() {
         auth().then(res => {
-            if (res.data.code === 401) {
+          if (res.data.code === 201) {
+            const user = getStorage('user-info')
+            if (user) {
               this.isShow = true
-              this.user = getStorage('user-info')
-            }else {
-              this.isShow = true
-              this.user = getStorage('user-info')
+              this.user = user
+            } else {
+              const name = Cookies.get('uname')
+              getUserInfo(name).then(res => {
+                setStorage('user-info', res.data.user)
+                this.user = res.data.user
+              })
             }
+
+          } else {
+            this.isShow = false
+            removeStorage('user-info')
+          }
         })
       },
       onLogout() {
-        logout().then((res) => {
-          if (res.data.code === 0) {
-            removeStorage('user-info')
-            this.loadInfo()
-          }
+        Cookies.remove('uname',{
+          path:'/',
+          domain:'chinko.cc'
         })
+        removeStorage('user-info')
+        this.isShow = false
+
       },
       ...mapMutations(['isOnLogin'])
     },
@@ -115,7 +130,7 @@
         z-index 9
         background $b-color
         padding: 10px
-        box-shadow 0 2px 10px 0 rgba(4,21,39,0.2), 0 1px rgba(4,21,39,0.2)
+        box-shadow 0 2px 10px 0 rgba(4, 21, 39, 0.2), 0 1px rgba(4, 21, 39, 0.2)
         .logo
             position absolute
             top: 18px

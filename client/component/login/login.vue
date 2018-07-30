@@ -37,9 +37,8 @@
           if (res.data.code === 201) {
             this.user = res.data.user
             setStorage('user-info', res.data.user)
-            console.log(getStorage('user-info'))
             this.close()
-            // this.$router.go(0)
+            this.$router.go(0)
           }
         })
       }
