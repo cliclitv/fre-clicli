@@ -22,6 +22,7 @@
   import {getAvatar, mark} from "common/js/util"
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
+  import marked from 'marked'
 
   export default {
     mixins: [titleMixin],
@@ -44,7 +45,7 @@
         return getAvatar(avatar)
       },
       mark(content) {
-        return mark(content)
+        return marked(content, {breaks: true})
       }
     }
   }

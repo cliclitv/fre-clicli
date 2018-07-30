@@ -20,7 +20,7 @@
             <router-link to="/sort/novel">
                 <li><i class="icon-font icon-novel"></i>小说</li>
             </router-link>
-            <router-link to="/sort/topic">
+            <router-link to="/sort/news">
                 <li><i class="icon-font icon-news"></i>号外</li>
             </router-link>
 
