@@ -8,7 +8,7 @@
                 <tab></tab>
             </div>
             <div class="main">
-                <router-view></router-view>
+                <router-view :key="$route.fullPath"></router-view>
             </div>
 
             <div class="right">
