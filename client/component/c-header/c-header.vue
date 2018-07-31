@@ -2,8 +2,11 @@
     <div class="header">
         <div class="bio">
             <ul class="biu">
-                <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
-                <li v-show="isShow">{{user.name}}</li>
+                <router-link :to="'/u/'+user.name">
+                    <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
+                    <li v-show="isShow">{{user.name}}</li>
+                </router-link>
+
                 <li v-show="isShow" @click="onLogout">退出</li>
                 <li @click="onLogin" v-show="!isShow">登陆</li>
                 <a href="http://admin.chinko.cc/register">

@@ -2,12 +2,14 @@
     <div class="post-list">
         <ul>
             <li v-for="item in posts">
-                <div class="avatar">
-                    <img :src="getAvatar(item.uqq)">
-                    <span>{{item.uname}}</span>
-                </div>
+                <router-link :to="'/u/'+item.uname">
+                    <div class="avatar">
+                        <img :src="getAvatar(item.uqq)">
+                        <span>{{item.uname}}</span>
+                    </div>
+                </router-link>
                 <div class="post">
-                    <router-link :to="'/post/'+item.id">
+                    <router-link :to="'/p/'+item.id">
                         <h1 class="title">{{item.title}}</h1>
                     </router-link>
                     <div class="info">
@@ -45,6 +47,8 @@
     @import "~common/stylus/variable"
     .post-list
         width: 650px
+        a
+            color: $color
         .avatar
             display flex
             align-items center

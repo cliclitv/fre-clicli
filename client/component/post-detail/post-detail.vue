@@ -1,11 +1,13 @@
 <template>
     <div class="post-list">
-        <div class="avatar">
-            <img :src="getAvatar(post.uqq)">
-            <span>{{post.uname}}</span>
-        </div>
+        <router-link :to="'/u/'+post.uname">
+            <div class="avatar">
+                <img :src="getAvatar(post.uqq)">
+                <span>{{post.uname}}</span>
+            </div>
+        </router-link>
         <div class="post">
-            <router-link :to="'/post/'+post.id">
+            <router-link :to="'/p/'+post.id">
                 <h1 class="title">{{post.title}}</h1>
             </router-link>
             <div class="info">
@@ -33,7 +35,7 @@
       ...mapGetters(['post'])
     },
     beforeMount() {
-        this.getPost(this.$route.params.id)
+      this.getPost(this.$route.params.id)
 
     },
     asyncData({store, route}) {
@@ -56,6 +58,8 @@
     @import "~common/stylus/variable"
     .post-list
         width: 650px
+        a
+            color: $color
         .avatar
             display flex
             align-items center

@@ -27,10 +27,11 @@ export function getPostsByStatus(page,pageSize) {
   })
 }
 
-// 根据作者获取文章
-export function authorArticle(id) {
-  return request.get('/posts/type', {
+// 根据作者获取发布状态的文章
+export function userArticle(id) {
+  return request.get('/posts/both', {
     params: {
+      status: 'public',
       uid: id,
       page: 1,
       pageSize: 20
