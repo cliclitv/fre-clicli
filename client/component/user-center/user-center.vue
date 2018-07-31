@@ -22,7 +22,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return this.$route.params.id + 'の主页 - ★ACG和谐区★'
+      return this.user ? (this.user.name + 'の主页 - ★ACG和谐区★') : '少年祈祷中……'
     },
     data() {
       return {
