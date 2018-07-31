@@ -1,6 +1,6 @@
 <template>
     <div class="post-list">
-        <router-link :to="'/u/'+post.uname">
+        <router-link :to="'/u/'+post.uid">
             <div class="avatar">
                 <img :src="getAvatar(post.uqq)">
                 <span>{{post.uname}}</span>

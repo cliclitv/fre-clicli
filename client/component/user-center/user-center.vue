@@ -3,7 +3,7 @@
         <div class="avatar">
             <img :src="getAvatar(user.qq)">
             <li>{{user.name}}</li>
-            <p>{{user.desc}}</p>
+            <p v-html="user.desc"></p>
         </div>
         <!--<h1 v-show="userPosts">{{user.name}} の 文章</h1>-->
         <h1 v-show="!userPosts">{{user.name}} 还没有发布过文章(＞﹏＜)</h1>
