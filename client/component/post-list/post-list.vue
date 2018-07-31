@@ -2,7 +2,7 @@
     <div class="post-list">
         <ul>
             <li v-for="item in posts">
-                <router-link :to="'/u/'+item.uname">
+                <router-link :to="'/u/'+item.uname" class="user-name">
                     <div class="avatar">
                         <img :src="getAvatar(item.uqq)">
                         <span>{{item.uname}}</span>
@@ -47,7 +47,7 @@
     @import "~common/stylus/variable"
     .post-list
         width: 650px
-        a
+        .user-name
             color: $color
         .avatar
             display flex

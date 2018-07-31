@@ -161,12 +161,15 @@
         width 1100px
         margin: 0 auto
         position relative
-        .avatar
-            line-height 0
-            img
-                height: 30px
-                width: 30px
-                border-radius 15px
+        a
+            display: flex
+            align-items: center
+            .avatar
+                line-height 0
+                img
+                    height: 30px
+                    width: 30px
+                    border-radius 15px
         .pr
             position absolute
             right 0

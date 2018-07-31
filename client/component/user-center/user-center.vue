@@ -22,7 +22,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return this.$route.params.id + '- ★ACG和谐区★'
+      return this.$route.params.id + 'の主页 - ★ACG和谐区★'
     },
     data() {
       return {
