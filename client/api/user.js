@@ -23,11 +23,26 @@ export function userList() {
   return request.get('/users?role=user&page=1&pageSize=100')
 }
 
-// 查找单一用户信息
+// 根据ID查找用户信息
 
-export function getUserInfo(name) {
-  return request.get(`/user/${name}`)
+export function getUserById(id) {
+  return request.get('/user', {
+    params: {
+      uid: id
+    }
+  })
 }
+
+// 根据用户名查找用户信息
+
+export function getUserByName(name) {
+  return request.get('/user', {
+    params: {
+      uname: name
+    }
+  })
+}
+
 
 // 用户退出
 export function logout() {

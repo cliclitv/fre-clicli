@@ -2,7 +2,7 @@
     <div class="user-info">
         <div class="avatar">
             <img :src="getAvatar(user.qq)">
-            <li>{{user.name}} sama~</li>
+            <li>{{user.name}}</li>
             <p>{{user.desc}}</p>
         </div>
         <!--<h1 v-show="userPosts">{{user.name}} の 文章</h1>-->
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import {getUserInfo} from "api/user"
+  import {getUserById} from "api/user"
   import {userArticle} from "api/article"
   import {getAvatar} from "common/js/util"
   import PostList from 'component/post-list/post-list.vue'
@@ -31,7 +31,7 @@
       }
     },
     beforeMount() {
-      getUserInfo(this.$route.params.id).then(res => {
+      getUserById(this.$route.params.id).then(res => {
         if (res.data.code === 201) {
           this.user = res.data.user
           userArticle(res.data.user.id).then(res => {

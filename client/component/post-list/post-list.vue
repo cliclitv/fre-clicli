@@ -2,7 +2,7 @@
     <div class="post-list">
         <ul>
             <li v-for="item in posts">
-                <router-link :to="'/u/'+item.uname" class="user-name">
+                <router-link :to="'/u/'+item.uid" class="user-name">
                     <div class="avatar">
                         <img :src="getAvatar(item.uqq)">
                         <span>{{item.uname}}</span>

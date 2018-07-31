@@ -2,7 +2,7 @@
     <div class="header">
         <div class="bio">
             <ul class="biu">
-                <router-link :to="'/u/'+user.name">
+                <router-link :to="'/u/'+user.id">
                     <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
                     <li v-show="isShow">{{user.name}}</li>
                 </router-link>
@@ -53,7 +53,7 @@
   import Cookies from 'js-cookie'
   import {Base64} from 'js-base64'
   import {mapGetters, mapMutations} from 'vuex'
-  import {logout, auth, getUserInfo} from "api/user"
+  import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
 
   export default {
@@ -93,7 +93,7 @@
               this.user = user
             } else {
               const name = Base64.decode(Cookies.get('uname'))
-              getUserInfo(name).then(res => {
+              getUserByName(name).then(res => {
                 setStorage('user-info', res.data.user)
                 this.user = res.data.user
               })

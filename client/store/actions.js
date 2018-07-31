@@ -4,7 +4,7 @@ import {userList} from '../api/user'
 
 export default {
   getArticleList({commit}) {
-    return getPostsByStatus(1, 5).then((res) => {
+    return getPostsByStatus(1, 10).then((res) => {
       commit('loadArticleList', res.data.posts)
     }).catch(e => {
       console.log(e)
@@ -26,7 +26,7 @@ export default {
     })
   },
   getSortArticle({commit}, sort) {
-    return getPostsBySort(sort, 1, 5).then(res => {
+    return getPostsBySort(sort, 1, 10).then(res => {
       commit('loadSortArticle', res.data.posts)
     }).catch(e => {
       console.log(e)
