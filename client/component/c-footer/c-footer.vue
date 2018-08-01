@@ -1,14 +1,10 @@
 <template>
-    <div class="footer">
-        <p> ACGzone © 2017 - 2018
-        </p>
-        <p>
-            Powered by
+    <div class="wrap footer">
+        <p> ACGzone © 2017 - 2018 Powered by
             <span style="color:#5599f0">Go</span> +
             <span style="color:#f0d055">Koa</span> +
             <span style="color:#66b26c">Vue</span> +
-            <span style="color:#59cfdc">React</span>.
-        </p>
+            <span style="color:#59cfdc">React</span>.</p>
     </div>
 
 </template>
@@ -21,10 +17,9 @@
     @import "~common/stylus/variable"
     .footer
         padding: 20px 0
-        background: $b-color
-        width 100%
-        text-align center
         p
+            display inline-block
             padding-top: 10px
+            padding-left: 260px
 
 </style>

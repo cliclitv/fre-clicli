@@ -7,7 +7,7 @@
             </div>
         </router-link>
         <div class="post">
-            <loading v-show="!post"></loading>
+            <loading v-show="!post.content"></loading>
             <router-link :to="'/p/'+post.id">
                 <h1 class="title">{{post.title}}</h1>
             </router-link>
@@ -27,15 +27,9 @@
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
   import marked from 'marked'
-  import {getPost} from 'api/article'
 
   export default {
     mixins: [titleMixin],
-    data() {
-      return {
-        isShow: false
-      }
-    },
     title() {
       return this.$store.state.post.title + '- ★ACG和谐区★'
     },
@@ -43,12 +37,7 @@
       ...mapGetters(['post'])
     },
     beforeMount() {
-      this.isShow = true
-      getPost(this.$route.params.id).then(res => {
-        if (res.data.code === 201) {
-          this.isShow = false
-        }
-      })
+      this.getPost(this.$route.params.id)
 
     },
     asyncData({store, route}) {
