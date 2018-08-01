@@ -16,6 +16,12 @@ Vue.use(Vuex)
 const router = createRouter()
 const store = createStore()
 
+router.afterEach(() => {
+  setTimeout(() => {
+    tongji()
+  }, 0)
+})
+
 new Vue({
   router,
   store,
