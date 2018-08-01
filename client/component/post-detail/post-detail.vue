@@ -27,6 +27,7 @@
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
   import marked from 'marked'
+  import {getPost} from 'api/article'
 
   export default {
     mixins: [titleMixin],
@@ -43,7 +44,7 @@
     },
     beforeMount() {
       this.isShow = true
-      this.getPost(this.$route.params.id).then(res => {
+      getPost(this.$route.params.id).then(res => {
         if (res.data.code === 201) {
           this.isShow = false
         }
