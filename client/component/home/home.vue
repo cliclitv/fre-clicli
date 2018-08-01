@@ -4,7 +4,7 @@
         <h1 class="common-title">推荐文章</h1>
         <post-list :posts="uqq?articles:posts"></post-list>
         <pagination @next="next" v-show="isShow"></pagination>
-        <div class="login-more"><span>登录后加载更多…</span></div>
+        <div class="login-more" v-show="!this.uqq"><span>登录后加载更多…</span></div>
     </div>
 
 </template>
