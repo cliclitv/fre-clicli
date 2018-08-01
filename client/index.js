@@ -8,6 +8,7 @@ import createStore from './store/index'
 
 import 'common/stylus/reset.styl'
 import 'common/stylus/index.styl'
+import {tongji} from 'common/js/tongji'
 
 
 Vue.use(VueRouter)
@@ -18,6 +19,7 @@ const store = createStore()
 
 router.afterEach(() => {
   setTimeout(() => {
+    console.log('+1')
     tongji()
   }, 0)
 })

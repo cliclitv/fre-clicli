@@ -15,7 +15,7 @@
                 <span>{{post.time}}</span>
                 <span>{{post.sort}}</span>
             </div>
-            <div class="content" v-html="mark(post.content)">
+            <div class="content" v-html="post.content?mark(post.content):'少年祈祷中……'">
             </div>
         </div>
     </div>
