@@ -19,7 +19,7 @@ const store = createStore()
 
 router.afterEach(() => {
   setTimeout(() => {
-    console.log('+1')
+    console.log('啦啦啦啦哈哈哈')
     tongji()
   }, 0)
 })
