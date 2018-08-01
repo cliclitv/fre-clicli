@@ -14,7 +14,7 @@
                 </a>
             </ul>
 
-            <a href="http://admin.chinko.cc">
+            <a href="http://admin.chinko.cc/login">
                 <li class="pr">
                     <span>投稿</span>
                 </li>
