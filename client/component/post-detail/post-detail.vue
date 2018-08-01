@@ -14,7 +14,7 @@
                 <span>{{post.time}}</span>
                 <span>{{post.sort}}</span>
             </div>
-            <div class="content" v-if="post.content" v-show="post.content" v-html="mark(post.content)">
+            <div class="content" v-html="mark(post.content)">
             </div>
         </div>
     </div>

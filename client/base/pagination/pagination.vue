@@ -22,9 +22,8 @@
   .pagination
     .next
       text-align center
-      padding-bottom: 30px
     .next span
-      background $d-color
+      background $b-color
       padding: 10px 40px
       border-radius: 30px
       display inline-block
@@ -32,7 +31,7 @@
       transition .5s
       cursor pointer
     .next span:hover
-      background #0088cc
+      background $pink-color
       color: #fff
 
 </style>
