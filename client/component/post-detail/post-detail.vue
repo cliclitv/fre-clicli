@@ -7,6 +7,7 @@
             </div>
         </router-link>
         <div class="post">
+            <loading v-show="!post"></loading>
             <router-link :to="'/p/'+post.id">
                 <h1 class="title">{{post.title}}</h1>
             </router-link>
@@ -24,10 +25,16 @@
   import {getAvatar, mark} from "common/js/util"
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
+  import Loading from 'base/loading/loading.vue'
   import marked from 'marked'
 
   export default {
     mixins: [titleMixin],
+    data() {
+      return {
+        isShow: false
+      }
+    },
     title() {
       return this.$store.state.post.title + '- ★ACG和谐区★'
     },
@@ -35,7 +42,12 @@
       ...mapGetters(['post'])
     },
     beforeMount() {
-      this.getPost(this.$route.params.id)
+      this.isShow = true
+      this.getPost(this.$route.params.id).then(res => {
+        if (res.data.code === 201) {
+          this.isShow = false
+        }
+      })
 
     },
     asyncData({store, route}) {
@@ -49,6 +61,9 @@
       mark(content) {
         return marked(content, {breaks: true})
       }
+    },
+    components: {
+      Loading
     }
   }
 </script>

@@ -1,91 +1,53 @@
 <template>
-  <div class="loading">
-    <div class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
+    <div class="loading">
+        <div class="spinner">
+            <i></i>
+        </div>
     </div>
-  </div>
 
 </template>
 
 <script>
+  export default {}
 </script>
 
-<!--<style lang="stylus" rel="stylesheet/stylus">-->
-<!--@import "~common/stylus/variable"-->
-<!--.loading-->
-<!--color: #08c-->
-<!--background: #fffffc-->
-<!--top: 0-->
-<!--bottom: 0-->
-<!--left: 0-->
-<!--right: 0-->
-<!--z-index: 99999-->
-<!--position fixed-->
-<!--img-->
-<!--position absolute-->
-<!--top: 50%-->
-<!--left 50%-->
-<!--transform translate(-50%, -50%)-->
+<style scoped lang="stylus">
+    @import "~common/stylus/variable"
+    @keyframes spinner-circle-clipper
+        0%
+            transform: rotate(0deg)
 
-<!--</style>-->
+        to
+            transform: rotate(180deg)
 
-<style scoped>
-  .loading {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #171a21;
-    z-index: 999999;
-  }
+    @keyframes spinner-circle
+        0%
+            transform: rotate(-180deg)
 
-  .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-  }
+        to
+            transform: rotate(180deg)
 
-  .double-bounce1, .double-bounce2 {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #FF677D;
-    opacity: 0.6;
-    position: absolute;
-    top: 0;
-    left: 0;
+    .spinner
+        font-size: 20px
+        width: 30px
+        height: 30px
+        margin: 100px auto
+        border-radius: 50%
+        box-shadow: inset 0 0 0 0.1em rgba(0, 156, 255, .3)
 
-    -webkit-animation: bounce 2.0s infinite ease-in-out;
-    animation: bounce 2.0s infinite ease-in-out;
-  }
+    .spinner i
+        animation spinner-circle-clipper 1s ease-in-out infinite
 
-  .double-bounce2 {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
-  }
+    .spinner i, .spinner i:after
+        display inline-block
+        position: absolute
+        clip: rect(0, 30px, 30px, 15px)
+        width: 30px
+        height: 30px
 
-  @-webkit-keyframes bounce {
-    0%, 100% {
-      -webkit-transform: scale(0.0)
-    }
-    50% {
-      -webkit-transform: scale(1.0)
-    }
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: scale(0.0);
-      -webkit-transform: scale(0.0);
-    }
-    50% {
-      transform: scale(1.0);
-      -webkit-transform: scale(1.0);
-    }
-  }
+    .spinner i:after
+        content: ""
+        animation: spinner-circle 1s ease-in-out infinite
+        border-radius: 50%
+        box-shadow: inset 0 0 0 3px $blue-color
 </style>
