@@ -7,7 +7,7 @@
             </div>
         </router-link>
         <div class="post">
-            <loading v-show="!post.content"></loading>
+            <loading v-show="isShow"></loading>
             <router-link :to="'/p/'+post.id">
                 <h1 class="title">{{post.title}}</h1>
             </router-link>
@@ -15,7 +15,7 @@
                 <span>{{post.time}}</span>
                 <span>{{post.sort}}</span>
             </div>
-            <div class="content" v-html="post.content?mark(post.content):'少年祈祷中……'">
+            <div class="content" v-html="marked(post.content)">
             </div>
         </div>
     </div>
@@ -30,6 +30,11 @@
 
   export default {
     mixins: [titleMixin],
+    data() {
+      return {
+        isShow: false
+      }
+    },
     title() {
       return this.$store.state.post.title + '- ★ACG和谐区★'
     },
@@ -48,8 +53,12 @@
       getAvatar(avatar) {
         return getAvatar(avatar)
       },
-      mark(content) {
-        return marked(content, {breaks: true})
+      marked(content) {
+        if (typeof (content) === 'undefined') {
+          return '少年祈祷中……'
+        } else {
+          return marked(content, {breaks: true})
+        }
       }
     },
     components: {

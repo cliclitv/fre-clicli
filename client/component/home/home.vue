@@ -17,6 +17,7 @@
   import {mapActions, mapState} from 'vuex'
   import {getPostsByStatus} from 'api/article'
   import Cookies from 'js-cookie'
+  import Loading from 'base/loading/loading.vue'
 
   export default {
     data() {
@@ -25,7 +26,8 @@
         pageSize: 10,
         articles: [],
         uqq: Cookies.get('uqq'),
-        isShow: false
+        isShow: false,
+        isLoading: false
       }
     },
     mixins: [titleMixin],
@@ -47,9 +49,11 @@
     methods: {
       ...mapActions(['getArticleList']),
       getArticleList(flag) {
+        this.isLoading = true
         getPostsByStatus(this.page, this.pageSize).then(res => {
           if (res.data.code === 201) {
             this.isShow = true
+            this.isLoading = false
             if (flag) {
               this.articles = this.articles.concat(res.data.posts)
               if (!res.data.posts) {
@@ -69,7 +73,8 @@
     components: {
       Slider,
       PostList,
-      Pagination
+      Pagination,
+      Loading
     }
   }
 </script>

@@ -8,7 +8,6 @@ import createStore from './store/index'
 
 import 'common/stylus/reset.styl'
 import 'common/stylus/index.styl'
-import {tongji} from 'common/js/tongji'
 
 
 Vue.use(VueRouter)
@@ -17,11 +16,11 @@ Vue.use(Vuex)
 const router = createRouter()
 const store = createStore()
 
-router.afterEach(() => {
-  setTimeout(() => {
-    console.log('啦啦啦啦哈哈哈')
-    tongji()
-  }, 0)
+router.beforeEach((to, from, next) => {
+  if (to.path) {
+    _hmt.push(['_trackPageview', '/#' + to.fullPath])
+  }
+  next()
 })
 
 new Vue({

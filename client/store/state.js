@@ -2,6 +2,6 @@ export default {
   posts:[],
   sort: [],
   author: [],
-  post: [],
+  post: {},
   isLogin: false
 }
