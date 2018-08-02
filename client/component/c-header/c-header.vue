@@ -14,7 +14,7 @@
                 </a>
             </ul>
 
-            <a :href="adminroute">
+            <a :href="adminroute" target="_blank">
                 <li class="pr">
                     <span>{{pr}}</span>
                 </li>
