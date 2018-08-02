@@ -1,6 +1,6 @@
 <template>
     <div class="notice">
-        <a href="">关于 ACG和谐区 复活，和“里世界”事件的交代</a>
+        和谐区QQ群：324130073，欢迎来玩耍~
     </div>
 </template>
 

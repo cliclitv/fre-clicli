@@ -14,9 +14,9 @@
                 </a>
             </ul>
 
-            <a href="http://admin.chinko.cc/login">
+            <a :href="adminroute">
                 <li class="pr">
-                    <span>投稿</span>
+                    <span>{{pr}}</span>
                 </li>
             </a>
         </div>
@@ -63,7 +63,9 @@
         banner: '',
         user: {},
         isShow: false,
-        msg: ''
+        msg: '',
+        pr: '投稿',
+        adminroute: 'http://admin.chinko.cc/login'
       }
     },
     computed: {
@@ -90,6 +92,8 @@
             const user = getStorage('user-info')
             if (user) {
               this.isShow = true
+              this.pr = '后台'
+              this.adminroute = 'http://admin.chinko.cc'
               this.user = user
             } else {
               const name = Base64.decode(Cookies.get('uname'))
