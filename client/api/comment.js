@@ -1,21 +1,27 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: process.env.VUE_ENV === 'server' ? 'https://www.idanmu.cc' : '/'
+  baseURL: 'http://api.chinko.cc'
 })
 
 // 根据pid查找评论
-export function getComment(pid) {
-  return request.get('/comment/comment',{
+export function getComments(pid,page,pageSize) {
+  return request.get('/comments', {
     params: {
-      pid: pid
+      pid: pid,
+      page,
+      pageSize
     }
   })
 }
 
 // 添加评论
-export function addComment(comment) {
-  return request.post('/comment/add',comment)
+export function addComment({content,pid,uid}) {
+  return request.post('/comment/add', {
+    content,
+    pid: parseInt(pid),
+    uid
+  })
 }
 
 // 删除评论

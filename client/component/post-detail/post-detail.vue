@@ -18,6 +18,7 @@
             <div class="content" v-html="marked(post.content)">
             </div>
         </div>
+        <comment></comment>
     </div>
 </template>
 
@@ -27,6 +28,7 @@
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
   import marked from 'marked'
+  import Comment from 'component/comment/comment.vue'
 
   export default {
     mixins: [titleMixin],
@@ -62,7 +64,8 @@
       }
     },
     components: {
-      Loading
+      Loading,
+      Comment
     }
   }
 </script>
