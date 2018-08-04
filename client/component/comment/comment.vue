@@ -20,10 +20,10 @@
             <li v-for="item in comments">
                 <div class="comment-avatar">
                     <img :src="getAvatar(item.uqq)">
-                    <p class="name">{{item.uname}}</p>
                 </div>
 
                 <div class="text">
+                    <p class="name">{{item.uname}}</p>
                     <p>{{item.content}}</p>
                 </div>
                 <time>{{item.time}}</time>
@@ -61,6 +61,7 @@
         getComments(this.$route.params.id, 1, 100).then(res => {
           if (res.data.code === 201) {
             this.comments = res.data.comments
+            this.content = ''
           }
         })
       },
@@ -80,7 +81,6 @@
           uid: this.user.id,
           content: this.content
         }).then(res => {
-          console.log(res.data)
           this.getComment()
         })
       },
@@ -112,7 +112,7 @@
             display: flex
             align-items center
             justify-content center
-            padding: 20px 0
+            padding: 20px
             .comment-avatar
                 display inline-block
                 width 60px
@@ -121,14 +121,16 @@
                     height 50px
                     width: 50px
                     border-radius 50%
-                .name
-                    padding: 5px
-                    font-size: 12px
             .text, .add-text
                 flex 1
                 padding: 0 20px 0 30px
                 position relative
                 font-size: 13px
+                font-weight: bold
+                .name
+                    padding-bottom: 10px
+                    font-size: 12px
+                    color: $color
                 textarea
                     background $b-color
                     padding: 10px
@@ -187,4 +189,9 @@
             position: absolute
             top: 10px
             left: 15px
+
+    .comment li:nth-child(even) {
+        background #131629
+        border-radius 5px
+    }
 </style>
