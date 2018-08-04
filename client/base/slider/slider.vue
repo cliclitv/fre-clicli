@@ -2,25 +2,25 @@
     <div class="slider">
         <ul class="list" style="left:-650px">
             <li>
-                <a href="https://item.taobao.com/item.htm?id=568316315061"><img
-                        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftnm6qbkhuj311s0bs4ac.jpg"></a>
-                <p>广告~</p>
+                <router-link to="/p/31"><img
+                        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftxwllgc6fj30i205kwfm.jpg"></router-link>
+                <p>和最简陋的使用说明~</p>
             </li>
             <li>
-                <a href="http://www.idanmu.cc/post/5ad6f9df168a654b4441189c"><img
-                        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftnm5ih419j311s0bs7gy.jpg"></a>
-                <p>投稿投稿啦~</p>
+                <router-link to="/p/30"><img
+                        src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1ftxwllgevej30i205kt9v.jpg"></router-link>
+                <p>据说是地上最佛投稿教程~</p>
             </li>
             <li>
-                <a href=""><img
-                        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftnm6qbkhuj311s0bs4ac.jpg"></a>
-                <p>广告~</p>
+                <router-link to="/p/31"><img
+                        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftxwllgc6fj30i205kwfm.jpg"></router-link>
+                <p>和最简陋的使用说明~</p>
             </li>
             <li>
             <li>
-                <a href=""><img
-                        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1ftnm5ih419j311s0bs7gy.jpg"></a>
-                <p>投稿投稿啦~</p>
+                <router-link href="/p/30"><img
+                        src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1ftxwllgevej30i205kt9v.jpg"></router-link>
+                <p>据说是地上最佛投稿教程~</p>
             </li>
         </ul>
         <div class="dots">
