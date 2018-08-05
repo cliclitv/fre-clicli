@@ -18,7 +18,7 @@
             </li>
             <li>
             <li>
-                <router-link href="/p/30"><img
+                <router-link to="/p/30"><img
                         src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1ftxwllgevej30i205kt9v.jpg"></router-link>
                 <p>据说是地上最佛投稿教程~</p>
             </li>
