@@ -122,6 +122,23 @@
                 p
                     padding: 10px 0
                     line-height: 1.5
+                ol
+                    display block
+                    li
+                        display inline-block
+                        padding: 5px 15px
+                        background #35355a
+                        margin: 5px 10px 10px 0
+                        box-sizing border-box
+                        border 1px solid #35355a
+                        a
+                         font-weight normal
+                    li:hover
+                        border: 1px solid $blue-color
+                        box-sizing border-box
+                a
+                    color: #fff
+                    font-weight bold
         .post:before
             content ''
             display block
