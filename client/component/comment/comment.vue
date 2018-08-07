@@ -53,6 +53,9 @@
       this.getUser()
       this.getComment()
     },
+    updated() {
+      this.getCount()
+    },
     computed: {
       ...mapGetters(['isLogin'])
     },
@@ -90,6 +93,9 @@
           this.user = user
           this.isShow = true
         }
+      },
+      getCount() {
+        this.$emit('count', this.comments.length)
       },
       ...mapMutations(['isOnLogin'])
     }

@@ -4,6 +4,7 @@
             <div class="avatar">
                 <img :src="getAvatar(post.uqq)">
                 <span>{{post.uname}}</span>
+                <div class="count"><i class="icon-font icon-comment"></i>{{counts}}</div>
             </div>
         </router-link>
         <div class="post">
@@ -18,7 +19,7 @@
             <div class="content" v-html="marked(post.content)">
             </div>
         </div>
-        <comment></comment>
+        <comment @count="count"></comment>
     </div>
 </template>
 
@@ -34,7 +35,8 @@
     mixins: [titleMixin],
     data() {
       return {
-        isShow: false
+        isShow: false,
+        counts: 0
       }
     },
     title() {
@@ -61,6 +63,9 @@
         } else {
           return marked(content, {breaks: true})
         }
+      },
+      count(count) {
+        this.counts = count
       }
     },
     components: {
@@ -79,6 +84,7 @@
             color: $color
         .avatar
             display flex
+            position relative
             align-items center
             padding: 10px
             margin-bottom: 20px
@@ -132,7 +138,7 @@
                         box-sizing border-box
                         border 1px solid #35355a
                         a
-                         font-weight normal
+                            font-weight normal
                     li:hover
                         border: 1px solid $blue-color
                         box-sizing border-box
@@ -149,5 +155,11 @@
             position: absolute
             top: -20px
             left: 50px
-
+        .count
+            background $b-color
+            padding: 5px 15px
+            border-radius 25px
+            float right
+        .count:hover
+            background $blue-color
 </style>
