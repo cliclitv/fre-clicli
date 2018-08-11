@@ -119,7 +119,7 @@
 
             .content
                 img
-                    width 100%
+                    max-width 100%
                     box-sizing border-box
                     padding: 15px
                     background $bg-color
