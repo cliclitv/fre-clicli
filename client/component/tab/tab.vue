@@ -23,6 +23,10 @@
             <router-link to="/sort/news">
                 <li><i class="icon-font icon-news"></i>号外</li>
             </router-link>
+            <router-link to="/sort/news">
+                <li><i class="icon-font icon-other"></i>杂物</li>
+            </router-link>
+
 
         </ul>
 
@@ -81,6 +85,6 @@
         color: #31e5eb
 
     .icon-other
-        color: #eb295e
+        color: #1aeb5d
 
 </style>
