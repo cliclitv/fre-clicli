@@ -23,7 +23,7 @@
             <router-link to="/sort/news">
                 <li><i class="icon-font icon-news"></i>号外</li>
             </router-link>
-            <router-link to="/sort/news">
+            <router-link to="/sort/other">
                 <li><i class="icon-font icon-other"></i>杂物</li>
             </router-link>
 
@@ -67,13 +67,13 @@
         color: #eb9611
 
     .icon-book
-        color: #7b11eb
+        color: #8b1beb
 
     .icon-img
         color: #dceb11
 
     .icon-game
-        color: #01c2ff
+        color: #01a6ff
 
     .icon-music
         color: #eb1111
@@ -82,7 +82,7 @@
         color: #eb1192
 
     .icon-news
-        color: #31e5eb
+        color: #1bebda
 
     .icon-other
         color: #1aeb5d
