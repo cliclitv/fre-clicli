@@ -1,6 +1,6 @@
 <template>
     <div class="notice">
-        和谐区QQ群：324130073，欢迎来玩耍~
+        和谐区qq群②：573646415，欢迎来玩耍~
     </div>
 </template>
 

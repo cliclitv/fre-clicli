@@ -1,0 +1,64 @@
+@import "variable.styl"
+@media screen and (max-width: 480px)
+  .slider, .left, .right, .bio, .progress-bar, .search-box, .menu, .footer, .common-title
+    display none !important
+
+  .wrap
+    width 100%
+
+  .header
+    height 55px
+    position relative
+    width 100%
+    padding 0 !important
+
+  .home
+    margin-top: 0 !important
+
+  .down
+    float right
+    display block
+    background $blue-color
+    padding: 8px 20px
+    color: #fff
+    border-radius 5px
+    margin 10px
+
+  .main, .post-list
+    width 100% !important
+    float none
+    box-sizing border-box
+
+  .post:before
+    display none !important
+
+  .post-list .avatar
+    justify-content: center
+    margin: 0 !important
+
+  .comment ul
+    width 100% !important
+    li
+      padding: 0 !important
+      .text, .add-text
+        padding: 0 10px !important
+      .comment-avatar
+        width 50px!important
+        img
+          height 40px!important
+          width 40px!important
+      time
+        font-size: 11px
+        position: absolute
+        top: 0
+        right: 10px
+
+  .text:before, .add-text:before
+    display none !important
+
+  .mobile-logo
+    display block !important
+    padding-left: 10px
+
+  .pc-logo
+    display none

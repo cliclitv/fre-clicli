@@ -22,9 +22,12 @@
         </div>
         <div class="wrap">
             <div class="logo">
-                <router-link to="/">
+                <router-link to="/" class="pc-logo" v-show="isShow">
                     <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
                 </router-link>
+                <a href="/" class="mobile-logo" v-show="!isShow">
+                    <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
+                </a>
             </div>
             <ul class="menu">
                 <router-link to="/" class="tab-item">
@@ -38,6 +41,7 @@
                 </router-link>
             </ul>
             <search-box></search-box>
+            <button class="down">下载客户端</button>
         </div>
         <transition name="fade">
             <login v-show="isLogin" @close="close"></login>
@@ -148,6 +152,7 @@
             top: 18px
             img
                 height 25px
+
         .menu
             display inline-block
             margin-left 140px
@@ -208,6 +213,8 @@
             padding: 0 10px
             line-height 40px
             cursor pointer
+    .down
+        display none
 
     .fade-enter-active, .fade-leave-active
         transition: opacity 1s

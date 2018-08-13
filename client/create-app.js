@@ -9,6 +9,7 @@ import createStore from './store/index'
 
 import 'common/stylus/reset.styl'
 import 'common/stylus/index.styl'
+import 'common/stylus/responsive.styl'
 // import VueLazyLoad from 'vue-lazyload'
 
 // Vue.use(VueLazyLoad, {
