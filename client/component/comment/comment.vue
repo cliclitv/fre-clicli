@@ -9,7 +9,7 @@
                     <textarea placeholder="回复一下下菊花又不会坏……" v-model="content" v-if="isShow"></textarea>
                     <div v-if="!isShow" class="need-login">
                         <span @click="onLogin">登陆</span>
-                        <a href="http://admin.idanmu.cc/register">注册</a>
+                        <a href="http://admin.chinko.cc/register">注册</a>
                     </div>
                 </div>
                 <div class="submit">
