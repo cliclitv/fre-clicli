@@ -1,10 +1,16 @@
 @import "variable.styl"
 @media screen and (max-width: 480px)
-  .slider, .left, .right, .bio, .progress-bar, .search-box, .menu, .footer, .common-title
+  .slider, .reach-box, .right, .bio, .progress-bar, .search-box, .menu, .footer, .common-title
     display none !important
 
+  .tab-wrap, .sort-title
+    display none
+
+  .close
+    display block !important
+
   .wrap
-    width 100%
+    width 100% !important
 
   .header
     height 55px
@@ -19,9 +25,8 @@
     float right
     display block
     background $blue-color
-    padding: 8px 20px
+    padding: 5px 20px
     color: #fff
-    border-radius 5px
     margin 10px
 
   .main, .post-list
@@ -43,14 +48,14 @@
       .text, .add-text
         padding: 0 10px !important
       .comment-avatar
-        width 50px!important
+        width 50px !important
         img
-          height 40px!important
-          width 40px!important
+          height 40px !important
+          width 40px !important
       time
         font-size: 11px
         position: absolute
-        top: 0
+        top: 10px
         right: 10px
 
   .text:before, .add-text:before
@@ -59,6 +64,36 @@
   .mobile-logo
     display block !important
     padding-left: 10px
+    margin-top: -3px
 
   .pc-logo
     display none
+
+  .list
+    display block !important
+    position absolute
+    left: 140px
+    top: 14px
+    background $bg-color
+    padding: 5px
+    .icon-font
+      font-size: 20px
+
+  .tab
+    position fixed
+    top: 55px
+    left: 0
+    right 0
+    bottom 0
+    z-index 9
+    background rgba(21, 28, 45, .9)
+    text-align center
+    font-size 16px
+    .close
+      position absolute
+      bottom 30px
+      left: 50%
+      transform translate(-50%, 0)
+      color: #fff
+      .icon-close
+        font-size: 50px

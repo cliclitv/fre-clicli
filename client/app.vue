@@ -1,11 +1,11 @@
 <template>
     <div id="app">
         <progress-bar></progress-bar>
-        <c-header></c-header>
+        <c-header @showTab="showTab"></c-header>
         <div class="home wrap">
             <div class="left">
                 <reach-box></reach-box>
-                <tab></tab>
+                <tab :ds="ds" @close="close"></tab>
             </div>
             <div class="main">
                 <router-view :key="$route.fullPath"></router-view>
@@ -32,7 +32,20 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return '★ACG和谐区★ - 绅士的和谐社区(acgzone.cn)'
+      return '★ACG和谐区★ - 绅士の和谐社区(acgzone.cn)'
+    },
+    data() {
+      return {
+        ds: 'none'
+      }
+    },
+    methods: {
+      showTab() {
+        this.ds === 'none' ? this.ds = 'block' : this.ds = 'none'
+      },
+      close() {
+        this.ds = 'none'
+      }
     },
     components: {
       CHeader,

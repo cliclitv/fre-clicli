@@ -1,5 +1,5 @@
 <template>
-    <div class="tab">
+    <div class="tab" :style="dsStyle" ref="tab">
         <li class="sort-title">分类</li>
         <ul>
             <router-link to="/sort/anime">
@@ -26,16 +26,27 @@
             <router-link to="/sort/other">
                 <li><i class="icon-font icon-other"></i>杂物</li>
             </router-link>
-
-
         </ul>
+        <div class="close" @click="showTab"><i class="icon-font icon-close"></i></div>
 
     </div>
 </template>
 
 
 <script>
-  export default {}
+  export default {
+    props: ['ds'],
+    computed: {
+      dsStyle() {
+        return `display:${this.ds}`
+      }
+    },
+    methods: {
+      showTab() {
+        this.$emit('close')
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -86,5 +97,8 @@
 
     .icon-other
         color: #1aeb5d
+
+    .icon-close
+        margin: 0px
 
 </style>

@@ -23,12 +23,13 @@
         <div class="wrap">
             <div class="logo">
                 <router-link to="/" class="pc-logo" v-show="isShow">
-                    <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
+                    <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="acg和谐区">
                 </router-link>
                 <a href="/" class="mobile-logo" v-show="!isShow">
-                    <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="">
+                    <img src="https://i.loli.net/2018/07/29/5b5d1f36237b6.png" alt="acg和谐区">
                 </a>
             </div>
+            <span class="list" @click="showTab"><i class="icon-font icon-list"></i></span>
             <ul class="menu">
                 <router-link to="/" class="tab-item">
                     <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
@@ -86,6 +87,9 @@
       },
       close() {
         this.isOnLogin(false)
+      },
+      showTab() {
+        this.$emit('showTab')
       },
       getAvatar(qq) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
@@ -152,7 +156,8 @@
             top: 18px
             img
                 height 25px
-
+        .list
+            display none
         .menu
             display inline-block
             margin-left 140px
@@ -213,6 +218,7 @@
             padding: 0 10px
             line-height 40px
             cursor pointer
+
     .down
         display none
 
