@@ -59,6 +59,8 @@
                 padding 10px
                 color: $color
                 font-size: 14px
+        .close
+            display none
 
     .sort-title:before
         position: absolute;

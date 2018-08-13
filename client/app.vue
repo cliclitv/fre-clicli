@@ -6,6 +6,7 @@
             <div class="left">
                 <reach-box></reach-box>
                 <tab :ds="ds" @close="close"></tab>
+
             </div>
             <div class="main">
                 <router-view :key="$route.fullPath"></router-view>
