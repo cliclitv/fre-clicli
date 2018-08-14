@@ -42,7 +42,7 @@
                 </router-link>
             </ul>
             <search-box></search-box>
-            <button class="down">下载客户端</button>
+            <router-link to="/p/123" class="down">下载客户端</router-link>
         </div>
         <transition name="fade">
             <login v-show="isLogin" @close="close"></login>
