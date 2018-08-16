@@ -13,19 +13,31 @@ export default () => {
     routes: [
       {
         path: '/',
-        component: Home
+        component: Home,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: '/p/:id',
-        component: ArticleDetail
+        component: ArticleDetail,
+        meta: {
+          keepAlive: false
+        }
       },
       {
         path: '/sort/:sort',
-        component: Sort
+        component: Sort,
+        meta: {
+          keepAlive: true
+        }
       },
       {
         path: '/u/:id',
-        component: UserCenter
+        component: UserCenter,
+        meta: {
+          keepAlive: true
+        }
       },
     ],
     scrollBehavior(to) {

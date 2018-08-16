@@ -10,8 +10,9 @@
             </div>
             <div class="main">
                 <keep-alive>
-                    <router-view :key="$route.fullPath"></router-view>
+                    <router-view :key="$route.fullPath" v-if="$route.meta.keepAlive"></router-view>
                 </keep-alive>
+                <router-view :key="$route.fullPath" v-if="!$route.meta.keepAlive"></router-view>
             </div>
             <div class="right">
                 <notice></notice>
