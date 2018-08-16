@@ -9,9 +9,10 @@
 
             </div>
             <div class="main">
-                <router-view :key="$route.fullPath"></router-view>
+                <keep-alive>
+                    <router-view :key="$route.fullPath"></router-view>
+                </keep-alive>
             </div>
-
             <div class="right">
                 <notice></notice>
             </div>
