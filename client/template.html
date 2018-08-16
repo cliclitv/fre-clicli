@@ -19,5 +19,13 @@
 </head>
 <body>
 <div id="app"></div>
+<div id="landlord">
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+</div>
+<link rel='stylesheet' href='./spa/live2d/live2d.css' type='text/css'/>
+<script type="text/javascript" src="./spa/live2d/live2d.js"></script>
+<script type="text/javascript">
+  loadlive2d("live2d", "./spa/live2d/model/tia/model.json");
+</script>
 </body>
 </html>
