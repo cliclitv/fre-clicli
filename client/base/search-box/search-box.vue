@@ -1,12 +1,28 @@
 <template>
     <div class="search-box">
-        <input type="text" placeholder="搜索一下下菊花又不会坏……">
-        <i class="icon-font icon-search"></i>
+        <input type="text" placeholder="搜索一下下菊花又不会坏……" v-model="key">
+        <div @click="onSearch" class="searcher">
+            <i class="icon-font icon-search"></i>
+        </div>
+
     </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        key: ''
+      }
+    },
+    methods:{
+      onSearch(){
+        this.$router.push({
+          path: `/search/${this.key}`
+        })
+      }
+    }
+  }
 </script>
 
 <style scoped lang="stylus">
@@ -14,8 +30,10 @@
     .search-box
         position absolute
         left: 50%
-        transform translate(-50%,0)
+        transform translate(-50%, 0)
         top: 12px
+        .searcher
+            display inline-block
         input
             color: $color
             padding: 12px 30px 12px 15px

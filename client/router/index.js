@@ -3,6 +3,7 @@ import Router from 'vue-router'
 const Home = () => import('component/home/home.vue')
 const ArticleDetail = () => import('component/post-detail/post-detail.vue')
 const Sort = () => import('component/sort/sort.vue')
+const Search = () => import('component/search/search.vue')
 const UserCenter = () => import('component/user-center/user-center.vue')
 
 
@@ -28,6 +29,13 @@ export default () => {
       {
         path: '/sort/:sort',
         component: Sort,
+        meta: {
+          keepAlive: true
+        }
+      },
+      {
+        path: '/search/:key',
+        component: Search,
         meta: {
           keepAlive: true
         }

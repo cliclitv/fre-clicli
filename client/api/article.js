@@ -73,3 +73,11 @@ export function deleteArticle(id) {
   return request.delete(`/post/delete/${id}`)
 }
 
+// 搜索
+export function searchPosts(key) {
+  return request.get('/search/posts',{
+    params:{
+      key
+    }
+  })
+}
