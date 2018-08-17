@@ -95,9 +95,9 @@
         }
       },
       getCount() {
-        this.$emit('count', this.comments.length)
+        this.getCommentCount(this.comments.length)
       },
-      ...mapMutations(['isOnLogin'])
+      ...mapMutations(['isOnLogin','getCommentCount'])
     }
   }
 </script>

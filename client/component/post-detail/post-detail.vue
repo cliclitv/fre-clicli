@@ -4,7 +4,7 @@
             <div class="avatar">
                 <img :src="getAvatar(post.uqq)">
                 <span>{{post.uname}}</span>
-                <div class="count"><i class="icon-font icon-comment"></i>{{counts}}</div>
+                <div class="count"><i class="icon-font icon-comment"></i>{{commentCount}}</div>
             </div>
         </router-link>
         <div class="post">
@@ -19,7 +19,7 @@
             <div class="content" v-html="marked(post.content)">
             </div>
         </div>
-        <comment @count="count"></comment>
+        <comment></comment>
     </div>
 </template>
 
@@ -35,15 +35,14 @@
     mixins: [titleMixin],
     data() {
       return {
-        isShow: false,
-        counts: 0
+        isShow: false
       }
     },
     title() {
       return this.$store.state.post.title + '- ★ACG和谐区★'
     },
     computed: {
-      ...mapGetters(['post'])
+      ...mapGetters(['post','commentCount'])
     },
     beforeMount() {
       this.getPost(this.$route.params.id)
@@ -63,9 +62,6 @@
         } else {
           return marked(content, {breaks: true})
         }
-      },
-      count(count) {
-        this.counts = count
       }
     },
     components: {

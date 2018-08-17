@@ -1,7 +1,8 @@
 export default {
-  posts:[],
+  posts: [],
   sort: [],
   author: [],
   post: {},
-  isLogin: false
+  isLogin: false,
+  commentCount: 0
 }

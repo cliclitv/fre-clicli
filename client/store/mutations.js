@@ -13,6 +13,9 @@ export default {
   },
   isOnLogin(state, isLogin) {
     state.isLogin = isLogin
-  }
+  },
+  getCommentCount(state, count) {
+    state.commentCount = count
+  },
 
 }
