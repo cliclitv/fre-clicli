@@ -20,6 +20,13 @@ export default () => {
         }
       },
       {
+        path: '/:type',
+        component: Home,
+        meta: {
+          keepAlive: true
+        }
+      },
+      {
         path: '/p/:id',
         component: ArticleDetail,
         meta: {
