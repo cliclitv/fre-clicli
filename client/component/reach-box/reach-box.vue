@@ -32,19 +32,10 @@
     computed: {
       ...mapGetters(['isLogin'])
     },
-    mounted() {
+    updated() {
       console.log(this.$route.fullPath)
       if (this.$route.fullPath === '/') {
-        this.bgColor = '#009cff'
-      }
-      if (this.$route.fullPath === '/bl') {
-        this.blColor = '#8b1beb'
-      }
-      if (this.$route.fullPath === '/gl') {
-        this.glColor = '#FF005E'
-      }
-      if (this.$route.fullPath === '/18x') {
-        this.hColor = '#F9C64B'
+        this.bgColor = '#FF005E'
       }
     }
   }
