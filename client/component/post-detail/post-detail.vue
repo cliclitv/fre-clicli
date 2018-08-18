@@ -15,6 +15,7 @@
             <div class="info">
                 <span>{{post.time}}</span>
                 <span>{{post.sort}}</span>
+                <span>{{post.type}}</span>
             </div>
             <div class="content" v-html="marked(post.content)">
             </div>
@@ -25,6 +26,7 @@
 
 <script>
   import {getAvatar, mark} from "common/js/util"
+  import {getCommentCount} from 'api/article'
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
@@ -35,17 +37,19 @@
     mixins: [titleMixin],
     data() {
       return {
-        isShow: false
+        isShow: false,
+        commentCount: 0
       }
     },
     title() {
       return this.$store.state.post.title + '- ★ACG和谐区★'
     },
     computed: {
-      ...mapGetters(['post','commentCount'])
+      ...mapGetters(['post'])
     },
     beforeMount() {
       this.getPost(this.$route.params.id)
+      this.getCommentCount(this.$route.params.id)
 
     },
     asyncData({store, route}) {
@@ -62,6 +66,13 @@
         } else {
           return marked(content, {breaks: true})
         }
+      },
+      getCommentCount(id) {
+        getCommentCount(id).then(res => {
+          if (res.data.code === 201) {
+            this.commentCount = res.data.count.cv
+          }
+        })
       }
     },
     components: {

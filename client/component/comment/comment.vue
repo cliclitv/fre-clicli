@@ -94,10 +94,7 @@
           this.isShow = true
         }
       },
-      getCount() {
-        this.getCommentCount(this.comments.length)
-      },
-      ...mapMutations(['isOnLogin','getCommentCount'])
+      ...mapMutations(['isOnLogin'])
     }
   }
 </script>

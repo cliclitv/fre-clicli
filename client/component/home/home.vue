@@ -34,7 +34,6 @@
     title() {
       return '★ACG和谐区★ - 绅士の和谐社区(acgzone.cn)'
     },
-    name: "home",
     beforeMount() {
       if (this.uqq) {
         this.getArticleList()

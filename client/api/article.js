@@ -83,3 +83,8 @@ export function searchPosts(key) {
     }
   })
 }
+
+// 获取评论数
+export function getCommentCount(id) {
+  return request.get(`count/${id}`)
+}

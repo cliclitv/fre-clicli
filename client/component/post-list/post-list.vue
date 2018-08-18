@@ -1,11 +1,12 @@
 <template>
     <div class="post-list">
         <ul>
-            <li v-for="item in posts">
+            <li v-for="item in posts" @loadstart="getCommentCount(item.id)">
                 <router-link :to="'/u/'+item.uid" class="user-name">
                     <div class="avatar">
                         <img :src="getAvatar(item.uqq)">
                         <span>{{item.uname}}</span>
+                        <div class="count"><i class="icon-font icon-comment"></i>{{commentCount}}</div>
                     </div>
                 </router-link>
                 <div class="post">
@@ -28,15 +29,28 @@
 
 <script>
   import {momentTime, getAvatar, getSuo} from "common/js/util"
+  import {getCommentCount} from 'api/article'
 
   export default {
     props: ['posts'],
+    data() {
+      return {
+        commentCount: 0
+      }
+    },
     methods: {
       getAvatar(avatar) {
         return getAvatar(avatar)
       },
       getSuo(content) {
         return getSuo(content)
+      },
+      getCommentCount(id) {
+        getCommentCount(id).then(res => {
+          if (res.data.code === 201) {
+            this.commentCount = res.data.count.cv
+          }
+        })
       }
     }
   }
