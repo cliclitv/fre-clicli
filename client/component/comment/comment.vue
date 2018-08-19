@@ -16,7 +16,7 @@
                     <button @click="onComment">射</button>
                 </div>
             </li>
-            <h2>共有 <span v-text="comments.length"></span> 条评论</h2>
+            <h2>共有 <span>{{count}}</span> 条评论</h2>
             <li v-for="item in comments">
                 <div class="comment-avatar">
                     <img :src="getAvatar(item.uqq)">
@@ -49,12 +49,10 @@
         uqq: Cookies.get('uqq')
       }
     },
+    props:['count'],
     mounted() {
       this.getUser()
       this.getComment()
-    },
-    updated() {
-      this.getCount()
     },
     computed: {
       ...mapGetters(['isLogin'])

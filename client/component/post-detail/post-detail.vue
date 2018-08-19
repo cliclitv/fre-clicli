@@ -20,7 +20,7 @@
             <div class="content" v-html="marked(post.content)">
             </div>
         </div>
-        <comment></comment>
+        <comment :count="commentCount"></comment>
     </div>
 </template>
 
@@ -49,7 +49,11 @@
     },
     beforeMount() {
       this.getPost(this.$route.params.id)
-      this.getCommentCount(this.$route.params.id)
+      getCommentCount(this.$route.params.id).then(res => {
+        if (res.data.code === 201) {
+          this.commentCount = res.data.count.cv
+        }
+      })
 
     },
     asyncData({store, route}) {
@@ -64,15 +68,10 @@
         if (typeof (content) === 'undefined') {
           return '少年祈祷中……'
         } else {
-          return marked(content, {breaks: true})
+          let str = marked(content, {breaks: true})
+          return str.replace('></iframe', 'style="background:#fff;margin-top:20px;max-width:100%;border-radius:5px"></iframe')
+
         }
-      },
-      getCommentCount(id) {
-        getCommentCount(id).then(res => {
-          if (res.data.code === 201) {
-            this.commentCount = res.data.count.cv
-          }
-        })
       }
     },
     components: {
@@ -135,6 +134,7 @@
                 p
                     padding: 10px 0
                     line-height: 1.5
+                    word-wrap: break-word
                 ol
                     display block
                     li
