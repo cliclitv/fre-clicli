@@ -3,14 +3,14 @@
         <router-link to="/bg" class="bg">
             <li :style="{background:bgColor}"><i class="icon-font icon-bg"></i>正常向</li>
         </router-link>
-        <router-link to="/bl" v-show="uqq">
-            <li :style="{background:blColor}"><i class="icon-font icon-boy"></i>耽美向</li>
+        <router-link to="/bl" v-show="uqq" @click.native="reColor">
+            <li><i class="icon-font icon-boy"></i>耽美向</li>
         </router-link>
-        <router-link to="/gl" v-show="uqq">
-            <li :style="{background:glColor}"><i class="icon-font icon-girl"></i>百合向</li>
+        <router-link to="/gl" v-show="uqq" @click.native="reColor">
+            <li><i class="icon-font icon-girl"></i>百合向</li>
         </router-link>
-        <router-link to="/18x" v-show="uqq">
-            <li :style="{background:hColor}"><i class="icon-font icon-18x"></i>和谐区</li>
+        <router-link to="/18x" v-show="uqq" @click.native="reColor">
+            <li><i class="icon-font icon-18x"></i>绅士向</li>
         </router-link>
     </div>
 </template>
@@ -32,10 +32,14 @@
     computed: {
       ...mapGetters(['isLogin'])
     },
-    updated() {
-      console.log(this.$route.fullPath)
+    beforeMount() {
       if (this.$route.fullPath === '/') {
         this.bgColor = '#FF005E'
+      }
+    },
+    methods: {
+      reColor() {
+        this.bgColor = ''
       }
     }
   }

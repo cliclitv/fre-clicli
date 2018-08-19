@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="wrap">
             <p> ACGzone © 2017 - 2018 Powered by
-                <span style="color:#5599f0">Go</span> +
+                <span style="color:#5599f0">Golang</span> +
                 <span style="color:#f0d055">Koa</span> +
                 <span style="color:#66b26c">Vue</span> +
                 <span style="color:#59cfdc">React</span>.</p>
