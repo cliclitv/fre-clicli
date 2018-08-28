@@ -2,7 +2,7 @@ import axios from 'axios'
 import {getStorage} from "common/js/localstorage"
 
 export const request = axios.create({
-  baseURL: 'http://api.chinko.cc'
+  baseURL: 'https://api.chinko.cc'
 })
 
 // 根据分类获取发布状态的文章

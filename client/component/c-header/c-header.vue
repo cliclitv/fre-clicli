@@ -34,9 +34,9 @@
                 <router-link to="/" class="tab-item">
                     <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
                 </router-link>
-                <router-link to="/authors" class="tab-item">
-                    <li>作者墙</li>
-                </router-link>
+                <a href="http://v.chinko.cc?url=" class="tab-item" target="_blank">
+                    <li>player</li>
+                </a>
                 <router-link to="/sort/news" class="tab-item">
                     <li>号外</li>
                 </router-link>
@@ -151,7 +151,7 @@
         background $b-color
         padding: 10px
         box-shadow 0 2px 10px 0 rgba(4, 21, 39, 0.2), 0 1px rgba(4, 21, 39, 0.2)
-        border-bottom:1px solid $b-color
+        border-bottom: 1px solid $b-color
         .logo
             position absolute
             top: 18px
@@ -171,12 +171,13 @@
             color: $blue-color
         .icon-home
             margin-right: 10px
+
     /*.header:hover*/
-        /*background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUzNjNEMTc2OTBGRjExRTQ4RTYyQjkxRkYyODQ3MUM5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUzNjNEMTc3OTBGRjExRTQ4RTYyQjkxRkYyODQ3MUM5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTM2M0QxNzQ5MEZGMTFFNDhFNjJCOTFGRjI4NDcxQzkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTM2M0QxNzU5MEZGMTFFNDhFNjJCOTFGRjI4NDcxQzkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4FLjP5AAAAgElEQVR42uyWsQ7AIAhEOcPS///dJnbp0DRKOUtTTWBShudBAEGtVSKtSLAlMIGrA9E4QwcBXej8OXwbcipcRaGerz99LrsXCCYkb8hXKBo+Cgir2VlouUFg3IXNYa88MJpDGDD8plCjyuWzTgGxfW05vlLhBEDPSKN2Gxf0EGAALCsIm7TfDqIAAAAASUVORK5CYII=")*/
-        /*background-size auto 58px*/
-        /*background-color: #1e2e46*/
-        /*border-bottom:1px solid #30587b*/
-        /*transition all .8s ease-out 0s*/
+    /*background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUzNjNEMTc2OTBGRjExRTQ4RTYyQjkxRkYyODQ3MUM5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUzNjNEMTc3OTBGRjExRTQ4RTYyQjkxRkYyODQ3MUM5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTM2M0QxNzQ5MEZGMTFFNDhFNjJCOTFGRjI4NDcxQzkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTM2M0QxNzU5MEZGMTFFNDhFNjJCOTFGRjI4NDcxQzkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4FLjP5AAAAgElEQVR42uyWsQ7AIAhEOcPS///dJnbp0DRKOUtTTWBShudBAEGtVSKtSLAlMIGrA9E4QwcBXej8OXwbcipcRaGerz99LrsXCCYkb8hXKBo+Cgir2VlouUFg3IXNYa88MJpDGDD8plCjyuWzTgGxfW05vlLhBEDPSKN2Gxf0EGAALCsIm7TfDqIAAAAASUVORK5CYII=")*/
+    /*background-size auto 58px*/
+    /*background-color: #1e2e46*/
+    /*border-bottom:1px solid #30587b*/
+    /*transition all .8s ease-out 0s*/
     .bio
         width 1100px
         margin: 0 auto

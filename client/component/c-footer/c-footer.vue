@@ -5,7 +5,9 @@
                 <span style="color:#5599f0">Golang</span> +
                 <span style="color:#f0d055">Koa</span> +
                 <span style="color:#66b26c">Vue</span> +
-                <span style="color:#59cfdc">React</span>.</p>
+                <span style="color:#59cfdc">React</span>+
+                <span style="color:#FF005E">Fre</span>
+                .</p>
         </div>
         <div class="message">
             <h3>

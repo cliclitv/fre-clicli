@@ -69,8 +69,8 @@
           return '少年祈祷中……'
         } else {
           let str = marked(content, {breaks: true})
-          return str.replace('></iframe', 'style="background:#fff;margin-top:20px;max-width:100%;border-radius:5px"></iframe')
-
+          let str2 = str.replace('></iframe', 'style="background:#fff;margin-top:20px;max-width:100%;border-radius:5px"></iframe')
+          return str2.replace('> </iframe', 'style="width:100%;height:350px;margin:15px 0;"> </iframe')
         }
       }
     },
