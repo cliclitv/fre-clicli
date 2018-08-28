@@ -2,18 +2,17 @@
     <div class="footer">
         <div class="wrap">
             <p> ACGzone © 2017 - 2018 Powered by
-                <span style="color:#5599f0">Golang</span> +
+                <span style="color:#5599f0">Go</span> +
                 <span style="color:#f0d055">Koa</span> +
                 <span style="color:#66b26c">Vue</span> +
                 <span style="color:#59cfdc">React</span> +
-                <span style="color:#FF005E">Fre</span>
-                .</p>
+                <span style="color:#FF005E">Fre</span> .
+            </p>
         </div>
         <div class="message">
             <h3>
                 {{message}}
             </h3>
-
         </div>
     </div>
 </template>
@@ -36,7 +35,7 @@
         p
             display inline-block
             padding-top: 10px
-            padding-left: 260px
+            padding-left: 240px
 
     .message
         background: linear-gradient(#ffe2eb, #fffffb)
@@ -72,6 +71,5 @@
         right: 17px
         width: 8px
         border-bottom-right-radius: 40px 50px
-
 
 </style>
