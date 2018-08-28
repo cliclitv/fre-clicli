@@ -65,10 +65,17 @@
         return getAvatar(avatar)
       },
       marked(content) {
+        let renderer = new marked.Renderer()
+
+        marked.setOptions({breaks: true})
+
+        renderer.link = function (href, title, text) {
+          return '<a target="_blank" href="' + href + '" title="' + title + '">' + text + '</a>'
+        }
         if (typeof (content) === 'undefined') {
           return '少年祈祷中……'
         } else {
-          let str = marked(content, {breaks: true})
+          let str = marked(content, {renderer: renderer})
           let str2 = str.replace('></iframe', 'style="background:#fff;margin-top:20px;max-width:100%;border-radius:5px"></iframe')
           return str2.replace('> </iframe', 'style="width:100%;height:350px;margin:15px 0;"> </iframe')
         }
