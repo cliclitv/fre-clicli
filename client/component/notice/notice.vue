@@ -16,6 +16,10 @@
                 </router-link>
             </ul>
         </div>
+        <div class="ad">
+            <a href="https://item.taobao.com/item.htm?id=568316315061" target="_blank"><img
+                    src="https://my.mixtape.moe/qasfit.jpg" alt=""></a>
+        </div>
     </div>
 
 </template>
@@ -35,6 +39,16 @@
         a
             color: $color
             font-size: 12px
+
+    .ad
+        opacity: .8
+        margin-top: 30px
+        transition .3s
+        img
+            border-radius: 5px
+
+    .ad:hover
+        opacity 1
 
     .headline li
         margin-top 30px

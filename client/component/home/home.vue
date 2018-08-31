@@ -1,6 +1,10 @@
 <template>
     <div>
         <slider></slider>
+        <div class="ad">
+            <a href="https://item.taobao.com/item.htm?id=574522485062" target="_blank"><img
+                    src="https://my.mixtape.moe/fzfcgj.jpg" alt=""></a>
+        </div>
         <h1 class="common-title">推荐文章</h1>
         <post-list :posts="uqq?articles:posts" :key="this.$route.params.type"></post-list>
         <pagination @next="next" v-show="isShow"></pagination>
@@ -99,6 +103,11 @@
                 border-radius: 30px
                 display inline-block
                 margin: 30px
-
-
+        .ad
+            transition .3s
+            display none
+            img
+                border-radius: 5px
+        .ad:hover
+            opacity 1
 </style>

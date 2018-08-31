@@ -24,6 +24,12 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+let isMobile = navigator.userAgent.toLowerCase().match(/(ipod|iphone|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|wince)/i) != null;
+if (isMobile) {
+  window.location.href = "https://m.chinko.cc"
+}
+
+
 new Vue({
   router,
   store,
