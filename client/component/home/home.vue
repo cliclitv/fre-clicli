@@ -42,6 +42,10 @@
       if (this.uqq) {
         this.getArticleList()
       }
+      let isMobile = navigator.userAgent.toLowerCase().match(/(ipod|iphone|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|wince)/i) != null;
+      if (isMobile) {
+        window.location.href = "https://m.chinko.cc"
+      }
     },
     computed: {
       ...mapState(['posts'])
