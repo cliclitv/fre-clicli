@@ -1,7 +1,7 @@
 <template>
   <div class="video-list">
-    <div class="wrapper" v-show="addShow||playerShow" @click="hide"></div>
-    <player :url="url" v-show="playerShow"></player>
+    <div class="wrapper" v-show="addShow" @click="hide"></div>
+    <player :url="url" :playerShow="playerShow" @hide="hide"></player>
     <div class="list">
       <ul>
         <li v-for="item in videos">
@@ -158,6 +158,7 @@
           display inline-block
           box-sizing border-box
           .item
+            cursor pointer
             margin: 10px
             background $b-color
             padding: 5px
