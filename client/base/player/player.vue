@@ -2,7 +2,7 @@
   <div class="player" v-show="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <iframe :src="'https://jx.618g.com/?url='+url" frameborder="0" width="800px" height="600px" allowfullscreen="true">
+      <iframe :src="'https://jx.618g.com/?url='+url" frameborder="0" width="800px" height="500px" allowfullscreen="true">
       </iframe>
       <div class="close" @click="hide">
         <i class="icon-font icon-close1"></i>
@@ -27,7 +27,7 @@
   .player
     .play
       width: 800px
-      height: 600px
+      height: 500px
       padding: 20px
       background: #000
       position fixed
