@@ -49,11 +49,13 @@
         oid: '',
         title: '',
         content: '',
-        pid: this.$route.params.id
+        pid: this.$route.params.id,
+        uid: 0
       }
     },
     mounted() {
       const role = getStorage('user-info').role
+      this.uid = getStorage('user-info').id
       if (role === 'admin' || role === 'editor') {
         this.isShow = true
       }
@@ -73,7 +75,7 @@
         this.playerShow = false
       },
       addVideo() {
-        addVideo(this.oid, this.title, this.content, this.pid, this.uid, getStorage('user-info').id).then(res => {
+        addVideo(this.oid, this.title, this.content, this.pid, this.uid).then(res => {
           if (res.data.code === 201) {
             this.addShow = false
           }

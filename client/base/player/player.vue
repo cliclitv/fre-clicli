@@ -1,7 +1,6 @@
 <template>
   <div class="player">
-    <iframe :src="'http://jx.618g.com/?url='+url" frameborder="0" width="800px" height="600px">
-
+    <iframe :src="'https://jx.618g.com/?url='+url" frameborder="0" width="800px" height="600px">
     </iframe>
   </div>
 </template>
