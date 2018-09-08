@@ -2,7 +2,7 @@
   <div class="player" v-show="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <iframe :src="'https://jx.618g.com/?url='+url" frameborder="0" width="800px" height="600px">
+      <iframe :src="'https://jx.618g.com/?url='+url" frameborder="0" width="800px" height="600px" allowfullscreen="true">
       </iframe>
       <div class="close" @click="hide">
         <i class="icon-font icon-close1"></i>
