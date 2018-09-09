@@ -34,7 +34,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return '★ACG和谐区★ - 绅士の和谐社区(acgzone.cn)'
+      return 'C哩C哩(c站) - (ノへ￣、)本当に破站 - clicli.us'
     },
     data() {
       return {

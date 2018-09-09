@@ -16,7 +16,7 @@
       </ul>
     </div>
     <div class="addBtn">
-      <span @click="show" v-show="isShow">添加番剧</span>
+      <span @click="show" v-show="isShow">添加或修改视频</span>
     </div>
     <div class="addVideo" v-show="addShow">
       <ul>
@@ -25,6 +25,7 @@
         <li><input type="text" placeholder="播放地址：爱奇艺等视频网站的播放地址" v-model="content"></li>
         <li>
           <button @click="addVideo">添加</button>
+          <button @click="updateVideo">修改</button>
         </li>
       </ul>
     </div>
@@ -33,7 +34,7 @@
 </template>
 
 <script>
-  import {addVideo, getVideos} from 'api/video'
+  import {addVideo, updateVideo, getVideos} from 'api/video'
   import {getStorage} from 'common/js/localstorage'
   import {getAvatar} from "common/js/util"
   import Player from 'base/player/player.vue'
@@ -76,6 +77,13 @@
       },
       addVideo() {
         addVideo(this.oid, this.title, this.content, this.pid, this.uid).then(res => {
+          if (res.data.code === 201) {
+            this.addShow = false
+          }
+        })
+      },
+      updateVideo() {
+        updateVideo(this.oid, this.title, this.content, this.pid, this.uid).then(res => {
           if (res.data.code === 201) {
             this.addShow = false
           }

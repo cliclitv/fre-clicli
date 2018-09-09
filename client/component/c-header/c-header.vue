@@ -9,7 +9,7 @@
 
                 <li v-show="isShow" @click="onLogout">退出</li>
                 <li @click="onLogin" v-show="!isShow">登陆</li>
-                <a href="http://admin.chinko.cc/register">
+                <a href="http://admin.clicli.us/register">
                     <li v-show="!isShow">注册</li>
                 </a>
             </ul>
@@ -34,9 +34,6 @@
                 <router-link to="/" class="tab-item">
                     <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
                 </router-link>
-                <a href="http://v.chinko.cc?url=" class="tab-item" target="_blank">
-                    <li>player</li>
-                </a>
                 <router-link to="/sort/news" class="tab-item">
                     <li>号外</li>
                 </router-link>
@@ -70,7 +67,7 @@
         isShow: false,
         msg: '',
         pr: '投稿',
-        adminroute: 'http://admin.chinko.cc/login'
+        adminroute: 'http://admin.clicli.us/login'
       }
     },
     computed: {
@@ -101,7 +98,7 @@
             if (user) {
               this.isShow = true
               this.pr = '后台'
-              this.adminroute = 'http://admin.chinko.cc'
+              this.adminroute = 'http://admin.clicli.us'
               this.user = user
             } else {
               const name = Base64.decode(Cookies.get('uname'))
@@ -120,11 +117,11 @@
       onLogout() {
         Cookies.remove('uname', {
           path: '/',
-          domain: 'chinko.cc'
+          domain: 'clicli.us'
         })
         Cookies.remove('uqq', {
           path: '/',
-          domain: 'chinko.cc'
+          domain: 'clicli.us'
         })
         removeStorage('user-info')
         this.isShow = false

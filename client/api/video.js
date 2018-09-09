@@ -25,7 +25,16 @@ export function addVideo(oid, title, content, pid, uid) {
     uid
   })
 }
-
+// 修改视频
+export function updateVideo(oid, title, content, pid, uid) {
+  return request.post('/video/update', {
+    oid: parseInt(oid),
+    title,
+    content,
+    pid: parseInt(pid),
+    uid
+  })
+}
 // 删除评论
 export function deleteComment() {
   return request.delete('/comment/delete')

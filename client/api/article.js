@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {getStorage} from "common/js/localstorage"
+import Cookies from 'js-cookie'
 
 export const request = axios.create({
   baseURL: 'https://api.chinko.cc'
@@ -12,7 +13,7 @@ export function getPostsBySort(sort, page, pageSize) {
       status: 'public',
       sort,
       page,
-      pageSize,
+      pageSize
     }
   })
 }

@@ -44,7 +44,7 @@
       }
     },
     title() {
-      return this.$store.state.post.title + '- ★ACG和谐区★'
+      return this.$store.state.post.title + '- ★C哩C哩★'
     },
     computed: {
       ...mapGetters(['post'])
