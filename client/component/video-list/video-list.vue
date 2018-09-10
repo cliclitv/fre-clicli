@@ -16,7 +16,7 @@
       </ul>
     </div>
     <div class="addBtn">
-      <span @click="show" v-show="isShow">添加或修改视频</span>
+      <span @click="show" v-show="isShow">贴视频</span>
     </div>
     <div class="addVideo" v-show="addShow">
       <ul>
@@ -24,8 +24,7 @@
         <li><input type="text" placeholder="标题：每一话的名字，可不填" v-model="title"></li>
         <li><input type="text" placeholder="播放地址：爱奇艺等视频网站的播放地址" v-model="content"></li>
         <li>
-          <button @click="addVideo">添加</button>
-          <button @click="updateVideo">修改</button>
+          <button @click="addVideo">张贴</button>
         </li>
       </ul>
     </div>
