@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="notice">
-            <p>和谐区qq群②：573646415，欢迎来玩耍~</p>
-        </div>
         <div class="headline">
             <ul>
                 <router-link to="/p/30">
@@ -18,7 +15,7 @@
         </div>
         <div class="ad">
             <a href="https://item.taobao.com/item.htm?id=568316315061" target="_blank"><img
-                    src="https://my.mixtape.moe/qasfit.jpg" alt=""></a>
+                    src="https://my.mixtape.moe/qasfit.jpg"></a>
         </div>
     </div>
 

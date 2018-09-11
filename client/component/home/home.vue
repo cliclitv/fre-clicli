@@ -36,7 +36,7 @@
     },
     mixins: [titleMixin],
     title() {
-      return 'C哩C哩(c站) - (ノへ￣、)本当に破站 - clicli.us'
+      return 'C哩C哩_(゜-゜)つロ 喝茶~ - clicli.us(C站)'
     },
     beforeMount() {
       if (this.uqq) {

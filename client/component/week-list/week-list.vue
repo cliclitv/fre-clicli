@@ -27,7 +27,12 @@
         items: [
           {
             day: '周一', content: [
-              {title: '进击的巨人第三季', suo: 'https://i.loli.net/2018/08/11/5b6eae408cf7b.jpg', url: '/p/100'}
+              {title: '进击的巨人第三季', suo: 'https://i.loli.net/2018/08/11/5b6eae408cf7b.jpg', url: '/p/100'},
+              {
+                title: '邪神酱与厨二病少女',
+                suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fv5i2eoeoij30dw0b2t9w.jpg',
+                url: '/p/238'
+              }
             ]
           },
           {
@@ -97,8 +102,8 @@
         a
           color: #fff
         img
-          height 100px
-          width 100px
+          height 80px
+          width 80px
           object-fit: cover
           border-radius 50%
           border: 10px solid $bg-color

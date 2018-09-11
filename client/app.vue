@@ -1,25 +1,29 @@
 <template>
-    <div id="app">
-        <progress-bar></progress-bar>
-        <c-header @showTab="showTab"></c-header>
-        <div class="home wrap">
-            <div class="left">
-                <reach-box></reach-box>
-                <tab :ds="ds" @close="close"></tab>
-            </div>
-            <div class="main">
-                <keep-alive>
-                    <router-view :key="$route.fullPath" v-if="$route.meta.keepAlive"></router-view>
-                </keep-alive>
-                <router-view :key="$route.fullPath" v-if="!$route.meta.keepAlive"></router-view>
-            </div>
-            <div class="right">
-                <notice></notice>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <c-footer></c-footer>
+  <div id="app">
+    <progress-bar></progress-bar>
+    <c-header @showTab="showTab"></c-header>
+    <div class="home wrap">
+      <div class="left">
+        <reach-box></reach-box>
+        <tab :ds="ds" @close="close"></tab>
+      </div>
+      <div class="gao">
+        <p>里番请止步，这儿没有，这里同步更新动画番剧，为了能正产观看，请使用 chrome 内核浏览器。</p>
+      </div>
+      <div class="main">
+
+        <keep-alive>
+          <router-view :key="$route.fullPath" v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+        <router-view :key="$route.fullPath" v-if="!$route.meta.keepAlive"></router-view>
+      </div>
+      <div class="right">
+        <notice></notice>
+      </div>
+      <div class="clear"></div>
     </div>
+    <c-footer></c-footer>
+  </div>
 </template>
 
 <script>
@@ -34,7 +38,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return 'C哩C哩(c站) - (ノへ￣、)本当に破站 - clicli.us'
+      return 'C哩C哩_(゜-゜)つロ 喝茶~ - clicli.us(C站)'
     },
     data() {
       return {
@@ -61,31 +65,42 @@
 </script>
 
 <style lang="stylus">
-    .home
-        padding: 10px 0
-        margin 60px auto !important
+  @import "~common/stylus/variable"
+  .home
+    padding: 10px 0
+    margin 60px auto !important
 
-    .main
-        margin-top: 10px
-        width 650px
-        float: left
-        padding: 10px
-        .common-title
-            font-size: 13px
-            padding: 30px 0 10px 0
-            font-weight: lighter
+  .main
+    margin-top: 10px
+    width 650px
+    float: left
+    padding: 10px
+    .common-title
+      font-size: 13px
+      padding: 30px 0 10px 0
+      font-weight: lighter
 
-    .left
-        width 160px
-        padding: 10px 10px 0 0
-        float: left
-        vertical-align: top
+  .left
+    width 160px
+    padding: 10px 10px 0 0
+    float: left
+    vertical-align: top
 
-    .right
-        float: right
-        width 250px
-        vertical-align: top
-        padding: 10px 0 10px 10px
-        margin-top: 10px
+  .right
+    float: right
+    width 250px
+    vertical-align: top
+    padding: 10px 0 10px 10px
+    margin-top: 10px
+
+  .gao
+    float left
+    margin-left: 30px
+    text-align center
+    background #fff
+    color: #000
+    padding: 5px 20px
+    border-radius 20px
+    margin-top: 20px
 
 </style>
