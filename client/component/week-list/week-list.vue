@@ -36,6 +36,11 @@
             ]
           },
           {
+            day: '周二', content: [
+              {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246'}
+            ]
+          },
+          {
             day: '周三', content: [
               {title: 'Free!第三季', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg', url: '/p/82'}
             ]

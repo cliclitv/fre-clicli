@@ -15,7 +15,7 @@
         </div>
         <div class="ad">
             <a href="https://item.taobao.com/item.htm?id=568316315061" target="_blank"><img
-                    src="https://my.mixtape.moe/qasfit.jpg"></a>
+                    src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fv6n3tf09wj306y06yjt4.jpg"></a>
         </div>
     </div>
 
