@@ -48,7 +48,8 @@
           {
             day: '周四', content: [
               {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/p/4'},
-              {title: '天狼', suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg', url: '/p/230'}
+              {title: '天狼', suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg', url: '/p/230'},
+              {title: '异世界魔王与召唤少女', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv6yoymifxj30hs0a03yu.jpg', url: '/p/248'}
             ]
           },
           {
