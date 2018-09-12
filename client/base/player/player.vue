@@ -2,21 +2,32 @@
   <div class="player" v-show="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <iframe :src="'https://jx.618g.com/?url='+url" frameborder="0" width="800px" height="500px" allowfullscreen="true">
+      <iframe :src="line+url" frameborder="0" width="800px" height="500px" allowfullscreen="true">
       </iframe>
       <div class="close" @click="hide">
         <i class="icon-font icon-close1"></i>
       </div>
+    </div>
+    <div class="line" @click="changeLine">
+      换线
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['url','playerShow'],
+    props: ['url', 'playerShow'],
+    data() {
+      return {
+        line: 'https://jx.618g.com/?url=',
+      }
+    },
     methods: {
       hide() {
         this.$emit('hide')
+      },
+      changeLine() {
+        this.line === 'http://jx.itaoju.top/?url=' ? this.line = 'https://jx.618g.com/?url=' : this.line = 'http://jx.itaoju.top/?url='
       }
     }
   }
@@ -25,6 +36,7 @@
 <style scoped lang="stylus">
   @import "~common/stylus/variable"
   .player
+    position relative
     .play
       width: 800px
       height: 500px
@@ -58,5 +70,19 @@
         border: 2px solid #fff
         padding: 10px
         color: #fff
+    .line
+      padding: 10px 30px
+      background $yellow
+      color: #fff
+      position fixed
+      top: 50%
+      left: 50%
+      transform translate(400px, 200px)
+      z-index: 111111
+      cursor pointer
+      transition .3s
+    .line:hover
+      transform translate(420px, 200px)
+
 
 </style>
