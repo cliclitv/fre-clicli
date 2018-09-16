@@ -54,6 +54,7 @@
           },
           {
             day: '周日', content: [
+              {title: 'Island', suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg', url: '/p/200'},
               {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', url: '/p/213'},
               {title: '海贼王', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg', url: '/p/231'}
             ]

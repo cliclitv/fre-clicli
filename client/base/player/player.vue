@@ -1,6 +1,5 @@
 <template>
   <div class="player" v-show="playerShow">
-    {{url}}
     <div class="wrapper"></div>
     <div class="play">
       <div class="ep" ref="player"></div>
