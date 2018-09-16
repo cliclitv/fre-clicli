@@ -47,7 +47,6 @@
     .play
       width: 800px
       height: 450px
-      padding: 20px
       background: #000
       position fixed
       z-index: 999999
