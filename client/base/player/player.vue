@@ -2,19 +2,20 @@
   <div class="player" v-show="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <iframe :src="line+url" frameborder="0" width="800px" height="500px" allowfullscreen="true">
-      </iframe>
+      <div class="ep" ref="player"></div>
       <div class="close" @click="hide">
         <i class="icon-font icon-close1"></i>
       </div>
     </div>
-    <div class="line" @click="changeLine">
-      换线
-    </div>
+    <!--<div class="line" @click="changeLine">-->
+      <!--换线-->
+    <!--</div>-->
   </div>
 </template>
 
 <script>
+  import Eplayer from 'eplayer'
+
   export default {
     props: ['url', 'playerShow'],
     data() {
@@ -22,12 +23,19 @@
         line: 'https://jx.618g.com/?url=',
       }
     },
+    mounted() {
+      new Eplayer(this.$refs.player, {
+        hls: true,
+        src: this.url,
+        themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
+      })
+    },
     methods: {
       hide() {
         this.$emit('hide')
       },
       changeLine() {
-        this.line === 'http://jx.itaoju.top/?url=' ? this.line = 'https://jx.618g.com/?url=' : this.line = 'http://jx.itaoju.top/?url='
+        this.line === 'https://www.skyfollowsnow.pro/?url=' ? this.line = 'https://jx.618g.com/?url=' : this.line = 'https://www.skyfollowsnow.pro/?url='
       }
     }
   }
@@ -39,7 +47,7 @@
     position relative
     .play
       width: 800px
-      height: 500px
+      height: 450px
       padding: 20px
       background: #000
       position fixed
@@ -48,6 +56,8 @@
       left: 50%
       transform translate(-50%, -50%)
       box-shadow: 1px 1px 5px #090c13
+      .ep
+        height: 450px
 
     .wrapper
       background: rgba(0, 0, 0, .8)
