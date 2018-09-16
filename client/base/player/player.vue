@@ -1,5 +1,6 @@
 <template>
   <div class="player" v-show="playerShow">
+    {{url}}
     <div class="wrapper"></div>
     <div class="play">
       <div class="ep" ref="player"></div>
@@ -8,7 +9,7 @@
       </div>
     </div>
     <!--<div class="line" @click="changeLine">-->
-      <!--换线-->
+    <!--换线-->
     <!--</div>-->
   </div>
 </template>
@@ -23,19 +24,22 @@
         line: 'https://jx.618g.com/?url=',
       }
     },
-    mounted() {
-      new Eplayer(this.$refs.player, {
-        hls: true,
-        src: this.url,
-        themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
-      })
+    watch:{
+      url(){
+        console.log(this.url)
+        new Eplayer(this.$refs.player, {
+          hls: true,
+          src: this.url,
+          themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
+        })
+      }
     },
     methods: {
+      getUrl(url) {
+
+      },
       hide() {
         this.$emit('hide')
-      },
-      changeLine() {
-        this.line === 'https://www.skyfollowsnow.pro/?url=' ? this.line = 'https://jx.618g.com/?url=' : this.line = 'https://www.skyfollowsnow.pro/?url='
       }
     }
   }
