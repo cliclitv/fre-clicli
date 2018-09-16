@@ -24,9 +24,8 @@
         line: 'https://jx.618g.com/?url=',
       }
     },
-    watch:{
-      url(){
-        console.log(this.url)
+    watch: {
+      url() {
         new Eplayer(this.$refs.player, {
           hls: true,
           src: this.url,
@@ -35,9 +34,6 @@
       }
     },
     methods: {
-      getUrl(url) {
-
-      },
       hide() {
         this.$emit('hide')
       }
