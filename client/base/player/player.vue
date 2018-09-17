@@ -1,5 +1,5 @@
 <template>
-  <div class="player" v-show="playerShow">
+  <div class="player-wrap" v-show="playerShow">
     <div class="wrapper"></div>
     <div class="play">
       <div class="ep" ref="player"></div>
@@ -25,10 +25,12 @@
     },
     watch: {
       url() {
-        new Eplayer(this.$refs.player, {
-          hls: true,
-          src: this.url,
-          themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
+        setTimeout(() => {
+          new Eplayer(this.$refs.player, {
+            hls: true,
+            src: this.url,
+            themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
+          }, 20)
         })
       }
     },
@@ -40,10 +42,12 @@
   }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus">
   @import "~common/stylus/variable"
-  .player
+  .player-wrap
     position relative
+    width: 800px
+    height: 450px
     .play
       width: 800px
       height: 450px
@@ -55,6 +59,7 @@
       transform translate(-50%, -50%)
       box-shadow: 1px 1px 5px #090c13
       .ep
+        width: 800px
         height: 450px
 
     .wrapper
