@@ -7,9 +7,6 @@
         <i class="icon-font icon-close1"></i>
       </div>
     </div>
-    <!--<div class="line" @click="changeLine">-->
-    <!--换线-->
-    <!--</div>-->
   </div>
 </template>
 
@@ -18,16 +15,11 @@
 
   export default {
     props: ['url', 'playerShow'],
-    data() {
-      return {
-        line: 'https://jx.618g.com/?url=',
-      }
-    },
     watch: {
       url() {
         setTimeout(() => {
           new Eplayer(this.$refs.player, {
-            hls: true,
+            hls: this.url.indexOf('m3u8') !== -1,
             src: this.url,
             themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
           }, 20)
@@ -45,7 +37,7 @@
 <style lang="stylus">
   @import "~common/stylus/variable"
   .player-wrap
-    position relative
+    position absolute
     width: 800px
     height: 450px
     .play
