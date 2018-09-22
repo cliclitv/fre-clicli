@@ -8,7 +8,7 @@
         <tab :ds="ds" @close="close"></tab>
       </div>
       <div class="gao">
-        <p>里番请止步，这儿没有，这里同步更新动画番剧，为了能正产观看，请使用 chrome 内核浏览器。</p>
+        <p>里番请止步，这儿没有，这里同步更新动画番剧，视频报错、催更、app相关请加交流群：607024802。</p>
       </div>
       <div class="main">
 

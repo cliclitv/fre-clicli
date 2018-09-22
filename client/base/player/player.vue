@@ -19,7 +19,6 @@
       url() {
         setTimeout(() => {
           new Eplayer(this.$refs.player, {
-            hls: this.url.indexOf('m3u8') !== -1,
             src: this.url,
             themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
           }, 20)

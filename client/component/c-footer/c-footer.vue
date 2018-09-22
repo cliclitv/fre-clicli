@@ -21,8 +21,8 @@
   export default {
     data() {
       return {
-        message: `本站默认解压密码：acgzone
-                欢迎加入交流群②：573646415`
+        message: `有关催更、报错、举报、APP
+                请加交流群反馈：607024802`
       }
     }
   }

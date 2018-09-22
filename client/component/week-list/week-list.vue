@@ -49,14 +49,14 @@
             day: '周四', content: [
               {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/p/4'},
               {title: '天狼', suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg', url: '/p/230'},
-              {title: '异世界魔王与召唤少女', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv6yoymifxj30hs0a03yu.jpg', url: '/p/248'}
+              {title: '异世界魔王与召唤少女', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv6yoymifxj30hs0a03yu.jpg', url: '/p/84'}
             ]
           },
           {
             day: '周日', content: [
               {title: 'Island', suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg', url: '/p/200'},
               {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', url: '/p/213'},
-              {title: '海贼王', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg', url: '/p/231'}
+              {title: '海贼王', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg', url: '/p/258'}
             ]
           }
         ]
