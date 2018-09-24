@@ -17,28 +17,35 @@ const renderer = VueServerRenderer.createRenderer({
 // 导出路由
 const router = new Router()
 let out
-router.get('/hali/', async ctx => {
+router.get('/v/', async ctx => {
   const start = ctx.query.url
 
   await axios.get(start).then(res => {
-    let str = res.data.match(/player.qinmoe.com(\S*)copyright/)[1]
-    if (!str) {
-      console.log('没有可匹配的源')
+    let dili = res.data.match(/vd3.bdstatic.com(\S*)mp4/)
+    if (dili) {
+      let str = dili[0].replace(/\\\//g, '/')
+      out = `https://${str}`
+    } else {
+      let hali = res.data.match(/player.qinmoe.com(\S*)copyright/)
+      if (hali) {
+        hali = hali[1].substring(8, 36)
+        let url = `https://player.qinmoe.com/play/${hali}`
+        axios
+          .get(url, {
+            headers: {
+              Host: 'player.qinmoe.com',
+              Referer: start
+            }
+          })
+          .then(res => {
+            let params = res.data.match(/<video src="(\S*)" controls/)[1]
+            let arr = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
+            out = arr
+          })
+      } else {
+        out = '未能匹配到，请换源'
+      }
     }
-    str = str.substring(8, 36)
-    let url = `https://player.qinmoe.com/play/${str}`
-    axios
-      .get(url, {
-        headers: {
-          Host: 'player.qinmoe.com',
-          Referer: start
-        }
-      })
-      .then(res => {
-        let params = res.data.match(/<video src="(\S*)" controls/)[1]
-        let arr = params.replace(/\\x26/g,'&').replace(/\\\//g,'/')
-        out = arr
-      })
   })
   ctx.body = out
 
