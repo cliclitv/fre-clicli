@@ -1,6 +1,7 @@
 const Router = require('koa-router')
 const path = require('path')
 const fs = require('fs')
+const axios = require('axios')
 const VueServerRenderer = require('vue-server-renderer')
 const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 
@@ -15,12 +16,39 @@ const renderer = VueServerRenderer.createRenderer({
 
 // 导出路由
 const router = new Router()
+let out
+router.get('/hali/', async ctx => {
+  const start = ctx.query.url
+
+  await axios.get(start).then(res => {
+    let str = res.data.match(/player.qinmoe.com(\S*)copyright/)[1]
+    if (!str) {
+      console.log('没有可匹配的源')
+    }
+    str = str.substring(8, 36)
+    let url = `https://player.qinmoe.com/play/${str}`
+    axios
+      .get(url, {
+        headers: {
+          Host: 'player.qinmoe.com',
+          Referer: start
+        }
+      })
+      .then(res => {
+        let params = res.data.match(/<video src="(\S*)" controls/)[1]
+        let arr = params.replace(/\\x26/g,'&').replace(/\\\//g,'/')
+        out = arr
+      })
+  })
+  ctx.body = out
+
+})
 
 router.get('*', async (ctx) => {
   ctx.type = 'html'
   const cookie = ctx.cookies.get('uname')
   if (cookie) {
-    let data = fs.readFileSync(path.join(__dirname,'../dist/spa/index.html'))
+    let data = fs.readFileSync(path.join(__dirname, '../dist/spa/index.html'))
     ctx.body = data.toString()
   } else {
     const context = {

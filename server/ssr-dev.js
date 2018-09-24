@@ -51,6 +51,7 @@ const handleSSR = async (ctx) => {
 // 导出路由
 const router = new Router()
 
+
 router.get('*', handleSSR)
 module.exports = router
 
