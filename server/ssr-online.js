@@ -9,13 +9,14 @@ const VueServerRenderer = require('vue-server-renderer')
 const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 
 const bundle = require('../dist/server-build.js').default
-const template = fs.readFileSync(path.join(__dirname, './template.html'), 'utf-8')
-const renderer = VueServerRenderer.createRenderer({
-    template,
-    clientManifest
-  }
+const template = fs.readFileSync(
+  path.join(__dirname, './template.html'),
+  'utf-8'
 )
-
+const renderer = VueServerRenderer.createRenderer({
+  template,
+  clientManifest
+})
 
 const router = new Router()
 
@@ -25,14 +26,46 @@ router.get('/v/', async ctx => {
   let type = parser.urlType(url)
   switch (type) {
     case 'bilibili':
-      ctx.body = `https://player.baodai.org/ipsign/extend/parse_url.php?version=static&vid=${url}&type=bilibili&hd=2&ran=1537867558&access=b785fc781e933b548851be96ea8efe99&ctype=phone`
+      url = url.replace('www.', 'm.')
+      const ob = await axios.get(url).then(res => {
+        let cid = res.data.match(/cid(\S*)cover/)
+        let aid = res.data.match(/aid(\S*)cid/)
+        if (cid) {
+          return {
+            a: aid[1].substring(2, 10),
+            c: cid[1].substring(2, 10)
+          }
+        }
+      })
+      await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
+        params: {
+          cid: ob.c,
+          quality: 16,
+          page: 1,
+          bangumi: 1
+        },
+        headers: {
+          Host: 'www.kanbilibili.com'
+        }
+      })
+        .then(res => {
+          ctx.body = {
+            code: 0,
+            aid: ob.a,
+            cid: ob.c,
+            url: res.data.data.durl[0].url.replace('http','https')
+          }
+        })
       break
     case 'dilidili':
       await axios.get(url).then(res => {
         let dili = res.data.match(/vd3.bdstatic.com(\S*)mp4/)
         if (dili) {
           let str = dili[0].replace(/\\\//g, '/')
-          ctx.body = `https://${str}`
+          ctx.body = {
+            code: 0,
+            url: `https://${str}`
+          }
         }
       })
       break
@@ -52,17 +85,22 @@ router.get('/v/', async ctx => {
         }
       }).then(res => {
         let params = res.data.match(/<video src="(\S*)" controls/)[1]
-        ctx.body = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
+        let url = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
+        ctx.body = {
+          code: 0,
+          url
+        }
       })
       break
     default:
-      return '未能匹配到'
+      ctx.body = {
+        code: 0,
+        url
+      }
   }
-
 })
 
-
-router.get('*', async (ctx) => {
+router.get('*', async ctx => {
   ctx.type = 'html'
   const cookie = ctx.cookies.get('uname')
   if (cookie) {
@@ -83,10 +121,5 @@ router.get('*', async (ctx) => {
       throw err
     }
   }
-
-
 })
 module.exports = router
-
-
-
