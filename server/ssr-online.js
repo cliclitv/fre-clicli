@@ -99,7 +99,7 @@ router.get('/jx/', async ctx => {
           Referer: url
         }
       }).then(res => {
-        return res.data.match(/H6Id(\S*)mp4/)[0]
+        return res.data.match(/H6Id(\S*)mp4/i)[0]
       })
 
       await axios.get(`http://47.100.0.249/kli/play.php?url=${encodeURI(ret)}`, {
