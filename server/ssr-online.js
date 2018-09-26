@@ -21,7 +21,7 @@ const renderer = VueServerRenderer.createRenderer({
 const router = new Router()
 
 // 解析嘀哩嘀哩和halihali
-router.get('/v/', async ctx => {
+router.get('/jx/', async ctx => {
   let url = ctx.query.url
   let type = parser.urlType(url)
   switch (type) {
@@ -53,7 +53,7 @@ router.get('/v/', async ctx => {
             code: 0,
             aid: ob.a,
             cid: ob.c,
-            url: res.data.data.durl[0].url.replace('http','https')
+            url: res.data.data.durl[0].url.replace('http', 'https')
           }
         })
       break
@@ -89,6 +89,29 @@ router.get('/v/', async ctx => {
         ctx.body = {
           code: 0,
           url
+        }
+      })
+      break
+    case 'silisili':
+      const ret = await axios.get(url, {
+        headers: {
+          Host: 'www.silisili.co',
+          Referer: url
+        }
+      }).then(res => {
+        return res.data.match(/H6Id(\S*)mp4/)[0]
+      })
+
+      await axios.get(`http://47.100.0.249/kli/play.php?url=${encodeURI(ret)}`, {
+        headers: {
+          Host: '47.100.0.249'
+        }
+      }).then(res => {
+        let params = res.data.match(/dl1(\S*)DOCTYPE/)[0]
+        params = params.substring(0, params.length - 15).replace('\\/', '/')
+        ctx.body = {
+          code: 0,
+          url: `https://${params}`
         }
       })
       break
