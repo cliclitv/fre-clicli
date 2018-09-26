@@ -29,6 +29,7 @@
     "js-base64": "^2.4.8",
     "js-cookie": "^2.2.0",
     "koa": "^2.5.2",
+    "koa-cors": "^0.0.16",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "marked": "^0.4.0",

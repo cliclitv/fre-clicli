@@ -9,11 +9,6 @@
                 <span style="color:#FF005E">Fre</span> .
             </p>
         </div>
-        <div class="message">
-            <h3>
-                {{message}}
-            </h3>
-        </div>
     </div>
 </template>
 

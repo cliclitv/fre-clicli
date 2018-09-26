@@ -9,7 +9,8 @@ export function momentTime(time) {
 }
 
 export function getSuo(content) {
-  return content.match(/suo(.+?)\)/i)[1].slice(2)
+  let m = content.match(/suo(.+?)\)/i)
+  return m ? m[1].slice(2) : 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvmtrka9p5j30b40b43yo.jpg'
 }
 
 export function translate(sortName) {

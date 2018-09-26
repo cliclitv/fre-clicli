@@ -22,7 +22,7 @@
       <ul>
         <li><input type="text" placeholder="序号：只填数字，最终展示为[第x话]" v-model="oid"></li>
         <li><input type="text" placeholder="标题：每一话的名字，可不填" v-model="title"></li>
-        <li><input type="text" placeholder="播放地址：爱奇艺等视频网站的播放地址" v-model="content"></li>
+        <li><input type="text" placeholder="播放地址：mp4 或 m3u8 直链" v-model="content"></li>
         <li>
           <button @click="addVideo">张贴</button>
         </li>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import {addVideo, updateVideo, getVideos} from 'api/video'
+  import {addVideo, updateVideo, getVideos, getRealUrl} from 'api/video'
   import {getStorage} from 'common/js/localstorage'
   import {getAvatar} from "common/js/util"
   import Player from 'base/player/player.vue'
@@ -90,7 +90,10 @@
       },
       selectItem(url) {
         this.playerShow = true
-        this.url = url
+        getRealUrl(url).then(res => {
+          this.url = res.data.url
+        })
+
       },
       getAvatar(qq) {
         return getAvatar(qq)

@@ -21,8 +21,8 @@
           new Eplayer(this.$refs.player, {
             src: this.url,
             themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
-          }, 20)
-        })
+          })
+        }, 20)
       }
     },
     methods: {

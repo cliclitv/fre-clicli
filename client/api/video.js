@@ -39,3 +39,14 @@ export function updateVideo(oid, title, content, pid, uid) {
 export function deleteComment() {
   return request.delete('/comment/delete')
 }
+
+// 根据地址获取真实链接
+export function getRealUrl(url) {
+
+  return axios.get('https://www.clicli.us/jx',{
+    params:{
+      url
+    }
+  })
+
+}
