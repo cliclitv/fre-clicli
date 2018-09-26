@@ -115,6 +115,47 @@ router.get('/jx/', async ctx => {
         }
       })
       break
+    case 'qq':
+      url = url.substring(url.length - 16, url.length - 5)
+      const qqv = await axios.get(`http://vv.video.qq.com/getinfo`, {
+        params: {
+          vids: url,
+          platform: 101001,
+          charge: 0,
+          otype: 'json'
+        }
+      }).then(res => {
+        let data = res.data.substring(13, res.data.length - 1)
+        data = JSON.parse(data)
+        return {
+          pre: data.vl.vi[0].ul.ui[0].url,
+          vid: data.vl.vi[0].vid
+        }
+
+      })
+
+      await axios.get('http://vv.video.qq.com/getkey', {
+        params: {
+          format: 2,
+          otype: 'json',
+          vt: 150,
+          vid: qqv.vid,
+          filename: qqv.vid + '.mp4',
+          change: 0,
+          platform: '11'
+        }
+      }).then(res => {
+        let data = res.data.substring(13, res.data.length - 1)
+        data = JSON.parse(data)
+        let fn = data.filename
+        let key = data.key
+
+        ctx.body = {
+          code: 0,
+          url: `${qqv.pre}${fn}?vkey=${key}`
+        }
+      })
+      break
     default:
       ctx.body = {
         code: 0,

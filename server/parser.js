@@ -4,7 +4,7 @@ let out
 module.exports = {
 
   urlType(url) {
-    let n = url.match(/www\.(\S*)\./)
+    let n = url.match(/\.(\S+?)\./)
     return n ? n[1].substring(0,8) : null
   }
 
