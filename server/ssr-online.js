@@ -71,24 +71,42 @@ router.get('/jx/', async ctx => {
       break
     case 'halihali':
       const player = await axios.get(url).then(res => {
-        let hali = res.data.match(/player.qinmoe.com(\S*)copyright/)
-        if (hali) {
-          hali = hali[1].substring(8, 36)
-          return `https://player.qinmoe.com/play/${hali}`
+        let yun = res.data.match(/"https:(\S*)copyright/)[0].replace(/\\/g, '')
+        yun = yun.substring(1, yun.length - 12)
+
+        let pre = yun.match(/https(\S*)qinmoe/)[1]
+
+        pre = pre.substring(3, pre.length - 1)
+        if (yun) {
+          return {
+            url: yun,
+            pre: `${pre}.qinmoe.com`
+          }
         }
       })
 
-      await axios.get(player, {
+
+      await axios.get(player.url, {
         headers: {
-          Host: 'player.qinmoe.com',
+          Host: player.pre,
           Referer: url
         }
       }).then(res => {
-        let params = res.data.match(/<video src="(\S*)" controls/)[1]
-        let url = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
-        ctx.body = {
-          code: 0,
-          url
+        switch (player.pre) {
+          case 'hali.qinmoe.com':
+            let u = res.data.match(/https(\S*)'/)
+            ctx.body = {
+              code: 0,
+              url: u[0].substring(0, u[0].length - 1).replace(/\\/g, '')
+            }
+            break
+          case 'player.qinmoe.com':
+            let params = res.data.match(/<video src="(\S*)" controls/)[1]
+            let url = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
+            ctx.body = {
+              code: 0,
+              url
+            }
         }
       })
       break
