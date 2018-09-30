@@ -109,8 +109,7 @@
 <style scoped lang="stylus">
   @import "~common/stylus/variable"
   .video-list
-    width 300px
-    display inline-block
+    padding-top: 20px
     .addBtn
       text-align center
       padding: 20px
@@ -165,32 +164,32 @@
     .list
       ul
         li
-          width 100%
+          width 50%
+          display inline-block
+          box-sizing border-box
           .item
             cursor pointer
             margin: 10px
-            background #eae8eb
-            border: 1px solid #272727
-            border-radius 2px
+            background $b-color
+            padding: 5px
+            border-radius 5px
             display flex
             align-items center
-          .item:hover
-              background #b5b5b5
           .avatar img
             border: none
             height 30px
             width 30px
-            position relative
-            top: 2px
           .avatar
             margin: 0
             padding: 0
-            width: auto
-            margin-left: 10px
           .oid
             font-weight bold
-          .oid, .title, .content
+          .avatar, .oid, .title, .content
             display inline-block
             margin: 0 10px
+    .list li:nth-child(even) .item
+      margin-right 0
+    .list li:nth-child(odd) .item
+      margin-left 0
 
 </style>

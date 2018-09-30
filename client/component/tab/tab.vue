@@ -1,87 +1,106 @@
 <template>
-  <div class="tab" :style="dsStyle" ref="tab">
+    <div class="tab" :style="dsStyle" ref="tab">
+        <li class="sort-title">分类</li>
+        <ul>
+            <router-link to="/sort/anime">
+                <li><i class="icon-font icon-tv"></i>动画</li>
+            </router-link>
+            <router-link to="/sort/comic">
+                <li><i class="icon-font icon-book"></i>漫画</li>
+            </router-link>
+            <router-link to="/sort/game">
+                <li><i class="icon-font icon-game"></i>游戏</li>
+            </router-link>
+            <router-link to="/sort/imgpack">
+                <li><i class="icon-font icon-img"></i>图包</li>
+            </router-link>
+            <router-link to="/sort/music">
+                <li><i class="icon-font icon-music"></i>音乐</li>
+            </router-link>
+            <router-link to="/sort/novel">
+                <li><i class="icon-font icon-novel"></i>小说</li>
+            </router-link>
+            <router-link to="/sort/news">
+                <li><i class="icon-font icon-news"></i>号外</li>
+            </router-link>
+            <router-link to="/sort/other">
+                <li><i class="icon-font icon-other"></i>杂物</li>
+            </router-link>
+        </ul>
+        <div class="close" @click="showTab"><i class="icon-font icon-close"></i></div>
 
-    <div class="logo">
-      <router-link to="/"><img :src="logoUrl" alt=""></router-link>
     </div>
-    <ul>
-      <router-link to="/sort/xinfan">
-        <li class="active">新番</li>
-      </router-link>
-      <router-link to="/sort/lianzai">
-        <li>连载</li>
-      </router-link>
-      <router-link to="/sort/wanjie">
-        <li>完结</li>
-      </router-link>
-      <router-link to="/sort/wenzi">
-        <li>资源</li>
-      </router-link>
-    </ul>
-    <search-box></search-box>
-    <bio></bio>
-
-  </div>
 </template>
 
 
 <script>
-  import SearchBox from 'base/search-box/search-box.vue'
-  import Bio from 'component/bio/bio.vue'
-
   export default {
-    data() {
-      return {
-        logoUrl: 'https://i.loli.net/2018/09/30/5bb058de99ff6.png'
-      }
-    },
     props: ['ds'],
     computed: {
       dsStyle() {
         return `display:${this.ds}`
       }
     },
-    components: {
-      SearchBox,
-      Bio
+    methods: {
+      showTab() {
+        this.$emit('close')
+      }
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  @import "~common/stylus/variable"
-  .tab
-    padding-top 20px
-    ul
-      margin-top: 10px
-      display inline-block
-      border 1px solid #ddd
-      background #f0f0f0
-      padding: 5px
-      border-radius 5px 0 0 5px
-      li
-        display inline-block
-        color: $color
-        padding: 0 15px
-        font-size: 14px
-        border-radius 4px
-    .close
-      display none
-    .logo img
-      height 40px
-    .active
-      background $color
-      color: #fff
+    @import "~common/stylus/variable"
+    .tab
+        padding-top 20px
+        ul
+            padding-top 20px
+            li
+                padding 10px
+                color: $color
+                font-size: 14px
+        .close
+            display none
 
-  .sort-title:before
-    position: absolute;
-    content: '';
-    border-bottom: 1px solid $b-color;
-    width: 95px;
-    margin-left: 40px;
-    margin-top: 8px;
+    .sort-title:before
+        position: absolute;
+        content: '';
+        border-bottom: 1px solid $b-color;
+        width: 95px;
+        margin-left: 40px;
+        margin-top: 8px;
 
-  .icon-close
-    margin: 0
+    .icon-font
+        margin-right: 10px
+
+    .icon-home
+        color: #11EBCC
+
+    .icon-tv
+        color: #eb9611
+
+    .icon-book
+        color: #8b1beb
+
+    .icon-img
+        color: #dceb11
+
+    .icon-game
+        color: #01a6ff
+
+    .icon-music
+        color: #eb1111
+
+    .icon-novel
+        color: #eb1192
+
+    .icon-news
+        color: #1bebda
+
+    .icon-other
+        color: #1aeb5d
+
+    .icon-close
+        margin: 0px
 
 </style>
