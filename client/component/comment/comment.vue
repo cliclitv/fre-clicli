@@ -109,7 +109,7 @@
       padding: 20px
       font-size: 16px
       span
-        color: $pink-color
+        color: $yellow-color
     li
       display: flex
       align-items center
@@ -135,8 +135,9 @@
           font-size: 12px
           color: $color
         textarea
-          background $b-color
           padding: 10px
+          background: #eae8eb
+          border: 1px solid #272727
           width 100%
           box-sizing border-box
           height 60px
@@ -147,7 +148,7 @@
         textarea:diabled
           background $b-color
         .need-login
-          background $b-color
+          background: #eae8eb
           padding: 10px
           width 100%
           box-sizing border-box
@@ -162,7 +163,7 @@
             margin-right 10px
             cursor: pointer
             color: #fff
-            background $pink-color
+            background $yellow-color
             border-radius 10px
       time
         font-size: 11px
@@ -175,23 +176,13 @@
           height 60px
           width: 60px
           border-radius 50%
-          background $pink-color
+          background $yellow-color
           color: #fff
           cursor pointer
           outline none
           transition .3s
         button:hover
-          background $pink-color
-    .add-text:before
-      content ''
-      display block
-      height: 10px
-      border-right: 20px solid transparent
-      border-bottom: 15px solid $b-color
-      border-bottom-left-radius: 100%
-      position: absolute
-      top: 10px
-      left: 15px
+          background $yellow-color
 
   .comment li:nth-child(even) {
     background #fff

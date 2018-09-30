@@ -1,24 +1,17 @@
 <template>
   <div>
     <!--<week-list></week-list>-->
-    <h1 class="common-title">推荐文章</h1>
-    <post-list :posts="uqq?articles:posts" :key="this.$route.params.type"></post-list>
-    <pagination @next="next" v-show="isShow"></pagination>
     <div class="login-more" v-show="!uqq"><span>登录后加载更多…</span></div>
   </div>
 
 </template>
 
 <script>
-  import PostList from 'component/post-list/post-list.vue'
-  import Pagination from 'base/pagination/pagination.vue'
+
   import titleMixin from 'common/mixin/title-mixin'
   import {mapActions, mapState} from 'vuex'
-  import {getPostsByStatus} from 'api/article'
-  import Cookies from 'js-cookie'
   import Loading from 'base/loading/loading.vue'
   import WeekList from 'component/week-list/week-list.vue'
-  import {LOGOURL} from 'common/js/const'
 
   export default {
     data() {
@@ -26,7 +19,6 @@
         page: 1,
         pageSize: 10,
         articles: [],
-        uqq: Cookies.get('uqq'),
         isShow: false,
         isLoading: false
       }
@@ -35,15 +27,6 @@
     title() {
       return 'C哩C哩_(゜-゜)つロ 喝茶~ - clicli.us(C站)'
     },
-    beforeMount() {
-      if (this.uqq) {
-        this.getArticleList()
-      }
-      // let isMobile = navigator.userAgent.toLowerCase().match(/(ipod|iphone|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|wince)/i) != null;
-      // if (isMobile) {
-      //   window.location.href = "https://m.chinko.cc"
-      // }
-    },
     computed: {
       ...mapState(['posts'])
     },
@@ -51,32 +34,8 @@
       return store.dispatch('getArticleList')
     },
     methods: {
-      ...mapActions(['getArticleList']),
-      getArticleList(flag) {
-        this.isLoading = true
-        getPostsByStatus(this.page, this.pageSize, this.$route.params.type).then(res => {
-          if (res.data.code === 201) {
-            this.isShow = true
-            this.isLoading = false
-            if (flag) {
-              this.articles = this.articles.concat(res.data.posts)
-              if (!res.data.posts) {
-                this.isShow = false
-              }
-            } else {
-              this.articles = res.data.posts
-            }
-          }
-        })
-      },
-      next() {
-        this.page++
-        this.getArticleList(true)
-      }
     },
     components: {
-      PostList,
-      Pagination,
       WeekList,
       Loading
     }
