@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="ad">
-      <a href="https://item.taobao.com/item.htm?id=574522485062" target="_blank"><img
-        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv6n4tpostj30go02s0u6.jpg" alt=""></a>
-    </div>
-    <week-list></week-list>
+    <!--<week-list></week-list>-->
     <h1 class="common-title">推荐文章</h1>
     <post-list :posts="uqq?articles:posts" :key="this.$route.params.type"></post-list>
     <pagination @next="next" v-show="isShow"></pagination>
@@ -22,6 +18,7 @@
   import Cookies from 'js-cookie'
   import Loading from 'base/loading/loading.vue'
   import WeekList from 'component/week-list/week-list.vue'
+  import {LOGOURL} from 'common/js/const'
 
   export default {
     data() {

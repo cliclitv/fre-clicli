@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <progress-bar></progress-bar>
+    <!--<progress-bar></progress-bar>-->
     <c-header @showTab="showTab"></c-header>
     <div class="home wrap">
-      <div class="left">
-        <reach-box></reach-box>
+      <!--<div class="left">-->
+        <!--<reach-box></reach-box>-->
         <tab :ds="ds" @close="close"></tab>
-      </div>
+      <!--</div>-->
       <div class="gao">
         <p>里番请止步，这儿没有，这里同步更新动画番剧，视频报错、催更、app相关请加交流群：607024802。</p>
       </div>
@@ -16,9 +16,6 @@
           <router-view :key="$route.fullPath" v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
         <router-view :key="$route.fullPath" v-if="!$route.meta.keepAlive"></router-view>
-      </div>
-      <div class="right">
-        <notice></notice>
       </div>
       <div class="clear"></div>
     </div>
@@ -68,10 +65,9 @@
   @import "~common/stylus/variable"
   .home
     padding: 10px 0
-    margin 60px auto !important
+    margin 20px auto !important
 
   .main
-    margin-top: 10px
     width 650px
     float: left
     padding: 10px
