@@ -11,23 +11,100 @@
       <a href="http://admin.clicli.us/register">
         <li v-show="!isShow">注册</li>
       </a>
+      <a :href="adminroute" target="_blank">
+        <li class="pr">
+          <span>{{pr}}</span>
+        </li>
+      </a>
     </ul>
 
-    <a :href="adminroute" target="_blank">
-      <li class="pr">
-        <span>{{pr}}</span>
-      </li>
-    </a>
+    <login v-show="isLogin" @close="close"></login>
   </div>
 
 </template>
 
 <script>
+  import Login from 'component/login/login.vue'
+  import Cookies from 'js-cookie'
+  import {Base64} from 'js-base64'
+  import {mapGetters, mapMutations} from 'vuex'
+  import {logout, auth, getUserByName} from "api/user"
+  import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
+
   export default {
+
     data() {
       return {
+        banner: '',
+        user: {},
+        isShow: false,
+        msg: '',
         pr: '投稿',
+        adminroute: 'http://admin.clicli.us/login'
       }
+    },
+    computed: {
+      ...mapGetters(['isLogin'])
+
+    },
+    mounted() {
+      this.auth()
+    },
+
+    methods: {
+      onLogin() {
+        this.isOnLogin(true)
+      },
+      close() {
+        this.isOnLogin(false)
+      },
+      showTab() {
+        this.$emit('showTab')
+      },
+      getAvatar(qq) {
+        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
+      },
+      auth() {
+        auth().then(res => {
+          if (res.data.code === 201) {
+            const user = getStorage('user-info')
+            if (user) {
+              this.isShow = true
+              this.pr = '后台'
+              this.adminroute = 'http://admin.clicli.us'
+              this.user = user
+            } else {
+              const name = Base64.decode(Cookies.get('uname'))
+              getUserByName(name).then(res => {
+                setStorage('user-info', res.data.user)
+                this.user = res.data.user
+              })
+            }
+
+          } else {
+            this.isShow = false
+            removeStorage('user-info')
+          }
+        })
+      },
+      onLogout() {
+        Cookies.remove('uname', {
+          path: '/',
+          domain: 'clicli.us'
+        })
+        Cookies.remove('uqq', {
+          path: '/',
+          domain: 'clicli.us'
+        })
+        removeStorage('user-info')
+        this.isShow = false
+
+      },
+      ...mapMutations(['isOnLogin'])
+    },
+
+    components: {
+      Login
     }
   }
 </script>
@@ -35,9 +112,8 @@
 <style scoped lang="stylus">
   @import "~common/stylus/variable"
   .bio
-  width 1100px
-  margin: 0 auto
-  position relative
+    float right
+
   a
     display: flex
     align-items: center
@@ -47,33 +123,8 @@
         height: 30px
         width: 30px
         border-radius 15px
-  .pr
-    position absolute
-    right 0
-    background $blue-color
-    font-size: 16px
-    padding: 5px 15px
-    top: -10px
-    span
-      position relative
-      top: 15px
-
-  .pr:before
-    content: ''
-    height 40px
-    width 64px
-    background $blue-color
-    position absolute
-    top: 30px
-    left: 0
-    border-radius 0 0 40px 40px
 
   .biu
-    position absolute
-    top: 0
-    right: 80px
-    z-index: 9999999
-    color #fff
     display flex
     align-items center
     li

@@ -3,13 +3,7 @@
     <!--<progress-bar></progress-bar>-->
     <c-header @showTab="showTab"></c-header>
     <div class="home wrap">
-      <!--<div class="left">-->
-        <!--<reach-box></reach-box>-->
         <tab :ds="ds" @close="close"></tab>
-      <!--</div>-->
-      <div class="gao">
-        <p>里番请止步，这儿没有，这里同步更新动画番剧，视频报错、催更、app相关请加交流群：607024802。</p>
-      </div>
       <div class="main">
 
         <keep-alive>
@@ -68,8 +62,6 @@
     margin 20px auto !important
 
   .main
-    width 650px
-    float: left
     padding: 10px
     .common-title
       font-size: 13px

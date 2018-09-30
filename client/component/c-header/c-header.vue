@@ -1,7 +1,6 @@
 <template>
   <div class="header">
     <div class="wrap">
-      <span class="list" @click="showTab"><i class="icon-font icon-list"></i></span>
       <ul class="menu">
         <router-link to="/" class="tab-item">
           <li class="first-child"><i class="icon-font icon-home"></i>主站</li>
@@ -10,7 +9,6 @@
           <li>号外</li>
         </router-link>
       </ul>
-      <!--<search-box></search-box>-->
       <ul class="page">
 
         <router-link to="/p/30">
@@ -28,96 +26,12 @@
       </ul>
 
     </div>
-    <login v-show="isLogin" @close="close"></login>
   </div>
 
 </template>
 
 <script>
-  import SearchBox from 'base/search-box/search-box.vue'
-  import Login from 'component/login/login.vue'
-  import Cookies from 'js-cookie'
-  import {Base64} from 'js-base64'
-  import {mapGetters, mapMutations} from 'vuex'
-  import {logout, auth, getUserByName} from "api/user"
-  import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
-
-  export default {
-
-    data() {
-      return {
-        banner: '',
-        user: {},
-        isShow: false,
-        msg: '',
-        adminroute: 'http://admin.clicli.us/login'
-      }
-    },
-    computed: {
-      ...mapGetters(['isLogin'])
-
-    },
-    mounted() {
-      this.auth()
-    },
-
-    methods: {
-      onLogin() {
-        this.isOnLogin(true)
-      },
-      close() {
-        this.isOnLogin(false)
-      },
-      showTab() {
-        this.$emit('showTab')
-      },
-      getAvatar(qq) {
-        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
-      },
-      auth() {
-        auth().then(res => {
-          if (res.data.code === 201) {
-            const user = getStorage('user-info')
-            if (user) {
-              this.isShow = true
-              this.pr = '后台'
-              this.adminroute = 'http://admin.clicli.us'
-              this.user = user
-            } else {
-              const name = Base64.decode(Cookies.get('uname'))
-              getUserByName(name).then(res => {
-                setStorage('user-info', res.data.user)
-                this.user = res.data.user
-              })
-            }
-
-          } else {
-            this.isShow = false
-            removeStorage('user-info')
-          }
-        })
-      },
-      onLogout() {
-        Cookies.remove('uname', {
-          path: '/',
-          domain: 'clicli.us'
-        })
-        Cookies.remove('uqq', {
-          path: '/',
-          domain: 'clicli.us'
-        })
-        removeStorage('user-info')
-        this.isShow = false
-
-      },
-      ...mapMutations(['isOnLogin'])
-    },
-
-    components: {
-      SearchBox,
-      Login
-    }
-  }
+  export default {}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

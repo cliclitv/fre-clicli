@@ -19,7 +19,7 @@
       </router-link>
     </ul>
     <search-box></search-box>
-    <div class="close" @click="showTab"><i class="icon-font icon-close"></i></div>
+    <bio></bio>
 
   </div>
 </template>
@@ -27,6 +27,7 @@
 
 <script>
   import SearchBox from 'base/search-box/search-box.vue'
+  import Bio from 'component/bio/bio.vue'
 
   export default {
     data() {
@@ -40,13 +41,9 @@
         return `display:${this.ds}`
       }
     },
-    methods: {
-      showTab() {
-        this.$emit('close')
-      }
-    },
     components: {
-      SearchBox
+      SearchBox,
+      Bio
     }
   }
 </script>
