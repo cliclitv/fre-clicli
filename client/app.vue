@@ -21,7 +21,6 @@
   import ProgressBar from 'base/progress-bar/progress-bar.vue'
   import CHeader from 'component/c-header/c-header.vue'
   import CFooter from 'component/c-footer/c-footer.vue'
-  import Notice from 'component/notice/notice.vue'
   import Tab from 'component/tab/tab.vue'
   import ReachBox from 'component/reach-box/reach-box.vue'
   import titleMixin from 'common/mixin/title-mixin'
@@ -47,7 +46,6 @@
     components: {
       CHeader,
       CFooter,
-      Notice,
       Tab,
       ReachBox,
       ProgressBar
@@ -62,7 +60,7 @@
     margin 20px auto !important
 
   .main
-    padding: 10px
+    padding: 10px 0
     .common-title
       font-size: 13px
       padding: 30px 0 10px 0

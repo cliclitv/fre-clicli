@@ -167,14 +167,15 @@
         li
           width 100%
           .item
-            padding: 2px
             cursor pointer
             margin: 10px
             background #eae8eb
             border: 1px solid #272727
-            border-radius 5px
+            border-radius 2px
             display flex
             align-items center
+          .item:hover
+              background #b5b5b5
           .avatar img
             border: none
             height 30px

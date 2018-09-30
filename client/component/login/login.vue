@@ -83,7 +83,7 @@
         letter-spacing: 3px
         box-sizing border-box
       input:focus
-        border-bottom: 2px dashed $blue-color
+        border-bottom: 2px dashed $color
       button
         background: $color
         width: 100%

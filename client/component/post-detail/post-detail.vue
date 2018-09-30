@@ -110,8 +110,8 @@
     width 100px
     margin-right 20px
     img
-      width: 60px
-      height 60px
+      width: 80px
+      height 80px
       border-radius 40px
     p
       padding: 15px 0
