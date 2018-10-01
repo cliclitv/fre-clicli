@@ -1,8 +1,8 @@
 <template>
-    <div class="sort">
-        <post-list :posts="sort" key="this.$route.params.sort"></post-list>
-        <pagination @next="next" v-show="isShow"></pagination>
-    </div>
+  <div class="sort">
+    <post-list :posts="sort" key="this.$route.params.sort"></post-list>
+    <pagination @next="next" v-show="isShow"></pagination>
+  </div>
 
 </template>
 
@@ -50,4 +50,6 @@
 </script>
 
 <style lang="stylus">
+  .sort
+    margin-top: 30px
 </style>

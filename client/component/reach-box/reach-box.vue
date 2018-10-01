@@ -1,16 +1,13 @@
 <template>
     <div class="reach-box">
         <router-link to="/bg" class="bg">
-            <li :style="{background:bgColor}"><i class="icon-font icon-bg"></i>正常向</li>
+            <li :style="{background:bgColor}"><i class="icon-font icon-bg"></i>推荐</li>
         </router-link>
-        <router-link to="/bl" v-show="uqq" @click.native="reColor">
-            <li><i class="icon-font icon-boy"></i>耽美向</li>
-        </router-link>
-        <router-link to="/gl" v-show="uqq" @click.native="reColor">
-            <li><i class="icon-font icon-girl"></i>百合向</li>
+        <router-link to="/bl" @click.native="reColor">
+            <li><i class="icon-font icon-boy"></i>耽美</li>
         </router-link>
         <router-link to="/18x" v-show="uqq" @click.native="reColor">
-            <li><i class="icon-font icon-18x"></i>绅士向</li>
+            <li><i class="icon-font icon-18x"></i>绅士</li>
         </router-link>
     </div>
 </template>

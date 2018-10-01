@@ -1,11 +1,5 @@
-import moment from 'moment'
-
 export function getAvatar(avatar) {
   return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
-}
-
-export function momentTime(time) {
-  return moment(time).format('MM-DD')
 }
 
 export function getSuo(content) {

@@ -3,22 +3,11 @@
     <progress-bar></progress-bar>
     <c-header @showTab="showTab"></c-header>
     <div class="home wrap">
-      <div class="left">
-        <reach-box></reach-box>
-        <tab :ds="ds" @close="close"></tab>
-      </div>
-      <div class="gao">
-        <p>里番请止步，这儿没有，这里同步更新动画番剧，视频报错、催更、app相关请加交流群：607024802。</p>
-      </div>
       <div class="main">
-
         <keep-alive>
           <router-view :key="$route.fullPath" v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
         <router-view :key="$route.fullPath" v-if="!$route.meta.keepAlive"></router-view>
-      </div>
-      <div class="right">
-        <notice></notice>
       </div>
       <div class="clear"></div>
     </div>
@@ -67,21 +56,17 @@
 <style lang="stylus">
   @import "~common/stylus/variable"
   .home
-    padding: 10px 0
     margin 60px auto !important
-
   .main
-    margin-top: 10px
-    width 650px
+    width 100%
     float: left
-    padding: 10px
     .common-title
       font-size: 13px
       padding: 30px 0 10px 0
       font-weight: lighter
 
   .left
-    width 160px
+    width 140px
     padding: 10px 10px 0 0
     float: left
     vertical-align: top

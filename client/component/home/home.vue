@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div class="ad">
-      <a href="https://item.taobao.com/item.htm?id=574522485062" target="_blank"><img
-        src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv6n4tpostj30go02s0u6.jpg" alt=""></a>
-    </div>
+    <search-box></search-box>
     <week-list></week-list>
-    <h1 class="common-title">推荐文章</h1>
+    <div class="common-title"><span>最近更新</span></div>
     <post-list :posts="uqq?articles:posts" :key="this.$route.params.type"></post-list>
     <pagination @next="next" v-show="isShow"></pagination>
     <div class="login-more" v-show="!uqq"><span>登录后加载更多…</span></div>
@@ -15,6 +12,7 @@
 
 <script>
   import PostList from 'component/post-list/post-list.vue'
+  import SearchBox from 'base/search-box/search-box.vue'
   import Pagination from 'base/pagination/pagination.vue'
   import titleMixin from 'common/mixin/title-mixin'
   import {mapActions, mapState} from 'vuex'
@@ -42,10 +40,6 @@
       if (this.uqq) {
         this.getArticleList()
       }
-      // let isMobile = navigator.userAgent.toLowerCase().match(/(ipod|iphone|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|wince)/i) != null;
-      // if (isMobile) {
-      //   window.location.href = "https://m.chinko.cc"
-      // }
     },
     computed: {
       ...mapState(['posts'])
@@ -81,6 +75,7 @@
       PostList,
       Pagination,
       WeekList,
+      SearchBox,
       Loading
     }
   }
@@ -94,9 +89,12 @@
     float: left
     padding: 10px
     .common-title
-      font-size: 13px
-      padding: 30px 0 10px 0
-      font-weight: lighter
+      font-size: 14px
+      background $b-color
+      padding: 10px 0
+      span
+        border-left $yellow 3px solid
+        padding: 0 30px
     .login-more
       font-size: 13px
       text-align center

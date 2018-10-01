@@ -1,32 +1,22 @@
 <template>
-    <div class="post-list">
-        <ul>
-            <li v-for="item in posts">
-                <router-link :to="'/u/'+item.uid" class="user-name">
-                    <div class="avatar">
-                        <img :src="getAvatar(item.uqq)">
-                        <span>{{item.uname}}</span>
-                        <div class="count"><i class="icon-font icon-comment"></i>
-                            {{item.count.cv}}
-                        </div>
-                    </div>
-                </router-link>
-                <div class="post">
-                    <router-link :to="'/p/'+item.id">
-                        <h1 class="title">{{item.title}}</h1>
-                    </router-link>
-                    <div class="info">
-                        <span>{{item.time}}</span>
-                        <span>{{item.sort}}</span>
-                    </div>
-                    <div class="suo">
-                        <img :src="getSuo(item.content)">
-                    </div>
-                </div>
+  <div class="post-list">
+    <ul>
+      <li v-for="item in posts">
+        <router-link :to="'/p/'+item.id">
+          <div class="post">
+            <div class="suo">
+              <img :src="getSuo(item.content)">
+            </div>
 
-            </li>
-        </ul>
-    </div>
+            <div class="info">
+              <div>{{item.time}}</div>
+              <h1 class="title">{{item.title.substring(0,10)}}</h1>
+            </div>
+          </div>
+        </router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -48,65 +38,36 @@
 
 
 <style lang="stylus" rel="stylesheet/stylus">
-    @import "~common/stylus/variable"
-    .post-list
-        width: 650px
-        .user-name
-            color: $color
-        .avatar
-            display flex
-            align-items center
-            padding: 10px
-            margin-bottom: 20px
-            img
-                width: 40px
-                height 40px
-                border-radius 30px
-                border: 10px solid $b-color
-            span
-                padding: 0 15px
+  @import "~common/stylus/variable"
+  .post-list
+    background $b-color
+    padding: 10px
+    li
+      width 20%
+      display inline-block
+    .post
+      margin: 10px
+      padding: 10px
+      border-radius: 4px
+      .title
+        font-size: 14px
+        padding-top: 10px
+        color: $color
+      .info
+        padding: 10px
+        font-size: 10px
+        color: rgba(255, 255, 255, .6)
+        border-left 2px solid $yellow
+        background $bg-color
+        margin: 10px 0
 
-        .post
-            padding: 15px
-            background $b-color
-            border-radius: 4px
-            position relative
-            .title
-                font-size: 20px
-                padding: 10px
-                color: $color
-                text-align center
-            .info
-                text-align center
-                padding: 10px 0 15px 0
-                span
-                    padding: 3px 8px
-                    font-size: 11px
-                    background #35355a
-                    color: #fff
-                    border-radius 2px
-                    margin: 0 5px
+      .suo, .suo img
+        width 100%
+        height 250px
+        box-sizing border-box
+        border-radius 5px
+        object-fit: cover
+        background $bg-color
 
-            .suo img
-                width 100%
-                box-sizing border-box
-                padding: 15px
-                background $bg-color
-                border-radius 5px
-        .post:before
-            content ''
-            display block
-            width: 10px
-            border-bottom: 20px solid transparent
-            border-right: 20px solid $b-color
-            border-top-right-radius: 100%
-            position: absolute
-            top: -20px
-            left: 50px
-        .count
-            background $b-color
-            padding: 5px 15px
-            border-radius 25px
-            float right
 
 </style>

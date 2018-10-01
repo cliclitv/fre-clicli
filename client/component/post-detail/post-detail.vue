@@ -1,5 +1,5 @@
 <template>
-  <div class="post-list">
+  <div class="post-detail">
     <router-link :to="'/u/'+post.uid">
       <div class="avatar">
         <img :src="getAvatar(post.uqq)">
@@ -94,8 +94,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
-  .post-list
-    width: 650px
+  .post-detail
+    width: 800px
+    margin: 30px auto
     a
       color: $color
     .avatar

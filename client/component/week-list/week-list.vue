@@ -11,7 +11,11 @@
       <li v-for="item in items[activeIndex].content">
         <router-link :to="item.url">
           <img :src="item.suo" :alt="item.title">
-          <div class="title">{{item.title}}</div>
+          <div>
+            <div class="title">{{item.title}}</div>
+            <div class="oid">更新至{{item.oid}}集</div>
+          </div>
+
         </router-link>
       </li>
     </ul>
@@ -27,36 +31,70 @@
         items: [
           {
             day: '周一', content: [
-              {title: '进击的巨人第三季', suo: 'https://i.loli.net/2018/08/11/5b6eae408cf7b.jpg', url: '/p/100'},
-              {
-                title: '邪神酱与厨二病少女',
-                suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fv5i2eoeoij30dw0b2t9w.jpg',
-                url: '/p/238'
-              }
+              {title: '进击的巨人第三季', suo: 'https://i.loli.net/2018/08/11/5b6eae408cf7b.jpg', url: '/p/100', oid: '10'},
             ]
           },
           {
             day: '周二', content: [
-              {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246'}
+              {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246', oid: '10'}
             ]
           },
           {
             day: '周三', content: [
-              {title: 'Free!第三季', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg', url: '/p/82'}
+              {
+                title: 'Free!第三季',
+                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
+                url: '/p/82',
+                oid: '12'
+              }
             ]
           },
           {
             day: '周四', content: [
-              {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/p/4'},
-              {title: '天狼', suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg', url: '/p/230'},
-              {title: '异世界魔王与召唤少女', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv6yoymifxj30hs0a03yu.jpg', url: '/p/84'}
+              {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/p/4', oid: '75'},
+              {
+                title: '天狼',
+                suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg',
+                url: '/p/230',
+                oid: '12'
+              }
+            ]
+          },
+          {
+            day: '周五', content: [
+              {
+                title: 'Free!第三季',
+                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
+                url: '/p/82',
+                oid: '12'
+              }
+            ]
+          },
+          {
+            day: '周六', content: [
+              {
+                title: 'Free!第三季',
+                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
+                url: '/p/82',
+                oid: '12'
+              }
             ]
           },
           {
             day: '周日', content: [
-              {title: 'Island', suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg', url: '/p/200'},
-              {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', url: '/p/213'},
-              {title: '海贼王', suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg', url: '/p/258'}
+              {
+                title: 'Island',
+                suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg',
+                url: '/p/200',
+                oid: '12'
+              },
+              {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', url: '/p/213', oid: '14'},
+              {
+                title: '海贼王',
+                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
+                url: '/p/258',
+                oid: '855'
+              }
             ]
           }
         ]
@@ -102,19 +140,24 @@
       background $b-color
       padding: 10px
       margin: 10px 0
+      display flex
       li
-        display inline-block
-        text-align center
         padding: 10px
+        width 20%
         a
           color: #fff
+          display flex
+          align-items center
         img
           height 80px
           width 80px
           object-fit: cover
           border-radius 50%
           border: 10px solid $bg-color
-        .title
-          padding: 10px
+        .oid
+          font-size: 12px
+          color rgba(255,255,255,.6)
+        .title,.oid
+          padding: 10px 0 0 10px
 
 </style>
