@@ -51,7 +51,7 @@
       ...mapActions(['getArticleList']),
       getArticleList(flag) {
         this.isLoading = true
-        getPostsByStatus(this.page, this.pageSize, this.$route.params.type).then(res => {
+        getPostsByStatus(this.page, this.pageSize).then(res => {
           if (res.data.code === 201) {
             this.isShow = true
             this.isLoading = false
