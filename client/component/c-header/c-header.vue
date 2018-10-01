@@ -178,7 +178,7 @@
       margin-right: 10px
 
   .bio
-    width 1200px
+    width 1120px
     margin: 0 auto
     position relative
     a

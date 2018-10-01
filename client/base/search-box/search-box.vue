@@ -33,23 +33,24 @@
     width 100%
     height 100px
     position relative
+    margin-top: 10px
     .search
       position absolute
       top: 50%
       left: 50%
-      transform translate(-50%,-50%)
+      transform translate(-50%, -50%)
     .search-button
       display inline-block
     input
       color: $color
-      padding: 12px 30px 12px 15px
+      padding: 10px 30px 10px 15px
       border-radius 20px
       background $b-color
       width 400px
+      border: 1px solid $b-color
       box-sizing: border-box
     input:focus
       border: 1px solid $blue-color
-      padding: 10px 28px 10px 13px
     .icon-search
       background $blue-color
       border-radius 50%

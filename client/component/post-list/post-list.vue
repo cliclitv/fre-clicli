@@ -41,13 +41,12 @@
   @import "~common/stylus/variable"
   .post-list
     background $b-color
-    padding: 10px
+    padding: 20px
     li
       width 20%
       display inline-block
     .post
-      margin: 10px
-      padding: 10px
+      margin: 15px
       border-radius: 4px
       .title
         font-size: 14px
@@ -65,9 +64,11 @@
         width 100%
         height 250px
         box-sizing border-box
-        border-radius 5px
         object-fit: cover
         background $bg-color
+        transition  .3s
+      .suo img:hover
+        transform scale(1.05)
 
 
 </style>
