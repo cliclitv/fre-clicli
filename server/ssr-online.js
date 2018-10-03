@@ -59,7 +59,7 @@ router.get('/jx/', async ctx => {
       await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
         params: {
           cid: ob.c,
-          quality: 80,
+          quality: 16,
           page: 1,
           bangumi: url.indexOf('av') < 0 ? 1 : null
         },
@@ -73,7 +73,7 @@ router.get('/jx/', async ctx => {
             aid: ob.a,
             cid: ob.c,
             url: res.data.data.durl[0].url.replace('http', 'https'),
-            type: 'flv'
+            type: url.indexOf('av') < 0 ? 'mp4' : 'flv'
           }
         })
       break

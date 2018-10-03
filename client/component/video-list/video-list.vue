@@ -47,7 +47,7 @@
         playerShow: false,
         oid: '',
         url: '',
-        type: 'mp4',
+        type: '',
         title: '',
         content: '',
         pid: this.$route.params.id,
@@ -77,13 +77,6 @@
       },
       addVideo() {
         addVideo(this.oid, this.title, this.content, this.pid, this.uid).then(res => {
-          if (res.data.code === 201) {
-            this.addShow = false
-          }
-        })
-      },
-      updateVideo() {
-        updateVideo(this.oid, this.title, this.content, this.pid, this.uid).then(res => {
           if (res.data.code === 201) {
             this.addShow = false
           }
