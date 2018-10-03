@@ -26,29 +26,50 @@ router.get('/jx/', async ctx => {
   let type = parser.urlType(url)
   switch (type) {
     case 'bilibili':
-      url = url.replace('www.', 'm.')
-      const ob = await axios.get(url).then(res => {
-        let cid = res.data.match(/cid(\S*)cover/)
-        let aid = res.data.match(/aid(\S*)cid/)
-        if (cid) {
-          return {
-            a: aid[1].substring(2, 10),
-            c: cid[1].substring(2, 10)
+      let ob
+      if (url.indexOf('av') < 0) {
+        url = url.replace('www.', 'm.')
+        ob = await axios.get(url).then(res => {
+          let cid, aid
+
+          cid = res.data.match(/cid(\S*)cover/)
+          aid = res.data.match(/aid(\S*)cid/)
+
+          if (cid) {
+            return {
+              a: aid[1].substring(2, 10),
+              c: cid[1].substring(2, 10)
+            }
           }
-        }
-      })
+        })
+      } else {
+        let aid = url.match(/av(\S*)/)[1].replace('/', '')
+        ob = await axios.get('https://api.bilibili.com/x/web-interface/view', {
+          params: {
+            aid
+          }
+        }).then(res => {
+          return {
+            a: aid,
+            c: res.data.data.cid
+          }
+        })
+      }
+
+      console.log(ob)
       await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
         params: {
           cid: ob.c,
-          quality: 16,
+          quality: 80,
           page: 1,
-          bangumi: 1
+          bangumi: url.indexOf('av') < 0 ? 1 : null
         },
         headers: {
           Host: 'www.kanbilibili.com'
         }
       })
         .then(res => {
+          console.log(res.data)
           ctx.body = {
             code: 0,
             aid: ob.a,
