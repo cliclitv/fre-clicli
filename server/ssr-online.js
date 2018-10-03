@@ -173,13 +173,21 @@ router.get('/jx/', async ctx => {
         data = JSON.parse(data)
         let fn = data.filename
         let key = data.key
-        console.log(qqv.pre)
 
         ctx.body = {
           code: 0,
           url: `http://221.7.255.177/cache.p4p.com/${fn}?vkey=${key}`
         }
       })
+      break
+    case 'qinmei':
+      const out = await axios.get(url).then(res => {
+        return res.data.match(/url: '(\S+?)'/)[1]
+      })
+      ctx.body = {
+        code: 0,
+        url: out
+      }
       break
     default:
       ctx.body = {

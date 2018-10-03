@@ -4,8 +4,15 @@ let out
 module.exports = {
 
   urlType(url) {
-    let n = url.match(/\.(\S+?)\./)
-    return n ? n[1].substring(0,8) : null
+    let flag = url.indexOf('www') > -1
+    if(flag){
+      let n = url.match(/\.(\S+?)\./)
+      return n ? n[1].substring(0,8) : null
+    }else {
+      let n = url.match(/:(\S+?)\./)
+      return n ? n[1].substring(2,n[1].length) : null
+    }
+
   }
 
 }

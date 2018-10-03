@@ -15,7 +15,6 @@
             <div class="title">{{item.title}}</div>
             <div class="oid">更新至{{item.oid}}集</div>
           </div>
-
         </router-link>
       </li>
     </ul>
@@ -36,7 +35,8 @@
           },
           {
             day: '周二', content: [
-              {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246', oid: '10'}
+              {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246', oid: '10'},
+              {title: '关于我转生后成为史莱姆的那件事', suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg', url: '/p/328', oid: '1'}
             ]
           },
           {
@@ -157,6 +157,8 @@
         .oid
           font-size: 12px
           color rgba(255,255,255,.6)
+        .title
+          font-size 13px
         .title,.oid
           padding: 10px 0 0 10px
 

@@ -19,7 +19,7 @@ export function getPostsBySort(sort, page, pageSize) {
 }
 
 // 根据状态获取文章
-export function getPostsByStatus(page, pageSize, type) {
+export function getPostsByStatus(page, pageSize) {
   return request.get('/posts/type', {
     params: {
       status: 'public',

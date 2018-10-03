@@ -33,7 +33,6 @@
     width 100%
     height 100px
     position relative
-    margin-top: 10px
     .search
       position absolute
       top: 50%
@@ -59,4 +58,5 @@
       position: relative
       right: 38px
       top: 1px
+
 </style>
