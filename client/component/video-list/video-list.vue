@@ -1,7 +1,7 @@
 <template>
   <div class="video-list">
     <div class="wrapper" v-show="addShow" @click="hide"></div>
-    <player :url="url" :playerShow="playerShow" @hide="hide"></player>
+    <player :url="url" :type="type" :playerShow="playerShow" @hide="hide"></player>
     <div class="list">
       <ul>
         <li v-for="item in videos">
@@ -47,6 +47,7 @@
         playerShow: false,
         oid: '',
         url: '',
+        type: 'mp4',
         title: '',
         content: '',
         pid: this.$route.params.id,
@@ -92,6 +93,7 @@
         this.playerShow = true
         getRealUrl(url).then(res => {
           this.url = res.data.url
+          this.type = res.data.type
         })
 
       },

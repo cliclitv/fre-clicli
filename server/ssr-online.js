@@ -56,7 +56,6 @@ router.get('/jx/', async ctx => {
         })
       }
 
-      console.log(ob)
       await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
         params: {
           cid: ob.c,
@@ -69,12 +68,12 @@ router.get('/jx/', async ctx => {
         }
       })
         .then(res => {
-          console.log(res.data)
           ctx.body = {
             code: 0,
             aid: ob.a,
             cid: ob.c,
-            url: res.data.data.durl[0].url.replace('http', 'https')
+            url: res.data.data.durl[0].url.replace('http', 'https'),
+            type: 'flv'
           }
         })
       break
@@ -85,7 +84,8 @@ router.get('/jx/', async ctx => {
           let str = dili[0].replace(/\\\//g, '/')
           ctx.body = {
             code: 0,
-            url: `https://${str}`
+            url: `https://${str}`,
+            type: 'mp4'
           }
         }
       })
@@ -101,7 +101,8 @@ router.get('/jx/', async ctx => {
         if (yun) {
           return {
             url: yun,
-            pre: `${pre}.qinmoe.com`
+            pre: `${pre}.qinmoe.com`,
+            type: 'mp4'
           }
         }
       })
@@ -126,7 +127,8 @@ router.get('/jx/', async ctx => {
             let url = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
             ctx.body = {
               code: 0,
-              url
+              url,
+              type: 'mp4'
             }
         }
       })
@@ -150,7 +152,8 @@ router.get('/jx/', async ctx => {
         params = params.substring(0, params.length - 15).replace('\\/', '/')
         ctx.body = {
           code: 0,
-          url: `https://${params}`
+          url: `https://${params}`,
+          type: 'mp4'
         }
       })
       break
@@ -197,7 +200,8 @@ router.get('/jx/', async ctx => {
 
         ctx.body = {
           code: 0,
-          url: `http://221.7.255.177/cache.p4p.com/${fn}?vkey=${key}`
+          url: `http://221.7.255.177/cache.p4p.com/${fn}?vkey=${key}`,
+          type: 'mp4'
         }
       })
       break
@@ -213,7 +217,8 @@ router.get('/jx/', async ctx => {
     default:
       ctx.body = {
         code: 0,
-        url
+        url,
+        type: url.indexOf('m3u8') < 0 ? 'mp4' : 'hls'
       }
   }
 })

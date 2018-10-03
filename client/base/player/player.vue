@@ -14,13 +14,14 @@
   import Eplayer from 'eplayer'
 
   export default {
-    props: ['url', 'playerShow'],
+    props: ['url', 'type', 'playerShow'],
     watch: {
       url() {
         setTimeout(() => {
           new Eplayer(this.$refs.player, {
             src: this.url,
-            themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)'
+            themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)',
+            type: this.type
           })
         }, 20)
       }
