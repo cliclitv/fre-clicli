@@ -29,6 +29,7 @@ router.get('/jx/', async ctx => {
       let ob
       if (url.indexOf('av') < 0) {
         url = url.replace('www.', 'm.')
+
         ob = await axios.get(url).then(res => {
           let cid, aid
 
@@ -37,33 +38,35 @@ router.get('/jx/', async ctx => {
 
           if (cid) {
             return {
-              a: aid[1].substring(2, 10),
-              c: cid[1].substring(2, 10)
+              a: aid[1].substring(2, aid[1].length - 2),
+              c: cid[1].substring(2, cid[1].length - 2)
             }
           }
         })
       } else {
-        let aid = url.match(/av(\S*)/)[1].replace('/', '')
+        let aid = url.match(/av(\S*)\//)[1]
         ob = await axios.get('https://api.bilibili.com/x/web-interface/view', {
           params: {
             aid
           }
         }).then(res => {
+          let p2 = res.data.data.pages
+          if (p2.length > 0) p2 = res.data.data.pages[1].cid
           return {
             a: aid,
-            c: res.data.data.cid
+            c: res.data.data.cid,
+            p2
           }
         })
       }
       let ep, av
-
       if (url.indexOf('av') < 0) {
         ep = await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
           params: {
             cid: ob.c,
             quality: 16,
             page: 1,
-            bangumi: url.indexOf('av') < 0 ? 1 : null
+            bangumi: 1
           },
           headers: {
             Host: 'www.kanbilibili.com'
@@ -72,22 +75,39 @@ router.get('/jx/', async ctx => {
           return res.data.data.durl[0].url.replace('http', 'https')
         })
       } else {
-        av = await axios.get('https://api.bilibili.com/x/player/playurl', {
-          params: {
-            cid: ob.c,
-            avid: ob.a,
-            platform: 'html5',
-            otype: 'json',
-            qn: 16,
-            type: 'mp4'
-          },
-          headers: {
-            Host: 'api.bilibili.com',
-            Referer:'https://m.bilibili.com/video/av32937662.html'
-          }
-        }).then(res => {
-          return res.data.data.durl[0].url.replace('http', 'https')
-        })
+        if (url.indexOf('p=') < 0) {
+          av = await axios.get('https://api.bilibili.com/x/player/playurl', {
+            params: {
+              cid: ob.c,
+              avid: ob.a,
+              platform: 'html5',
+              otype: 'json',
+              qn: 16,
+              type: 'mp4'
+            },
+            headers: {
+              Host: 'api.bilibili.com',
+              Referer: 'https://m.bilibili.com/video/av32937662.html'
+            }
+          }).then(res => {
+            return res.data.data.durl[0].url.replace('http', 'https')
+          })
+        } else {
+          let p = url.match(/p=(\S*)/)[1]
+          av = await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
+            params: {
+              cid: ob.p2 ? ob.p2 : ob.c,
+              quality: 16,
+              page: p ? p : 1
+            },
+            headers: {
+              Host: 'www.kanbilibili.com'
+            }
+          }).then(res => {
+            return res.data.data.durl[0].url.replace('http', 'https')
+          })
+        }
+
       }
 
 
