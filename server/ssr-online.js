@@ -55,27 +55,49 @@ router.get('/jx/', async ctx => {
           }
         })
       }
+      let ep, av
 
-      await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
-        params: {
-          cid: ob.c,
-          quality: 16,
-          page: 1,
-          bangumi: url.indexOf('av') < 0 ? 1 : null
-        },
-        headers: {
-          Host: 'www.kanbilibili.com'
-        }
-      })
-        .then(res => {
-          ctx.body = {
-            code: 0,
-            aid: ob.a,
+      if (url.indexOf('av') < 0) {
+        ep = await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
+          params: {
             cid: ob.c,
-            url: res.data.data.durl[0].url.replace('http', 'https'),
-            type: url.indexOf('av') < 0 ? 'mp4' : 'flv'
+            quality: 16,
+            page: 1,
+            bangumi: url.indexOf('av') < 0 ? 1 : null
+          },
+          headers: {
+            Host: 'www.kanbilibili.com'
           }
+        }).then(res => {
+          return res.data.data.durl[0].url.replace('http', 'https')
         })
+      } else {
+        av = await axios.get('https://api.bilibili.com/x/player/playurl', {
+          params: {
+            cid: ob.c,
+            avid: ob.a,
+            platform: 'html5',
+            otype: 'json',
+            qn: 16,
+            type: 'mp4'
+          },
+          headers: {
+            Host: 'api.bilibili.com',
+            Referer:'https://m.bilibili.com/video/av32937662.html'
+          }
+        }).then(res => {
+          return res.data.data.durl[0].url.replace('http', 'https')
+        })
+      }
+
+
+      ctx.body = {
+        code: 0,
+        aid: ob.a,
+        cid: ob.c,
+        url: url.indexOf('av') < 0 ? ep : av,
+        type: 'mp4'
+      }
       break
     case 'dilidili':
       await axios.get(url).then(res => {
@@ -143,16 +165,15 @@ router.get('/jx/', async ctx => {
         return res.data.match(/H6Id(\S*)mp4/i)[0]
       })
 
-      await axios.get(`http://47.100.0.249/kli/play.php?url=${encodeURI(ret)}`, {
+      await axios.get(`http://47.100.0.249/danmu/zhilian.php?url=${encodeURI(ret)}`, {
         headers: {
           Host: '47.100.0.249'
         }
       }).then(res => {
-        let params = res.data.match(/dl1(\S*)DOCTYPE/)[0]
-        params = params.substring(0, params.length - 15).replace('\\/', '/')
+        let params = res.data.match(/source src="(\S*)"/)[1]
         ctx.body = {
           code: 0,
-          url: `https://${params}`,
+          url: params,
           type: 'mp4'
         }
       })
