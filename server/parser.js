@@ -4,19 +4,21 @@ let out
 module.exports = {
 
   urlType(url) {
-    let flag = url.indexOf('www') > -1
-    if(flag){
+    let flag = url.indexOf('www') > -1 || url.indexOf('qq') > 0
+    if(url.indexOf('hcy')){
+      return 'hcy'
+    }
+    if (flag) {
       let n = url.match(/\.(\S+?)\./)
-      return n ? n[1].substring(0,8) : null
-    }else {
+      return n ? n[1].substring(0, 8) : null
+    } else {
       let n = url.match(/:(\S+?)\./)
-      return n ? n[1].substring(2,n[1].length) : null
+      return n ? n[1].substring(2, n[1].length) : null
     }
 
   }
 
 }
-
 
 
 // let cid

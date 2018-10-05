@@ -44,14 +44,17 @@ router.get('/jx/', async ctx => {
           }
         })
       } else {
-        let aid = url.match(/av(\S*)\//)[1]
+        url = url + '/'
+        let aid = url.match(/av(\S+?)\//)[1].replace('/', '')
         ob = await axios.get('https://api.bilibili.com/x/web-interface/view', {
           params: {
             aid
           }
         }).then(res => {
           let p2 = res.data.data.pages
-          if (p2.length > 0) p2 = res.data.data.pages[1].cid
+          if (p2.length > 1) {
+            p2 = res.data.data.pages[1].cid
+          }
           return {
             a: aid,
             c: res.data.data.cid,
@@ -87,7 +90,6 @@ router.get('/jx/', async ctx => {
             },
             headers: {
               Host: 'api.bilibili.com',
-              Referer: 'https://m.bilibili.com/video/av32937662.html'
             }
           }).then(res => {
             return res.data.data.durl[0].url.replace('http', 'https')
@@ -129,72 +131,6 @@ router.get('/jx/', async ctx => {
             url: `https://${str}`,
             type: 'mp4'
           }
-        }
-      })
-      break
-    case 'halihali':
-      const player = await axios.get(url).then(res => {
-        let yun = res.data.match(/"https:(\S*)copyright/)[0].replace(/\\/g, '')
-        yun = yun.substring(1, yun.length - 12)
-
-        let pre = yun.match(/https(\S*)qinmoe/)[1]
-
-        pre = pre.substring(3, pre.length - 1)
-        if (yun) {
-          return {
-            url: yun,
-            pre: `${pre}.qinmoe.com`,
-            type: 'mp4'
-          }
-        }
-      })
-
-
-      await axios.get(player.url, {
-        headers: {
-          Host: player.pre,
-          Referer: url
-        }
-      }).then(res => {
-        switch (player.pre) {
-          case 'hali.qinmoe.com':
-            let u = res.data.match(/https(\S*)'/)
-            ctx.body = {
-              code: 0,
-              url: u[0].substring(0, u[0].length - 1).replace(/\\/g, '')
-            }
-            break
-          case 'player.qinmoe.com':
-            let params = res.data.match(/<video src="(\S*)" controls/)[1]
-            let url = params.replace(/\\x26/g, '&').replace(/\\\//g, '/')
-            ctx.body = {
-              code: 0,
-              url,
-              type: 'mp4'
-            }
-        }
-      })
-      break
-    case 'silisili':
-      const ret = await axios.get(url, {
-        headers: {
-          Host: 'www.silisili.co',
-          Referer: url
-        }
-      }).then(res => {
-        return res.data.match(/H6Id(\S*)mp4/i)[0]
-      })
-
-      await axios.get(`http://47.100.0.249/danmu/zhilian.php?url=${encodeURI(ret)}`, {
-        headers: {
-          Host: '47.100.0.249'
-        }
-      }).then(res => {
-        let params = res.data.match(/source src="(\S*)"/)[1]
-        ctx.body = {
-          code: 0,
-          url: params,
-          type: 'mp4'
         }
       })
       break
@@ -254,6 +190,18 @@ router.get('/jx/', async ctx => {
         code: 0,
         url: out
       }
+      break
+    case 'hcy':
+      axios.get(url).then(res => {
+        let out = res.data.match(/download(\S*);/)
+        let u = out[0].substring(0, out[0].length - 2)
+
+        ctx.body = {
+          code: 0,
+          url: `https://${u}`,
+          type: 'mp4'
+        }
+      })
       break
     default:
       ctx.body = {
