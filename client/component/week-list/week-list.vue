@@ -7,11 +7,11 @@
       </li>
     </ul>
 
-    <ul class="content">
-      <li v-for="item in items[activeIndex].content">
+    <ul class="content" v-if="items.length">
+      <li v-for="item in items[activeIndex].content" v-if="items.length">
         <router-link :to="item.url">
           <img :src="item.suo" :alt="item.title">
-          <div>
+          <div class="text">
             <div class="title">{{item.title}}</div>
             <div class="oid">更新至{{item.oid}}集</div>
           </div>
@@ -23,82 +23,28 @@
 </template>
 
 <script>
+  import {getWeekList} from 'api/article'
+
   export default {
     data() {
       return {
         activeIndex: 0,
-        items: [
-          {
-            day: '周一', content: [
-              {title: '进击的巨人第三季', suo: 'https://i.loli.net/2018/08/11/5b6eae408cf7b.jpg', url: '/p/100', oid: '10'},
-            ]
-          },
-          {
-            day: '周二', content: [
-              {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246', oid: '10'},
-              {title: '关于我转生后成为史莱姆的那件事', suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg', url: '/p/328', oid: '1'}
-            ]
-          },
-          {
-            day: '周三', content: [
-              {
-                title: 'Free!第三季',
-                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
-                url: '/p/82',
-                oid: '12'
-              }
-            ]
-          },
-          {
-            day: '周四', content: [
-              {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/p/4', oid: '75'},
-              {
-                title: '天狼',
-                suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg',
-                url: '/p/230',
-                oid: '12'
-              }
-            ]
-          },
-          {
-            day: '周五', content: [
-              {
-                title: 'Free!第三季',
-                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
-                url: '/p/82',
-                oid: '12'
-              }
-            ]
-          },
-          {
-            day: '周六', content: [
-              {
-                title: 'Free!第三季',
-                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
-                url: '/p/82',
-                oid: '12'
-              }
-            ]
-          },
-          {
-            day: '周日', content: [
-              {
-                title: 'Island',
-                suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg',
-                url: '/p/200',
-                oid: '12'
-              },
-              {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', url: '/p/213', oid: '14'},
-              {
-                title: '海贼王',
-                suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
-                url: '/p/258',
-                oid: '855'
-              }
-            ]
-          }
-        ]
+        items: []
       }
+    },
+    created() {
+      let week = new Date().getDay()
+      if (week === 0) {
+        this.activeIndex = 6
+      } else {
+        this.activeIndex = week - 1
+      }
+
+    },
+    mounted() {
+      getWeekList().then(res => {
+        this.items = res.data.data
+      })
     },
     methods: {
       handleClick(index) {
@@ -140,10 +86,12 @@
       background $b-color
       padding: 10px
       margin: 10px 0
-      display flex
+      display block
       li
         padding: 10px
         width 20%
+        box-sizing border-box
+        display inline-block
         a
           color: #fff
           display flex
@@ -154,12 +102,14 @@
           object-fit: cover
           border-radius 50%
           border: 10px solid $bg-color
-        .oid
-          font-size: 12px
-          color rgba(255,255,255,.6)
-        .title
-          font-size 13px
-        .title,.oid
-          padding: 10px 0 0 10px
+        .text
+          flex: 1
+          .oid
+            font-size: 12px
+            color rgba(255, 255, 255, .6)
+          .title
+            font-size 13px
+          .title, .oid
+            padding: 10px 0 0 10px
 
 </style>

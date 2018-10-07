@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {getStorage} from "common/js/localstorage"
-import Cookies from 'js-cookie'
 
 export const request = axios.create({
   baseURL: 'https://api.chinko.cc'
@@ -87,4 +86,9 @@ export function searchPosts(key) {
 // 获取评论数
 export function getCommentCount(id) {
   return request.get(`count/${id}`)
+}
+
+// 获取周播表
+export function getWeekList() {
+  return axios.get('/week/')
 }

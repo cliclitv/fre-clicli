@@ -38,10 +38,10 @@
           <li>号外</li>
         </router-link>
         <router-link to="/p/31" class="tab-item">
-          <li>投稿教程</li>
+          <li>使用说明</li>
         </router-link>
         <router-link to="/p/30" class="tab-item">
-          <li>使用说明</li>
+          <li>投稿教程</li>
         </router-link>
         <router-link to="/p/123" class="tab-item">
           <li>APP</li>

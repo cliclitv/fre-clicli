@@ -5,7 +5,7 @@ module.exports = {
 
   urlType(url) {
     let flag = url.indexOf('www') > -1 || url.indexOf('qq') > 0
-    if(url.indexOf('hcy')){
+    if (url.indexOf('hcy') > -1) {
       return 'hcy'
     }
     if (flag) {
