@@ -204,14 +204,19 @@ router.get('/jx/', async ctx => {
       })
       break
     case 'bit':
-      await axios.get(url).then(res => {
-        let src = res.data.match(/url([\s\S]+?);/)[1]
-        ctx.body = {
-          code: 0,
-          url: src.substring(4, src.length - 1),
-          body: res.data,
-          type: 'mp4'
+      await axios.get(url, {
+        headers: {
+          Host: '193.112.131.234:8081',
+          Referer: 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90'
         }
+      }).then(res => {
+        let src = res.data.match(/url([\s\S]+?);/)[1]
+        // ctx.body = {
+        //   code: 0,
+        //   url: src.substring(4, src.length - 1),
+        //   type: 'mp4'
+        // }
+        ctx.body = res.data
       })
       break
     default:
@@ -232,7 +237,7 @@ router.get('/week/', async ctx => {
             title: '进击的巨人第三季',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4g8gfj30bt0b4wew.jpg',
             url: '/p/100',
-            oid: '10'
+            oid: '11'
           },
           {
             title: '夕照少女',
