@@ -203,6 +203,17 @@ router.get('/jx/', async ctx => {
         }
       })
       break
+    case 'bit':
+      await axios.get(url).then(res => {
+        let src = res.data.match(/url([\s\S]+?);/)[1]
+        ctx.body = {
+          code: 0,
+          url: src.substring(4, src.length - 1),
+          body: res.data,
+          type: 'mp4'
+        }
+      })
+      break
     default:
       ctx.body = {
         code: 0,

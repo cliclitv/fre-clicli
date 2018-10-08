@@ -17,7 +17,6 @@
     props: ['url', 'type', 'playerShow'],
     watch: {
       url() {
-        console.log(this.type)
         setTimeout(() => {
           new Eplayer(this.$refs.player, {
             src: this.url,
