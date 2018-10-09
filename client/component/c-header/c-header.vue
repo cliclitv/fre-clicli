@@ -52,7 +52,8 @@
       </ul>
       <router-link to="/p/123" class="down">下载客户端</router-link>
     </div>
-    <login v-show="isLogin" @close="close"></login>
+    <login v-show="isLogin" @close="close" @error="error"></login>
+    <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
   </div>
 
 </template>
@@ -61,6 +62,7 @@
   import Login from 'component/login/login.vue'
   import Cookies from 'js-cookie'
   import {Base64} from 'js-base64'
+  import BottomTip from 'base/bottom-tip/bottom-tip.vue'
   import {mapGetters, mapMutations} from 'vuex'
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
@@ -74,7 +76,8 @@
         isShow: false,
         msg: '',
         pr: '投稿',
-        adminroute: 'http://admin.clicli.us/login'
+        adminroute: 'http://admin.clicli.us/login',
+        bg: '#000'
       }
     },
     computed: {
@@ -88,6 +91,10 @@
     methods: {
       onLogin() {
         this.isOnLogin(true)
+      },
+      error({msg}) {
+        this.msg = msg
+        this.bg = '#f24848'
       },
       close() {
         this.isOnLogin(false)
@@ -132,13 +139,16 @@
         })
         removeStorage('user-info')
         this.isShow = false
+        this.msg = '退出成功啦'
+        this.bg = '#8afa50'
 
       },
       ...mapMutations(['isOnLogin'])
     },
 
     components: {
-      Login
+      Login,
+      BottomTip
     }
   }
 </script>
