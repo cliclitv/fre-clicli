@@ -243,7 +243,7 @@ router.get('/week/', async ctx => {
             title: '夕照少女',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4harcj30ka0dhmyc.jpg',
             url: '/p/334',
-            oid: '01'
+            oid: '02'
           },
         ]
       },
@@ -254,8 +254,20 @@ router.get('/week/', async ctx => {
             title: '关于我转生后成为史莱姆的那件事',
             suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
             url: '/p/328',
-            oid: '1'
-          }
+            oid: '02'
+          },
+          {
+            title: '东京食尸鬼：re 第二季',
+            suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvkh2n40ofj30hs0a0q43.jpg',
+            url: '/p/350',
+            oid: '01'
+          },
+          {
+            title: '欢迎光临，千岁酱',
+            suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
+            url: '/p/371',
+            oid: '01'
+          },
         ]
       },
       {
@@ -270,25 +282,31 @@ router.get('/week/', async ctx => {
             title: '嫁给非人类',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fvv86436kwj30wx0ib3zc.jpg',
             url: '/p/332',
-            oid: '1'
+            oid: '02'
           },
           {
             title: '强风吹拂',
             suo: 'https://i.loli.net/2018/10/04/5bb5344c52420.jpg',
             url: '/p/337',
-            oid: '1'
+            oid: '02'
           },
           {
             title: 'RErideD',
             suo: 'https://i.loli.net/2018/10/04/5bb5321807393.jpg',
             url: '/p/335',
-            oid: '1'
+            oid: '06'
           },
           {
             title: '宇宙战舰提拉米苏 第二季',
             suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
             url: '/p/338',
-            oid: '1'
+            oid: '02'
+          },
+          {
+            title: '轩辕剑·苍之曜',
+            suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
+            url: '/p/377',
+            oid: '02'
           }
         ]
       },

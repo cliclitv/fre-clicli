@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-tip">
+  <div class="bottom-tip" v-show="isShow">
     <div class="text" :style="{background:bg}">{{msg}}</div>
   </div>
 </template>
@@ -8,6 +8,20 @@
   export default {
     name: "bottom-tip",
     props: ['bg', 'msg'],
+    data() {
+      return {
+        isShow: true
+      }
+    },
+    watch: {
+      msg() {
+        if (this.isShow) {
+          setTimeout(() => {
+            this.isShow = false
+          }, 2000)
+        }
+      }
+    }
   }
 </script>
 
@@ -23,5 +37,4 @@
       text-align center
       color: #fff
       border-radius 4px 4px 0 0
-  /*#f24848*/
 </style>

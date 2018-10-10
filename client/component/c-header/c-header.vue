@@ -8,7 +8,7 @@
         </router-link>
 
         <li v-show="isShow" @click="onLogout">退出</li>
-        <li @click="onLogin" v-show="!isShow">登陆</li>
+        <li @click="onLogin" v-show="!isShow">登录</li>
         <a href="http://admin.clicli.us/register">
           <li v-show="!isShow">注册</li>
         </a>
@@ -49,6 +49,7 @@
         <router-link to="/p/276" class="tab-item">
           <li>贴视频</li>
         </router-link>
+        <a href="http://www.cilicili.cc/" target="_blank">导航</a>
       </ul>
       <router-link to="/p/123" class="down">下载客户端</router-link>
     </div>
@@ -140,7 +141,7 @@
         removeStorage('user-info')
         this.isShow = false
         this.msg = '退出成功啦'
-        this.bg = '#8afa50'
+        this.bg = '#b0fa66'
 
       },
       ...mapMutations(['isOnLogin'])
@@ -176,7 +177,9 @@
       display none
     .menu
       display inline-block
-      margin-left 150px
+      margin-left 120px
+      a
+        color: $color
     li
       display inline-block
       padding: 10px
