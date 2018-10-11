@@ -307,6 +307,12 @@ router.get('/week/', async ctx => {
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
             url: '/p/377',
             oid: '02'
+          },
+          {
+            title: '我喜欢的妹妹但不是妹妹',
+            suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3i3d8gasj317a1p4qcz.jpg',
+            url: '/p/378',
+            oid: '01'
           }
         ]
       },
@@ -328,6 +334,30 @@ router.get('/week/', async ctx => {
             title: '青春猪头少年不会梦到兔女郎学姐',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6792vqj305k05kt8z.jpg',
             url: '/p/340',
+            oid: '02'
+          },
+          {
+            title: '天空与海洋之间',
+            suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fw44ofxkh8j30co0hsta1.jpg',
+            url: '/p/382',
+            oid: '02'
+          },
+          {
+            title: '魔偶马戏团',
+            suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fw44ln9ulvj30hs0ozwhk.jpg',
+            url: '/p/381',
+            oid: '01'
+          },
+          {
+            title: '只要别西卜大小姐喜欢就好',
+            suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fw44imp357j30e80lcq55.jpg',
+            url: '/p/380',
+            oid: '01'
+          },
+          {
+            title: '永不止步真好',
+            suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw45vd5yc9j30go0l3tcq.jpg',
+            url: '/p/383',
             oid: '01'
           }
         ]
