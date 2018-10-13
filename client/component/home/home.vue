@@ -23,6 +23,7 @@
   import Cookies from 'js-cookie'
   import Loading from 'base/loading/loading.vue'
   import WeekList from 'component/week-list/week-list.vue'
+  import axios from 'axios'
 
   export default {
     data() {

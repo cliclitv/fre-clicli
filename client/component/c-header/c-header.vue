@@ -9,7 +9,7 @@
 
         <li v-show="isShow" @click="onLogout">退出</li>
         <li @click="onLogin" v-show="!isShow">登录</li>
-        <a href="http://admin.clicli.us/register">
+        <a href="https://admin.clicli.us/register">
           <li v-show="!isShow">注册</li>
         </a>
       </ul>
@@ -51,7 +51,6 @@
         </router-link>
         <a href="http://www.cilicili.cc/" target="_blank">导航</a>
       </ul>
-      <router-link to="/p/123" class="down">下载客户端</router-link>
     </div>
     <login v-show="isLogin" @close="close" @error="error"></login>
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
@@ -77,7 +76,7 @@
         isShow: false,
         msg: '',
         pr: '投稿',
-        adminroute: 'http://admin.clicli.us/login',
+        adminroute: 'https://admin.clicli.us/login',
         bg: '#000'
       }
     },

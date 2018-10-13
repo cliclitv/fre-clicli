@@ -1,115 +1,82 @@
 @import "variable.styl"
 @media screen and (max-width: 480px)
-  iframe
-    max-height 200px !important
-
-  .slider, .reach-box, .right, .bio, .progress-bar, .search-box, .menu, .footer, .common-title, .landlord, .message
-    display none !important
-
-  .tab-wrap, .sort-title
+  .bio
     display none
-
-  .close
-    display block !important
 
   .wrap
-    width 100% !important
+    width 100%
+
+  .post-list
+    padding: 5px !important
+    li
+      width 50% !important
+    .post
+      margin: 2px !important
+      .suo
+        height 230px !important
+        img
+          height 230px !important
+      .info
+        margin: 0 !important
 
   .header
-    height 50px
-    position relative
-    width 100%
-    padding 0 !important
-
-  .home
-    margin-top: 0 !important
-
-  .down
-    float right
-    display block
-    background $blue-color
-    padding: 5px 20px
-    color: #fff
-    margin 10px
-
-  .main, .post-list
-    width 100% !important
-    float none
-    box-sizing border-box
-
-  .post:before
-    display none !important
-
-  .post-list .avatar
-    justify-content: center
-    margin: 0 !important
-
-  .comment ul
-    width 100% !important
-    li
-      padding: 10px 0 !important
-      .text, .add-text
-        padding: 0 10px !important
-      .comment-avatar
-        width 50px !important
-        img
-          height 40px !important
-          width 40px !important
-      time
-        font-size: 11px
-        position: absolute
-        top: 10px
-        right: 10px
-
-  .text:before, .add-text:before
-    display none !important
-
-  .mobile-logo
-    display block !important
-    padding-left: 10px
-    margin-top: -3px
-    img
-      height 20px !important
-
-  .pc-logo
-    display none
-
-  .list
-    display block !important
-    position absolute
-    left: 120px
-    top: 10px
-    background $bg-color
-    padding: 5px
-    .icon-font
-      font-size: 20px
-
-  .tab
-    position fixed
-    top: 55px
-    left: 0
-    right 0
-    bottom 0
-    z-index 9
-    background rgba(21, 28, 45, .9)
-    text-align center
-    font-size 16px
-    .close
-      position absolute
-      bottom 30px
-      left: 50%
-      transform translate(-50%, 0)
-      color: #fff
-      .icon-close
-        font-size: 50px
-
-  .ad
-    display block !important
-    margin-top 10px
-    opacity 1
-    img
+    .menu
+      margin-left: 20px !important
       width 100%
+      box-sizing border-box
+      height 40px
+      white-space: nowrap
+      overflow-x: scroll
+      float: left
+      -webkit-overflow-scrolling: touch
+      padding: 0 40px
 
-@media screen and (min-width: 500px)
-  .tab
-    display block !important
+  .week-list
+    .content
+      li
+        width 50% !important
+        img
+          height 60px !important
+          width 60px !important
+
+  .search-box
+    height 50px !important
+    input
+      width 100% !important
+    .search
+      width 80% !important
+    .icon-search
+      position: absolute !important
+      right: 5px !important
+      top: 5px !important
+
+  .main
+    .gonggao
+      span
+        display inline-block
+
+  .comment
+    ul
+      width 100% !important
+
+  .menu::-webkit-scrollbar
+    display: none
+
+  .post-detail
+    width 100% !important
+
+  .player-wrap
+    width 100% !important
+    height 270px !important
+    .play
+      width 100% !important
+      height 270px !important
+      .ep
+        width 100% !important
+        height 270px !important
+    .close
+      top: -35px !important
+      right 0 !important
+      .icon-close1
+        background transparent !important
+        border: 0 !important

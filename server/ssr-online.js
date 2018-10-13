@@ -207,15 +207,16 @@ router.get('/jx/', async ctx => {
       await axios.get(url, {
         headers: {
           Host: '193.112.131.234:8081',
-          Referer: 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90'
+          Referer: 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90',
+          Cookies:'ci_session=307fd488702adf3d21e0fbcea88c486134fe1cfc'
         }
       }).then(res => {
         let src = res.data.match(/url([\s\S]+?);/)[1]
-        // ctx.body = {
-        //   code: 0,
-        //   url: src.substring(4, src.length - 1),
-        //   type: 'mp4'
-        // }
+        ctx.body = {
+          code: 0,
+          url: src.substring(4, src.length - 1),
+          type: 'mp4'
+        }
         ctx.body = res.data
       })
       break
@@ -371,6 +372,12 @@ router.get('/week/', async ctx => {
             oid: '01'
           },
           {
+            title: '佐贺偶像是传奇',
+            suo: 'https://i.loli.net/2018/10/06/5bb7928b6d4c2.jpg',
+            url: '/p/355',
+            oid: '02'
+          },
+          {
             title: '终将成为你',
             suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
             url: '/p/358',
@@ -392,6 +399,12 @@ router.get('/week/', async ctx => {
             title: '火之丸相扑',
             suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
             url: '/p/356',
+            oid: '01'
+          },
+          {
+            title: '梅露可物语',
+            suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
+            url: '/p/397',
             oid: '01'
           }
         ]
