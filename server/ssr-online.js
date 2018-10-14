@@ -170,11 +170,15 @@ router.get('/jx/', async ctx => {
       })
       break
     case 'qinmei':
-      url = Base64.decode(url.match(/l=(\S*)/)[1])
-      let pa = url.split(';')
+      let link = Base64.decode(url.match(/l=(\S*)/)[1])
+      let pa = link.split(';')
       const out = await axios.post(`https://qinmei.org/wp-json/wp/v2/animeinfo/play?animateweb=19414`, {
         animate: pa[0],
         sort: pa[2]
+      }, {
+        headers: {
+          Referer: url
+        }
       }).then(res => {
         return res.data.link
       })
