@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const path = require('path')
 const fs = require('fs')
 const axios = require('axios')
+const Base64 = require('js-base64').Base64
 
 const parser = require('./parser')
 
@@ -106,12 +107,11 @@ router.get('/jx/', async ctx => {
               Host: 'www.kanbilibili.com'
             }
           }).then(res => {
-            return res.data.data.durl[0].url.replace('http', 'https')
+            return res.data.data.durl[0].url
           })
         }
 
       }
-
 
       ctx.body = {
         code: 0,
@@ -120,19 +120,6 @@ router.get('/jx/', async ctx => {
         url: url.indexOf('av') < 0 ? ep : av,
         type: 'mp4'
       }
-      break
-    case 'dilidili':
-      await axios.get(url).then(res => {
-        let dili = res.data.match(/vd3.bdstatic.com(\S*)mp4/)
-        if (dili) {
-          let str = dili[0].replace(/\\\//g, '/')
-          ctx.body = {
-            code: 0,
-            url: `https://${str}`,
-            type: 'mp4'
-          }
-        }
-      })
       break
     case 'qq':
       url = url.substring(url.length - 16, url.length - 5)
@@ -183,12 +170,18 @@ router.get('/jx/', async ctx => {
       })
       break
     case 'qinmei':
-      const out = await axios.get(url).then(res => {
-        return res.data.match(/url: '(\S+?)'/)[1]
+      url = Base64.decode(url.match(/l=(\S*)/)[1])
+      let pa = url.split(';')
+      const out = await axios.post(`https://qinmei.org/wp-json/wp/v2/animeinfo/play?animateweb=19414`, {
+        animate: pa[0],
+        sort: pa[2]
+      }).then(res => {
+        return res.data.link
       })
       ctx.body = {
         code: 0,
-        url: out
+        url: out,
+        type: 'mp4'
       }
       break
     case 'hcy':
@@ -208,7 +201,7 @@ router.get('/jx/', async ctx => {
         headers: {
           Host: '193.112.131.234:8081',
           Referer: 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90',
-          Cookies:'ci_session=307fd488702adf3d21e0fbcea88c486134fe1cfc'
+          Cookies: 'ci_session=307fd488702adf3d21e0fbcea88c486134fe1cfc'
         }
       }).then(res => {
         let src = res.data.match(/url([\s\S]+?);/)[1]
@@ -369,7 +362,7 @@ router.get('/week/', async ctx => {
             title: '魔法禁书目录Ⅲ',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6790w5j30dw0dwwf7.jpg',
             url: '/p/353',
-            oid: '01'
+            oid: '02'
           },
           {
             title: '佐贺偶像是传奇',
@@ -381,31 +374,32 @@ router.get('/week/', async ctx => {
             title: '终将成为你',
             suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
             url: '/p/358',
-            oid: '01'
+            oid: '02'
           },
           {
             title: '邻家吸血鬼小妹',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp678fqwj30ke0beaac.jpg',
-            url: '/p/353',
-            oid: '01'
+            url: '/p/352',
+            oid: '02'
           },
           {
             title: '我家的女仆太烦人了',
             suo: 'https://i.loli.net/2018/10/06/5bb7a98e1b339.jpg',
             url: '/p/359',
-            oid: '01'
+            oid: '02'
           },
+
           {
             title: '火之丸相扑',
             suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
             url: '/p/356',
-            oid: '01'
+            oid: '02'
           },
           {
             title: '梅露可物语',
             suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
             url: '/p/397',
-            oid: '01'
+            oid: '02'
           }
         ]
       },
@@ -428,14 +422,26 @@ router.get('/week/', async ctx => {
             title: '来自多彩世界的明天',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvycth1mlhj30fa0b475z.jpg',
             url: '/p/361',
-            oid: '01'
+            oid: '02'
           },
           {
             title: '寄宿学校的朱丽叶',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvygyuwcqhj30f008fdg6.jpg',
             url: '/p/363',
+            oid: '02'
+          },
+          {
+            title: '学园BASARA',
+            suo: 'https://i.loli.net/2018/10/06/5bb79b7c4d735.jpg',
+            url: '/p/357',
+            oid: '02'
+          },
+          {
+            title: '闪乱神乐 SHINOVI MASTER 东京妖魔篇',
+            suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
+            url: '/p/402',
             oid: '01'
-          }
+          },
         ]
       },
       {
@@ -445,32 +451,32 @@ router.get('/week/', async ctx => {
             title: 'Island',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg',
             url: '/p/200',
-            oid: '12'
+            oid: '77'
           },
 
           {
             title: '海贼王',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
             url: '/p/258',
-            oid: '855'
+            oid: '856'
           },
           {
             title: '刀剑神域 第三季',
             suo: 'https://i.loli.net/2018/10/07/5bb8f60026cea.jpg',
             url: '/p/366',
-            oid: '01'
+            oid: '02'
           },
           {
             title: '妖精的尾巴 终章',
             suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fvjb33fmkjj31hc0u0n4s.jpg',
             url: '/p/264',
-            oid: '278'
+            oid: '279'
           },
           {
             title: '哥布林杀手',
             suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
             url: '/p/365',
-            oid: '01'
+            oid: '02'
           }
         ]
       }
