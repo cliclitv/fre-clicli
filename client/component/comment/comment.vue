@@ -14,10 +14,10 @@
       </div>
       <switch-button @closeDm="closeDm" @openDm="openDm"></switch-button>
       <div class="option">
-        <div class="color">
+        <div class="color" @click="showOpt">
           <i class="icon-font icon-color" :style="{color:data.color}"></i>
         </div>
-        <div class="dm-opt">
+        <div class="dm-opt" v-show="optShow">
           <p>设置弹幕颜色</p>
           <p>
             <i style="background:#FFFFFF" @click="color"></i>
@@ -54,6 +54,7 @@
         title: '',
         user: {},
         isShow: false,
+        optShow: false,
         uqq: Cookies.get('uqq'),
         data: {
           color: '#fff',
@@ -68,6 +69,9 @@
       ...mapGetters(['isLogin', 'vid', 'tuid'])
     },
     methods: {
+      showOpt() {
+        this.optShow = !this.optShow
+      },
       color(val) {
         this.data.color = val.target.style.background
       },
