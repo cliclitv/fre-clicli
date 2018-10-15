@@ -12,8 +12,24 @@
           <a href="https://admin.clicli.us/register">注册</a>
         </div>
       </div>
+      <switch-button></switch-button>
+      <div class="option">
+        <div class="color">
+          <i class="icon-font icon-color"></i>
+        </div>
+        <div class="dm-opt">
+          <p>设置弹幕颜色</p>
+          <p>
+            <i style="background:#fff"></i><i style="background:#f9a100"></i><i style="background:#E54256"></i><i
+            style="background:#FFE133"></i><i style="background:#64DD17"></i><i style="background:#00f9d7"></i><i
+            style="background:#39ccff"></i><i style="background:#D500F9"></i>
+          </p>
+          <p>设置弹幕位置</p>
+          <p><span>上</span><span class="active">中</span><span>下</span></p>
+        </div>
+      </div>
       <div class="submit">
-        <button @click="onComment">发射！</button>
+        <button @click="onComment"><i class="icon-font icon-send"></i>发射！</button>
       </div>
     </div>
   </div>
@@ -25,6 +41,7 @@
   import {getStorage} from "common/js/localstorage"
   import {mapGetters, mapMutations} from 'vuex'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
+  import SwitchButton from 'base/switch-button/switch-button.vue'
 
   export default {
     data() {
@@ -33,7 +50,8 @@
         content: '',
         user: {},
         isShow: true,
-        uqq: Cookies.get('uqq')
+        uqq: Cookies.get('uqq'),
+        data: {}
       }
     },
     mounted() {
@@ -50,6 +68,7 @@
         this.isOnLogin(true)
       },
       onComment() {
+        this.$emit('addDm', this.data)
         if (!this.content) {
           this.msg = '不能不填！'
           return
@@ -61,7 +80,8 @@
           vid: this.vid,
           time: Math.round(document.getElementById('ep-video').currentTime)
         }).then(res => {
-          console.log(res.data)
+          this.content = ''
+          console.log(res.data.code)
         })
       },
       getUser() {
@@ -72,6 +92,9 @@
         }
       },
       ...mapMutations(['isOnLogin', 'setCurrentTime'])
+    },
+    components: {
+      SwitchButton
     }
   }
 </script>
@@ -113,6 +136,8 @@
         font-size: 20px
         outline: none
         border: 2px solid #152e4d
+    .option
+      position relative
     .submit
       display inline-block
       margin-left: 20px
@@ -127,6 +152,37 @@
         border-radius 5px
       button:hover
         background $blue-color
+      .icon-send
+        font-size: 24px
+        margin-right: 20px
+    .dm-opt
+      padding: 10px
+      background #090c13
+      position absolute
+      bottom: 60px
+      right -170px
+      width 300px
+      p
+        padding: 10px
+        i
+          display inline-block
+          background #fff
+          height 25px
+          width 25px
+          margin: 5px
+          border-radius 50%
+          cursor pointer
+        span
+          background $b-color
+          padding: 5px 30px
+          cursor pointer
+          display inline-block
+        .active
+          background #fff
+          color: #333
+    .icon-color
+      font-size: 40px
+      margin-left: 20px
     .need-login
       span
         background $pink-color
@@ -137,6 +193,15 @@
 
   textarea::-webkit-input-placeholder
     color: #fff
+
+  .dm-opt span:nth-child(1) {
+    border-radius 5px 0 0 5px
+  }
+
+  .dm-opt span:nth-child(3) {
+    border-radius 0 5px 5px 0
+    border-left none
+  }
 
 
 </style>

@@ -7,6 +7,7 @@
         <i class="icon-font icon-close1"></i>
       </div>
     </div>
+    <comment></comment>
   </div>
 </template>
 
@@ -14,6 +15,7 @@
   import Eplayer from 'eplayer'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
   import {mapGetters} from 'vuex'
+  import Comment from 'component/comment/comment.vue'
 
   export default {
     props: ['url', 'type', 'playerShow'],
@@ -41,7 +43,6 @@
     methods: {
       forDanmu(arr) {
         let out = []
-
         for (let i in arr) {
           let res = {}
           res['value'] = arr[i]['content']
@@ -54,6 +55,9 @@
       hide() {
         this.$emit('hide')
       }
+    },
+    components:{
+      Comment
     }
   }
 </script>
@@ -72,7 +76,7 @@
       z-index: 999999
       top: 50%
       left: 50%
-      transform translate(-50%, -50%)
+      transform translate(-50%, -60%)
       box-shadow: 1px 1px 5px #090c13
       .ep
         width: 800px

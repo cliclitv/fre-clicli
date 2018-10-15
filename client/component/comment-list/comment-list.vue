@@ -14,13 +14,11 @@
         <time>{{item.ctime}}</time>
       </li>
     </ul>
-    <comment></comment>
   </div>
 </template>
 
 <script>
   import {getComments} from 'api/comment'
-  import Comment from 'component/comment/comment.vue'
 
   export default {
     name: "comment-list",
@@ -45,9 +43,6 @@
       getAvatar(avatar) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
       }
-    },
-    components:{
-      Comment
     }
   }
 </script>
