@@ -1,12 +1,28 @@
 <template>
   <div class="switch">
-    <input class='switch-component' type='checkbox'>
+    <input class='switch-component' value="yes" type='radio' v-model="val" @click="switchDan">
     <span class="dan">弹</span>
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        val: 'yes'
+      }
+    },
+    methods: {
+      switchDan() {
+        this.val = this.val === 'yes' ? '' : 'yes'
+        if(this.val==='yes'){
+          this.$emit('openDm')
+        }else {
+          this.$emit('closeDm')
+        }
+      }
+    }
+  }
 </script>
 
 <style scoped lang="stylus">

@@ -6,23 +6,28 @@
         <img :src="getAvatar(user.qq)">
       </div>
       <div class="add-text">
-        <textarea placeholder="回复一下下菊花又不会坏……" v-model="content" v-if="isShow" rows="1"></textarea>
+        <textarea placeholder="回复一下下菊花又不会坏……" v-model="data.value" v-if="isShow" rows="1"></textarea>
         <div v-if="!isShow" class="need-login">
           <span @click="onLogin">登陆</span>
           <a href="https://admin.clicli.us/register">注册</a>
         </div>
       </div>
-      <switch-button></switch-button>
+      <switch-button @closeDm="closeDm" @openDm="openDm"></switch-button>
       <div class="option">
         <div class="color">
-          <i class="icon-font icon-color"></i>
+          <i class="icon-font icon-color" :style="{color:data.color}"></i>
         </div>
         <div class="dm-opt">
           <p>设置弹幕颜色</p>
           <p>
-            <i style="background:#fff"></i><i style="background:#f9a100"></i><i style="background:#E54256"></i><i
-            style="background:#FFE133"></i><i style="background:#64DD17"></i><i style="background:#00f9d7"></i><i
-            style="background:#39ccff"></i><i style="background:#D500F9"></i>
+            <i style="background:#FFFFFF" @click="color"></i>
+            <i style="background:#E54256" @click="color"></i>
+            <i style="background:#f9a100" @click="color"></i>
+            <i style="background:#FFE133" @click="color"></i>
+            <i style="background:#64DD17" @click="color"></i>
+            <i style="background:#00f9d7" @click="color"></i>
+            <i style="background:#39ccff" @click="color"></i>
+            <i style="background:#D500F9" @click="color"></i>
           </p>
           <p>设置弹幕位置</p>
           <p><span>上</span><span class="active">中</span><span>下</span></p>
@@ -47,11 +52,13 @@
     data() {
       return {
         title: '',
-        content: '',
         user: {},
-        isShow: true,
+        isShow: false,
         uqq: Cookies.get('uqq'),
-        data: {}
+        data: {
+          color: '#fff',
+          value: ''
+        }
       }
     },
     mounted() {
@@ -61,6 +68,20 @@
       ...mapGetters(['isLogin', 'vid', 'tuid'])
     },
     methods: {
+      color(val) {
+        this.data.color = val.target.style.background
+      },
+      openDm() {
+        let ca = document.getElementById('ep-canvas')
+        if (ca.style.display === 'none') {
+          ca.style.display = 'block'
+        } else {
+          return
+        }
+      },
+      closeDm() {
+        document.getElementById('ep-canvas').style.display = 'none'
+      },
       getAvatar(avatar) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
       },
@@ -69,18 +90,25 @@
       },
       onComment() {
         this.$emit('addDm', this.data)
-        if (!this.content) {
+        if (!this.data.value) {
           this.msg = '不能不填！'
           return
         }
+        let time = Math.round(document.getElementById('ep-video').currentTime)
+        this.$emit('add', {
+          value: this.data.value,
+          time: time,
+          color: this.data.color
+        })
         addComment({
           pid: this.$route.params.id,
           uid: this.user.id,
-          content: this.content,
+          content: this.data.value,
           vid: this.vid,
-          time: Math.round(document.getElementById('ep-video').currentTime)
+          time: time,
+          color: this.data.color
         }).then(res => {
-          this.content = ''
+          this.data.value = ''
           console.log(res.data.code)
         })
       },
@@ -160,13 +188,12 @@
       background #090c13
       position absolute
       bottom: 60px
-      right -170px
-      width 300px
+      right -125px
+      width 260px
       p
         padding: 10px
         i
           display inline-block
-          background #fff
           height 25px
           width 25px
           margin: 5px

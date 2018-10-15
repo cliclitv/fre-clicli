@@ -33,6 +33,7 @@ export function addComment({content, pid, uid, vid, tuid, time}) {
     pid: parseInt(pid),
     uid,
     vid: vid ? vid : 1,
+    color: color ? color : '#fff',
     tuid: tuid ? tuid : 0,
     time: time ? time : 0
   })

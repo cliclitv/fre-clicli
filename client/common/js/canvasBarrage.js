@@ -151,7 +151,6 @@ export const CanvasBarrage = function (canvas, video, options) {
         if (!barrage.inited) {
           barrage.init()
           barrage.inited = true
-          console.log('111')
         }
         barrage.x -= barrage.moveX
         if (barrage.moveX === 0) {

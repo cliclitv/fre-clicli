@@ -7,7 +7,7 @@
         <i class="icon-font icon-close1"></i>
       </div>
     </div>
-    <comment></comment>
+    <comment @add="add"></comment>
   </div>
 </template>
 
@@ -34,19 +34,23 @@
           const canvas = document.getElementById('ep-canvas')
           const video = document.getElementById('ep-video')
           let data = this.forDanmu(this.danmuku)
-          new CanvasBarrage(canvas, video, {
+          this.dm = new CanvasBarrage(canvas, video, {
             data: data
           })
         }, 20)
       }
     },
     methods: {
+      add(data) {
+        this.dm.add(data)
+      },
       forDanmu(arr) {
         let out = []
         for (let i in arr) {
           let res = {}
           res['value'] = arr[i]['content']
           res['time'] = arr[i]['time']
+          res['color'] = arr[i]['color']
           out[i] = res
         }
         console.log(out)
@@ -56,7 +60,7 @@
         this.$emit('hide')
       }
     },
-    components:{
+    components: {
       Comment
     }
   }
