@@ -76,6 +76,7 @@
     li
       width 100%
       padding: 20px 15px
+      box-sizing border-box
       input
         width: 100%
         border-bottom: 1px dashed $blue-color

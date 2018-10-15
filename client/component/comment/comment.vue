@@ -53,7 +53,7 @@
       return {
         title: '',
         user: {},
-        isShow: process.env.NODE_ENV === 'development',
+        isShow: !process.env.NODE_ENV === 'development',
         optShow: false,
         uqq: Cookies.get('uqq'),
         data: {

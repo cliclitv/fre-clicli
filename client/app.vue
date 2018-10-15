@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <progress-bar></progress-bar>
-    <c-header @showTab="showTab"></c-header>
+    <c-header></c-header>
+    <login v-show="isLogin" @close="close" @error="error"></login>
     <div class="home wrap">
       <div class="main">
         <keep-alive>
@@ -23,24 +24,26 @@
   import Tab from 'component/tab/tab.vue'
   import ReachBox from 'component/reach-box/reach-box.vue'
   import titleMixin from 'common/mixin/title-mixin'
+  import Login from 'component/login/login.vue'
+  import {mapGetters,mapMutations} from 'vuex'
 
   export default {
     mixins: [titleMixin],
     title() {
       return 'C哩C哩弹幕网_(゜-゜)つロ 喝茶~ - clicli.us'
     },
-    data() {
-      return {
-        ds: 'none'
-      }
+    computed: {
+      ...mapGetters(['isLogin'])
     },
     methods: {
-      showTab() {
-        this.ds === 'none' ? this.ds = 'block' : this.ds = 'none'
+      error({msg}) {
+        this.msg = msg
+        this.bg = '#f24848'
       },
       close() {
-        this.ds = 'none'
-      }
+        this.isOnLogin(false)
+      },
+      ...mapMutations(['isOnLogin'])
     },
     components: {
       CHeader,
@@ -48,7 +51,8 @@
       Notice,
       Tab,
       ReachBox,
-      ProgressBar
+      ProgressBar,
+      Login
     }
   }
 </script>

@@ -23,13 +23,9 @@
     <div class="wrap">
       <div class="logo">
         <router-link to="/" class="pc-logo" v-show="isShow">
-          <img src="https://i.loli.net/2018/10/01/5bb1c251c2415.png" alt="acg和谐区">
+          <img src="https://i.loli.net/2018/10/01/5bb1c251c2415.png" alt="clicli">
         </router-link>
-        <a href="/" class="mobile-logo" v-show="!isShow">
-          <img src="https://i.loli.net/2018/10/01/5bb1c251c2415.png" alt="acg和谐区">
-        </a>
       </div>
-      <span class="list" @click="showTab"><i class="icon-font icon-list"></i></span>
       <ul class="menu">
         <router-link to="/" class="tab-item">
           <li class="first-child"><i class="icon-font icon-tv"></i>主站</li>
@@ -52,18 +48,16 @@
         <a href="http://www.cilicili.cc/" target="_blank">导航</a>
       </ul>
     </div>
-    <login v-show="isLogin" @close="close" @error="error"></login>
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
   </div>
 
 </template>
 
 <script>
-  import Login from 'component/login/login.vue'
   import Cookies from 'js-cookie'
   import {Base64} from 'js-base64'
   import BottomTip from 'base/bottom-tip/bottom-tip.vue'
-  import {mapGetters, mapMutations} from 'vuex'
+  import {mapMutations} from 'vuex'
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
 
@@ -80,10 +74,6 @@
         bg: '#000'
       }
     },
-    computed: {
-      ...mapGetters(['isLogin'])
-
-    },
     mounted() {
       this.auth()
     },
@@ -91,16 +81,6 @@
     methods: {
       onLogin() {
         this.isOnLogin(true)
-      },
-      error({msg}) {
-        this.msg = msg
-        this.bg = '#f24848'
-      },
-      close() {
-        this.isOnLogin(false)
-      },
-      showTab() {
-        this.$emit('showTab')
       },
       getAvatar(qq) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
@@ -147,7 +127,6 @@
     },
 
     components: {
-      Login,
       BottomTip
     }
   }
@@ -237,8 +216,5 @@
       padding: 0 10px
       line-height 40px
       cursor pointer
-
-  .down
-    display none
 
 </style>

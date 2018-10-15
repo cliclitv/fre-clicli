@@ -79,7 +79,7 @@
       height: 450px
       background: #000
       position fixed
-      z-index: 999999
+      z-index: 9
       top: 50%
       left: 50%
       transform translate(-50%, -60%)
@@ -95,9 +95,9 @@
       bottom: 0
       right: 0
       left: 0
-      z-index: 99999
+      z-index: 9
     .close
-      z-index: 999999
+      z-index: 9
       position: absolute
       top: -15px
       right: -27px
