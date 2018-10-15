@@ -25,7 +25,7 @@
       })
     },
     title() {
-      return this.$route.params.key + '- ★ACG和谐区★'
+      return this.$route.params.key + '- C哩C哩弹幕网'
     },
     components: {
       PostList

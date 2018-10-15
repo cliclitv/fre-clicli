@@ -34,10 +34,6 @@ export const CanvasBarrage = function (canvas, video, options) {
   let top = this
   let data = top.data
 
-  if (!data || !data.length) {
-    return
-  }
-
   let context = canvas.getContext('2d')
   canvas.width = canvas.clientWidth
   canvas.height = canvas.clientHeight

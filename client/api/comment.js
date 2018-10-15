@@ -27,7 +27,7 @@ export function getDanmuku(vid, page, pageSize) {
 }
 
 // 添加评论
-export function addComment({content, pid, uid, vid, tuid, time}) {
+export function addComment({content, pid, uid, vid, tuid, time, color}) {
   return request.post('/comment/add', {
     content,
     pid: parseInt(pid),

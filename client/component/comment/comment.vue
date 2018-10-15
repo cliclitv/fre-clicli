@@ -53,7 +53,7 @@
       return {
         title: '',
         user: {},
-        isShow: false,
+        isShow: process.env.NODE_ENV === 'development',
         optShow: false,
         uqq: Cookies.get('uqq'),
         data: {
@@ -214,6 +214,7 @@
     .icon-color
       font-size: 40px
       margin-left: 20px
+      cursor pointer
     .need-login
       span
         background $pink-color

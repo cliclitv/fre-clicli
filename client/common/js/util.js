@@ -16,3 +16,7 @@ export function translate(sortName) {
   if (sortName === 'novel') return '小说'
   if (sortName === 'news') return '号外'
 }
+
+export function getPid(pid) {
+  return pid.substring(3, pid.length)
+}

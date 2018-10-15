@@ -27,7 +27,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return 'C哩C哩_(゜-゜)つロ 喝茶~ - clicli.us(C站)'
+      return 'C哩C哩弹幕网_(゜-゜)つロ 喝茶~ - clicli.us'
     },
     data() {
       return {

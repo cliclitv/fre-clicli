@@ -34,9 +34,11 @@
           const canvas = document.getElementById('ep-canvas')
           const video = document.getElementById('ep-video')
           let data = this.forDanmu(this.danmuku)
+
           this.dm = new CanvasBarrage(canvas, video, {
             data: data
           })
+
         }, 20)
       }
     },
