@@ -18,4 +18,12 @@ export default {
     state.commentCount = count
   },
 
+  setVid(state, vid) {
+    state.vid = vid
+  },
+
+  getDanmuku(state, danmuku) {
+    state.danmuku = danmuku
+  }
+
 }

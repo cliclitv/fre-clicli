@@ -5,7 +5,7 @@ const request = axios.create({
 })
 
 // 根据pid查找评论
-export function getComments(pid,page,pageSize) {
+export function getComments(pid, page, pageSize) {
   return request.get('/comments', {
     params: {
       pid: pid,
@@ -15,12 +15,26 @@ export function getComments(pid,page,pageSize) {
   })
 }
 
+// 根据vid查找评论
+export function getDanmuku(vid, page, pageSize) {
+  return request.get('/comments', {
+    params: {
+      vid: vid,
+      page,
+      pageSize
+    }
+  })
+}
+
 // 添加评论
-export function addComment({content,pid,uid}) {
+export function addComment({content, pid, uid, vid, tuid, time}) {
   return request.post('/comment/add', {
     content,
     pid: parseInt(pid),
-    uid
+    uid,
+    vid: vid ? vid : 1,
+    tuid: tuid ? tuid : 0,
+    time: time ? time : 0
   })
 }
 

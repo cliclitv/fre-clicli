@@ -1,42 +1,30 @@
 <template>
   <div class="comment">
-    <ul>
-      <li class="add">
-        <div class="comment-avatar" v-if="user">
-          <img :src="getAvatar(user.qq)">
-        </div>
-        <div class="add-text">
-          <textarea placeholder="回复一下下菊花又不会坏……" v-model="content" v-if="isShow"></textarea>
-          <div v-if="!isShow" class="need-login">
-            <span @click="onLogin">登陆</span>
-            <a href="https://admin.clicli.us/register">注册</a>
-          </div>
-        </div>
-        <div class="submit">
-          <button @click="onComment">射</button>
-        </div>
-      </li>
-      <h2>共有 <span>{{count}}</span> 条评论</h2>
-      <li v-for="item in comments">
-        <div class="comment-avatar">
-          <img :src="getAvatar(item.uqq)">
-        </div>
 
-        <div class="text">
-          <p class="name">{{item.uname}}</p>
-          <p>{{item.content}}</p>
+    <div class="wrap comment-box">
+      <div class="comment-avatar" v-if="user">
+        <img :src="getAvatar(user.qq)">
+      </div>
+      <div class="add-text">
+        <textarea placeholder="回复一下下菊花又不会坏……" v-model="content" v-if="isShow" rows="1"></textarea>
+        <div v-if="!isShow" class="need-login">
+          <span @click="onLogin">登陆</span>
+          <a href="https://admin.clicli.us/register">注册</a>
         </div>
-        <time>{{item.time}}</time>
-      </li>
-    </ul>
+      </div>
+      <div class="submit">
+        <button @click="onComment">发射！</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import {getComments, addComment} from 'api/comment'
+  import {addComment} from 'api/comment'
   import Cookies from 'js-cookie'
   import {getStorage} from "common/js/localstorage"
   import {mapGetters, mapMutations} from 'vuex'
+  import {CanvasBarrage} from 'common/js/CanvasBarrage'
 
   export default {
     data() {
@@ -44,28 +32,17 @@
         title: '',
         content: '',
         user: {},
-        comments: [],
-        isShow: false,
+        isShow: true,
         uqq: Cookies.get('uqq')
       }
     },
-    props: ['count'],
     mounted() {
       this.getUser()
-      this.getComment()
     },
     computed: {
-      ...mapGetters(['isLogin'])
+      ...mapGetters(['isLogin', 'vid', 'tuid'])
     },
     methods: {
-      getComment() {
-        getComments(this.$route.params.id, 1, 100).then(res => {
-          if (res.data.code === 201) {
-            this.comments = res.data.comments
-            this.content = ''
-          }
-        })
-      },
       getAvatar(avatar) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
       },
@@ -80,9 +57,11 @@
         addComment({
           pid: this.$route.params.id,
           uid: this.user.id,
-          content: this.content
+          content: this.content,
+          vid: this.vid,
+          time: Math.round(document.getElementById('ep-video').currentTime)
         }).then(res => {
-          this.getComment()
+          console.log(res.data)
         })
       },
       getUser() {
@@ -92,7 +71,7 @@
           this.isShow = true
         }
       },
-      ...mapMutations(['isOnLogin'])
+      ...mapMutations(['isOnLogin', 'setCurrentTime'])
     }
   }
 </script>
@@ -100,100 +79,64 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "~common/stylus/variable"
   .comment
-    ul
-      width 800px
-      margin: 30px auto
-    h2
-      text-align center
-      padding: 20px
-      font-size: 16px
-      span
-        color: $pink-color
-    li
-      display: flex
+    color: #fff !important
+    position fixed
+    bottom: 0
+    left: 0
+    right: 0
+    width 100%
+    background rgba(9, 13, 24, .8)
+    padding: 10px
+    z-index 9999999
+    .comment-box
+      display flex
       align-items center
-      justify-content center
-      padding: 20px
-      position relative
-      .comment-avatar
-        display inline-block
-        width 60px
-        text-align center
-        img
-          height 50px
-          width: 50px
-          border-radius 50%
-      .text, .add-text
-        flex 1
-        padding: 0 20px 0 30px
-        position relative
-        font-size: 13px
-        font-weight: bold
-        .name
-          padding-bottom: 10px
-          font-size: 12px
-          color: $color
-        textarea
-          background $b-color
-          padding: 10px
-          width 100%
-          box-sizing border-box
-          height 60px
-          border-radius 4px
-          outline none
-          color #fff
-          resize: none
-        textarea:diabled
-          background $b-color
-        .need-login
-          background $b-color
-          padding: 10px
-          width 100%
-          box-sizing border-box
-          height 60px
-          border-radius 4px
-          justify-content center
-          align-items center
-          display flex
-          font-size: 12px
-          span
-            padding: 2px 15px
-            margin-right 10px
-            cursor: pointer
-            color: #fff
-            background $pink-color
-            border-radius 10px
-      time
-        font-size: 11px
+    .comment-avatar
+      margin-right 20px
+      height 40px
+      width 40px
+      img
+        width 100%
+        height 100%
+        border-radius 50%
+    .add-text
+      flex 1
+      text-align center
+      textarea
+        border-radius 5px
+        width 100%
+        background rgba(9, 13, 24, .8)
+        padding: 8px
+        resize: none
+        box-sizing border-box
+        color: #fff
+        font-size: 20px
+        outline: none
+        border: 2px solid #152e4d
+    .submit
+      display inline-block
+      margin-left: 20px
+      button
+        background $blue-color
+        color: #fff
+        padding 5px 15px
+        cursor pointer
+        outline none
+        transition .3s
+        font-size: 22px
+        border-radius 5px
+      button:hover
+        background $blue-color
+    .need-login
+      span
+        background $pink-color
+        padding: 2px 8px
+        border-radius 4px
+        margin-right 20px
+        cursor pointer
 
-      .submit
-        display inline-block
-        width 60px
-        button
-          font-size: 24px
-          height 60px
-          width: 60px
-          border-radius 50%
-          background $pink-color
-          color: #fff
-          cursor pointer
-          outline none
-          transition .3s
-        button:hover
-          background $pink-color
-    .add-text:before
-      content ''
-      display block
-      height: 10px
-      border-right: 20px solid transparent
-      border-bottom: 15px solid $b-color
-      border-bottom-left-radius: 100%
-      position: absolute
-      top: 10px
-      left: 15px
+  textarea::-webkit-input-placeholder
+    color: #fff
 
-  .comment li:nth-child(even) {
-    background #131629
-    border-radius 5px
-  }
+
 </style>

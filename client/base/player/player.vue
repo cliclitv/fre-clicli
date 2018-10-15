@@ -12,9 +12,14 @@
 
 <script>
   import Eplayer from 'eplayer'
+  import {CanvasBarrage} from 'common/js/CanvasBarrage'
+  import {mapGetters} from 'vuex'
 
   export default {
     props: ['url', 'type', 'playerShow'],
+    computed: {
+      ...mapGetters(['danmuku'])
+    },
     watch: {
       url() {
         setTimeout(() => {
@@ -23,10 +28,29 @@
             themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)',
             type: this.type
           })
+
+          const canvas = document.getElementById('ep-canvas')
+          const video = document.getElementById('ep-video')
+          let data = this.forDanmu(this.danmuku)
+          new CanvasBarrage(canvas, video, {
+            data: data
+          })
         }, 20)
       }
     },
     methods: {
+      forDanmu(arr) {
+        let out = []
+
+        for (let i in arr) {
+          let res = {}
+          res['value'] = arr[i]['content']
+          res['time'] = arr[i]['time']
+          out[i] = res
+        }
+        console.log(out)
+        return out
+      },
       hide() {
         this.$emit('hide')
       }
@@ -88,6 +112,10 @@
       transition .3s
     .line:hover
       transform translate(420px, 200px)
+    #ep-canvas
+      position absolute
+      height 100%
+      width: 100%
 
 
 </style>

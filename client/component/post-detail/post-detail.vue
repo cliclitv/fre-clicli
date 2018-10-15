@@ -21,7 +21,7 @@
       </div>
     </div>
     <video-list></video-list>
-    <comment :count="commentCount"></comment>
+    <comment-list :count="commentCount"></comment-list>
   </div>
 </template>
 
@@ -32,7 +32,7 @@
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
   import marked from 'marked'
-  import Comment from 'component/comment/comment.vue'
+  import CommentList from 'component/comment-list/comment-list.vue'
   import VideoList from 'component/video-list/video-list.vue'
 
   export default {
@@ -85,7 +85,7 @@
     },
     components: {
       Loading,
-      Comment,
+      CommentList,
       VideoList
     }
   }

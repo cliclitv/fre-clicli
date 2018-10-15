@@ -5,7 +5,7 @@
     <div class="list">
       <ul>
         <li v-for="item in videos">
-          <div class="item" @click="selectItem(item.content)">
+          <div class="item" @click="selectItem(item)">
             <div class="avatar">
               <img :src="getAvatar(item.uqq)">
             </div>
@@ -37,6 +37,8 @@
   import {getStorage} from 'common/js/localstorage'
   import {getAvatar} from "common/js/util"
   import Player from 'base/player/player.vue'
+  import {mapState, mapMutations} from 'vuex'
+  import {getDanmuku} from 'api/comment'
 
   export default {
     data() {
@@ -67,6 +69,9 @@
       })
 
     },
+    computed: {
+      ...mapState(['vid'])
+    },
     methods: {
       show() {
         this.addShow = true
@@ -82,9 +87,13 @@
           }
         })
       },
-      selectItem(url) {
+      selectItem({id, content}) {
         this.playerShow = true
-        getRealUrl(url).then(res => {
+        this.setVid(id)
+        getDanmuku(id, 1, 100).then(res => {
+          this.getDanmuku(res.data.comments)
+        })
+        getRealUrl(content).then(res => {
           this.url = res.data.url
           this.type = res.data.type
         })
@@ -92,7 +101,8 @@
       },
       getAvatar(qq) {
         return getAvatar(qq)
-      }
+      },
+      ...mapMutations(['setVid', 'getDanmuku'])
     },
     components: {
       Player

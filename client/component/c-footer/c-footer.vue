@@ -25,6 +25,7 @@
   @import "~common/stylus/variable"
   .footer
     padding: 20px 0
+    margin-bottom: 60px
     p
       text-align center
     a
