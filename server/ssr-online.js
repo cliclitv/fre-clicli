@@ -234,13 +234,13 @@ router.get('/week/', async ctx => {
           {
             title: '进击的巨人第三季',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4g8gfj30bt0b4wew.jpg',
-            url: '/p/100',
-            oid: '11'
+            url: '/av/100',
+            oid: '12'
           },
           {
             title: '夕照少女',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4harcj30ka0dhmyc.jpg',
-            url: '/p/334',
+            url: '/av/334',
             oid: '02'
           },
         ]
@@ -251,19 +251,19 @@ router.get('/week/', async ctx => {
           {
             title: '关于我转生后成为史莱姆的那件事',
             suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
-            url: '/p/328',
+            url: '/av/328',
             oid: '02'
           },
           {
             title: '东京食尸鬼：re 第二季',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvkh2n40ofj30hs0a0q43.jpg',
-            url: '/p/350',
+            url: '/av/350',
             oid: '01'
           },
           {
             title: '欢迎光临，千岁酱',
             suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
-            url: '/p/371',
+            url: '/av/371',
             oid: '01'
           },
         ]
@@ -273,7 +273,7 @@ router.get('/week/', async ctx => {
           {
             title: 'Free!第三季',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
-            url: '/p/82',
+            url: '/av/82',
             oid: '12'
           },
           {
@@ -285,31 +285,31 @@ router.get('/week/', async ctx => {
           {
             title: '强风吹拂',
             suo: 'https://i.loli.net/2018/10/04/5bb5344c52420.jpg',
-            url: '/p/337',
+            url: '/av/337',
             oid: '02'
           },
           {
             title: 'RErideD',
             suo: 'https://i.loli.net/2018/10/04/5bb5321807393.jpg',
-            url: '/p/335',
+            url: '/av/335',
             oid: '06'
           },
           {
             title: '宇宙战舰提拉米苏 第二季',
             suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
-            url: '/p/338',
+            url: '/av/338',
             oid: '02'
           },
           {
             title: '轩辕剑·苍之曜',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
-            url: '/p/377',
+            url: '/av/377',
             oid: '02'
           },
           {
             title: '我喜欢的妹妹但不是妹妹',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3i3d8gasj317a1p4qcz.jpg',
-            url: '/p/378',
+            url: '/av/378',
             oid: '01'
           }
         ]
@@ -319,43 +319,43 @@ router.get('/week/', async ctx => {
           {
             title: '命运石之门0',
             suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fuzw1gkogzj31kw0zktm5.jpg',
-            url: '/p/104',
+            url: '/av/104',
             oid: '23'
           },
           {
             title: '天狼',
             suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg',
-            url: '/p/230',
+            url: '/av/230',
             oid: '12'
           },
           {
             title: '青春猪头少年不会梦到兔女郎学姐',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6792vqj305k05kt8z.jpg',
-            url: '/p/340',
+            url: '/av/340',
             oid: '02'
           },
           {
             title: '天空与海洋之间',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fw44ofxkh8j30co0hsta1.jpg',
-            url: '/p/382',
+            url: '/av/382',
             oid: '02'
           },
           {
             title: '魔偶马戏团',
             suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fw44ln9ulvj30hs0ozwhk.jpg',
-            url: '/p/381',
+            url: '/av/381',
             oid: '01'
           },
           {
             title: '只要别西卜大小姐喜欢就好',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fw44imp357j30e80lcq55.jpg',
-            url: '/p/380',
+            url: '/av/380',
             oid: '01'
           },
           {
             title: '永不止步真好',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw45vd5yc9j30go0l3tcq.jpg',
-            url: '/p/383',
+            url: '/av/383',
             oid: '01'
           }
         ]
@@ -365,44 +365,44 @@ router.get('/week/', async ctx => {
           {
             title: '魔法禁书目录Ⅲ',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6790w5j30dw0dwwf7.jpg',
-            url: '/p/353',
+            url: '/av/353',
             oid: '02'
           },
           {
             title: '佐贺偶像是传奇',
             suo: 'https://i.loli.net/2018/10/06/5bb7928b6d4c2.jpg',
-            url: '/p/355',
+            url: '/av/355',
             oid: '02'
           },
           {
             title: '终将成为你',
             suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
-            url: '/p/358',
+            url: '/av/358',
             oid: '02'
           },
           {
             title: '邻家吸血鬼小妹',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp678fqwj30ke0beaac.jpg',
-            url: '/p/352',
+            url: '/av/352',
             oid: '02'
           },
           {
             title: '我家的女仆太烦人了',
             suo: 'https://i.loli.net/2018/10/06/5bb7a98e1b339.jpg',
-            url: '/p/359',
+            url: '/av/359',
             oid: '02'
           },
 
           {
             title: '火之丸相扑',
             suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
-            url: '/p/356',
+            url: '/av/356',
             oid: '02'
           },
           {
             title: '梅露可物语',
             suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
-            url: '/p/397',
+            url: '/av/397',
             oid: '02'
           }
         ]
@@ -413,73 +413,73 @@ router.get('/week/', async ctx => {
           {
             title: '我让最想被拥抱的男人给威胁了',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp67c9oqj305k05kglp.jpg',
-            url: '/p/354',
+            url: '/av/354',
             oid: '01'
           },
           {
             title: 'JOJO的奇妙冒险 黄金之风',
             suo: 'https://i.loli.net/2018/10/06/5bb805ac8c7e2.jpg',
-            url: '/p/360',
+            url: '/av/360',
             oid: '01'
           },
           {
             title: '来自多彩世界的明天',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvycth1mlhj30fa0b475z.jpg',
-            url: '/p/361',
+            url: '/av/361',
             oid: '02'
           },
           {
             title: '寄宿学校的朱丽叶',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvygyuwcqhj30f008fdg6.jpg',
-            url: '/p/363',
+            url: '/av/363',
             oid: '02'
           },
           {
             title: '学园BASARA',
             suo: 'https://i.loli.net/2018/10/06/5bb79b7c4d735.jpg',
-            url: '/p/357',
+            url: '/av/357',
             oid: '02'
           },
           {
             title: '闪乱神乐 SHINOVI MASTER 东京妖魔篇',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
-            url: '/p/402',
+            url: '/av/402',
             oid: '01'
           },
         ]
       },
       {
         day: '周日', content: [
-          {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/p/4', oid: '75'},
+          {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/av/4', oid: '77'},
           {
             title: 'Island',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg',
-            url: '/p/200',
-            oid: '77'
+            url: '/av/200',
+            oid: '13'
           },
 
           {
             title: '海贼王',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
-            url: '/p/258',
+            url: '/av/258',
             oid: '856'
           },
           {
             title: '刀剑神域 第三季',
             suo: 'https://i.loli.net/2018/10/07/5bb8f60026cea.jpg',
-            url: '/p/366',
+            url: '/av/366',
             oid: '02'
           },
           {
             title: '妖精的尾巴 终章',
             suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fvjb33fmkjj31hc0u0n4s.jpg',
-            url: '/p/264',
+            url: '/av/264',
             oid: '279'
           },
           {
             title: '哥布林杀手',
             suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
-            url: '/p/365',
+            url: '/av/365',
             oid: '02'
           }
         ]
