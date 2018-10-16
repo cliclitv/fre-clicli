@@ -19,6 +19,7 @@
 
 <script>
   import {getComments} from 'api/comment'
+  import {getAv} from 'common/js/util'
 
   export default {
     name: "comment-list",
@@ -33,7 +34,7 @@
     },
     methods: {
       getComment() {
-        getComments(this.$route.params.id, 1, 100).then(res => {
+        getComments(getAv(this.$route.params.id), 1, 100).then(res => {
           if (res.data.code === 201) {
             this.comments = res.data.comments
             this.content = ''

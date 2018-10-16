@@ -39,6 +39,7 @@
   import Player from 'base/player/player.vue'
   import {mapState, mapMutations} from 'vuex'
   import {getDanmuku} from 'api/comment'
+  import {getAv} from "common/js/util"
 
   export default {
     data() {
@@ -52,7 +53,7 @@
         type: '',
         title: '',
         content: '',
-        pid: this.$route.params.id,
+        pid: getAv(this.$route.params.id),
         uid: 0
       }
     },

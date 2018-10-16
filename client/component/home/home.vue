@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="gonggao">
-      <span>clicli 提供番剧更新，催更、报错、使用反馈请加群：607024802。另，投稿补档小分队招募，欢迎加入！</span>
+      <span>clicli弹幕系统正式上线，欢迎刷屏！报错、反馈、交流求加群：607024802。搬运小分队持续招募中(⊙o⊙)…</span>
     </div>
     <search-box></search-box>
     <week-list></week-list>

@@ -47,6 +47,7 @@
   import {mapGetters, mapMutations} from 'vuex'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
   import SwitchButton from 'base/switch-button/switch-button.vue'
+  import {getAv} from 'common/js/util'
 
   export default {
     data() {
@@ -105,7 +106,7 @@
           color: this.data.color
         })
         addComment({
-          pid: this.$route.params.id,
+          pid: getAv(this.$route.params.id),
           uid: this.user.id,
           content: this.data.value,
           vid: this.vid,

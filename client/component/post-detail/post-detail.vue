@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import {getAvatar, mark} from "common/js/util"
+  import {getAvatar, mark, getAv} from "common/js/util"
   import {getCommentCount} from 'api/article'
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
@@ -50,16 +50,15 @@
       ...mapGetters(['post'])
     },
     beforeMount() {
-      this.getPost(this.$route.params.id)
-      getCommentCount(this.$route.params.id).then(res => {
+      this.getPost(getAv(this.$route.params.id))
+      getCommentCount(getAv(this.$route.params.id)).then(res => {
         if (res.data.code === 201) {
           this.commentCount = res.data.count.cv
         }
       })
-
     },
     asyncData({store, route}) {
-      return store.dispatch('getPost', route.params.id)
+      return store.dispatch('getPost', getAv(route.params.id))
     },
     methods: {
       ...mapActions(['getPost']),
@@ -68,9 +67,7 @@
       },
       marked(content) {
         let renderer = new marked.Renderer()
-
         marked.setOptions({breaks: true})
-
         renderer.link = function (href, title, text) {
           return '<a target="_blank" href="' + href + '" title="' + title + '">' + text + '</a>'
         }

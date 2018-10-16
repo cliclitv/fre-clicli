@@ -17,6 +17,6 @@ export function translate(sortName) {
   if (sortName === 'news') return '号外'
 }
 
-export function getPid(pid) {
-  return pid.substring(3, pid.length)
+export function getAv(id) {
+  return id.substring(2, id.length)
 }
