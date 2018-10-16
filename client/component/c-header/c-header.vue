@@ -33,16 +33,13 @@
         <router-link to="/sort/news" class="tab-item">
           <li>号外</li>
         </router-link>
-        <router-link to="/p/31" class="tab-item">
+        <router-link to="/play/av31" class="tab-item">
           <li>使用说明</li>
         </router-link>
-        <router-link to="/p/30" class="tab-item">
+        <router-link to="/play/av30" class="tab-item">
           <li>投稿教程</li>
         </router-link>
-        <router-link to="/p/123" class="tab-item">
-          <li>APP</li>
-        </router-link>
-        <router-link to="/p/276" class="tab-item">
+        <router-link to="/play/av276" class="tab-item">
           <li>贴视频</li>
         </router-link>
         <a href="http://www.cilicili.cc/" target="_blank">导航</a>

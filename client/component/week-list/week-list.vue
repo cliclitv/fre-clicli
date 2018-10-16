@@ -9,7 +9,7 @@
 
     <ul class="content" v-if="items.length">
       <li v-for="item in items[activeIndex].content" v-if="items.length">
-        <router-link :to="item.url">
+        <router-link :to="'/play/av'+item.av">
           <img :src="item.suo" :alt="item.title">
           <div class="text">
             <div class="title">{{item.title}}</div>

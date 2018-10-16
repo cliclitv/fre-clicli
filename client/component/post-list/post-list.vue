@@ -2,7 +2,7 @@
   <div class="post-list">
     <ul>
       <li v-for="item in posts">
-        <router-link :to="'/video/av'+item.id">
+        <router-link :to="'/play/av'+item.id">
           <div class="post">
             <div class="suo">
               <img :src="getSuo(item.content)">

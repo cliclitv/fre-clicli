@@ -27,7 +27,7 @@ export default () => {
         }
       },
       {
-        path: '/video/:id',
+        path: '/play/:id',
         component: ArticleDetail,
         meta: {
           keepAlive: false

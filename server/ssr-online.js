@@ -23,15 +23,15 @@ const router = new Router()
 
 // 解析嘀哩嘀哩和halihali
 router.get('/jx/', async ctx => {
-  let url = ctx.query.url
-  let type = parser.urlType(url)
+  let av = ctx.query.av
+  let type = parser.avType(av)
   switch (type) {
     case 'bilibili':
       let ob
-      if (url.indexOf('av') < 0) {
-        url = url.replace('www.', 'm.')
+      if (av.indexOf('av') < 0) {
+        av = av.replace('www.', 'm.')
 
-        ob = await axios.get(url).then(res => {
+        ob = await axios.get(av).then(res => {
           let cid, aid
 
           cid = res.data.match(/cid(\S*)cover/)
@@ -45,8 +45,8 @@ router.get('/jx/', async ctx => {
           }
         })
       } else {
-        url = url + '/'
-        let aid = url.match(/av(\S+?)\//)[1].replace('/', '')
+        av = av + '/'
+        let aid = av.match(/av(\S+?)\//)[1].replace('/', '')
         ob = await axios.get('https://api.bilibili.com/x/web-interface/view', {
           params: {
             aid
@@ -64,7 +64,7 @@ router.get('/jx/', async ctx => {
         })
       }
       let ep, av
-      if (url.indexOf('av') < 0) {
+      if (av.indexOf('av') < 0) {
         ep = await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
           params: {
             cid: ob.c,
@@ -76,11 +76,11 @@ router.get('/jx/', async ctx => {
             Host: 'www.kanbilibili.com'
           }
         }).then(res => {
-          return res.data.data.durl[0].url.replace('http', 'https')
+          return res.data.data.dav[0].av.replace('http', 'https')
         })
       } else {
-        if (url.indexOf('p=') < 0) {
-          av = await axios.get('https://api.bilibili.com/x/player/playurl', {
+        if (av.indexOf('p=') < 0) {
+          av = await axios.get('https://api.bilibili.com/x/player/playav', {
             params: {
               cid: ob.c,
               avid: ob.a,
@@ -93,10 +93,10 @@ router.get('/jx/', async ctx => {
               Host: 'api.bilibili.com',
             }
           }).then(res => {
-            return res.data.data.durl[0].url.replace('http', 'https')
+            return res.data.data.dav[0].av.replace('http', 'https')
           })
         } else {
-          let p = url.match(/p=(\S*)/)[1]
+          let p = av.match(/p=(\S*)/)[1]
           av = await axios.get(`https://www.kanbilibili.com/api/video/${ob.a}/download`, {
             params: {
               cid: ob.p2 ? ob.p2 : ob.c,
@@ -107,7 +107,7 @@ router.get('/jx/', async ctx => {
               Host: 'www.kanbilibili.com'
             }
           }).then(res => {
-            return res.data.data.durl[0].url
+            return res.data.data.dav[0].av
           })
         }
 
@@ -117,18 +117,18 @@ router.get('/jx/', async ctx => {
         code: 0,
         aid: ob.a,
         cid: ob.c,
-        url: url.indexOf('av') < 0 ? ep : av,
+        av: av.indexOf('av') < 0 ? ep : av,
         type: 'mp4'
       }
       break
     case 'qq':
-      url = url.substring(url.length - 16, url.length - 5)
+      av = av.substring(av.length - 16, av.length - 5)
       const qqv = await axios.get(`http://vv.video.qq.com/getinfo`, {
         headers: {
           'X-Forwarded-For': '183.3.226.35'
         },
         params: {
-          vids: url,
+          vids: av,
           platform: 101001,
           charge: 0,
           otype: 'json'
@@ -164,54 +164,54 @@ router.get('/jx/', async ctx => {
 
         ctx.body = {
           code: 0,
-          url: `http://221.7.255.177/cache.p4p.com/${fn}?vkey=${key}`,
+          av: `http://221.7.255.177/cache.p4p.com/${fn}?vkey=${key}`,
           type: 'mp4'
         }
       })
       break
     case 'qinmei':
-      let link = Base64.decode(url.match(/l=(\S*)/)[1])
+      let link = Base64.decode(av.match(/l=(\S*)/)[1])
       let pa = link.split(';')
       const out = await axios.post(`https://qinmei.org/wp-json/wp/v2/animeinfo/play?animateweb=19414`, {
         animate: pa[0],
         sort: pa[2]
       }, {
         headers: {
-          Referer: url
+          Referer: av
         }
       }).then(res => {
         return res.data.link
       })
       ctx.body = {
         code: 0,
-        url: out,
+        av: out,
         type: 'mp4'
       }
       break
     case 'hcy':
-      await axios.get(url).then(res => {
+      await axios.get(av).then(res => {
         let out = res.data.match(/download(\S*);/)
         let u = out[0].substring(0, out[0].length - 2)
 
         ctx.body = {
           code: 0,
-          url: `http://${u}`,
+          av: `http://${u}`,
           type: 'mp4'
         }
       })
       break
     case 'bit':
-      await axios.get(url, {
+      await axios.get(av, {
         headers: {
           Host: '193.112.131.234:8081',
           Referer: 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90',
           Cookies: 'ci_session=307fd488702adf3d21e0fbcea88c486134fe1cfc'
         }
       }).then(res => {
-        let src = res.data.match(/url([\s\S]+?);/)[1]
+        let src = res.data.match(/av([\s\S]+?);/)[1]
         ctx.body = {
           code: 0,
-          url: src.substring(4, src.length - 1),
+          av: src.substring(4, src.length - 1),
           type: 'mp4'
         }
         ctx.body = res.data
@@ -220,8 +220,8 @@ router.get('/jx/', async ctx => {
     default:
       ctx.body = {
         code: 0,
-        url,
-        type: url.indexOf('m3u8') < 0 ? 'mp4' : 'hls'
+        av,
+        type: av.indexOf('m3u8') < 0 ? 'mp4' : 'hls'
       }
   }
 })
@@ -234,36 +234,36 @@ router.get('/week/', async ctx => {
           {
             title: '进击的巨人第三季',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4g8gfj30bt0b4wew.jpg',
-            url: '/av/100',
+            av: 'av100',
             oid: '12'
           },
           {
             title: '夕照少女',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4harcj30ka0dhmyc.jpg',
-            url: '/av/334',
+            av: 'av334',
             oid: '02'
           },
         ]
       },
       {
         day: '周二', content: [
-          {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', url: '/p/246', oid: '12'},
+          {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', av: 'av246', oid: '12'},
           {
             title: '关于我转生后成为史莱姆的那件事',
             suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
-            url: '/av/328',
+            av: 'av328',
             oid: '02'
           },
           {
             title: '东京食尸鬼：re 第二季',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvkh2n40ofj30hs0a0q43.jpg',
-            url: '/av/350',
+            av: 'av350',
             oid: '01'
           },
           {
             title: '欢迎光临，千岁酱',
             suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
-            url: '/av/371',
+            av: 'av371',
             oid: '01'
           },
         ]
@@ -273,43 +273,49 @@ router.get('/week/', async ctx => {
           {
             title: 'Free!第三季',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
-            url: '/av/82',
+            av: 'av82',
             oid: '12'
           },
           {
             title: '嫁给非人类',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fvv86436kwj30wx0ib3zc.jpg',
-            url: '/p/332',
+            av: 'play/av332',
             oid: '02'
           },
           {
             title: '强风吹拂',
             suo: 'https://i.loli.net/2018/10/04/5bb5344c52420.jpg',
-            url: '/av/337',
+            av: 'av337',
             oid: '02'
           },
           {
             title: 'RErideD',
             suo: 'https://i.loli.net/2018/10/04/5bb5321807393.jpg',
-            url: '/av/335',
+            av: 'av335',
             oid: '06'
           },
           {
             title: '宇宙战舰提拉米苏 第二季',
             suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
-            url: '/av/338',
+            av: 'av338',
+            oid: '02'
+          },
+          {
+            title: '受孕！请为我生孩子吧',
+            suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw2zwcw6v9j30cl0hsgn6.jpg',
+            av: 'av374',
             oid: '02'
           },
           {
             title: '轩辕剑·苍之曜',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
-            url: '/av/377',
+            av: 'av377',
             oid: '02'
           },
           {
             title: '我喜欢的妹妹但不是妹妹',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3i3d8gasj317a1p4qcz.jpg',
-            url: '/av/378',
+            av: 'av378',
             oid: '01'
           }
         ]
@@ -319,43 +325,43 @@ router.get('/week/', async ctx => {
           {
             title: '命运石之门0',
             suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fuzw1gkogzj31kw0zktm5.jpg',
-            url: '/av/104',
+            av: 'av104',
             oid: '23'
           },
           {
             title: '天狼',
             suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg',
-            url: '/av/230',
+            av: 'av230',
             oid: '12'
           },
           {
             title: '青春猪头少年不会梦到兔女郎学姐',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6792vqj305k05kt8z.jpg',
-            url: '/av/340',
+            av: 'av340',
             oid: '02'
           },
           {
             title: '天空与海洋之间',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fw44ofxkh8j30co0hsta1.jpg',
-            url: '/av/382',
+            av: 'av382',
             oid: '02'
           },
           {
             title: '魔偶马戏团',
             suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fw44ln9ulvj30hs0ozwhk.jpg',
-            url: '/av/381',
+            av: 'av381',
             oid: '01'
           },
           {
             title: '只要别西卜大小姐喜欢就好',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fw44imp357j30e80lcq55.jpg',
-            url: '/av/380',
+            av: 'av380',
             oid: '01'
           },
           {
             title: '永不止步真好',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw45vd5yc9j30go0l3tcq.jpg',
-            url: '/av/383',
+            av: 'av383',
             oid: '01'
           }
         ]
@@ -365,121 +371,121 @@ router.get('/week/', async ctx => {
           {
             title: '魔法禁书目录Ⅲ',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6790w5j30dw0dwwf7.jpg',
-            url: '/av/353',
+            av: 'av353',
             oid: '02'
           },
           {
             title: '佐贺偶像是传奇',
             suo: 'https://i.loli.net/2018/10/06/5bb7928b6d4c2.jpg',
-            url: '/av/355',
+            av: 'av355',
             oid: '02'
           },
           {
             title: '终将成为你',
             suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
-            url: '/av/358',
+            av: 'av358',
             oid: '02'
           },
           {
             title: '邻家吸血鬼小妹',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp678fqwj30ke0beaac.jpg',
-            url: '/av/352',
+            av: 'av352',
             oid: '02'
           },
           {
             title: '我家的女仆太烦人了',
             suo: 'https://i.loli.net/2018/10/06/5bb7a98e1b339.jpg',
-            url: '/av/359',
+            av: 'av359',
             oid: '02'
           },
 
           {
             title: '火之丸相扑',
             suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
-            url: '/av/356',
+            av: 'av356',
             oid: '02'
           },
           {
             title: '梅露可物语',
             suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
-            url: '/av/397',
+            av: 'av397',
             oid: '02'
           }
         ]
       },
       {
         day: '周六', content: [
-          {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', url: '/p/213', oid: '15'},
+          {title: '魔道祖师', suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg', av: 'av213', oid: '15'},
           {
             title: '我让最想被拥抱的男人给威胁了',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp67c9oqj305k05kglp.jpg',
-            url: '/av/354',
+            av: 'av354',
             oid: '01'
           },
           {
             title: 'JOJO的奇妙冒险 黄金之风',
             suo: 'https://i.loli.net/2018/10/06/5bb805ac8c7e2.jpg',
-            url: '/av/360',
+            av: 'av360',
             oid: '01'
           },
           {
             title: '来自多彩世界的明天',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvycth1mlhj30fa0b475z.jpg',
-            url: '/av/361',
+            av: 'av361',
             oid: '02'
           },
           {
             title: '寄宿学校的朱丽叶',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvygyuwcqhj30f008fdg6.jpg',
-            url: '/av/363',
+            av: 'av363',
             oid: '02'
           },
           {
             title: '学园BASARA',
             suo: 'https://i.loli.net/2018/10/06/5bb79b7c4d735.jpg',
-            url: '/av/357',
+            av: 'av357',
             oid: '02'
           },
           {
             title: '闪乱神乐 SHINOVI MASTER 东京妖魔篇',
             suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
-            url: '/av/402',
+            av: 'av402',
             oid: '01'
           },
         ]
       },
       {
         day: '周日', content: [
-          {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', url: '/av/4', oid: '77'},
+          {title: '博人传', suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg', av: 'av4', oid: '77'},
           {
             title: 'Island',
             suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg',
-            url: '/av/200',
+            av: 'av200',
             oid: '13'
           },
 
           {
             title: '海贼王',
             suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
-            url: '/av/258',
+            av: 'av258',
             oid: '856'
           },
           {
             title: '刀剑神域 第三季',
             suo: 'https://i.loli.net/2018/10/07/5bb8f60026cea.jpg',
-            url: '/av/366',
+            av: 'av366',
             oid: '02'
           },
           {
             title: '妖精的尾巴 终章',
             suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fvjb33fmkjj31hc0u0n4s.jpg',
-            url: '/av/264',
+            av: 'av264',
             oid: '279'
           },
           {
             title: '哥布林杀手',
             suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
-            url: '/av/365',
+            av: 'av365',
             oid: '02'
           }
         ]
@@ -496,7 +502,7 @@ router.get('*', async ctx => {
     ctx.body = data.toString()
   } else {
     const context = {
-      url: ctx.path
+      av: ctx.path
     }
     try {
       const app = await bundle(context)
