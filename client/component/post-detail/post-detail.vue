@@ -9,7 +9,7 @@
     </router-link>
     <div class="post">
       <loading v-show="isShow"></loading>
-      <router-link :to="'/p/'+post.id">
+      <router-link :to="'/play/av'+post.id">
         <h1 class="title">{{post.title}}</h1>
       </router-link>
       <div class="info">
