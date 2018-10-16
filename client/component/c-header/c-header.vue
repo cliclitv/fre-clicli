@@ -22,7 +22,7 @@
     </div>
     <div class="wrap">
       <div class="logo">
-        <router-link to="/" class="pc-logo" v-show="isShow">
+        <router-link to="/" class="pc-logo">
           <img src="https://i.loli.net/2018/10/01/5bb1c251c2415.png" alt="clicli">
         </router-link>
       </div>

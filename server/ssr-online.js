@@ -266,6 +266,18 @@ router.get('/week/', async ctx => {
             av: '371',
             oid: '01'
           },
+          {
+            title: '尤利西斯 贞德与炼金的骑士',
+            suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
+            av: '411',
+            oid: '02'
+          },
+          {
+            title: 'Anima Yell!',
+            suo: 'http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2528679010.jpg',
+            av: '372',
+            oid: '02'
+          }
         ]
       },
       {
