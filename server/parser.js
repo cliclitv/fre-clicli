@@ -1,16 +1,11 @@
-const axios = require('axios')
-let out
 
 module.exports = {
 
   urlType(url) {
     let flag = url.indexOf('www') > -1 || url.indexOf('qq') > 0
-    if (url.indexOf('hcy') > -1) {
-      return 'hcy'
-    }
-    if (url.indexOf('bit') > -1) {
-      return 'bit'
-    }
+    if (url.indexOf('hcy') > -1) return 'hcy'
+    if (url.indexOf('typt') > -1) return 'typt'
+    if (url.indexOf('bit') > -1) return 'bit'
     if (flag) {
       let n = url.match(/\.(\S+?)\./)
       return n ? n[1].substring(0, 8) : null
