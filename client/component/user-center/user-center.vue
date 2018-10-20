@@ -1,15 +1,15 @@
 <template>
-    <div class="user-info">
-        <div class="avatar">
-            <img :src="getAvatar(user.qq)">
-            <li>{{user.name}}</li>
-            <p v-html="user.desc"></p>
-        </div>
-        <!--<h1 v-show="userPosts">{{user.name}} の 文章</h1>-->
-        <h1 v-show="!userPosts">{{user.name}} 还没有发布过文章(＞﹏＜)</h1>
-        <post-list :posts="userPosts" key="this.$route.params.id"></post-list>
-
+  <div class="user-info">
+    <div class="avatar">
+      <img :src="getAvatar(user.qq)">
+      <li>{{user.name}}</li>
+      <p v-html="user.desc"></p>
     </div>
+    <!--<h1 v-show="userPosts">{{user.name}} の 文章</h1>-->
+    <h1 v-show="!userPosts">{{user.name}} 还没有发布过文章(＞﹏＜)</h1>
+    <post-list :posts="userPosts" key="this.$route.params.id"></post-list>
+
+  </div>
 </template>
 
 <script>
@@ -55,38 +55,41 @@
 </script>
 
 <style scoped lang="stylus">
-    @import "~common/stylus/variable"
-    .avatar
-        position relative
-        text-align center
-        img
-            border-radius 50px
-        li
-            font-size: 16px
-            padding: 10px
-            height 20px
-        p
-            display inline-block
-            font-size: 12px
-            padding: 5px 15px
-            height 16px
-            background $bg-color
-            border-radius 20px
-            margin-bottom: 15px
+  @import "~common/stylus/variable"
+  .user-info
+    margin-top: 20px
 
-    .avatar:before
-        content ''
-        width 100%
-        height: 135px
-        background $b-color
-        position absolute
-        display block
-        bottom: 0
-        z-index -1
+  .avatar
+    position relative
+    text-align center
+    img
+      border-radius 50px
+    li
+      font-size: 16px
+      padding: 10px
+      height 20px
+    p
+      display inline-block
+      font-size: 12px
+      padding: 5px 15px
+      height 16px
+      background $bg-color
+      border-radius 20px
+      margin-bottom: 15px
 
-    h1
-        text-align center
-        font-weight lighter
-        padding: 20px
+  .avatar:before
+    content ''
+    width 100%
+    height: 135px
+    background $b-color
+    position absolute
+    display block
+    bottom: 0
+    z-index -1
+
+  h1
+    text-align center
+    font-weight lighter
+    padding: 20px
 
 </style>

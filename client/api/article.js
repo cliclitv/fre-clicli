@@ -17,6 +17,18 @@ export function getPostsBySort(sort, page, pageSize) {
   })
 }
 
+// 根据分类获取发布状态的文章
+export function getPostsByType(type, page, pageSize) {
+  return request.get('/posts/both', {
+    params: {
+      status: 'public',
+      type,
+      page,
+      pageSize
+    }
+  })
+}
+
 // 根据状态获取文章
 export function getPostsByStatus(page, pageSize) {
   return request.get('/posts/type', {
@@ -45,19 +57,6 @@ export function getOneArticle(id) {
   return request.get(`/post/${id}`)
 }
 
-// 撰写增加文章
-
-export function writeArticle(post) {
-
-  return request.post('/post/add', {
-    title: post.title,
-    content: post.content,
-    status: post.status,
-    sort: post.sort,
-    uid: getStorage('user-info').id
-  })
-}
-
 // 更新文章
 export function update(post) {
   return request.post(`/post/update/${post.id}`, {
@@ -68,12 +67,6 @@ export function update(post) {
     uid: getStorage('user-info').id
   })
 }
-
-// 删除一篇文章
-export function deleteArticle(id) {
-  return request.delete(`/post/delete/${id}`)
-}
-
 // 搜索
 export function searchPosts(key) {
   return request.get('/search/posts', {

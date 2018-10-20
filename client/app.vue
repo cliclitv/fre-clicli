@@ -20,9 +20,6 @@
   import ProgressBar from 'base/progress-bar/progress-bar.vue'
   import CHeader from 'component/c-header/c-header.vue'
   import CFooter from 'component/c-footer/c-footer.vue'
-  import Notice from 'component/notice/notice.vue'
-  import Tab from 'component/tab/tab.vue'
-  import ReachBox from 'component/reach-box/reach-box.vue'
   import titleMixin from 'common/mixin/title-mixin'
   import Login from 'component/login/login.vue'
   import {mapGetters,mapMutations} from 'vuex'
@@ -48,9 +45,6 @@
     components: {
       CHeader,
       CFooter,
-      Notice,
-      Tab,
-      ReachBox,
       ProgressBar,
       Login
     }

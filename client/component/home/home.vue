@@ -5,8 +5,10 @@
     </div>
     <search-box></search-box>
     <week-list></week-list>
+    <div class="common-title"><span class="recommend">推荐</span></div>
+    <recommend></recommend>
     <div class="common-title"><span>最近更新</span></div>
-    <post-list :posts="uqq?articles:posts" :key="this.$route.params.type"></post-list>
+    <post-list :posts="uqq?articles:posts"></post-list>
     <pagination @next="next" v-show="isShow"></pagination>
     <div class="login-more" v-show="!uqq"><span>登录后加载更多…</span></div>
   </div>
@@ -23,7 +25,7 @@
   import Cookies from 'js-cookie'
   import Loading from 'base/loading/loading.vue'
   import WeekList from 'component/week-list/week-list.vue'
-  import axios from 'axios'
+  import Recommend from 'component/recommend/recommend.vue'
 
   export default {
     data() {
@@ -80,17 +82,16 @@
       Pagination,
       WeekList,
       SearchBox,
-      Loading
+      Loading,
+      Recommend
     }
   }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus">
   @import "~common/stylus/variable"
 
   .main
-    width 650px
-    float: left
     padding: 10px
     .common-title
       font-size: 14px
@@ -98,6 +99,9 @@
       padding: 10px 0
       span
         border-left $yellow 3px solid
+        padding: 0 30px
+      .recommend
+        border-left $red 3px solid
         padding: 0 30px
     .login-more
       font-size: 13px

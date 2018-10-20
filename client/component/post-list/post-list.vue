@@ -16,6 +16,7 @@
         </router-link>
       </li>
     </ul>
+    <div class="clear"></div>
   </div>
 </template>
 
