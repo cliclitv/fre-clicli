@@ -1,12 +1,12 @@
 <template>
   <div class="recommend-wrap">
-    <div class="left-btn" @click="left"><i class="icon-font icon-left"></i></div>
+    <div class="left-btn" @click="left" v-show="!showBtn"><i class="icon-font icon-left"></i></div>
     <div class="recommend">
       <div class="list" ref="list">
         <post-list :posts="recommend"></post-list>
       </div>
     </div>
-    <div class="right-btn" @click="right"><i class="icon-font icon-right"></i></div>
+    <div class="right-btn" @click="right" v-show="showBtn"><i class="icon-font icon-right"></i></div>
   </div>
 
 </template>
@@ -18,7 +18,8 @@
   export default {
     data() {
       return {
-        recommend: []
+        recommend: [],
+        showBtn: true
       }
     },
     mounted() {
@@ -27,9 +28,11 @@
     methods: {
       right() {
         this.$refs.list.style.transform = 'translate3D(-1100px,0,0)'
+        this.showBtn = false
       },
       left() {
         this.$refs.list.style.transform = 'translate3D(0,0,0)'
+        this.showBtn = true
       },
       getRecommend() {
         getPostsByType('tuijian', 1, 10).then(res => {
