@@ -1,6 +1,6 @@
 <template>
   <div class="comment-list">
-    <h2>共有 <span>{{count}}</span> 条评论</h2>
+    <h2>共有 <span>{{count}}</span> 条弹幕</h2>
     <ul>
       <li v-for="item in comments">
         <div class="comment-avatar">

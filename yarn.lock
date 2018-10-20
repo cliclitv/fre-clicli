@@ -1583,9 +1583,9 @@ entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-eplayer@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/eplayer/-/eplayer-0.3.2.tgz#68138f829b2ad5902864eec023cae66813763555"
+eplayer@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/eplayer/-/eplayer-0.3.7.tgz#5126808a9804984de13623faa5bd856a2fd098bc"
   dependencies:
     flv.js "^1.4.2"
     hls.js "^0.11.0"

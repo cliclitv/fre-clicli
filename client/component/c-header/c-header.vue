@@ -57,6 +57,7 @@
   import {mapMutations} from 'vuex'
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
+  import axios from 'axios'
 
   export default {
 

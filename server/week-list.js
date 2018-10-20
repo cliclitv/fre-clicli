@@ -157,7 +157,7 @@ module.exports = {
               title: '魔法禁书目录Ⅲ',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6790w5j30dw0dwwf7.jpg',
               av: '353',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '佐贺偶像是传奇',
@@ -169,13 +169,13 @@ module.exports = {
               title: '终将成为你',
               suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
               av: '358',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '邻家吸血鬼小妹',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp678fqwj30ke0beaac.jpg',
               av: '352',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '我家的女仆太烦人了',
@@ -216,7 +216,7 @@ module.exports = {
               title: 'JOJO的奇妙冒险 黄金之风',
               suo: 'https://i.loli.net/2018/10/06/5bb805ac8c7e2.jpg',
               av: '360',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '来自多彩世界的明天',
@@ -228,19 +228,19 @@ module.exports = {
               title: '寄宿学校的朱丽叶',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvygyuwcqhj30f008fdg6.jpg',
               av: '363',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '学园BASARA',
               suo: 'https://i.loli.net/2018/10/06/5bb79b7c4d735.jpg',
               av: '357',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '闪乱神乐 SHINOVI MASTER 东京妖魔篇',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
               av: '402',
-              oid: '01'
+              oid: '02'
             },
           ]
         },

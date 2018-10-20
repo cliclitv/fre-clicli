@@ -55,7 +55,6 @@
           res['color'] = arr[i]['color']
           out[i] = res
         }
-        console.log(out)
         return out
       },
       hide() {
@@ -122,10 +121,6 @@
       transition .3s
     .line:hover
       transform translate(420px, 200px)
-    #ep-canvas
-      position absolute
-      height 100%
-      width: 100%
 
 
 </style>
