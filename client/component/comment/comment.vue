@@ -6,7 +6,7 @@
         <img :src="getAvatar(user.qq)">
       </div>
       <div class="add-text">
-        <textarea placeholder="回复一下下菊花又不会坏……" v-model="data.value" v-if="isShow" rows="1"></textarea>
+        <input placeholder="回复一下下菊花又不会坏……" v-model="data.value" v-if="isShow" @keyup.enter="onComment">
         <div v-if="!isShow" class="need-login">
           <span @click="onLogin">登陆</span>
           <a href="https://admin.clicli.us/register">注册</a>
@@ -158,7 +158,7 @@
     .add-text
       flex 1
       text-align center
-      textarea
+      input
         border-radius 5px
         width 100%
         background rgba(9, 13, 24, .8)

@@ -1,5 +1,5 @@
 <template>
-  <div class="player-wrap" v-show="playerShow">
+  <div class="player-wrap" v-if="playerShow">
     <div class="wrapper"></div>
     <div class="play">
       <div class="ep" ref="player"></div>
