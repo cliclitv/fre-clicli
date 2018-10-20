@@ -135,7 +135,7 @@ module.exports = {
               title: '魔偶马戏团',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fw44ln9ulvj30hs0ozwhk.jpg',
               av: '381',
-              oid: '01'
+              oid: '02'
             },
             {
               title: '只要别西卜大小姐喜欢就好',
@@ -188,7 +188,7 @@ module.exports = {
               title: '火之丸相扑',
               suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
               av: '356',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '梅露可物语',
@@ -247,18 +247,17 @@ module.exports = {
         {
           day: '周日', content: [
             {
+              title: '哥布林杀手',
+              suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
+              av: '365',
+              oid: '02'
+            },
+            {
               title: '博人传',
               suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg',
               av: '4',
               oid: '77'
             },
-            {
-              title: 'Island',
-              suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fuonnmv6tlj30z90jstve.jpg',
-              av: '200',
-              oid: '13'
-            },
-
             {
               title: '海贼王',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
@@ -278,16 +277,22 @@ module.exports = {
               oid: '279'
             },
             {
-              title: '哥布林杀手',
-              suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
-              av: '365',
-              oid: '02'
-            },
-            {
               title: 'RADIANT',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvzzscreagj30fa0b43zh.jpg',
               av: '367',
               oid: '02'
+            },
+            {
+              title: 'SSSS.GRIDMAN / 电光超人古立特',
+              suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fwdb55yfugj30le0u0796.jpg',
+              av: '447',
+              oid: '02'
+            },
+            {
+              title: 'DOUBLE DECKER! 道格&基里尔',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwemaiev94j30nc0drgt3.jpg',
+              av: '451',
+              oid: '04'
             }
           ]
         }

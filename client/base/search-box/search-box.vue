@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <div class="search">
-      <input type="text" placeholder="搜索一下下菊花又不会坏……" v-model="key">
+      <input type="text" placeholder="搜索一下下菊花又不会坏……" v-model="key" @keyup.enter="onSearch">
       <div @click="onSearch" class="search-button">
         <i class="icon-font icon-search"></i>
       </div>

@@ -60,7 +60,7 @@
     mounted() {
       const role = getStorage('user-info').role
       this.uid = getStorage('user-info').id
-      if (role === 'admin' || role === 'editor') {
+      if (role === 'admin' || role === 'editor' || role === 'author') {
         this.isShow = true
       }
       getVideos(this.pid, 1, 100).then(res => {
