@@ -8,7 +8,7 @@
       </div>
     </router-link>
     <div class="post">
-      <loading v-show="isShow"></loading>
+      <loading v-show="!post.uname"></loading>
       <router-link :to="'/play/av'+post.id">
         <h1 class="title">{{post.title}}</h1>
       </router-link>
@@ -39,7 +39,6 @@
     mixins: [titleMixin],
     data() {
       return {
-        isShow: false,
         commentCount: 0
       }
     },
