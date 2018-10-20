@@ -33,6 +33,7 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+    .search
+       margin-top: 20px
 </style>
