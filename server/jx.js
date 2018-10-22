@@ -1,11 +1,22 @@
-const parser = require('./parser')
 const axios = require('axios')
 const Base64 = require('js-base64').Base64
+const fs = require('fs')
+
+
+function urlType(url) {
+  if (url.indexOf('hcy') > -1) return 'hcy'
+  if (url.indexOf('typt') > -1) return 'typt'
+  if (url.indexOf('bit') > -1) return 'bit'
+  if (url.indexOf('qq') > -1) return 'qq'
+  if (url.indexOf('qinmei') > -1) return 'qinmei'
+  if (url.indexOf('bilibili') > -1) return 'bilibili'
+  if (url.indexOf('wocloud') > -1) return 'wo'
+}
 
 
 exports.default = async ctx => {
   let url = decodeURIComponent(ctx.query.url)
-  let type = parser.urlType(url)
+  let type = urlType(url)
   switch (type) {
     case 'bilibili':
       let ob
@@ -159,7 +170,7 @@ exports.default = async ctx => {
       }, {
         headers: {
           'referer': url,
-          'origin': 'ttps://qinmei.video'
+          'origin': 'https://qinmei.video'
         }
       }).then(res => {
         return res.data.link
@@ -182,27 +193,69 @@ exports.default = async ctx => {
         }
       })
       break
-    // case 'bit':
-    //   await axios.get(url, {
-    //     headers: {
-    //       'Host': '193.112.131.234:8081',
-    //       'Referer': 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90',
-    //       'Cookie': 'ci_session=b4fac7eb08062cf0d923752e3af8c0b39ea80f23',
-    //       'Upgrade-Insecure-Requests': 1
-    //     }
-    //   }).then(res => {
-    //
-    //     ctx.body = res.data
-    //   })
-    //   break
-    case 'typt':
-      await axios.get(url).then(res => {
-        let src = res.data.match(/gz189([\s\S]+?);/)[0]
+    case 'bit':
+      await axios.get(url, {
+        headers: {
+          'Host': '193.112.131.234:8081',
+          'Referer': 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90',
+          'Cookie': 'ci_session=b4fac7eb08062cf0d923752e3af8c0b39ea80f23',
+          'Upgrade-Insecure-Requests': 1,
+          'Pragma': 'no-cache',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+          'Accept-Encoding': 'gzip, deflate',
+          'Accept-Language': ' zh-CN,zh;q=0.9',
+          'Cache-Control': 'no-cache',
+          'Connection': 'keep-alive',
+        }
+      }).then(res => {
+        let src
+        if (url.indexOf('vbit') > -1) {
+          src = res.data
+        } else {
+          src = res.data.match(/url = "https:([\s\S]+?)"/)[0].replace('"', '')
+        }
+
         ctx.body = {
           code: 0,
-          url: `https://${src.replace(';', '')}`,
+          url: src,
           type: 'mp4'
         }
+      })
+      break
+    case 'typt':
+      await axios.get(url).then(res => {
+        let src = res.data.match(/url = "https:([\s\S]+?);/)[1]
+        ctx.body = {
+          code: 0,
+          url: `https:${src}`,
+          type: 'mp4'
+        }
+      })
+      break
+    case 'wo':
+      await axios.post('https://pan.bitqiu.com/download/getUrl', {
+        fileIds: '11b135045a6140d69d26c8d1af828ce2'
+      }, {
+        headers: {
+          'Accept-Encoding': 'gzip, deflate, br',
+          'Cache-Control': 'no-cache',
+          'Content-Length': 40,
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+          'Cookie': 'UM_distinctid=166967394ce7a6-0da5e35c917d8f-551f3c12-384000-166967394cf45; cloud_web_in=223bebfae89c4720ae842aa17f6b29d3; Hm_lvt_8d02905a9d991c46155306095c479b2d=1540106919,1540109950,1540122444,1540133214; cloud_web_sid=2a7e6cb895d14a3ca88a83503d40c933; cloud_web_uid=104778599; Hm_lpvt_8d02905a9d991c46155306095c479b2d=1540133676; CNZZDATA1273903500=318535250-1540118697-https%253A%252F%252Fpan.bitqiu.com%252F%7C1540129532',
+          'Host': 'pan.bitqiu.com',
+          'Origin': 'https://pan.bitqiu.com',
+          'Referer': 'https://pan.bitqiu.com/index',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Upgrade-Insecure-Requests': 1,
+          'Pragma': 'no-cache',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+          'Accept-Language': ' zh-CN,zh;q=0.9',
+          'Connection': 'keep-alive',
+        }
+      }).then(res => {
+        console.log(res.data)
       })
       break
     default:
@@ -213,3 +266,4 @@ exports.default = async ctx => {
       }
   }
 }
+

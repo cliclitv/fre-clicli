@@ -11,16 +11,33 @@ module.exports = {
               oid: '12'
             },
             {
+              title: '刃牙 Ⅱ',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw0tdz0g48j30940dw3yp.jpg',
+              av: '368',
+              oid: '18'
+            },
+            {
               title: '夕照少女',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4harcj30ka0dhmyc.jpg',
               av: '334',
               oid: '02'
             },
+            {
+              title: 'Anima Yell!',
+              suo: 'http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2528679010.jpg',
+              av: '372',
+              oid: '02'
+            },
+            {
+              title: '弦音 -风舞高中弓道部',
+              suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgs3i1g93j309q0dr3z9.jpg',
+              av: '460',
+              oid: '01'
+            }
           ]
         },
         {
           day: '周二', content: [
-            {title: 'overlord第三季', suo: 'https://i.loli.net/2018/09/12/5b985c2fc9670.jpg', av: '246', oid: '12'},
             {
               title: '关于我转生后成为史莱姆的那件事',
               suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
@@ -44,12 +61,6 @@ module.exports = {
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
               av: '411',
               oid: '02'
-            },
-            {
-              title: 'Anima Yell!',
-              suo: 'http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2528679010.jpg',
-              av: '372',
-              oid: '02'
             }
           ]
         },
@@ -64,7 +75,7 @@ module.exports = {
             {
               title: '嫁给非人类',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fvv86436kwj30wx0ib3zc.jpg',
-              url: 'play/av332',
+              url: '332',
               oid: '03'
             },
             {
@@ -154,6 +165,18 @@ module.exports = {
         {
           day: '周五', content: [
             {
+              title: '战栗杀机',
+              suo: 'https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=3f83253f00f431ada8df4b6b2a5fc7ca/77c6a7efce1b9d1670ce5accffdeb48f8c546416.jpg',
+              av: '464',
+              oid: '15'
+            },
+            {
+              title: '杀戮天使',
+              suo: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike180%2C5%2C5%2C180%2C60/sign=a07ca0dc77ec54e755e1124cd851f035/dc54564e9258d109329d8450dd58ccbf6d814dd1.jpg',
+              av: '463',
+              oid: '15'
+            },
+            {
               title: '魔法禁书目录Ⅲ',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6790w5j30dw0dwwf7.jpg',
               av: '353',
@@ -194,6 +217,18 @@ module.exports = {
               title: '梅露可物语',
               suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
               av: '397',
+              oid: '03'
+            },
+            {
+              title: 'INGRESS',
+              suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=c2f6350fafcc7cd9ee203c8b58684a5a/b58f8c5494eef01f54703627ecfe9925bd317def.jpg',
+              av: '453',
+              oid: '03'
+            },
+            {
+              title: 'BAKUMATSU 恋爱幕末男友',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwfx9zi4x6j307i0amgm3.jpg',
+              av: '456',
               oid: '03'
             }
           ]
@@ -250,49 +285,61 @@ module.exports = {
               title: '哥布林杀手',
               suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
               av: '365',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '博人传',
               suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg',
               av: '4',
-              oid: '77'
+              oid: '78'
             },
             {
               title: '海贼王',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
               av: '258',
-              oid: '857'
+              oid: '858'
             },
             {
               title: '刀剑神域 第三季',
               suo: 'https://i.loli.net/2018/10/07/5bb8f60026cea.jpg',
               av: '366',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '妖精的尾巴 终章',
               suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fvjb33fmkjj31hc0u0n4s.jpg',
               av: '264',
-              oid: '279'
+              oid: '280'
             },
             {
               title: 'RADIANT',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvzzscreagj30fa0b43zh.jpg',
               av: '367',
-              oid: '02'
+              oid: '03'
             },
             {
               title: 'SSSS.GRIDMAN / 电光超人古立特',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fwdb55yfugj30le0u0796.jpg',
               av: '447',
-              oid: '02'
+              oid: '03'
             },
             {
               title: 'DOUBLE DECKER! 道格&基里尔',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwemaiev94j30nc0drgt3.jpg',
               av: '451',
-              oid: '04'
+              oid: '05'
+            },
+            {
+              title: '月影特工 / Release the Spyce',
+              suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=7a8e6101e7f81a4c323fe49bb6430b3c/9213b07eca8065387a6a77669bdda144ac3482c7.jpg',
+              av: '461',
+              oid: '03'
+            },
+            {
+              title: '彼时彼女',
+              suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgsenqnppj305f078q31.jpg',
+              av: '466',
+              oid: '03'
             }
           ]
         }

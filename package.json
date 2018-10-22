@@ -25,6 +25,7 @@
   "homepage": "https://github.com/132yse/vue-idanmu#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "blueimp-md5": "^2.10.0",
     "eplayer": "^0.3.7",
     "js-base64": "^2.4.9",
     "js-cookie": "^2.2.0",
