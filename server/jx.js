@@ -5,11 +5,12 @@ const Base64 = require('js-base64').Base64
 function urlType(url) {
   if (url.indexOf('hcy') > -1) return 'hcy'
   if (url.indexOf('typt') > -1) return 'typt'
-  if (url.indexOf('bit') > -1) return 'bit'
+  if (url.indexOf('vbit') > -1) return 'vbit'
   if (url.indexOf('qq') > -1) return 'qq'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
   if (url.indexOf('360') > -1) return '360'
+  if (url.indexOf('bit/down') > -1) return 'bit'
 }
 
 
@@ -192,32 +193,18 @@ exports.default = async ctx => {
         }
       })
       break
-    case 'bit':
+    case 'vbit':
       await axios.get(url, {
         headers: {
           'Host': '193.112.131.234:8081',
           'Referer': 'http://193.112.131.234:8081/dir/bit?id=b4b3dada475f49589530096c2ec66a90',
           'Cookie': 'ci_session=b4fac7eb08062cf0d923752e3af8c0b39ea80f23',
-          'Upgrade-Insecure-Requests': 1,
-          'Pragma': 'no-cache',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-          'Accept-Encoding': 'gzip, deflate',
-          'Accept-Language': ' zh-CN,zh;q=0.9',
-          'Cache-Control': 'no-cache',
-          'Connection': 'keep-alive',
+          'User-Agent': ctx.header['user-agent'],
         }
       }).then(res => {
-        let src
-        if (url.indexOf('vbit') > -1) {
-          src = res.data
-        } else {
-          src = res.data.match(/url = "https:([\s\S]+?)"/)[0].replace('"', '')
-        }
-
         ctx.body = {
           code: 0,
-          url: src,
+          url: res.data,
           type: 'mp4'
         }
       })
@@ -228,6 +215,15 @@ exports.default = async ctx => {
         ctx.body = {
           code: 0,
           url: `https:${src}`,
+          type: 'mp4'
+        }
+      })
+      break
+    case 'bit':
+      await axios.get(url).then(res => {
+        ctx.body = {
+          code: 0,
+          url: res.data.data,
           type: 'mp4'
         }
       })

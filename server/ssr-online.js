@@ -22,7 +22,7 @@ const renderer = VueServerRenderer.createRenderer({
 const router = new Router()
 
 router.get('/jx/', Jx.default)
-router.get('/bit/down', bit.getUrl)
+router.get('/bit/down/:fid', bit.getUrl)
 router.get('/bit/list', bit.getList)
 
 router.get('/week/', weekList.getWeekList)

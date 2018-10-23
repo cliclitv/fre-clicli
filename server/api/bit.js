@@ -1,12 +1,12 @@
 const axios = require('axios')
+const Base64 = require('js-base64').Base64
 
 axios.defaults.withCredentials = true
 
 module.exports = {
   async getUrl(ctx) {
-    let fid = ctx.query.fid
-    const cookie = ctx.cookies.get('bit')
-
+    let fid = ctx.params.fid
+    const cookie = Base64.decode(ctx.cookies.get('bit'))
     await axios.post(`https://pan.bitqiu.com/download/getUrl?fileIds=${fid}`, {}, {
       headers: {
         'Cookie': cookie,
@@ -21,25 +21,31 @@ module.exports = {
   },
 
   async getList(ctx) {
-    const cookie = ctx.cookies.get('bit')
-    const headers = {
-      'Cookie': cookie,
-      'Host': 'pan.bitqiu.com',
-      'Origin': 'https://pan.bitqiu.com',
-      'Referer': 'https://pan.bitqiu.com/index',
-      'User-Agent': ctx.header['user-agent']
-    }
+    const cookie = Base64.decode(ctx.cookies.get('bit'))
 
     const info = await axios.get('https://pan.bitqiu.com/user/getInfo', {
-      headers,
+      headers:{
+        'Cookie': cookie,
+        'Host': 'pan.bitqiu.com',
+        'Origin': 'https://pan.bitqiu.com',
+        'Referer': 'https://pan.bitqiu.com/index',
+        'User-Agent': ctx.header['user-agent']
+      }
     }).then(res => {
+
       return res.data.data
     })
 
     let fid = ctx.query.fid ? ctx.query.fid : info.rootDirId
 
     await axios.post(`https://pan.bitqiu.com/resource/list?parentId=${fid}&currentPage=1&limit=40&orderType=updateTime&desc=1&model=0&userId=${info.userId}&name=`, {}, {
-      headers,
+      headers:{
+        'Cookie': cookie,
+        'Host': 'pan.bitqiu.com',
+        'Origin': 'https://pan.bitqiu.com',
+        'Referer': 'https://pan.bitqiu.com/index',
+        'User-Agent': ctx.header['user-agent']
+      }
     }).then(res => {
       ctx.body = res.data
     })
