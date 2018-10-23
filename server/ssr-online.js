@@ -3,6 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const weekList = require('./week-list')
 const Jx = require('./jx')
+const bit = require('./bit')
 
 
 const VueServerRenderer = require('vue-server-renderer')
@@ -21,6 +22,7 @@ const renderer = VueServerRenderer.createRenderer({
 const router = new Router()
 
 router.get('/jx/', Jx.default)
+router.get('/bit/', bit.default)
 
 router.get('/week/', weekList.getWeekList)
 

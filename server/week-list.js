@@ -159,7 +159,13 @@ module.exports = {
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw45vd5yc9j30go0l3tcq.jpg',
               av: '383',
               oid: '01'
-            }
+            },
+            {
+              title: '梅露可物语',
+              suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
+              av: '397',
+              oid: '03'
+            },
           ]
         },
         {
@@ -211,12 +217,6 @@ module.exports = {
               title: '火之丸相扑',
               suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
               av: '356',
-              oid: '03'
-            },
-            {
-              title: '梅露可物语',
-              suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
-              av: '397',
               oid: '03'
             },
             {

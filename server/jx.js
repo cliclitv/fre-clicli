@@ -1,6 +1,5 @@
 const axios = require('axios')
 const Base64 = require('js-base64').Base64
-const fs = require('fs')
 
 
 function urlType(url) {
@@ -10,7 +9,7 @@ function urlType(url) {
   if (url.indexOf('qq') > -1) return 'qq'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
-  if (url.indexOf('wocloud') > -1) return 'wo'
+  if (url.indexOf('360') > -1) return '360'
 }
 
 
@@ -233,29 +232,19 @@ exports.default = async ctx => {
         }
       })
       break
-    case 'wo':
-      await axios.post('https://pan.bitqiu.com/download/getUrl', {
-        fileIds: '11b135045a6140d69d26c8d1af828ce2'
-      }, {
-        headers: {
-          'Accept-Encoding': 'gzip, deflate, br',
-          'Cache-Control': 'no-cache',
-          'Content-Length': 40,
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-          'Cookie': 'UM_distinctid=166967394ce7a6-0da5e35c917d8f-551f3c12-384000-166967394cf45; cloud_web_in=223bebfae89c4720ae842aa17f6b29d3; Hm_lvt_8d02905a9d991c46155306095c479b2d=1540106919,1540109950,1540122444,1540133214; cloud_web_sid=2a7e6cb895d14a3ca88a83503d40c933; cloud_web_uid=104778599; Hm_lpvt_8d02905a9d991c46155306095c479b2d=1540133676; CNZZDATA1273903500=318535250-1540118697-https%253A%252F%252Fpan.bitqiu.com%252F%7C1540129532',
-          'Host': 'pan.bitqiu.com',
-          'Origin': 'https://pan.bitqiu.com',
-          'Referer': 'https://pan.bitqiu.com/index',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Upgrade-Insecure-Requests': 1,
-          'Pragma': 'no-cache',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-          'Accept-Language': ' zh-CN,zh;q=0.9',
-          'Connection': 'keep-alive',
+    case '360':
+      let src
+      await axios.get(url).then(res=>{
+        if (url.indexOf('va360') > -1) {
+          src = res.data
+        } else {
+          src = res.data.match(/url = "https:([\s\S]+?)"/)[0].replace('"', '')
         }
-      }).then(res => {
-        console.log(res.data)
+        ctx.body = {
+          code: 0,
+          url: src,
+          type: 'mp4'
+        }
       })
       break
     default:
