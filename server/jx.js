@@ -219,15 +219,6 @@ exports.default = async ctx => {
         }
       })
       break
-    case 'bit':
-      await axios.get(url).then(res => {
-        ctx.body = {
-          code: 0,
-          url: res.data.data,
-          type: 'mp4'
-        }
-      })
-      break
     case '360':
       let src
       await axios.get(url).then(res=>{

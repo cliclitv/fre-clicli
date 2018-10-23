@@ -16,7 +16,11 @@ module.exports = {
         'User-Agent': ctx.header['user-agent'],
       }
     }).then(res => {
-      ctx.body = res.data
+      ctx.body = {
+        code: 0,
+        url: res.data.data.url,
+        type: 'mp4'
+      }
     })
   },
 
@@ -24,7 +28,7 @@ module.exports = {
     const cookie = Base64.decode(ctx.cookies.get('bit'))
 
     const info = await axios.get('https://pan.bitqiu.com/user/getInfo', {
-      headers:{
+      headers: {
         'Cookie': cookie,
         'Host': 'pan.bitqiu.com',
         'Origin': 'https://pan.bitqiu.com',
@@ -39,7 +43,7 @@ module.exports = {
     let fid = ctx.query.fid ? ctx.query.fid : info.rootDirId
 
     await axios.post(`https://pan.bitqiu.com/resource/list?parentId=${fid}&currentPage=1&limit=40&orderType=updateTime&desc=1&model=0&userId=${info.userId}&name=`, {}, {
-      headers:{
+      headers: {
         'Cookie': cookie,
         'Host': 'pan.bitqiu.com',
         'Origin': 'https://pan.bitqiu.com',

@@ -25,6 +25,7 @@ export function addVideo(oid, title, content, pid, uid) {
     uid
   })
 }
+
 // 修改视频
 export function updateVideo(oid, title, content, pid, uid) {
   return request.post('/video/update', {
@@ -35,6 +36,7 @@ export function updateVideo(oid, title, content, pid, uid) {
     uid
   })
 }
+
 // 删除评论
 export function deleteComment() {
   return request.delete('/comment/delete')
@@ -42,11 +44,13 @@ export function deleteComment() {
 
 // 根据地址获取真实链接
 export function getRealUrl(url) {
-
-  return axios.get('https://www.clicli.us/jx',{
-    params:{
-      url
-    }
-  })
-
+  if (url.indexOf('clicli') > -1) {
+    return axios.get(url)
+  } else {
+    return axios.get('https://www.clicli.us/jx', {
+      params: {
+        url
+      }
+    })
+  }
 }
