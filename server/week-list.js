@@ -20,13 +20,13 @@ module.exports = {
               title: '夕照少女',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4harcj30ka0dhmyc.jpg',
               av: '334',
-              oid: '02'
+              oid: '03'
             },
             {
               title: 'Anima Yell!',
               suo: 'http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2528679010.jpg',
               av: '372',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '弦音 -风舞高中弓道部',
@@ -42,25 +42,25 @@ module.exports = {
               title: '关于我转生后成为史莱姆的那件事',
               suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
               av: '328',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '东京食尸鬼：re 第二季',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvkh2n40ofj30hs0a0q43.jpg',
               av: '350',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '欢迎光临，千岁酱',
               suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
               av: '371',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '尤利西斯 贞德与炼金的骑士',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
               av: '411',
-              oid: '02'
+              oid: '03'
             }
           ]
         },
@@ -75,14 +75,14 @@ module.exports = {
             {
               title: '嫁给非人类',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fvv86436kwj30wx0ib3zc.jpg',
-              url: '332',
-              oid: '03'
+              av: '332',
+              oid: '04'
             },
             {
               title: '强风吹拂',
               suo: 'https://i.loli.net/2018/10/04/5bb5344c52420.jpg',
               av: '337',
-              oid: '03'
+              oid: '04'
             },
             {
               title: 'RErideD',
@@ -94,25 +94,31 @@ module.exports = {
               title: '宇宙战舰提拉米苏 第二季',
               suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
               av: '338',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '受孕！请为我生孩子吧',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw2zwcw6v9j30cl0hsgn6.jpg',
               av: '374',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '轩辕剑·苍之曜',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
               av: '377',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '我喜欢的妹妹但不是妹妹',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3i3d8gasj317a1p4qcz.jpg',
               av: '378',
-              oid: '02'
+              oid: '04'
+            },
+            {
+              title: '不受欢迎之家',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwb44nojhbj30n40sm7rp.jpg',
+              av: '329',
+              oid: '04'
             }
           ]
         },
@@ -134,13 +140,13 @@ module.exports = {
               title: '青春猪头少年不会梦到兔女郎学姐',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6792vqj305k05kt8z.jpg',
               av: '340',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '天空与海洋之间',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fw44ofxkh8j30co0hsta1.jpg',
               av: '382',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '魔偶马戏团',
@@ -152,19 +158,25 @@ module.exports = {
               title: '只要别西卜大小姐喜欢就好',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fw44imp357j30e80lcq55.jpg',
               av: '380',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '永不止步真好',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw45vd5yc9j30go0l3tcq.jpg',
               av: '383',
-              oid: '01'
+              oid: '02'
             },
             {
               title: '梅露可物语',
               suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
               av: '397',
               oid: '03'
+            },
+            {
+              title: '爆钓 Bar Hunter',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwb46wik2ij30hs0p0n0v.jpg',
+              av: '430',
+              oid: '04'
             },
           ]
         },
