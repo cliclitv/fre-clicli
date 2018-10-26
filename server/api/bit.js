@@ -27,7 +27,10 @@ module.exports = {
   },
 
   async getList(ctx) {
-    const cookie = Base64.decode(ctx.cookies.get('bit'))
+    const uid = ctx.cookie.get('uid')
+    const cookie = await axios.get(`https://api.chinko.cc/cookie/${uid}`).then(res => {
+      return res.data.result.bit
+    })
 
     const info = await axios.get('https://pan.bitqiu.com/user/getInfo', {
       headers: {

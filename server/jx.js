@@ -10,7 +10,7 @@ function urlType(url) {
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
   if (url.indexOf('360') > -1) return '360'
-  if (url.indexOf('bit/down') > -1) return 'bit'
+  if (url.indexOf('le.com') > -1) return 'letv'
 }
 
 
@@ -205,7 +205,7 @@ exports.default = async ctx => {
         ctx.body = {
           code: 0,
           url: res.data,
-          type: 'mp4'
+          type: url.indexOf('vbithls') > -1 ? 'hls' : 'mp4'
         }
       })
       break
@@ -221,7 +221,7 @@ exports.default = async ctx => {
       break
     case '360':
       let src
-      await axios.get(url).then(res=>{
+      await axios.get(url).then(res => {
         if (url.indexOf('va360') > -1) {
           src = res.data
         } else {
@@ -230,6 +230,25 @@ exports.default = async ctx => {
         ctx.body = {
           code: 0,
           url: src,
+          type: 'mp4'
+        }
+      })
+      break
+    case 'letv':
+      await axios.get(`http://193.112.131.234:8081/play/le`, {
+        params: {
+          v: url
+        },
+        headers: {
+          Cookie: 'ci_session=6ffad7666a410375c8e64acd0227f832c1277b27',
+          Host: '193.112.131.234:8081',
+          'User-Agent': ctx.header['user-agent']
+        }
+      }).then(res => {
+        let src = res.data.match(/url = "http:([\s\S]+?)"/)[1]
+        ctx.body = {
+          code: 0,
+          url: `http:${src}`,
           type: 'mp4'
         }
       })

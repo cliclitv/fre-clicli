@@ -152,7 +152,7 @@ module.exports = {
               title: '魔偶马戏团',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fw44ln9ulvj30hs0ozwhk.jpg',
               av: '381',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '只要别西卜大小姐喜欢就好',
@@ -186,7 +186,7 @@ module.exports = {
               title: '战栗杀机',
               suo: 'https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=3f83253f00f431ada8df4b6b2a5fc7ca/77c6a7efce1b9d1670ce5accffdeb48f8c546416.jpg',
               av: '464',
-              oid: '15'
+              oid: '16'
             },
             {
               title: '杀戮天使',
@@ -204,7 +204,7 @@ module.exports = {
               title: '佐贺偶像是传奇',
               suo: 'https://i.loli.net/2018/10/06/5bb7928b6d4c2.jpg',
               av: '355',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '终将成为你',
@@ -235,7 +235,7 @@ module.exports = {
               title: 'INGRESS',
               suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=c2f6350fafcc7cd9ee203c8b58684a5a/b58f8c5494eef01f54703627ecfe9925bd317def.jpg',
               av: '453',
-              oid: '03'
+              oid: '08'
             },
             {
               title: 'BAKUMATSU 恋爱幕末男友',
@@ -350,7 +350,7 @@ module.exports = {
             {
               title: '彼时彼女',
               suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgsenqnppj305f078q31.jpg',
-              av: '466',
+              av: '462',
               oid: '03'
             }
           ]
