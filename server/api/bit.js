@@ -27,7 +27,7 @@ module.exports = {
   },
 
   async getList(ctx) {
-    const uid = ctx.cookie.get('uid')
+    const uid = ctx.cookies.get('uid')
     const cookie = await axios.get(`https://api.chinko.cc/cookie/${uid}`).then(res => {
       return res.data.result.bit
     })
@@ -60,21 +60,4 @@ module.exports = {
     })
   }
 }
-
-// 废弃参数
-// 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-// 'Accept-Encoding': 'gzip, deflate, br',
-// 'Cache-Control': 'no-cache',
-// 'Content-Length': 40,
-// 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-// 'Accept-Language': ' zh-CN,zh;q=0.9',
-// 'Connection': 'keep-alive',
-// 'X-Requested-With': 'XMLHttpRequest',
-// 'Upgrade-Insecure-Requests': 1,
-// 'Pragma': 'no-cache',
-
-
-// url 地址示例
-// http://localhost:3000/bit/down?fid=11b135045a6140d69d26c8d1af828ce2 获得指定fid的文件的真实下载地址
-// http://localhost:3000/bit/list?fid=11b135045a6140d69d26c8d1af828ce2 获得指定fid的列表数据
 

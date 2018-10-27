@@ -192,13 +192,13 @@ module.exports = {
               title: '杀戮天使',
               suo: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike180%2C5%2C5%2C180%2C60/sign=a07ca0dc77ec54e755e1124cd851f035/dc54564e9258d109329d8450dd58ccbf6d814dd1.jpg',
               av: '463',
-              oid: '15'
+              oid: '16'
             },
             {
               title: '魔法禁书目录Ⅲ',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6790w5j30dw0dwwf7.jpg',
               av: '353',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '佐贺偶像是传奇',
@@ -210,32 +210,32 @@ module.exports = {
               title: '终将成为你',
               suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
               av: '358',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '邻家吸血鬼小妹',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp678fqwj30ke0beaac.jpg',
               av: '352',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '我家的女仆太烦人了',
               suo: 'https://i.loli.net/2018/10/06/5bb7a98e1b339.jpg',
               av: '359',
-              oid: '02'
+              oid: '04'
             },
 
             {
               title: '火之丸相扑',
               suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
               av: '356',
-              oid: '03'
+              oid: '04'
             },
             {
               title: 'INGRESS',
               suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=c2f6350fafcc7cd9ee203c8b58684a5a/b58f8c5494eef01f54703627ecfe9925bd317def.jpg',
               av: '453',
-              oid: '08'
+              oid: '09'
             },
             {
               title: 'BAKUMATSU 恋爱幕末男友',
@@ -257,7 +257,7 @@ module.exports = {
               title: '我让最想被拥抱的男人给威胁了',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp67c9oqj305k05kglp.jpg',
               av: '354',
-              oid: '02'
+              oid: '03'
             },
             {
               title: 'JOJO的奇妙冒险 黄金之风',
@@ -269,25 +269,31 @@ module.exports = {
               title: '来自多彩世界的明天',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvycth1mlhj30fa0b475z.jpg',
               av: '361',
-              oid: '02'
+              oid: '03'
             },
             {
               title: '寄宿学校的朱丽叶',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvygyuwcqhj30f008fdg6.jpg',
               av: '363',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '学园BASARA',
               suo: 'https://i.loli.net/2018/10/06/5bb79b7c4d735.jpg',
               av: '357',
+              oid: '04'
+            },
+            {
+              title: '闪乱神乐',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
+              av: '402',
               oid: '03'
             },
             {
-              title: '闪乱神乐 SHINOVI MASTER 东京妖魔篇',
-              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
-              av: '402',
-              oid: '02'
+              title: '狐狸之声',
+              suo: 'https://i.loli.net/2018/10/27/5bd3d22749467.jpg',
+              av: '490',
+              oid: '05'
             },
           ]
         },

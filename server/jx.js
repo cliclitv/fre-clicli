@@ -5,6 +5,7 @@ const Base64 = require('js-base64').Base64
 function urlType(url) {
   if (url.indexOf('hcy') > -1) return 'hcy'
   if (url.indexOf('typt') > -1) return 'typt'
+  if (url.indexOf('yylep') > -1) return 'yylep'
   if (url.indexOf('vbit') > -1) return 'vbit'
   if (url.indexOf('qq') > -1) return 'qq'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
@@ -105,12 +106,14 @@ exports.default = async ctx => {
 
       }
 
+      let r = url.indexOf('av') < 0 ? ep : av
+
       ctx.body = {
         code: 0,
         aid: ob.a,
         cid: ob.c,
-        url: url.indexOf('av') < 0 ? ep : av,
-        type: 'mp4'
+        url: r,
+        type: r.indexOf('mp4') < 0 ? 'flv' : 'mp4'
       }
       break
     case 'qq':
@@ -230,6 +233,16 @@ exports.default = async ctx => {
         ctx.body = {
           code: 0,
           url: src,
+          type: 'mp4'
+        }
+      })
+      break
+    case 'yylep':
+      await axios.get(url).then(res => {
+        let src = res.data.match(/url='https:([\s\S]+?)'/)[1]
+        ctx.body = {
+          code: 0,
+          url: `https:${src}`,
           type: 'mp4'
         }
       })
