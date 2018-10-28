@@ -12,6 +12,7 @@ function urlType(url) {
   if (url.indexOf('bilibili') > -1) return 'bilibili'
   if (url.indexOf('360') > -1) return '360'
   if (url.indexOf('le.com') > -1) return 'letv'
+  if (url.indexOf('qinmoe') > -1) return 'qinmoe'
 }
 
 
@@ -262,6 +263,22 @@ exports.default = async ctx => {
         ctx.body = {
           code: 0,
           url: `http:${src}`,
+          type: 'mp4'
+        }
+      })
+      break
+    case 'qinmoe':
+      await axios.get(url, {
+        headers: {
+          Host: 'player.qinmoe.com',
+          Referer: 'https://www.halihali.tv'
+        }
+      }).then(res => {
+        let src = res.data.match(/<video src="(\S*)" controls/)[1]
+        let out = src.replace(/\\x26/g, '&').replace(/\\\//g, '/')
+        ctx.body = {
+          code: 0,
+          url: out,
           type: 'mp4'
         }
       })
