@@ -7,12 +7,12 @@ function urlType(url) {
   if (url.indexOf('typt') > -1) return 'typt'
   if (url.indexOf('yylep') > -1) return 'yylep'
   if (url.indexOf('vbit') > -1) return 'vbit'
-  if (url.indexOf('qq') > -1) return 'qq'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
   if (url.indexOf('360') > -1) return '360'
   if (url.indexOf('le.com') > -1) return 'letv'
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
+  if (url.indexOf('sohu') > -1 || url.indexOf('youku') > -1) return 'other'
 }
 
 
@@ -280,6 +280,22 @@ exports.default = async ctx => {
           code: 0,
           url: out,
           type: 'mp4'
+        }
+      })
+      break
+    case 'other':
+      const hash = 'fd028243fcc46c38523cf86bd2f1c5e6'
+      await axios.post(`https://www.parsevideo.com/api.php?url=${url}&hash=${hash}`, {}, {
+        headers: {
+          'origin': 'https://www.parsevideo.com',
+          'X-Forwarded-For': '183.3.226.35'
+        }
+      }).then(res => {
+        let out = res.data.video[0].url
+        ctx.body = {
+          code: 0,
+          url: out,
+          type: out.indexOf('m3u8') < 0 ? 'mp4' : 'hls'
         }
       })
       break
