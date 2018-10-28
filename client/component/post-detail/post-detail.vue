@@ -15,8 +15,8 @@
         </router-link>
         <div class="info">
           <span>{{post.time}}</span>
-          <span>{{post.sort}}</span>
-          <span>{{post.type}}</span>
+          <span v-text="translate(post.sort)"></span>
+          <span v-text="translate(post.type)"></span>
         </div>
         <div class="content" v-html="marked(post.content)">
         </div>
@@ -36,6 +36,7 @@
   import marked from 'marked'
   import CommentList from 'component/comment-list/comment-list.vue'
   import VideoList from 'component/video-list/video-list.vue'
+  import {translate} from "common/js/util"
 
   export default {
     mixins: [titleMixin],
@@ -65,6 +66,9 @@
       ...mapActions(['getPost']),
       getAvatar(avatar) {
         return getAvatar(avatar)
+      },
+      translate(str) {
+        return translate(str)
       },
       marked(content) {
         let renderer = new marked.Renderer()
@@ -103,6 +107,7 @@
       align-items center
       padding: 10px
       margin-bottom: 20px
+      justify-content: center
       img
         width: 40px
         height 40px
@@ -161,16 +166,6 @@
         a
           color: #fff
           font-weight bold
-    .post:before
-      content ''
-      display block
-      width: 10px
-      border-bottom: 20px solid transparent
-      border-right: 20px solid $b-color
-      border-top-right-radius: 100%
-      position: absolute
-      top: -20px
-      left: 50px
     .count
       background $b-color
       padding: 5px 15px

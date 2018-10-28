@@ -8,13 +8,13 @@ export function getSuo(content) {
 }
 
 export function translate(sortName) {
-  if (sortName === 'anime') return '动画'
-  if (sortName === 'comic') return '漫画'
-  if (sortName === 'game') return '游戏'
-  if (sortName === 'music') return '音乐'
-  if (sortName === 'imgpack') return '图包'
-  if (sortName === 'novel') return '小说'
-  if (sortName === 'news') return '号外'
+  if (sortName === 'xinfan') return '新番'
+  if (sortName === 'wanjie') return '完结'
+  if (sortName === 'tuijian') return '推荐'
+  if (sortName === 'danmei') return '耽美'
+  if (sortName === 'moren') return '默认'
+  if (sortName === 'lianzai') return '连载'
+  if (sortName === 'wenzhang') return '文章'
 }
 
 export function getAv(id) {
