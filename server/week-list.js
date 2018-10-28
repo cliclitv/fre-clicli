@@ -303,43 +303,43 @@ module.exports = {
               title: '哥布林杀手',
               suo: 'https://i.loli.net/2018/10/07/5bb8f35ec4744.jpg',
               av: '365',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '博人传',
               suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg',
               av: '4',
-              oid: '78'
+              oid: '79'
             },
             {
               title: '海贼王',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fv36qz2bf5j31jk0v9gvh.jpg',
               av: '258',
-              oid: '858'
+              oid: '859'
             },
             {
               title: '刀剑神域 第三季',
               suo: 'https://i.loli.net/2018/10/07/5bb8f60026cea.jpg',
               av: '366',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '妖精的尾巴 终章',
               suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fvjb33fmkjj31hc0u0n4s.jpg',
               av: '264',
-              oid: '280'
+              oid: '281'
             },
             {
               title: 'RADIANT',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvzzscreagj30fa0b43zh.jpg',
               av: '367',
-              oid: '03'
+              oid: '04'
             },
             {
-              title: 'SSSS.GRIDMAN / 电光超人古立特',
+              title: '电光超人古立特',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fwdb55yfugj30le0u0796.jpg',
               av: '447',
-              oid: '03'
+              oid: '04'
             },
             {
               title: 'DOUBLE DECKER! 道格&基里尔',
@@ -351,13 +351,13 @@ module.exports = {
               title: '月影特工 / Release the Spyce',
               suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=7a8e6101e7f81a4c323fe49bb6430b3c/9213b07eca8065387a6a77669bdda144ac3482c7.jpg',
               av: '461',
-              oid: '03'
+              oid: '04'
             },
             {
               title: '彼时彼女',
               suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgsenqnppj305f078q31.jpg',
               av: '462',
-              oid: '03'
+              oid: '04'
             }
           ]
         }

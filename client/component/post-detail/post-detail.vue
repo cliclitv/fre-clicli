@@ -9,15 +9,17 @@
     </router-link>
     <div class="post">
       <loading v-show="!post.uname"></loading>
-      <router-link :to="'/play/av'+post.id">
-        <h1 class="title">{{post.title}}</h1>
-      </router-link>
-      <div class="info">
-        <span>{{post.time}}</span>
-        <span>{{post.sort}}</span>
-        <span>{{post.type}}</span>
-      </div>
-      <div class="content" v-html="marked(post.content)">
+      <div v-show="post.uname">
+        <router-link :to="'/play/av'+post.id">
+          <h1 class="title">{{post.title}}</h1>
+        </router-link>
+        <div class="info">
+          <span>{{post.time}}</span>
+          <span>{{post.sort}}</span>
+          <span>{{post.type}}</span>
+        </div>
+        <div class="content" v-html="marked(post.content)">
+        </div>
       </div>
     </div>
     <video-list></video-list>
@@ -91,7 +93,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
   .post-detail
-    width: 800px
+    width: 700px
     margin: 30px auto
     a
       color: $color

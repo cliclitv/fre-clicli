@@ -92,7 +92,6 @@
   @import "~common/stylus/variable"
 
   .main
-    padding: 10px
     .common-title
       font-size: 14px
       background $b-color
