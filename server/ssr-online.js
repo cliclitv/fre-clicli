@@ -3,8 +3,9 @@ const path = require('path')
 const fs = require('fs')
 const weekList = require('./week-list')
 const Jx = require('./jx')
+const hcy = require('./api/hcy')
 const bit = require('./api/bit')
-const jx = require('./api/iqiyi')
+const jx = require('./api/hcy')
 
 
 const VueServerRenderer = require('vue-server-renderer')
@@ -25,7 +26,8 @@ const router = new Router()
 router.get('/jx/', Jx.default)
 router.get('/bit/down/:fid', bit.getUrl)
 router.get('/bit/list', bit.getList)
-router.get('/iqiyi', jx.getUrl)
+router.get('/hcy/down/:fid', hcy.getUrl)
+router.get('/hcy/list', hcy.getList)
 
 router.get('/week/', weekList.getWeekList)
 
