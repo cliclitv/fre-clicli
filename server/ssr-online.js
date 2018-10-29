@@ -5,7 +5,6 @@ const weekList = require('./week-list')
 const Jx = require('./jx')
 const hcy = require('./api/hcy')
 const bit = require('./api/bit')
-const jx = require('./api/hcy')
 
 
 const VueServerRenderer = require('vue-server-renderer')
