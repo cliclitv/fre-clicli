@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
 const isDev = process.env.NODE_ENV === 'development'
 const baseConfig = require('./wp.base')
 
@@ -11,7 +10,7 @@ const plugins = [
   new VueLoaderPlugin(),
   new webpack.DefinePlugin({
     'process.env.VUE_ENV': '"server"'
-  })
+  }),
 ]
 
 if (isDev) {
@@ -33,21 +32,6 @@ module.exports = merge(baseConfig, {
   externals: Object.keys(require('../package.json').dependencies),
   module: {
     rules: [
-      {
-        test: /\.styl(us)?$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'stylus-loader'
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
-      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',

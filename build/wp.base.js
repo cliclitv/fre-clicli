@@ -1,4 +1,6 @@
 const path = require('path')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   mode: 'production',
@@ -36,8 +38,28 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          isDev?'vue-style-loader':MiniCssExtractPlugin.loader,
+          'css-loader',
+          'stylus-loader'
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          isDev?'vue-style-loader':MiniCssExtractPlugin.loader,
+          'css-loader'
+        ]
+      },
     ]
-
-  }
+  },
+  plugins:[
+    new MiniCssExtractPlugin({
+      filename: "../css/[name].css",
+      chunkFilename: "css/[id].css"
+    }),
+  ]
 }

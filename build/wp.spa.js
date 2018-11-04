@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 
 const baseConfig = require('./wp.base')
@@ -20,25 +19,6 @@ module.exports = merge(baseConfig, {
   },
   module: {
     rules: [
-      {
-        test: /\.styl(us)?$/,
-        use: [
-          process.env.NODE_ENV !== 'production'
-            ? 'vue-style-loader'
-            : MiniCssExtractPlugin.loader,
-          'css-loader',
-          'stylus-loader'
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          process.env.NODE_ENV !== 'production'
-            ? 'vue-style-loader'
-            : MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
-      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -59,10 +39,6 @@ module.exports = merge(baseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './client/template.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: "../css/[name].css",
-      chunkFilename: "css/[id].css"
     })
   ],
   devServer: {
