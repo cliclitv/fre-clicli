@@ -521,6 +521,9 @@ blockquote {
 blockquote p {
   padding: 0;
 }
+::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.6);
+}
 .wrap {
   width: 1120px;
   margin: 0 auto;

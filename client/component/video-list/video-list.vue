@@ -157,7 +157,6 @@
           background $bg-color
           letter-spacing: 3px
           box-sizing: border-box
-
         button
           background: $blue-color
           width: 100%
@@ -171,8 +170,8 @@
       ul
         li
           width 50%
-          display inline-block
           box-sizing border-box
+          display: inline-block
           .item
             cursor pointer
             margin: 10px
@@ -191,7 +190,6 @@
           .oid
             font-weight bold
           .avatar, .oid, .title, .content
-            display inline-block
             margin: 0 10px
     .list li:nth-child(even) .item
       margin-right 0

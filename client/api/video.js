@@ -39,7 +39,7 @@ export function updateVideo(oid, title, content, pid, uid) {
 
 // 删除评论
 export function deleteComment() {
-  return request.delete('/comment/delete')
+  return request.delete('/danmu/delete')
 }
 
 // 根据地址获取真实链接

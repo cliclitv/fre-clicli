@@ -42,7 +42,7 @@ module.exports = {
       {
         test: /\.styl(us)?$/,
         use: [
-          isDev?'vue-style-loader':MiniCssExtractPlugin.loader,
+          'vue-style-loader',
           'css-loader',
           'stylus-loader'
         ]
@@ -50,16 +50,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          isDev?'vue-style-loader':MiniCssExtractPlugin.loader,
+          'vue-style-loader',
           'css-loader'
         ]
       },
     ]
   },
-  plugins:[
-    new MiniCssExtractPlugin({
-      filename: "../css/[name].css",
-      chunkFilename: "css/[id].css"
-    }),
-  ]
 }

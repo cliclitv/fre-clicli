@@ -15,7 +15,7 @@
   import Eplayer from 'eplayer'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
   import {mapGetters} from 'vuex'
-  import Comment from 'component/comment/comment.vue'
+  import Comment from 'component/danmu/danmu.vue'
 
   export default {
     props: ['url', 'type', 'playerShow'],
