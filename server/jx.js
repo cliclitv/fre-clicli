@@ -12,7 +12,6 @@ function urlType(url) {
   if (url.indexOf('360') > -1) return '360'
   if (url.indexOf('le.com') > -1) return 'letv'
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
-  if (url.indexOf('sohu') > -1 || url.indexOf('youku') > -1) return 'other'
 }
 
 

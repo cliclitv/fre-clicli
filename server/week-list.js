@@ -5,16 +5,16 @@ module.exports = {
         {
           day: '周一', content: [
             {
-              title: '进击的巨人第三季',
-              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxpe4g8gfj30bt0b4wew.jpg',
-              av: '100',
-              oid: '12'
+              title: '欢迎光临，千岁酱',
+              suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
+              av: '371',
+              oid: '04'
             },
             {
               title: '刃牙 Ⅱ',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw0tdz0g48j30940dw3yp.jpg',
               av: '368',
-              oid: '19'
+              oid: '20'
             },
             {
               title: '夕照少女',
@@ -26,7 +26,7 @@ module.exports = {
               title: 'Anima Yell!',
               suo: 'http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2528679010.jpg',
               av: '372',
-              oid: '04'
+              oid: '05'
             },
             {
               title: '弦音 -风舞高中弓道部',
@@ -42,7 +42,7 @@ module.exports = {
               title: '关于我转生后成为史莱姆的那件事',
               suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
               av: '328',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '东京食尸鬼：re 第二季',
@@ -51,23 +51,23 @@ module.exports = {
               oid: '04'
             },
             {
-              title: '欢迎光临，千岁酱',
-              suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
-              av: '371',
-              oid: '04'
-            },
-            {
               title: '尤利西斯 贞德与炼金的骑士',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
               av: '411',
-              oid: '04'
+              oid: '05'
             },
             {
               title: '爆钓 Bar Hunter',
-              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwb46wik2ij30hs0p0n0v.jpg',
               av: '411',
               oid: '05'
-            }
+            },
+            {
+              title: '轩辕剑·苍之曜',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
+              av: '377',
+              oid: '06'
+            },
           ]
         },
         {
@@ -107,12 +107,6 @@ module.exports = {
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw2zwcw6v9j30cl0hsgn6.jpg',
               av: '374',
               oid: '04'
-            },
-            {
-              title: '轩辕剑·苍之曜',
-              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
-              av: '377',
-              oid: '05'
             },
             {
               title: '我喜欢的妹妹但不是妹妹',
