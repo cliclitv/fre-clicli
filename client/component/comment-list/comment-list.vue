@@ -7,9 +7,13 @@
       <div class="add-content" v-if="uqq">
         <input type="text" placeholder="回复一下下菊花又不会坏(⊙o⊙)…" v-model="content">
       </div>
+      <div class="need-login" v-if="!uqq">
+        <span @click="onLogin">登陆</span>
+        <a href="https://admin.clicli.us/register">注册</a>
+      </div>
       <button @click="onComment"><i class="icon-font icon-send"></i>发射！</button>
     </div>
-    <h2>共有 <span>{{count}}</span> 条弹幕</h2>
+    <h2>共有 <span>{{count}}</span> 条弹幕&回复</h2>
     <ul>
       <li v-for="item in comments">
         <div class="comment-avatar">
@@ -31,6 +35,7 @@
   import {getAv} from 'common/js/util'
   import Cookies from 'js-cookie'
   import {getStorage} from "common/js/localstorage"
+  import {mapMutations} from 'vuex'
 
   export default {
     name: "comment-list",
@@ -67,9 +72,13 @@
           }
         })
       },
+      onLogin() {
+        this.isOnLogin(true)
+      },
       getAvatar(avatar) {
         return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
-      }
+      },
+      ...mapMutations(['isOnLogin'])
     }
   }
 </script>
@@ -78,7 +87,7 @@
   @import "~common/stylus/variable"
   .comment-list
     .add-comment
-      margin: 20px 0
+      margin: 30px 0
       display flex
       align-items center
       .add-avatar
@@ -96,6 +105,16 @@
         padding: 10px 20px
         box-sizing border-box
         color: #fff
+    .need-login
+      flex: 1
+      text-align center
+      span
+        padding 2px 10px
+        background $pink-color
+        color: #fff
+        margin-right 10px
+        border-radius 4px
+        cursor pointer
     button
       padding: 10px 20px
       color: #fff

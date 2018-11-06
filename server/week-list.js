@@ -5,10 +5,10 @@ module.exports = {
         {
           day: '周一', content: [
             {
-              title: '欢迎光临，千岁酱',
-              suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
-              av: '371',
-              oid: '04'
+              title: '尤利西斯 贞德与炼金的骑士',
+              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
+              av: '411',
+              oid: '05'
             },
             {
               title: '刃牙 Ⅱ',
@@ -32,7 +32,7 @@ module.exports = {
               title: '弦音 -风舞高中弓道部',
               suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgs3i1g93j309q0dr3z9.jpg',
               av: '460',
-              oid: '02'
+              oid: '03'
             }
           ]
         },
@@ -51,20 +51,20 @@ module.exports = {
               oid: '04'
             },
             {
-              title: '尤利西斯 贞德与炼金的骑士',
-              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
-              av: '411',
+              title: '欢迎光临，千岁酱',
+              suo: 'https://i.loli.net/2018/10/09/5bbbf8bc45ecc.jpg',
+              av: '371',
               oid: '05'
             },
             {
               title: '爆钓 Bar Hunter',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwb46wik2ij30hs0p0n0v.jpg',
-              av: '411',
+              av: '430',
               oid: '05'
             },
             {
               title: '轩辕剑·苍之曜',
-              suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3cqzpr8dj30z80ju76c.jpg',
+              suo: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=e2a1fb4357afa40f28cbc68fca0d682a/a08b87d6277f9e2f965951791230e924b899f357.jpg',
               av: '377',
               oid: '06'
             },
@@ -245,7 +245,7 @@ module.exports = {
               title: '我让最想被拥抱的男人给威胁了',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp67c9oqj305k05kglp.jpg',
               av: '354',
-              oid: '03'
+              oid: '05'
             },
             {
               title: 'JOJO的奇妙冒险 黄金之风',
