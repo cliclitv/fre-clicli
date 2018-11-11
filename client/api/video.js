@@ -47,7 +47,7 @@ export function getRealUrl(url) {
   if (url.indexOf('clicli') > -1) {
     return axios.get(url)
   } else {
-    return axios.get('https://www.clicli.us/jx', {
+    return axios.get('https://www.clicli.top/jx', {
       params: {
         url
       }

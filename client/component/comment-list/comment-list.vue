@@ -9,7 +9,7 @@
       </div>
       <div class="need-login" v-if="!uqq">
         <span @click="onLogin">登陆</span>
-        <a href="http://admin.clicli.top/register">注册</a>
+        <a href="https://admin.clicli.top/register">注册</a>
       </div>
       <button @click="onComment" @keyup.enter="onComment"><i class="icon-font icon-send"></i>发射！</button>
     </div>

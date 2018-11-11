@@ -6,7 +6,7 @@ axios.defaults.withCredentials = true
 module.exports = {
   async getUrl(ctx) {
     let fid = Base64.decode(ctx.params.fid).split(',')
-    const cookie = await axios.get(`https://api.chinko.cc/cookie/${fid[1]}`).then(res => {
+    const cookie = await axios.get(`https://api.clicli.top/cookie/${fid[1]}`).then(res => {
       return res.data.result.bit
     })
     await axios.post(`https://pan.bitqiu.com/download/getUrl?fileIds=${fid[0]}`, {}, {
@@ -28,7 +28,7 @@ module.exports = {
 
   async getList(ctx) {
     const uid = ctx.cookies.get('uid')
-    const cookie = await axios.get(`https://api.chinko.cc/cookie/${uid}`).then(res => {
+    const cookie = await axios.get(`https://api.clicli.top/cookie/${uid}`).then(res => {
       return res.data.result.bit
     })
 
