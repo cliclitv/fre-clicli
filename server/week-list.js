@@ -48,7 +48,7 @@ module.exports = {
               title: '东京食尸鬼：re 第二季',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvkh2n40ofj30hs0a0q43.jpg',
               av: '350',
-              oid: '04'
+              oid: '05'
             },
             {
               title: '欢迎光临，千岁酱',
@@ -73,34 +73,28 @@ module.exports = {
         {
           day: '周三', content: [
             {
-              title: 'Free!第三季',
-              suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fue2ux88orj30go0nm77h.jpg',
-              av: '82',
-              oid: '12'
-            },
-            {
               title: '嫁给非人类',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fvv86436kwj30wx0ib3zc.jpg',
               av: '332',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '强风吹拂',
               suo: 'https://i.loli.net/2018/10/04/5bb5344c52420.jpg',
               av: '337',
-              oid: '05'
+              oid: '06'
             },
             {
               title: 'RErideD',
               suo: 'https://i.loli.net/2018/10/04/5bb5321807393.jpg',
               av: '335',
-              oid: '09'
+              oid: '10'
             },
             {
               title: '宇宙战舰提拉米苏 第二季',
               suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
               av: '338',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '受孕！请为我生孩子吧',
@@ -112,65 +106,59 @@ module.exports = {
               title: '我喜欢的妹妹但不是妹妹',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw3i3d8gasj317a1p4qcz.jpg',
               av: '378',
-              oid: '04'
+              oid: '05'
             },
             {
               title: '不受欢迎之家',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwb44nojhbj30n40sm7rp.jpg',
               av: '429',
-              oid: '04'
+              oid: '05'
+            },
+            {
+              title: '大人防具店',
+              suo: 'https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=e1dd63257ef08202399f996d2a929088/3812b31bb051f819ca8e844cd7b44aed2e73e709.jpg',
+              av: '414',
+              oid: '05'
             }
           ]
         },
         {
           day: '周四', content: [
             {
-              title: '命运石之门0',
-              suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fuzw1gkogzj31kw0zktm5.jpg',
-              av: '104',
-              oid: '23'
-            },
-            {
-              title: '天狼',
-              suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fv34zwanxwj30zk0k0jsi.jpg',
-              av: '230',
-              oid: '12'
-            },
-            {
               title: '青春猪头少年不会梦到兔女郎学姐',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp6792vqj305k05kt8z.jpg',
               av: '340',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '天空与海洋之间',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fw44ofxkh8j30co0hsta1.jpg',
               av: '382',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '魔偶马戏团',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fw44ln9ulvj30hs0ozwhk.jpg',
               av: '381',
-              oid: '04'
+              oid: '05'
             },
             {
               title: '只要别西卜大小姐喜欢就好',
               suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fw44imp357j30e80lcq55.jpg',
               av: '380',
-              oid: '04'
+              oid: '06'
             },
             {
               title: '永不止步真好',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw45vd5yc9j30go0l3tcq.jpg',
               av: '383',
-              oid: '04'
+              oid: '05'
             },
             {
               title: '梅露可物语',
               suo: 'http://wx1.sinaimg.cn/mw690/0060lm7Tly1fw547qm6xej30xc0wntdv.jpg',
               av: '397',
-              oid: '04'
+              oid: '05'
             },
           ]
         },
@@ -180,13 +168,7 @@ module.exports = {
               title: '战栗杀机',
               suo: 'https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=3f83253f00f431ada8df4b6b2a5fc7ca/77c6a7efce1b9d1670ce5accffdeb48f8c546416.jpg',
               av: '464',
-              oid: '17'
-            },
-            {
-              title: '杀戮天使',
-              suo: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike180%2C5%2C5%2C180%2C60/sign=a07ca0dc77ec54e755e1124cd851f035/dc54564e9258d109329d8450dd58ccbf6d814dd1.jpg',
-              av: '463',
-              oid: '16'
+              oid: '18'
             },
             {
               title: '魔法禁书目录Ⅲ',
@@ -198,90 +180,90 @@ module.exports = {
               title: '佐贺偶像是传奇',
               suo: 'https://i.loli.net/2018/10/06/5bb7928b6d4c2.jpg',
               av: '355',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '终将成为你',
               suo: 'https://i.loli.net/2018/10/06/5bb79feb90534.jpg',
               av: '358',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '邻家吸血鬼小妹',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp678fqwj30ke0beaac.jpg',
               av: '352',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '我家的女仆太烦人了',
               suo: 'https://i.loli.net/2018/10/06/5bb7a98e1b339.jpg',
               av: '359',
-              oid: '05'
+              oid: '06'
             },
 
             {
               title: '火之丸相扑',
               suo: 'https://i.loli.net/2018/10/06/5bb7957374a45.jpg',
               av: '356',
-              oid: '05'
+              oid: '06'
             },
             {
               title: 'BAKUMATSU 恋爱幕末男友',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwfx9zi4x6j307i0amgm3.jpg',
               av: '456',
-              oid: '05'
+              oid: '04'
             }
           ]
         },
         {
           day: '周六', content: [
             {
-              title: '魔道祖师',
-              suo: 'https://i.loli.net/2018/03/29/5abce56bd7312.jpg',
-              av: '213',
-              oid: '15'
-            },
-            {
               title: '我让最想被拥抱的男人给威胁了',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvxp67c9oqj305k05kglp.jpg',
               av: '354',
-              oid: '05'
+              oid: '06'
             },
             {
               title: 'JOJO的奇妙冒险 黄金之风',
               suo: 'https://i.loli.net/2018/10/06/5bb805ac8c7e2.jpg',
               av: '360',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '来自多彩世界的明天',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvycth1mlhj30fa0b475z.jpg',
               av: '361',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '寄宿学校的朱丽叶',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvygyuwcqhj30f008fdg6.jpg',
               av: '363',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '学园BASARA',
               suo: 'https://i.loli.net/2018/10/06/5bb79b7c4d735.jpg',
               av: '357',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '闪乱神乐',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw6ewyqkj3j312w0qagwf.jpg',
               av: '402',
-              oid: '05'
+              oid: '06'
             },
             {
               title: '狐狸之声',
               suo: 'https://i.loli.net/2018/10/27/5bd3d22749467.jpg',
               av: '490',
-              oid: '06'
+              oid: '09'
+            },
+            {
+              title: '书店里的骷髅店员本田',
+              suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=9645c27e07f3d7ca0cf63870ca24d934/738b4710b912c8fccda9738df7039245d6882113.jpg',
+              av: '481',
+              oid: '05'
             },
           ]
         },

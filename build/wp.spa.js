@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 
 const baseConfig = require('./wp.base')
@@ -15,7 +16,7 @@ module.exports = merge(baseConfig, {
   output: {
     path: path.resolve(__dirname, '../dist/spa'),
     filename: 'js/[name].js',
-    publicPath: isDev ? 'http://localhost:2333/' : '//alicdn.imh3.cn/spa/'
+    publicPath: isDev ? 'http://localhost:2333/' : 'https://alicdn.imh3.cn/spa/'
   },
   module: {
     rules: [
@@ -39,6 +40,10 @@ module.exports = merge(baseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './client/template.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: "../css/[name].css",
+      chunkFilename: "css/[id].css"
     })
   ],
   devServer: {
@@ -50,16 +55,3 @@ module.exports = merge(baseConfig, {
   }
 })
 
-// MiniCssExtractPlugin 暂不支持 ssr，暂时移除，坐等更新
-// https://github.com/webpack-contrib/mini-css-extract-plugin/issues/90
-
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-// const isDev = process.env.NODE_ENV === 'development'
-
-// new MiniCssExtractPlugin({
-//   filename: "../css/[name].css",
-//   chunkFilename: "css/[id].css"
-// }),
-// new HtmlWebpackPlugin({
-//   template: path.join(__dirname, 'template.html')
-// }),

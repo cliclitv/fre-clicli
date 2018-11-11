@@ -1,6 +1,6 @@
 import axios from 'axios'
 const request = axios.create({
-  baseURL: 'https://api.chinko.cc/'
+  baseURL: 'https://api.clicli.top'
 })
 // 用户登录
 export function login(user) {

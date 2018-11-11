@@ -68,7 +68,7 @@
         isShow: false,
         msg: '',
         pr: '投稿',
-        adminroute: 'https://admin.clicli.us/login',
+        adminroute: 'http://admin.clicli.top/login',
         bg: '#000'
       }
     },
@@ -90,7 +90,7 @@
             if (user) {
               this.isShow = true
               this.pr = '后台'
-              this.adminroute = 'http://admin.clicli.us'
+              this.adminroute = 'http://admin.clicli.top'
               this.user = user
             } else {
               const name = Base64.decode(Cookies.get('uname'))
@@ -109,11 +109,15 @@
       onLogout() {
         Cookies.remove('uname', {
           path: '/',
-          domain: 'clicli.us'
+          domain: 'clicli.top'
+        })
+        Cookies.remove('uid', {
+          path: '/',
+          domain: 'clicli.top'
         })
         Cookies.remove('uqq', {
           path: '/',
-          domain: 'clicli.us'
+          domain: 'clicli.top'
         })
         removeStorage('user-info')
         this.isShow = false

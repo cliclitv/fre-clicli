@@ -8,7 +8,7 @@
         <input placeholder="回复一下下菊花又不会坏……" v-model="data.value" v-if="isShow" @keyup.enter="onComment">
         <div v-if="!isShow" class="need-login">
           <span @click="onLogin">登陆</span>
-          <a href="https://admin.clicli.us/register">注册</a>
+          <a href="http://admin.clicli.top/register">注册</a>
         </div>
       </div>
       <switch-button @closeDm="closeDm" @openDm="openDm"></switch-button>

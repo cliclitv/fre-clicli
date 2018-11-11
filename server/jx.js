@@ -9,9 +9,11 @@ function urlType(url) {
   if (url.indexOf('vbit') > -1) return 'vbit'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
-  if (url.indexOf('360') > -1) return '360'
+  if (url.indexOf('va360') > -1) return '360'
   if (url.indexOf('le.com') > -1) return 'letv'
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
+  if (url.indexOf('1006_') > -1) return 'qzone'
+  if (url.indexOf('52088cj') > -1) return '52088cj'
 }
 
 
@@ -279,6 +281,28 @@ exports.default = async ctx => {
           code: 0,
           url: out,
           type: 'mp4'
+        }
+      })
+      break
+    case 'qzone':
+      let id = url.match(/1006_(\S*)/)[0]
+      ctx.body = {
+        code: 0,
+        url: `http://video.qzone.qq.com/${id}.f20.mp4`,
+        type: 'mp4'
+      }
+      break
+    case '52088cj':
+      await axios.get(`http://www.bimibimi.cc/static/danmu/yy.php?${url}`, {
+        headers: {
+          'Host': 'www.bimibimi.cc'
+        }
+      }).then(res => {
+        let src = res.data.match(/source  src="([\s\S]+?)"/)[1]
+        ctx.body = {
+          code:0,
+          url: src,
+          type:'mp4'
         }
       })
       break

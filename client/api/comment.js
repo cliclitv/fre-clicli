@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://api.chinko.cc'
+  baseURL: 'https://api.clicli.top'
 })
 
 // 根据pid查找评论

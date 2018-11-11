@@ -9,9 +9,9 @@
       </div>
       <div class="need-login" v-if="!uqq">
         <span @click="onLogin">登陆</span>
-        <a href="https://admin.clicli.us/register">注册</a>
+        <a href="http://admin.clicli.top/register">注册</a>
       </div>
-      <button @click="onComment"><i class="icon-font icon-send"></i>发射！</button>
+      <button @click="onComment" @keyup.enter="onComment"><i class="icon-font icon-send"></i>发射！</button>
     </div>
     <h2>共有 <span>{{count}}</span> 条弹幕&回复</h2>
     <ul>
@@ -122,6 +122,7 @@
       background $pink-color
       border-radius 20px
       cursor pointer
+      outline none
       i
         padding-right 10px
     h2
