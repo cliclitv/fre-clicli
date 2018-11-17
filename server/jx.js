@@ -1,6 +1,9 @@
 const axios = require('axios')
 const Base64 = require('js-base64').Base64
-
+axios.interceptors.response.use({}, err => {
+  if (err.response.status === 302) return err.response
+  if (err.response.status === 301) return err.response
+})
 
 function urlType(url) {
   if (url.indexOf('hcy') > -1) return 'hcy'
@@ -14,6 +17,7 @@ function urlType(url) {
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
   if (url.indexOf('1006_') > -1) return 'qzone'
   if (url.indexOf('52088cj') > -1) return '52088cj'
+  if (url.indexOf('sharepoint') > -1) return 'onedrive'
 }
 
 
@@ -293,18 +297,40 @@ exports.default = async ctx => {
       }
       break
     case '52088cj':
-      await axios.get(`http://www.bimibimi.cc/static/danmu/yy.php?${url}`, {
+      await axios.get(`http://www.bimibimi.cc/static/danmu/yy.php?${encodeURI(url)}`, {
         headers: {
           'Host': 'www.bimibimi.cc'
         }
       }).then(res => {
         let src = res.data.match(/source  src="([\s\S]+?)"/)[1]
         ctx.body = {
-          code:0,
+          code: 0,
           url: src,
-          type:'mp4'
+          type: 'mp4'
         }
       })
+      break
+    case 'onedrive':
+      // const share = await axios.get(url, {
+      //   maxRedirects: 0
+      // }).then(res => {
+      //   return res.headers.location
+      // })
+      // console.log(share)
+      //
+      // const res = await axios.get(share, {
+      //   maxRedirects: 0
+      // }).then(res => {
+      //   return res.headers.location
+      // })
+      // let pre = res.match(/id=(\S*)&parent/)[1]
+      // let slrid = res.match(/slrid(\S*)/)[0]
+      ctx.body = {
+        code: 0,
+        url: `${url}&download=1`,
+        type: 'mp4'
+      }
+
       break
     case 'other':
       const hash = 'fd028243fcc46c38523cf86bd2f1c5e6'

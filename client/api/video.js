@@ -44,7 +44,7 @@ export function deleteComment() {
 
 // 根据地址获取真实链接
 export function getRealUrl(url) {
-  if (url.indexOf('clicli') > -1) {
+  if (url.indexOf('www.clicli') > -1) {
     return axios.get(url)
   } else {
     return axios.get('https://www.clicli.top/jx', {

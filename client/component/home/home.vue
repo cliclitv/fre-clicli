@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="gonggao">
-      <span>clicli弹幕系统正式上线，欢迎刷屏！报错、反馈、交流求加群：607024802。搬运小分队持续招募中(⊙o⊙)…</span>
+      <span>clicli弹幕网更换服务器和域名，新域名:www.clicli.top，欢迎加入收藏夹！</span>
     </div>
     <search-box></search-box>
     <week-list></week-list>
@@ -115,9 +115,11 @@
       margin-bottom: 20px
       text-align center
       span
-        background $pink-color
+        background $yellow
         color #fff
         padding: 5px
+        a
+          font-weight bold
 
     .ad
       transition .3s

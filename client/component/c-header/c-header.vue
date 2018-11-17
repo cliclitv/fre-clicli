@@ -9,7 +9,7 @@
 
         <li v-show="isShow" @click="onLogout">退出</li>
         <li @click="onLogin" v-show="!isShow">登录</li>
-        <a href="https://admin.clicli.us/register">
+        <a href="https://admin.clicli.top/register">
           <li v-show="!isShow">注册</li>
         </a>
       </ul>
@@ -42,7 +42,6 @@
         <router-link to="/play/av276" class="tab-item">
           <li>贴视频</li>
         </router-link>
-        <a href="http://www.cilicili.cc/" target="_blank">导航</a>
       </ul>
     </div>
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>

@@ -53,6 +53,10 @@
     },
     methods: {
       onComment() {
+        if (!this.content) {
+          this.msg = '不能不填！'
+          return
+        }
         addComment({
           pid: getAv(this.$route.params.id),
           uid: getStorage('user-info').id,
