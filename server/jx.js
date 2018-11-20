@@ -16,8 +16,9 @@ function urlType(url) {
   if (url.indexOf('le.com') > -1) return 'letv'
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
   if (url.indexOf('1006_') > -1) return 'qzone'
-  if (url.indexOf('52088cj') > -1) return '52088cj'
   if (url.indexOf('sharepoint') > -1) return 'onedrive'
+  if (url.indexOf('tyc-2509-h5') > -1) return 'bimi'
+  if (url.indexOf('oda.php') > -1) return 'zzzfun'
 }
 
 
@@ -121,54 +122,6 @@ exports.default = async ctx => {
         url: r,
         type: r.indexOf('mp4') < 0 ? 'flv' : 'mp4'
       }
-      break
-    case 'qq':
-      url = url.substring(url.length - 16, url.length - 5)
-      const qqv = await axios.get(`http://vv.video.qq.com/getinfo`, {
-        headers: {
-          'X-Forwarded-For': '183.3.226.35'
-        },
-        params: {
-          vids: url,
-          platform: 101001,
-          charge: 0,
-          otype: 'json'
-        }
-      }).then(res => {
-        let data = res.data.substring(13, res.data.length - 1)
-        data = JSON.parse(data)
-        return {
-          pre: data.vl.vi[0].ul,
-          vid: data.vl.vi[0].vid
-        }
-
-      })
-
-      await axios.get('http://vv.video.qq.com/getkey', {
-        headers: {
-          'X-Forwarded-For': '183.3.226.35'
-        },
-        params: {
-          format: 2,
-          otype: 'json',
-          vt: 150,
-          vid: qqv.vid,
-          filename: qqv.vid + '.mp4',
-          change: 0,
-          platform: '11'
-        }
-      }).then(res => {
-        let data = res.data.substring(13, res.data.length - 1)
-        data = JSON.parse(data)
-        let fn = data.filename
-        let key = data.key
-
-        ctx.body = {
-          code: 0,
-          url: `http://221.7.255.177/cache.p4p.com/${fn}?vkey=${key}`,
-          type: 'mp4'
-        }
-      })
       break
     case 'qinmei':
       let link = Base64.decode(url.match(/l=(\S*)/)[1])
@@ -296,13 +249,15 @@ exports.default = async ctx => {
         type: 'mp4'
       }
       break
-    case '52088cj':
-      await axios.get(`http://www.bimibimi.cc/static/danmu/yy.php?${encodeURI(url)}`, {
+    case 'bimi':
+      console.log(url)
+      await axios.get(url, {
         headers: {
-          'Host': 'www.bimibimi.cc'
+          'Referer': 'https://www.bimibimi.cc',
+
         }
       }).then(res => {
-        let src = res.data.match(/source  src="([\s\S]+?)"/)[1]
+        let src = res.data.match(/url='([\s\S]+?)';/)[1]
         ctx.body = {
           code: 0,
           url: src,
@@ -311,20 +266,6 @@ exports.default = async ctx => {
       })
       break
     case 'onedrive':
-      // const share = await axios.get(url, {
-      //   maxRedirects: 0
-      // }).then(res => {
-      //   return res.headers.location
-      // })
-      // console.log(share)
-      //
-      // const res = await axios.get(share, {
-      //   maxRedirects: 0
-      // }).then(res => {
-      //   return res.headers.location
-      // })
-      // let pre = res.match(/id=(\S*)&parent/)[1]
-      // let slrid = res.match(/slrid(\S*)/)[0]
       ctx.body = {
         code: 0,
         url: `${url}&download=1`,
@@ -332,19 +273,18 @@ exports.default = async ctx => {
       }
 
       break
-    case 'other':
-      const hash = 'fd028243fcc46c38523cf86bd2f1c5e6'
-      await axios.post(`https://www.parsevideo.com/api.php?url=${url}&hash=${hash}`, {}, {
+
+    case 'zzzfun':
+      await  axios.get(`http://www.zzzfun.com${url}`, {
         headers: {
-          'origin': 'https://www.parsevideo.com',
-          'X-Forwarded-For': '183.3.226.35'
+          referer: 'http://www.zzzfun.com'
         }
       }).then(res => {
-        let out = res.data.video[0].url
+        let src = res.data.match(/<source src="([\s\S]+?)" onerror/)[1]
         ctx.body = {
           code: 0,
-          url: out,
-          type: out.indexOf('m3u8') < 0 ? 'mp4' : 'hls'
+          url: src,
+          type: 'mp4'
         }
       })
       break

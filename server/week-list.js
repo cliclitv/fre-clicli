@@ -8,13 +8,13 @@ module.exports = {
               title: '尤利西斯 贞德与炼金的骑士',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fwa5c9oahdj30go0afgn2.jpg',
               av: '411',
-              oid: '06'
+              oid: '07'
             },
             {
               title: '刃牙 Ⅱ',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fw0tdz0g48j30940dw3yp.jpg',
               av: '368',
-              oid: '21'
+              oid: '22'
             },
             {
               title: '夕照少女',
@@ -26,13 +26,13 @@ module.exports = {
               title: 'Anima Yell!',
               suo: 'http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2528679010.jpg',
               av: '372',
-              oid: '06'
+              oid: '07'
             },
             {
               title: '弦音 -风舞高中弓道部',
               suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgs3i1g93j309q0dr3z9.jpg',
               av: '460',
-              oid: '04'
+              oid: '05'
             }
           ]
         },
@@ -42,13 +42,13 @@ module.exports = {
               title: '关于我转生后成为史莱姆的那件事',
               suo: 'https://i.loli.net/2018/10/02/5bb3393eec0d3.jpg',
               av: '328',
-              oid: '07'
+              oid: '08'
             },
             {
               title: '东京食尸鬼：re 第二季',
               suo: 'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fvkh2n40ofj30hs0a0q43.jpg',
               av: '350',
-              oid: '06'
+              oid: '07'
             },
             {
               title: '欢迎光临，千岁酱',
@@ -66,7 +66,13 @@ module.exports = {
               title: '轩辕剑·苍之曜',
               suo: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=e2a1fb4357afa40f28cbc68fca0d682a/a08b87d6277f9e2f965951791230e924b899f357.jpg',
               av: '377',
-              oid: '07'
+              oid: '08'
+            },
+            {
+              title: '宇宙战舰提拉米苏 第二季',
+              suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
+              av: '338',
+              oid: '08'
             },
           ]
         },
@@ -89,12 +95,6 @@ module.exports = {
               suo: 'https://i.loli.net/2018/10/04/5bb5321807393.jpg',
               av: '335',
               oid: '11'
-            },
-            {
-              title: '宇宙战舰提拉米苏 第二季',
-              suo: 'https://i.loli.net/2018/10/04/5bb5387a0c216.jpg',
-              av: '338',
-              oid: '07'
             },
             {
               title: '受孕！请为我生孩子吧',
