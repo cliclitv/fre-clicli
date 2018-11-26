@@ -5,6 +5,7 @@ const weekList = require('./week-list')
 const Jx = require('./jx')
 const hcy = require('./api/hcy')
 const bit = require('./api/bit')
+const kandian = require('./api/kandian')
 
 
 const VueServerRenderer = require('vue-server-renderer')
@@ -27,6 +28,8 @@ router.get('/bit/down/:fid', bit.getUrl)
 router.get('/bit/list', bit.getList)
 router.get('/hcy/down/:fid', hcy.getUrl)
 router.get('/hcy/list', hcy.getList)
+router.get('/kandian/down/:vid', kandian.getUrl)
+router.get('/kandian/list', kandian.getList)
 
 router.get('/week/', weekList.getWeekList)
 

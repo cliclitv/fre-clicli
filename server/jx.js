@@ -3,6 +3,7 @@ const Base64 = require('js-base64').Base64
 axios.interceptors.response.use({}, err => {
   if (err.response.status === 302) return err.response
   if (err.response.status === 301) return err.response
+  if (err.response.status === 403) return err.response
 })
 
 function urlType(url) {
@@ -19,6 +20,8 @@ function urlType(url) {
   if (url.indexOf('sharepoint') > -1) return 'onedrive'
   if (url.indexOf('tyc-2509-h5') > -1) return 'bimi'
   if (url.indexOf('oda.php') > -1) return 'zzzfun'
+  if (url.indexOf('tieba.baidu') > -1) return 'tieba'
+  if (url.indexOf('fantasy') > -1) return 'fantasy'
 }
 
 
@@ -144,17 +147,29 @@ exports.default = async ctx => {
       }
       break
     case 'hcy':
-      await axios.get(url).then(res => {
-        let out = res.data.match(/download(\S*);/)
-        let u = out[0].substring(0, out[0].length - 2)
+      if (url.indexOf('vhcy') > -1) {
+        await axios.get(url).then(res => {
+          ctx.body = {
+            code: 0,
+            url: res.data,
+            type: 'mp4'
+          }
+        })
+      } else {
+        await axios.get(url).then(res => {
+          let out = res.data.match(/download(\S*);/)
+          let u = out[0].substring(0, out[0].length - 2)
 
-        ctx.body = {
-          code: 0,
-          url: `http://${u}`,
-          type: 'mp4'
-        }
-      })
+          ctx.body = {
+            code: 0,
+            url: `http://${u}`,
+            type: 'mp4'
+          }
+        })
+      }
+
       break
+
     case 'vbit':
       await axios.get(url, {
         headers: {
@@ -275,7 +290,7 @@ exports.default = async ctx => {
       break
 
     case 'zzzfun':
-      await  axios.get(`http://www.zzzfun.com${url}`, {
+      await  axios.get(`http://www.zzzfun.com${encodeURI(url)}`, {
         headers: {
           referer: 'http://www.zzzfun.com'
         }
@@ -284,6 +299,28 @@ exports.default = async ctx => {
         ctx.body = {
           code: 0,
           url: src,
+          type: 'mp4'
+        }
+      })
+      break
+    case 'tieba':
+      url = `${url}?fr=share`
+      await axios.get(url).then(res => {
+        let src = res.data.match(/6LZ0ej3k1Qd3ote6lo7D0j9wehsv([\s\S]+?)mp4/)[0]
+        ctx.body = `https://gss3.baidu.com/${src.replace(/\\/g, '')}`
+      })
+      break
+    case 'fantasy':
+      let fid = url.match(/channel\/([\s\S]+?)\//)[1]
+      await axios.post(`https://www.fantasy.tv/embed/getPath?id=${fid}`, {}, {
+        headers: {
+          Referer: 'https://www.fantasy.tv',
+          Host: 'www.fantasy.tv'
+        }
+      }).then(res => {
+        ctx.body = {
+          code: 0,
+          url: res.data.msg,
           type: 'mp4'
         }
       })
