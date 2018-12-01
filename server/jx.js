@@ -1,5 +1,6 @@
 const axios = require('axios')
 const Base64 = require('js-base64').Base64
+const bjh = require('./api/bjh')
 axios.interceptors.response.use({}, err => {
   if (err.response.status === 302) return err.response
   if (err.response.status === 301) return err.response
@@ -21,7 +22,7 @@ function urlType(url) {
   if (url.indexOf('tyc-2509-h5') > -1) return 'bimi'
   if (url.indexOf('oda.php') > -1) return 'zzzfun'
   if (url.indexOf('tieba.baidu') > -1) return 'tieba'
-  if (url.indexOf('fantasy') > -1) return 'fantasy'
+  if (url.indexOf('baijiahao') > -1) return 'bjh'
 }
 
 
@@ -310,20 +311,23 @@ exports.default = async ctx => {
         ctx.body = `https://gss3.baidu.com/${src.replace(/\\/g, '')}`
       })
       break
-    case 'fantasy':
-      let fid = url.match(/channel\/([\s\S]+?)\//)[1]
-      await axios.post(`https://www.fantasy.tv/embed/getPath?id=${fid}`, {}, {
+    case 'bjh':
+
+      let aid = url.match(/id=(\S*)/)[1]
+
+      const mid = await axios.get(`https://baijiahao.baidu.com/builder/author/article/edit?type=video&article_id=${aid}`, {
         headers: {
-          Referer: 'https://www.fantasy.tv',
-          Host: 'www.fantasy.tv'
+          Cookie: bjh.COOKIE
         }
       }).then(res => {
-        ctx.body = {
-          code: 0,
-          url: res.data.msg,
-          type: 'mp4'
-        }
+        return res.data.data.article.content[0].mediaId
       })
+
+      await bjh.getUrl(ctx, Base64.encode(mid))
+
+      // await axios.get(`http://localhost:3000/bjh/down/${Base64.encode(mid)}`).then(res => {
+      //   ctx.body = res.data
+      // })
       break
     default:
       ctx.body = {

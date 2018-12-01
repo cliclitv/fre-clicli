@@ -6,6 +6,7 @@ const Jx = require('./jx')
 const hcy = require('./api/hcy')
 const bit = require('./api/bit')
 const kandian = require('./api/kandian')
+const bjh = require('./api/bjh')
 
 
 const VueServerRenderer = require('vue-server-renderer')
@@ -30,10 +31,12 @@ router.get('/hcy/down/:fid', hcy.getUrl)
 router.get('/hcy/list', hcy.getList)
 router.get('/kandian/down/:vid', kandian.getUrl)
 router.get('/kandian/list', kandian.getList)
+router.get('/bjh/down/:mid', bjh.getUrl)
 
 router.get('/week/', weekList.getWeekList)
 
 router.get('*', async ctx => {
+  ctx.request.headers['user-agent'] = ctx.request.headers['user-agent'] + ' 115Browser/9.0.0'
   ctx.type = 'html'
   const cookie = ctx.cookies.get('uname')
   if (cookie) {
