@@ -27,7 +27,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return 'C哩C哩弹幕网_(⁄•⁄ω⁄•⁄) 社保~ - clicli.us'
+      return 'C哩C哩弹幕网_(⁄•⁄ω⁄•⁄) 社保~ - clicli.top'
     },
     computed: {
       ...mapGetters(['isLogin'])

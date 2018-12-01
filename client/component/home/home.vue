@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="gonggao">
-      <span>clicli弹幕网更换服务器和域名，新域名:www.clicli.top，欢迎加入收藏夹！</span>
+      <span>clicli 弹幕网补番小分队招募(⊙o⊙)…欢迎加入交流群：607024802畅谈人生</span>
     </div>
     <search-box></search-box>
     <week-list></week-list>
@@ -40,7 +40,7 @@
     },
     mixins: [titleMixin],
     title() {
-      return 'C哩C哩弹幕网_(⁄•⁄ω⁄•⁄) 社保~ - clicli.us'
+      return 'C哩C哩弹幕网_(⁄•⁄ω⁄•⁄) 社保~ - clicli.top'
     },
     beforeMount() {
       if (this.uqq) {
@@ -115,7 +115,7 @@
       margin-bottom: 20px
       text-align center
       span
-        background $yellow
+        background $pink-color
         color #fff
         padding: 5px
         a

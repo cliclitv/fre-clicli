@@ -324,10 +324,6 @@ exports.default = async ctx => {
       })
 
       await bjh.getUrl(ctx, Base64.encode(mid))
-
-      // await axios.get(`http://localhost:3000/bjh/down/${Base64.encode(mid)}`).then(res => {
-      //   ctx.body = res.data
-      // })
       break
     default:
       ctx.body = {

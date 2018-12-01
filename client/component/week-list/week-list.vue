@@ -13,7 +13,7 @@
           <img :src="item.suo" :alt="item.title">
           <div class="text">
             <div class="title">{{item.title}}</div>
-            <div class="oid">更新至{{item.oid}}集</div>
+            <!--<div class="oid">更新至{{item.oid}}集</div>-->
           </div>
         </router-link>
       </li>
