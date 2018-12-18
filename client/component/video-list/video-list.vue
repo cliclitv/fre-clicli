@@ -95,7 +95,7 @@
           this.getDanmuku(res.data.comments)
         })
         getRealUrl(content).then(res => {
-          this.url = res.data.url
+          this.url = res.data.m3u8Url || res.data.url
           this.type = res.data.type
         })
 

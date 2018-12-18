@@ -40,7 +40,8 @@ module.exports = {
     ctx.body = {
       code: 0,
       url: down,
-      m3u8Url: line
+      m3u8Url: line,
+      type: line ? 'hls' : 'mp4'
     }
   },
 

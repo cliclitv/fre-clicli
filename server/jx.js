@@ -10,7 +10,6 @@ axios.interceptors.response.use({}, err => {
 
 function urlType(url) {
   if (url.indexOf('hcy') > -1) return 'hcy'
-  if (url.indexOf('typt') > -1) return 'typt'
   if (url.indexOf('vbit') > -1) return 'vbit'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
@@ -18,12 +17,12 @@ function urlType(url) {
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
   if (url.indexOf('1006_') > -1) return 'qzone'
   if (url.indexOf('sharepoint') > -1) return 'onedrive'
-  if (url.indexOf('tyc-2509-h5') > -1) return 'bimi'
   if (url.indexOf('zzzfun') > -1) return 'zzzfun'
   if (url.indexOf('tieba.baidu') > -1) return 'tieba'
   if (url.indexOf('baijiahao') > -1) return 'bjh'
   if (url.indexOf('lvren') > -1) return 'lvren'
   if (url.indexOf('47.94.243.190:8081') > -1) return 'bimibimi'
+  if (url.indexOf('bimibimi') > -1) return 'bimi'
 }
 
 
@@ -238,19 +237,14 @@ exports.default = async ctx => {
       }
       break
     case 'bimi':
-      console.log(url)
       await axios.get(url, {
         headers: {
           'Referer': 'https://www.bimibimi.cc',
 
         }
       }).then(res => {
-        let src = res.data.match(/url='([\s\S]+?)';/)[1]
-        ctx.body = {
-          code: 0,
-          url: src,
-          type: 'mp4'
-        }
+        let src = res.data.match(/url":"(\S*)","url_next/)[1]
+        ctx.body=decodeURIComponent(src)
       })
       break
     case 'onedrive':
