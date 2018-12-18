@@ -1,6 +1,7 @@
 const axios = require('axios')
 const Base64 = require('js-base64').Base64
 const bjh = require('./api/bjh')
+
 axios.interceptors.response.use({}, err => {
   if (err.response.status === 302) return err.response
   if (err.response.status === 301) return err.response
@@ -10,19 +11,19 @@ axios.interceptors.response.use({}, err => {
 function urlType(url) {
   if (url.indexOf('hcy') > -1) return 'hcy'
   if (url.indexOf('typt') > -1) return 'typt'
-  if (url.indexOf('yylep') > -1) return 'yylep'
   if (url.indexOf('vbit') > -1) return 'vbit'
   if (url.indexOf('qinmei') > -1) return 'qinmei'
   if (url.indexOf('bilibili') > -1) return 'bilibili'
   if (url.indexOf('va360') > -1) return '360'
-  if (url.indexOf('le.com') > -1) return 'letv'
   if (url.indexOf('qinmoe') > -1) return 'qinmoe'
   if (url.indexOf('1006_') > -1) return 'qzone'
   if (url.indexOf('sharepoint') > -1) return 'onedrive'
   if (url.indexOf('tyc-2509-h5') > -1) return 'bimi'
-  if (url.indexOf('oda.php') > -1) return 'zzzfun'
+  if (url.indexOf('zzzfun') > -1) return 'zzzfun'
   if (url.indexOf('tieba.baidu') > -1) return 'tieba'
   if (url.indexOf('baijiahao') > -1) return 'bjh'
+  if (url.indexOf('lvren') > -1) return 'lvren'
+  if (url.indexOf('47.94.243.190:8081') > -1) return 'bimibimi'
 }
 
 
@@ -212,35 +213,6 @@ exports.default = async ctx => {
         }
       })
       break
-    case 'yylep':
-      await axios.get(url).then(res => {
-        let src = res.data.match(/url='https:([\s\S]+?)'/)[1]
-        ctx.body = {
-          code: 0,
-          url: `https:${src}`,
-          type: 'mp4'
-        }
-      })
-      break
-    case 'letv':
-      await axios.get(`http://193.112.131.234:8081/play/le`, {
-        params: {
-          v: url
-        },
-        headers: {
-          Cookie: 'ci_session=6ffad7666a410375c8e64acd0227f832c1277b27',
-          Host: '193.112.131.234:8081',
-          'User-Agent': ctx.header['user-agent']
-        }
-      }).then(res => {
-        let src = res.data.match(/url = "http:([\s\S]+?)"/)[1]
-        ctx.body = {
-          code: 0,
-          url: `http:${src}`,
-          type: 'mp4'
-        }
-      })
-      break
     case 'qinmoe':
       await axios.get(url, {
         headers: {
@@ -291,17 +263,13 @@ exports.default = async ctx => {
       break
 
     case 'zzzfun':
-      await  axios.get(`http://www.zzzfun.com${encodeURI(url)}`, {
+      await  axios.get(url, {
         headers: {
           referer: 'http://www.zzzfun.com'
         }
       }).then(res => {
-        let src = res.data.match(/<source src="([\s\S]+?)" onerror/)[1]
-        ctx.body = {
-          code: 0,
-          url: src,
-          type: 'mp4'
-        }
+        let base = res.data.match(/html","url":"([\s\S]+?)","url_next/)[1]
+        ctx.body = base
       })
       break
     case 'tieba':
@@ -324,6 +292,32 @@ exports.default = async ctx => {
       })
 
       await bjh.getUrl(ctx, Base64.encode(mid))
+      break
+    case 'lvren':
+      await axios.get(url, {
+        headers: {
+          Referer: 'https://www.halihali.tv/'
+        }
+      }).then(res => {
+        ctx.body = {
+          code: 0,
+          url: res.data.match(/url: '(\S*)',/)[1].replace(/\\/g, ''),
+          type: 'mp4'
+        }
+      })
+      break
+    case 'bimibimi':
+      await axios.get(url, {
+        headers: {
+          Referer: 'https://www.bimibimi.cc/'
+        }
+      }).then(res => {
+        ctx.body = {
+          code: 0,
+          url: res.data,
+          type: 'mp4'
+        }
+      })
       break
     default:
       ctx.body = {

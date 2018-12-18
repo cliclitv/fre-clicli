@@ -233,11 +233,6 @@ module.exports = {
               av: '402'
             },
             {
-              title: '狐狸之声',
-              suo: 'https://i.loli.net/2018/10/27/5bd3d22749467.jpg',
-              av: '490',
-            },
-            {
               title: '书店里的骷髅店员本田',
               suo: 'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=9645c27e07f3d7ca0cf63870ca24d934/738b4710b912c8fccda9738df7039245d6882113.jpg',
               av: '481'
