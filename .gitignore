@@ -3,4 +3,5 @@ node_modules/
 dist/
 yarn-error.log
 server/api/
+server/jx.js
 
