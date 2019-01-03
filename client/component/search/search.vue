@@ -25,7 +25,7 @@
       })
     },
     title() {
-      return this.$route.params.key + '- C哩C哩弹幕网'
+      return this.$route.params.key + '- clicli弹幕网'
     },
     components: {
       PostList

@@ -40,7 +40,7 @@
     },
     mixins: [titleMixin],
     title() {
-      return 'C哩C哩弹幕网_(⁄•⁄ω⁄•⁄) 社保~ - clicli.top'
+      return 'c站-clicli弹幕网_(⁄•⁄ω⁄•⁄) 社保~ clicli.us'
     },
     beforeMount() {
       if (this.uqq) {

@@ -35,8 +35,8 @@ export const CanvasBarrage = function (canvas, video, options) {
   let data = top.data
 
   let context = canvas.getContext('2d')
-  canvas.width = canvas.clientWidth
-  canvas.height = canvas.clientHeight
+  canvas.width = video.clientWidth
+  canvas.height = video.clientHeight
 
   // 存储实例
   let store = {}

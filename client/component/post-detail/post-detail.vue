@@ -46,7 +46,7 @@
       }
     },
     title() {
-      return this.$store.state.post.title + '- C哩C哩弹幕网'
+      return this.$store.state.post.title + '- clicli弹幕网'
     },
     computed: {
       ...mapGetters(['post'])

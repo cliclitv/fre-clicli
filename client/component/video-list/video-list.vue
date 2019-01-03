@@ -54,7 +54,7 @@
         title: '',
         content: '',
         pid: getAv(this.$route.params.id),
-        uid: 0
+        uid: 0,
       }
     },
     mounted() {

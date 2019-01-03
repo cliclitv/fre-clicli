@@ -24,7 +24,7 @@
       }
     },
     title() {
-      return translate(this.$route.params.sort) + '- C哩C哩弹幕网'
+      return translate(this.$route.params.sort) + '- clicli弹幕网'
     },
     beforeMount() {
       this.getSortArticle(this.$route.params.sort)

@@ -2,7 +2,14 @@
   <div class="player-wrap" v-if="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <div class="ep" ref="player"></div>
+      <e-player :src="url" :type="type" v-if="!isMobile"></e-player>
+      <canvas class="danmu" v-if="!isMobile"></canvas>
+
+      <div class="mobile" v-if="isMobile">
+        <video style="width: 100%" controls>
+          <source :type="getType()" :src="url">
+        </video>
+      </div>
       <div class="close" @click="hide">
         <i class="icon-font icon-close1"></i>
       </div>
@@ -12,7 +19,6 @@
 </template>
 
 <script>
-  import Eplayer from 'eplayer'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
   import {mapGetters} from 'vuex'
   import Comment from 'component/danmu/danmu.vue'
@@ -22,29 +28,58 @@
     computed: {
       ...mapGetters(['danmuku'])
     },
+    data() {
+      return {
+        isMobile: false
+      }
+    },
+    mounted() {
+      if ("ontouchend" in document.body) {
+        this.isMobile = true
+      }
+    },
     watch: {
       url() {
         setTimeout(() => {
-          new Eplayer(this.$refs.player, {
-            src: this.url,
-            themeColor: 'linear-gradient(to right,#0072ff ,#00e7ff)',
-            type: this.type
-          })
-
-          const canvas = document.getElementById('ep-canvas')
-          const video = document.getElementById('ep-video')
-          let data = this.forDanmu(this.danmuku)
-
-          this.dm = new CanvasBarrage(canvas, video, {
-            data: data
-          })
-
+          if(!this.isMobile){
+            const video = document.querySelector('e-player').shadowRoot.querySelector('video')
+            const canvas = document.querySelector('.danmu')
+            let data = this.forDanmu(this.danmuku)
+            this.dm = new CanvasBarrage(canvas, video, {
+              data: data
+            })
+          }else {
+            const video = document.querySelector('video')
+            this.stream(video)
+            video.load()
+          }
         }, 20)
       }
     },
     methods: {
+      stream(video) {
+        switch (this.type) {
+          case 'hls':
+            if (Hls.isSupported()) {
+              let hls = new Hls()
+              hls.loadSource(this.url)
+              hls.attachMedia(video)
+            }
+            break
+          case 'flv':
+            if (flvjs.isSupported()) {
+              let flvPlayer = flvjs.createPlayer({type: 'flv', url: this.url})
+              flvPlayer.attachMediaElement(video)
+              flvPlayer.load()
+            }
+            break
+        }
+      },
       add(data) {
         this.dm.add(data)
+      },
+      getType(){
+        return `video/${this.type}`
       },
       forDanmu(arr) {
         let out = []
@@ -83,9 +118,9 @@
       left: 50%
       transform translate(-50%, -60%)
       box-shadow: 1px 1px 5px #090c13
-      .ep
-        width: 800px
-        height: 450px
+      .danmu
+        position absolute
+        top: 0
 
     .wrapper
       background: rgba(0, 0, 0, .8)
@@ -108,19 +143,6 @@
         border: 2px solid #fff
         padding: 10px
         color: #fff
-    .line
-      padding: 10px 30px
-      background $yellow
-      color: #fff
-      position fixed
-      top: 50%
-      left: 50%
-      transform translate(400px, 200px)
-      z-index: 111111
-      cursor pointer
-      transition .3s
-    .line:hover
-      transform translate(420px, 200px)
 
 
 </style>

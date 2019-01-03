@@ -13,6 +13,9 @@ import 'common/stylus/responsive.styl'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.config.ignoredElements = [
+  'e-player'
+]
 
 const router = createRouter()
 const store = createStore()

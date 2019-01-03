@@ -98,7 +98,7 @@
           this.msg = '不能不填！'
           return
         }
-        let time = Math.round(document.getElementById('ep-video').currentTime)
+        let time = Math.round(document.querySelector('e-player').shadowRoot.querySelector('video').currentTime)
         this.$emit('add', {
           value: this.data.value,
           time: time,

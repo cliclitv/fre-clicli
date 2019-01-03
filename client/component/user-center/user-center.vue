@@ -22,7 +22,7 @@
   export default {
     mixins: [titleMixin],
     title() {
-      return this.user ? (this.user.name + 'の主页 - ★ACG和谐区★') : '少年祈祷中……'
+      return this.user ? (this.user.name + 'の主页 - clicli弹幕网') : '少年祈祷中……'
     },
     data() {
       return {
