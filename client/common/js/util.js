@@ -1,5 +1,14 @@
+import md5 from 'blueimp-md5'
+
 export function getAvatar(avatar) {
-  return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
+  if (avatar.indexOf('@')) {
+    let hash = md5(avatar)
+    return `http://avatar.tietuku.com/avatar/${hash}`
+  } else if (/^[0-9]+$/.test(avatar)) {
+    return `https://q2.qlogo.cn/headimg_dl?dst_uin=${avatar}&spec=100`
+  }else {
+    return avatar
+  }
 }
 
 export function getSuo(content) {
