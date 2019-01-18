@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="gonggao">
-      <span>clicli 弹幕网补番小分队招募(⊙o⊙)…欢迎加入交流群：607024802畅谈人生</span>
+      <span>clicli 已更换播放器，报错、反馈、补档，记得加群：607024802</span>
     </div>
     <search-box></search-box>
     <week-list></week-list>

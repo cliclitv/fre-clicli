@@ -1,12 +1,12 @@
 import md5 from 'blueimp-md5'
 
 export function getAvatar(avatar) {
-  if (avatar.indexOf('@')) {
+  if (avatar.indexOf('@') > -1) {
     let hash = md5(avatar)
     return `http://avatar.tietuku.com/avatar/${hash}`
   } else if (/^[0-9]+$/.test(avatar)) {
     return `https://q2.qlogo.cn/headimg_dl?dst_uin=${avatar}&spec=100`
-  }else {
+  } else {
     return avatar
   }
 }
