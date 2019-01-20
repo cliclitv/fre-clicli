@@ -19,6 +19,6 @@ app.use(router.routes())
 
 // 启动
 app.listen(3000, () => {
-  console.log('IIIIIIIIII am starting')
+  console.log('clicli started on 3000')
 })
 
