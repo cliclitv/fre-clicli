@@ -1,13 +1,11 @@
 import md5 from 'blueimp-md5'
 
 export function getAvatar(avatar) {
-  if (avatar.indexOf('@') > -1) {
-    let hash = md5(avatar)
-    return `http://avatar.tietuku.com/avatar/${hash}`
-  } else if (/^[0-9]+$/.test(avatar)) {
-    return `https://q2.qlogo.cn/headimg_dl?dst_uin=${avatar}&spec=100`
+  if (/^[0-9]+$/.test(avatar)) {
+    return `http://q1.qlogo.cn/g?b=qq&nk=${avatar}&s=5`
   } else {
-    return avatar
+    let hash = md5(avatar)
+    return `https://cdn.v2ex.com/gravatar/${hash}`
   }
 }
 

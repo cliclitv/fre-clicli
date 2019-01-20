@@ -64,6 +64,7 @@
     text-align center
     img
       border-radius 50px
+      width 100px
     li
       font-size: 16px
       padding: 10px

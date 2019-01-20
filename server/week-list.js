@@ -186,6 +186,11 @@ module.exports = {
               title: '约定的梦幻岛',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fz0ste2et9j30u0168jzu.jpg',
               av: '733'
+            },
+            {
+              title: '格林笔记',
+              suo: 'https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=20229a45aaefce1bfe26c098ce3898bb/b2de9c82d158ccbfdc4c6c8914d8bc3eb0354195.jpg',
+              av: '762'
             }
           ]
         },
@@ -220,10 +225,6 @@ module.exports = {
               title: '魔法少女特殊战明日香',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fz3ph0utkjj30sg1b2dnq.jpg',
               av: '739'
-            }{
-              title: '辉夜大小姐想让我告白',
-              suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fz4upw54j4j30ch0hsdh7.jpg',
-              av: '743'
             }
           ]
         },
@@ -263,6 +264,11 @@ module.exports = {
               title: 'endro',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fz64i8sk0qj30hs0p5785.jpg',
               av: '744'
+            },
+            {
+              title: '辉夜大小姐想让我告白',
+              suo: 'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fz4upw54j4j30ch0hsdh7.jpg',
+              av: '743'
             }
           ]
         }

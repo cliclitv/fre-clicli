@@ -56,7 +56,7 @@
   import {mapMutations} from 'vuex'
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
-  import axios from 'axios'
+  import {getAvatar} from "common/js/util"
 
   export default {
 
@@ -80,7 +80,7 @@
         this.isOnLogin(true)
       },
       getAvatar(qq) {
-        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + qq + `&spec=100`
+        return getAvatar(qq)
       },
       auth() {
         auth().then(res => {

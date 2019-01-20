@@ -32,7 +32,7 @@
 
 <script>
   import {getComments, addComment} from 'api/comment'
-  import {getAv} from 'common/js/util'
+  import {getAv, getAvatar} from 'common/js/util'
   import Cookies from 'js-cookie'
   import {getStorage} from "common/js/localstorage"
   import {mapMutations} from 'vuex'
@@ -80,7 +80,7 @@
         this.isOnLogin(true)
       },
       getAvatar(avatar) {
-        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
+        return getAvatar(avatar)
       },
       ...mapMutations(['isOnLogin'])
     }
