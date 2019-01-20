@@ -5,6 +5,7 @@
         <img :src="getAvatar(post.uqq)">
         <span>{{post.uname}}</span>
         <div class="count"><i class="icon-font icon-comment"></i>{{commentCount}}</div>
+        <div class="count"><i class="icon-font icon-eye"></i>{{playCount}}</div>
       </div>
     </router-link>
     <div class="post">
@@ -30,6 +31,7 @@
 <script>
   import {getAvatar, mark, getAv} from "common/js/util"
   import {getCommentCount} from 'api/article'
+  import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
   import Loading from 'base/loading/loading.vue'
@@ -42,7 +44,8 @@
     mixins: [titleMixin],
     data() {
       return {
-        commentCount: 0
+        commentCount: 0,
+        playCount: 0
       }
     },
     title() {
@@ -57,6 +60,9 @@
         if (res.data.code === 201) {
           this.commentCount = res.data.count.cv
         }
+      })
+      getPv(getAv(this.$route.params.id)).then(res => {
+        this.playCount = res.data.pv
       })
     },
     asyncData({store, route}) {
@@ -171,6 +177,7 @@
       padding: 5px 15px
       border-radius 25px
       float right
+      margin-right: 10px
     .count:hover
       background $blue-color
 </style>

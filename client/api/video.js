@@ -54,3 +54,7 @@ export function getRealUrl(url) {
     })
   }
 }
+
+export function getPv(pid) {
+  return axios.get(`https://www.clicli.top/get/pv?pid=${pid}`)
+}

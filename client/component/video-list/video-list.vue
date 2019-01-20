@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import {addVideo, updateVideo, getVideos, getRealUrl} from 'api/video'
+  import {addVideo, updateVideo, getVideos, getRealUrl, getPv} from 'api/video'
   import {getStorage} from 'common/js/localstorage'
   import {getAvatar} from "common/js/util"
   import Player from 'base/player/player.vue'
@@ -54,7 +54,7 @@
         title: '',
         content: '',
         pid: getAv(this.$route.params.id),
-        uid: 0,
+        uid: 0
       }
     },
     mounted() {
@@ -91,6 +91,9 @@
       selectItem({id, content}, e) {
         this.playerShow = true
         this.setVid(id)
+        getPv(this.pid).then(res => {
+          console.log(res.data.pv + '+1')
+        })
         getDanmuku(id, 1, 100).then(res => {
           this.getDanmuku(res.data.comments)
         })
