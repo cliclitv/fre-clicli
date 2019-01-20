@@ -5,7 +5,7 @@
     <div class="list">
       <ul>
         <li v-for="item in videos">
-          <div class="item" @click="selectItem(item)">
+          <div class="item" @click="selectItem(item,$event)">
             <div class="avatar">
               <img :src="getAvatar(item.uqq)">
             </div>
@@ -88,7 +88,7 @@
           }
         })
       },
-      selectItem({id, content}) {
+      selectItem({id, content}, e) {
         this.playerShow = true
         this.setVid(id)
         getDanmuku(id, 1, 100).then(res => {
@@ -98,7 +98,7 @@
           this.url = res.data.m3u8Url || res.data.url
           this.type = res.data.type
         })
-
+        e.currentTarget.style.color = '#009CFF'
       },
       getAvatar(qq) {
         return getAvatar(qq)
