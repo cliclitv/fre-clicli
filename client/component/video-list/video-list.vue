@@ -98,7 +98,7 @@
           this.url = res.data.m3u8Url || res.data.url
           this.type = res.data.type
         })
-        e.currentTarget.style.color = '#009CFF'
+        e.currentTarget.style.background = '#35355a'
       },
       getAvatar(qq) {
         return getAvatar(qq)
