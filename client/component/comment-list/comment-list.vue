@@ -45,7 +45,7 @@
         comments: [],
         uqq: Cookies.get('uqq'),
         content: '',
-
+        count: this.count
       }
     },
     mounted() {
@@ -65,6 +65,7 @@
         }).then(res => {
           this.content = ''
           this.getComment()
+          this.count ++
           console.log(res.data.code)
         })
       },
