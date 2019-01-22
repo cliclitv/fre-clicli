@@ -30,8 +30,8 @@
         <router-link to="/" class="tab-item">
           <li class="first-child"><i class="icon-font icon-tv"></i>主站</li>
         </router-link>
-        <router-link to="/sort/news" class="tab-item">
-          <li>号外</li>
+        <router-link to="/play/av99" class="tab-item">
+          <li>留言补档</li>
         </router-link>
         <router-link to="/play/av31" class="tab-item">
           <li>使用说明</li>
