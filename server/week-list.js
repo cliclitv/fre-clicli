@@ -73,6 +73,11 @@ module.exports = {
               title: '噬血狂袭 Ⅲ',
               suo: 'https://wx1.sinaimg.cn/large/006bnWk0gy1fympufj4q8j30nq0xc0xi.jpg',
               av: '703'
+            },
+            {
+              title: '兽娘动物园 Ⅱ',
+              suo: 'http://ww1.sinaimg.cn/large/0065Zy9ely1fzfjpjxfh9j30g40mtdji.jpg',
+              av: '778'
             }
 
           ]
@@ -113,6 +118,11 @@ module.exports = {
               title: '狠西游第二集',
               suo: 'https://wx1.sinaimg.cn/large/006bnWk0gy1fyk2m2e91jj30le0u0jy3.jpg',
               av: '701'
+            },
+            {
+              title: '环战公主',
+              suo: 'https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=37d6af1c4a10b912abccfeaca2949766/d50735fae6cd7b896496d224022442a7d8330e9b.jpg',
+              av: '782'
             },
           ]
         },

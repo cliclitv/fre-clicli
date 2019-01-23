@@ -5,7 +5,7 @@ export function getAvatar(avatar) {
     return `http://q1.qlogo.cn/g?b=qq&nk=${avatar}&s=5`
   } else {
     let hash = md5(avatar)
-    return `https://cn.gravatar.com/${hash}`
+    return `https://cn.gravatar.com/avatar/${hash}`
   }
 }
 

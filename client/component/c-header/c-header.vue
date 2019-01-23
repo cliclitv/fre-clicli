@@ -31,7 +31,7 @@
           <li class="first-child"><i class="icon-font icon-tv"></i>主站</li>
         </router-link>
         <router-link to="/play/av99" class="tab-item">
-          <li>留言补档</li>
+          <li>留言报错</li>
         </router-link>
         <router-link to="/play/av31" class="tab-item">
           <li>使用说明</li>
