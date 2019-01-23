@@ -25,10 +25,16 @@ const renderer = VueServerRenderer.createRenderer({
 
 const weekList = require('./week-list')
 const Jx = require('./jx')
+const bit = require('./api/bit')
+const hcy = require('./api/hcy')
 
 const router = new Router()
 
 router.get('/jx/', Jx.default)
+router.get('/bit/down/:fid', bit.getUrl)
+router.get('/bit/list', bit.getList)
+router.get('/hcy/down/:fid', hcy.getUrl)
+router.get('/hcy/list', hcy.getList)
 router.get('/get/pv', async function addPv(ctx) {
   const pid = parseInt(ctx.query.pid)
   let ran = Math.floor(Math.random() * 100)
@@ -47,7 +53,6 @@ router.get('/get/pv', async function addPv(ctx) {
 router.get('/week/', weekList.getWeekList)
 
 router.get('*', async ctx => {
-  ctx.request.headers['user-agent'] = ctx.request.headers['user-agent'] + ' 115Browser/9.0.0'
   ctx.type = 'html'
   const cookie = ctx.cookies.get('uname')
   if (cookie) {
@@ -57,16 +62,8 @@ router.get('*', async ctx => {
     const context = {
       url: ctx.path
     }
-    try {
-      const app = await bundle(context)
-
-      const appString = await renderer.renderToString(app, context)
-
-      ctx.body = appString
-    } catch (err) {
-      console.log('render error', err)
-      throw err
-    }
+    const app = await bundle(context)
+    ctx.body = await renderer.renderToString(app, context)
   }
 })
 module.exports = router
