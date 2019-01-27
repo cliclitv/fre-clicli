@@ -46,7 +46,7 @@
   import {mapGetters, mapMutations} from 'vuex'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
   import SwitchButton from 'base/switch-button/switch-button.vue'
-  import {getAv} from 'common/js/util'
+  import {getAv,getAvatar} from 'common/js/util'
 
   export default {
     data() {
@@ -87,7 +87,7 @@
         document.getElementById('ep-canvas').style.display = 'none'
       },
       getAvatar(avatar) {
-        return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
+        return getAvatar(avatar)
       },
       onLogin() {
         this.isOnLogin(true)

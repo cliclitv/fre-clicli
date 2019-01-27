@@ -5,16 +5,6 @@ module.exports = {
         {
           day: '周一', content: [
             {
-              title: '夕照少女',
-              suo: 'https://i.loli.net/2018/10/04/5bb4ff25cfbcc.jpg',
-              av: '334'
-            },
-            {
-              title: '弦音 -风舞高中弓道部',
-              suo: 'https://ws1.sinaimg.cn/large/007nucEpgy1fwgs3i1g93j309q0dr3z9.jpg',
-              av: '460'
-            },
-            {
               title: '多罗罗',
               suo: 'https://wx3.sinaimg.cn/large/a183a0f1ly1fxxbx0qphkj20u016g1ky.jpg',
               av: '722'
@@ -201,6 +191,11 @@ module.exports = {
               title: '格林笔记',
               suo: 'https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=20229a45aaefce1bfe26c098ce3898bb/b2de9c82d158ccbfdc4c6c8914d8bc3eb0354195.jpg',
               av: '762'
+            },
+            {
+              title: 'BanG Dream!',
+              suo: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3560362543,1083698236&fm=173&app=25&f=JPEG?w=350&h=520&s=A8323E9946A1DAFA163BACC4030030AD',
+              av: '689'
             }
           ]
         },
@@ -235,12 +230,16 @@ module.exports = {
               title: '魔法少女特殊战明日香',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fz3ph0utkjj30sg1b2dnq.jpg',
               av: '739'
+            },
+            {
+              title: 'B-PROJECT～绝顶＊Emotion～',
+              suo: 'https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=32cc94b85cda81cb5aeb8b9f330fbb73/4afbfbedab64034fe752be4aa2c379310b551dda.jpg',
+              av: '763'
             }
           ]
         },
         {
           day: '周日', content: [
-
             {
               title: '博人传',
               suo: 'https://i.loli.net/2018/07/29/5b5dbcc9a9d08.jpg',
@@ -274,6 +273,11 @@ module.exports = {
               title: 'endro',
               suo: 'http://wx3.sinaimg.cn/mw690/0060lm7Tly1fz64i8sk0qj30hs0p5785.jpg',
               av: '744'
+            },
+            {
+              title: '多彩田园曲',
+              suo: 'https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike180%2C5%2C5%2C180%2C60/sign=561a08adbd7eca80060831b5f04afcb8/e61190ef76c6a7ef2a1006a8f0faaf51f3de660e.jpg',
+              av: '793'
             },
             {
               title: '辉夜大小姐想让我告白',
