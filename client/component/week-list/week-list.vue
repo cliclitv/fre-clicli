@@ -110,6 +110,6 @@
           .title
             font-size 13px
           .title, .oid
-            padding: 10px 0 0 10px
+            padding: 0 10px
 
 </style>
