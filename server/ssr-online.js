@@ -56,10 +56,9 @@ router.get('/week/', weekList.getWeekList)
 router.get('/upload/auth', async ctx => {
   let filename = ctx.query.fname
   let vn = ctx.query.rname
-  let params = `filename=${encodeURIComponent(filename)}&vn=${encodeURIComponent(vn)}`
-  console.log(params)
+  let params = `/auth/upload.json?filename=${encodeURIComponent(filename)}&vn=${encodeURIComponent(vn)}`
   let accessToken = util.getAccessToken(params)
-  await axios.get(`https://api.dogecloud.com/auth/upload.json?${params}`, {
+  await axios.get(`https://api.dogecloud.com${params}`, {
     headers: {
       Host: 'api.dogecloud.com',
       Authorization: `TOKEN ${accessToken}`
