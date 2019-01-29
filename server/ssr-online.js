@@ -10,6 +10,8 @@ const knex = require('knex')({
     database: 'clicli'
   }
 });
+const axios = require('axios')
+const util = require('./util/util')
 const VueServerRenderer = require('vue-server-renderer')
 const clientManifest = require('../dist/vue-ssr-client-manifest.json')
 const bundle = require('../dist/server-build.js').default
@@ -51,6 +53,26 @@ router.get('/get/pv', async function addPv(ctx) {
   }
 })
 router.get('/week/', weekList.getWeekList)
+router.get('/upload/auth', async ctx => {
+  let filename = ctx.query.fname
+  let vn = ctx.query.rname
+  let params = `filename=${encodeURIComponent(filename)}&vn=${encodeURIComponent(vn)}`
+  console.log(params)
+  let accessToken = util.getAccessToken(params)
+  await axios.get(`https://api.dogecloud.com/auth/upload.json?${params}`, {
+    headers: {
+      Host: 'api.dogecloud.com',
+      Authorization: `TOKEN ${accessToken}`
+    }
+  }).then(res => {
+    if (res.data.code === 200) {
+      ctx.body = {
+        code: 0,
+        uploadToken: res.data.data.uploadToken
+      }
+    }
+  })
+})
 
 router.get('*', async ctx => {
   ctx.type = 'html'

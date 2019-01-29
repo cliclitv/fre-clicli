@@ -202,6 +202,11 @@ module.exports = {
         {
           day: '周六', content: [
             {
+              title: 'JOJO的奇妙冒险 第五部 (黄金之风)',
+              suo: 'https://i.loli.net/2018/10/06/5bb805ac8c7e2.jpg',
+              av: '360'
+            },
+            {
               title: 'RADIANT',
               suo: 'https://ws1.sinaimg.cn/large/0065Zy9egy1fvzzscreagj30fa0b43zh.jpg',
               av: '367'
