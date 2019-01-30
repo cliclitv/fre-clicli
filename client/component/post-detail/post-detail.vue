@@ -29,7 +29,7 @@
 </template>
 
 <script>
-  import {getAvatar, mark, getAv} from "common/js/util"
+  import {getAvatar, getAv,translate} from "common/js/util"
   import {getCommentCount} from 'api/article'
   import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
@@ -38,7 +38,6 @@
   import marked from 'marked'
   import CommentList from 'component/comment-list/comment-list.vue'
   import VideoList from 'component/video-list/video-list.vue'
-  import {translate} from "common/js/util"
 
   export default {
     mixins: [titleMixin],
@@ -85,9 +84,7 @@
         if (typeof (content) === 'undefined') {
           return '少年祈祷中……'
         } else {
-          let str = marked(content, {renderer: renderer})
-          let str2 = str.replace('></iframe', 'style="background:#fff;margin-top:20px;max-width:100%;border-radius:5px"></iframe')
-          return str2.replace('> </iframe', 'style="width:100%;height:350px;margin:15px 0;"> </iframe')
+          return marked(content, {renderer: renderer})
         }
       }
     },

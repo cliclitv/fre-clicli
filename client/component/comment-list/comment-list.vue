@@ -44,8 +44,7 @@
       return {
         comments: [],
         uqq: Cookies.get('uqq'),
-        content: '',
-        count: this.count
+        content: ''
       }
     },
     mounted() {

@@ -11,10 +11,5 @@ module.exports = {
 
     const sign = crypto.createHmac('sha1', SECRET_KEY).update(signStr).digest('hex')
     return ACCESS_KEY + ':' + sign
-  },
-  getUserIp(ctx) {
-    return ctx.req.connection.remoteAddress ||
-      ctx.req.socket.remoteAddress ||
-      ctx.req.connection.socket.remoteAddress
   }
 }

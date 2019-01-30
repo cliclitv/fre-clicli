@@ -4,6 +4,7 @@ const Home = () => import('component/home/home.vue')
 const ArticleDetail = () => import('component/post-detail/post-detail.vue')
 const Sort = () => import('component/sort/sort.vue')
 const Search = () => import('component/search/search.vue')
+const Ugc = () => import('component/ugc/ugc.vue')
 const UserCenter = () => import('component/user-center/user-center.vue')
 
 
@@ -15,6 +16,13 @@ export default () => {
       {
         path: '/',
         component: Home,
+        meta: {
+          keepAlive: true
+        }
+      },
+      {
+        path: '/ugc',
+        component: Ugc,
         meta: {
           keepAlive: true
         }

@@ -28,7 +28,10 @@
       </div>
       <ul class="menu">
         <router-link to="/" class="tab-item">
-          <li class="first-child"><i class="icon-font icon-tv"></i>主站</li>
+          <li><i class="icon-font icon-tv"></i>主站</li>
+        </router-link>
+        <router-link to="/ugc" class="tab-item">
+          <li><i class="icon-font icon-smile"></i>原创</li>
         </router-link>
         <router-link to="/play/av99" class="tab-item">
           <li>留言报错</li>
@@ -121,7 +124,7 @@
         removeStorage('user-info')
         this.isShow = false
         this.msg = '退出成功啦'
-        this.bg = '#b0fa66'
+        this.bg = '#3f659a'
 
       },
       ...mapMutations(['isOnLogin'])
@@ -164,10 +167,15 @@
       padding: 10px
       color: $color
       box-sizing: border-box
-    .router-link-active li
+    .router-link-exact-active li
       color: $blue-color
+    .router-link-exact-active:nth-child(2) li
+      color: $pink-color
     .icon-tv
       margin-right: 10px
+    .icon-smile
+      color: $pink-color
+      margin-right 10px
 
   .bio
     width 1120px
