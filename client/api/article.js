@@ -40,6 +40,17 @@ export function getPostsByStatus(page, pageSize) {
   })
 }
 
+// 获取原创视频
+export function getUgcsByStatus(page, pageSize) {
+  return request.get('/posts/type', {
+    params: {
+      status: 'ugc',
+      page,
+      pageSize,
+    }
+  })
+}
+
 // 根据作者获取发布状态的文章
 export function userArticle(id) {
   return request.get('/posts/both', {

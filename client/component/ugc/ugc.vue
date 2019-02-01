@@ -13,7 +13,7 @@
 
 <script>
   import UgcList from 'component/ugc-list/ugc-list.vue'
-  import {getPostsBySort} from 'api/article'
+  import {getUgcsByStatus} from 'api/article'
 
   export default {
     name: 'ugc',
@@ -24,7 +24,7 @@
     },
 
     mounted() {
-      getPostsBySort('yuanchuang', 1, 20).then(res => {
+      getUgcsByStatus(1, 20).then(res => {
         this.ugcs = res.data.posts
       })
     },
