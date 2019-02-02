@@ -29,6 +29,7 @@ const weekList = require('./week-list')
 const Jx = require('./jx')
 const bit = require('./api/bit')
 const hcy = require('./api/hcy')
+const qq = require('./api/qq')
 
 const router = new Router()
 
@@ -37,6 +38,8 @@ router.get('/bit/down/:fid', bit.getUrl)
 router.get('/bit/list', bit.getList)
 router.get('/hcy/down/:fid', hcy.getUrl)
 router.get('/hcy/list', hcy.getList)
+router.get('/qq/down/:fid', qq.getUrl)
+router.get('/qq/list', qq.getList)
 router.get('/get/pv', async function addPv(ctx) {
   const pid = parseInt(ctx.query.pid)
   let ran = Math.floor(Math.random() * 100)
