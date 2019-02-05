@@ -15,19 +15,6 @@
         </li>
       </ul>
     </div>
-    <div class="addBtn">
-      <span @click="show" v-show="isShow">贴视频</span>
-    </div>
-    <div class="addVideo" v-show="addShow">
-      <ul>
-        <li><input type="text" placeholder="序号：只填数字，最终展示为[第x话]" v-model="oid"></li>
-        <li><input type="text" placeholder="标题：每一话的名字，可不填" v-model="title"></li>
-        <li><input type="text" placeholder="播放地址：mp4 或 m3u8 直链" v-model="content"></li>
-        <li>
-          <button @click="addVideo">张贴</button>
-        </li>
-      </ul>
-    </div>
   </div>
 
 </template>
@@ -48,8 +35,6 @@
         addShow: false,
         isShow: false,
         playerShow: false,
-        oid: '',
-        url: '',
         type: '',
         title: '',
         content: '',
@@ -63,7 +48,7 @@
       if (role === 'admin' || role === 'editor' || role === 'author') {
         this.isShow = true
       }
-      getVideos(this.pid, 1, 100).then(res => {
+      getVideos(this.pid, 1, 150).then(res => {
         if (res.data.code === 201) {
           this.videos = res.data.videos
         }
@@ -80,13 +65,6 @@
       hide() {
         this.addShow = false
         this.playerShow = false
-      },
-      addVideo() {
-        addVideo(this.oid, this.title, this.content, this.pid, this.uid).then(res => {
-          if (res.data.code === 201) {
-            this.addShow = false
-          }
-        })
       },
       selectItem({id, content}, e) {
         this.playerShow = true
