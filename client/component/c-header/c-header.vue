@@ -45,6 +45,9 @@
         <router-link to="/play/av276" class="tab-item">
           <li>贴视频</li>
         </router-link>
+        <a href="https://acgzone.github.io/clicli-hybrid-app" class="tab-item" target="_blank">
+          <li>APP下载</li>
+        </a>
       </ul>
     </div>
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>

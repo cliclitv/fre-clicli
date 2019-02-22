@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="gonggao">
-      <span>c站招募小伙伴一起搬运，报错、反馈、补档，统统加群：607024802</span>
+      <span>c站app发布啦，看导航！顺便报错、补档、反馈要加群：561285033</span>
     </div>
     <search-box></search-box>
     <week-list></week-list>
