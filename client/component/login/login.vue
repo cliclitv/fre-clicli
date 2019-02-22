@@ -66,7 +66,7 @@
   .on-login
     width: 300px
     padding: 20px
-    background: $d-color
+    background: $b-color
     position fixed
     z-index: 999999
     top: 50%
@@ -82,7 +82,7 @@
         border-bottom: 1px dashed $blue-color
         padding: 5px
         color: #fff
-        background $d-color
+        background $b-color
         letter-spacing: 3px
         box-sizing border-box
       input:focus
