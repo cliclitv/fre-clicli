@@ -2,7 +2,7 @@
   <div class="player-wrap" v-if="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <e-player :src="url" v-if="!isMobile"></e-player>
+      <e-player :src="url" :type="type" v-if="!isMobile"></e-player>
       <canvas class="danmu" v-if="!isMobile"></canvas>
 
       <div class="mobile" v-if="isMobile">
