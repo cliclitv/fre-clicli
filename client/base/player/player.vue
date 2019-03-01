@@ -101,6 +101,7 @@
     position absolute
     width: 800px
     height: 450px
+    background #000
     .play
       width: 800px
       height: 450px
