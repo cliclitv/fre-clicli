@@ -2,7 +2,7 @@
   <div class="player-wrap" v-if="playerShow">
     <div class="wrapper"></div>
     <div class="play">
-      <e-player :src="url" :type="type" v-if="!isMobile"></e-player>
+      <e-player :src="url" v-if="!isMobile"></e-player>
       <canvas class="danmu" v-if="!isMobile"></canvas>
 
       <div class="mobile" v-if="isMobile">
@@ -24,7 +24,7 @@
   import Comment from 'component/danmu/danmu.vue'
 
   export default {
-    props: ['url', 'type', 'playerShow'],
+    props: ['url', 'playerShow'],
     computed: {
       ...mapGetters(['danmuku'])
     },
@@ -64,13 +64,6 @@
               let hls = new Hls()
               hls.loadSource(this.url)
               hls.attachMedia(video)
-            }
-            break
-          case 'flv':
-            if (flvjs.isSupported()) {
-              let flvPlayer = flvjs.createPlayer({type: 'flv', url: this.url})
-              flvPlayer.attachMediaElement(video)
-              flvPlayer.load()
             }
             break
         }
