@@ -24,7 +24,7 @@
   import Comment from 'component/danmu/danmu.vue'
 
   export default {
-    props: ['url', 'playerShow'],
+    props: ['url','type', 'playerShow'],
     computed: {
       ...mapGetters(['danmuku'])
     },

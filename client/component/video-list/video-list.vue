@@ -1,7 +1,7 @@
 <template>
   <div class="video-list">
     <div class="wrapper" v-show="addShow" @click="hide"></div>
-    <player :url="url" :playerShow="playerShow" @hide="hide"></player>
+    <player :url="url" :type="type" :playerShow="playerShow" @hide="hide"></player>
     <div class="list">
       <ul>
         <li v-for="item in videos">
@@ -39,7 +39,8 @@
         content: '',
         pid: getAv(this.$route.params.id),
         uid: 0,
-        url:''
+        url:'',
+        type:''
       }
     },
     mounted() {
@@ -76,7 +77,8 @@
           this.getDanmuku(res.data.comments)
         })
         getRealUrl(content).then(res => {
-          this.url = res.data.m3u8Url || res.data.url
+          this.url = res.data.url
+          this.type =  res.data.type
         })
         e.currentTarget.style.background = '#35355a'
       },
