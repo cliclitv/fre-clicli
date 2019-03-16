@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import ProgressBar from 'base/progress-bar/progress-bar.vue'
+  import ProgressBar from 'widget/progress-bar/progress-bar.vue'
   import CHeader from 'component/c-header/c-header.vue'
   import CFooter from 'component/c-footer/c-footer.vue'
   import titleMixin from 'common/mixin/title-mixin'

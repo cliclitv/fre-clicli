@@ -23,7 +23,7 @@
   import {addVideo, updateVideo, getVideos, getRealUrl, getPv} from 'api/video'
   import {getStorage} from 'common/js/localstorage'
   import {getAvatar} from "common/js/util"
-  import Player from 'base/player/player.vue'
+  import Player from 'widget/player/player.vue'
   import {mapState, mapMutations} from 'vuex'
   import {getDanmuku} from 'api/comment'
   import {getAv} from "common/js/util"

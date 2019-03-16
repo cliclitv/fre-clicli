@@ -10,7 +10,7 @@ module.exports = {
       component: path.resolve(__dirname, '../client/component'),
       common: path.resolve(__dirname, '../client/common'),
       api: path.resolve(__dirname, '../client/api'),
-      base: path.resolve(__dirname, '../client/base'),
+      widget: path.resolve(__dirname, '../client/widget'),
       store: path.resolve(__dirname, '../client/store')
     }
   },

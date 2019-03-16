@@ -58,7 +58,7 @@
 <script>
   import Cookies from 'js-cookie'
   import {Base64} from 'js-base64'
-  import BottomTip from 'base/bottom-tip/bottom-tip.vue'
+  import BottomTip from 'widget/bottom-tip/bottom-tip.vue'
   import {mapMutations} from 'vuex'
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "common/js/localstorage"

@@ -45,7 +45,7 @@
   import {getStorage} from "common/js/localstorage"
   import {mapGetters, mapMutations} from 'vuex'
   import {CanvasBarrage} from 'common/js/CanvasBarrage'
-  import SwitchButton from 'base/switch-button/switch-button.vue'
+  import SwitchButton from 'widget/switch-button/switch-button.vue'
   import {getAv,getAvatar} from 'common/js/util'
 
   export default {

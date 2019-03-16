@@ -17,13 +17,13 @@
 
 <script>
   import PostList from 'component/post-list/post-list.vue'
-  import SearchBox from 'base/search-box/search-box.vue'
-  import Pagination from 'base/pagination/pagination.vue'
+  import SearchBox from 'widget/search-box/search-box.vue'
+  import Pagination from 'widget/pagination/pagination.vue'
   import titleMixin from 'common/mixin/title-mixin'
   import {mapActions, mapState} from 'vuex'
   import {getPostsByStatus} from 'api/article'
   import Cookies from 'js-cookie'
-  import Loading from 'base/loading/loading.vue'
+  import Loading from 'widget/loading/loading.vue'
   import WeekList from 'component/week-list/week-list.vue'
   import Recommend from 'component/recommend/recommend.vue'
 

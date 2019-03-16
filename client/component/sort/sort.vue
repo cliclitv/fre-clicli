@@ -10,7 +10,7 @@
   import PostList from 'component/post-list/post-list.vue'
   import {mapActions, mapState} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
-  import Pagination from 'base/pagination/pagination.vue'
+  import Pagination from 'widget/pagination/pagination.vue'
   import {translate} from "common/js/util"
 
   export default {

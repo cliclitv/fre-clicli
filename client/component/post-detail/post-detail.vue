@@ -34,7 +34,7 @@
   import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'common/mixin/title-mixin'
-  import Loading from 'base/loading/loading.vue'
+  import Loading from 'widget/loading/loading.vue'
   import marked from 'marked'
   import CommentList from 'component/comment-list/comment-list.vue'
   import VideoList from 'component/video-list/video-list.vue'
