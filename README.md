@@ -1,8 +1,8 @@
-# vue-idanmu
+# vue-clicli
 
-第二次重写，是对上一次 ssr 架构的改进与重构，上个版本请参阅分支 v1.0
+c站（clicli.us）pc 端主站源码，目前的 v2 稳定版本
 
-顺便UI也重新设计，代码也重写大部分，配合用 go 重构过的后端 api
+预计将在 vue3 发版后进行重构，大概是年底
 
 ### 策略
 
@@ -17,9 +17,20 @@
 * vue-router
 * koa2
 
->配套后台：[idanmu-admin](https://github.com/132yse/idanmu-admin)
+>配套后台：[clicli-admin](https://github.com/132yse/clicli-admin)
 
-## about
+### 目录结构
 
-* blog: [伊撒尔の窝](http://www.yisaer.com)
-* weibo: [@世界倒数第一公主殿下](http://weibo.com/oreshura)
+client 文件夹集中了 vue 业务逻辑，server 文件夹集中了 ssr 相关逻辑
+
+client 文件夹中，api 是接口相关的方法
+
+component 为业务组件
+
+widget 为基础组件，与业务解耦，可以用于其他 vue 项目
+
+public 文件夹主要是公用的 js 、 stylus 等
+
+router 为路由相关，store 为 vuex 相关
+
+这个目录结构是我积累的最符合语义、维护性最高的结构，供参考
