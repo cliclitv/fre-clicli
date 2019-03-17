@@ -55,11 +55,11 @@
     },
     beforeMount() {
       this.getPost(getAv(this.$route.params.id))
-      getCommentCount(getAv(this.$route.params.id)).then(res => {
-        if (res.data.code === 201) {
-          this.commentCount = res.data.count.cv
-        }
-      })
+      // getCommentCount(getAv(this.$route.params.id)).then(res => {
+      //   if (res.data.code === 201) {
+      //     this.commentCount = res.data.count.cv
+      //   }
+      // })
       getPv(getAv(this.$route.params.id)).then(res => {
         this.playCount = res.data.pv
       })

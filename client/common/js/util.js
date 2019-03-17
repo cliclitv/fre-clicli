@@ -2,7 +2,7 @@ import md5 from 'blueimp-md5'
 
 export function getAvatar(avatar) {
   if (/^[0-9]+$/.test(avatar)) {
-    return `https://q2.qlogo.cn/headimg_dl?dst_uin=` + avatar + `&spec=100`
+    return `https://qlogo.store.qq.com/qzone/${avatar}/${avatar}/100`
   } else {
     let hash = md5(avatar)
     return `https://cdn.v2ex.com/gravatar/${hash}`
