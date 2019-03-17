@@ -19,7 +19,7 @@
   import PostList from 'component/post-list/post-list.vue'
   import SearchBox from 'widget/search-box/search-box.vue'
   import Pagination from 'widget/pagination/pagination.vue'
-  import titleMixin from 'common/mixin/title-mixin'
+  import titleMixin from 'public/mixin/title-mixin'
   import {mapActions, mapState} from 'vuex'
   import {getPostsByStatus} from 'api/article'
   import Cookies from 'js-cookie'
@@ -89,7 +89,7 @@
 </script>
 
 <style lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
 
   .main
     .common-title

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import {CanvasBarrage} from 'common/js/CanvasBarrage'
+  import {CanvasBarrage} from 'public/js/CanvasBarrage'
   import {mapGetters} from 'vuex'
   import Comment from 'component/danmu/danmu.vue'
 
@@ -96,7 +96,7 @@
 </script>
 
 <style lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .player-wrap
     position absolute
     width: 800px

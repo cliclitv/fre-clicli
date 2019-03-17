@@ -20,7 +20,7 @@
   import ProgressBar from 'widget/progress-bar/progress-bar.vue'
   import CHeader from 'component/c-header/c-header.vue'
   import CFooter from 'component/c-footer/c-footer.vue'
-  import titleMixin from 'common/mixin/title-mixin'
+  import titleMixin from 'public/mixin/title-mixin'
   import Login from 'component/login/login.vue'
   import {mapGetters,mapMutations} from 'vuex'
 
@@ -52,7 +52,7 @@
 </script>
 
 <style lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .home
     margin 60px auto !important
   .main

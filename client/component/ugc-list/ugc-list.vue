@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import {getAvatar, getSuo, translate} from "common/js/util"
+  import {getAvatar, getSuo, translate} from "public/js/util"
   import marked from 'marked'
 
   export default {
@@ -51,7 +51,7 @@
 
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .ugc-list
     width 960px
     float left

@@ -42,11 +42,11 @@
 <script>
   import {addComment} from 'api/comment'
   import Cookies from 'js-cookie'
-  import {getStorage} from "common/js/localstorage"
+  import {getStorage} from "public/js/localstorage"
   import {mapGetters, mapMutations} from 'vuex'
-  import {CanvasBarrage} from 'common/js/CanvasBarrage'
+  import {CanvasBarrage} from 'public/js/CanvasBarrage'
   import SwitchButton from 'widget/switch-button/switch-button.vue'
-  import {getAv,getAvatar} from 'common/js/util'
+  import {getAv,getAvatar} from 'public/js/util'
 
   export default {
     data() {
@@ -132,7 +132,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .comment
     color: #fff !important
     position fixed

@@ -8,7 +8,7 @@
 <script>
   import {searchPosts} from 'api/article'
   import PostList from 'component/post-list/post-list.vue'
-  import titleMixin from 'common/mixin/title-mixin'
+  import titleMixin from 'public/mixin/title-mixin'
 
   export default {
     mixins: [titleMixin],

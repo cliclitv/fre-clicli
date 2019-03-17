@@ -22,7 +22,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .footer
     padding: 20px 0
     margin-bottom: 60px

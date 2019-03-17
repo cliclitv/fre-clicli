@@ -28,7 +28,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .search-box
     width 100%
     height 100px

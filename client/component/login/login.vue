@@ -17,7 +17,7 @@
 
 <script>
   import {login} from "api/user"
-  import {getStorage, setStorage} from "common/js/localstorage"
+  import {getStorage, setStorage} from "public/js/localstorage"
 
   export default {
     data() {
@@ -49,7 +49,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .login
     position fixed
     z-index: 999999

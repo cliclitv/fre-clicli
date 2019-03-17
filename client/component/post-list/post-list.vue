@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import {momentTime, getAvatar, getSuo} from "common/js/util"
+  import {momentTime, getAvatar, getSuo} from "public/js/util"
   import {getCommentCount} from 'api/article'
 
   export default {
@@ -39,7 +39,7 @@
 
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .post-list
     background $b-color
     padding: 20px

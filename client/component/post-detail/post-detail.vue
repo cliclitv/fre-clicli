@@ -29,11 +29,11 @@
 </template>
 
 <script>
-  import {getAvatar, getAv,translate} from "common/js/util"
+  import {getAvatar, getAv,translate} from "public/js/util"
   import {getCommentCount} from 'api/article'
   import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
-  import titleMixin from 'common/mixin/title-mixin'
+  import titleMixin from 'public/mixin/title-mixin'
   import Loading from 'widget/loading/loading.vue'
   import marked from 'marked'
   import CommentList from 'component/comment-list/comment-list.vue'
@@ -98,7 +98,7 @@
 
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .post-detail
     width: 700px
     margin: 30px auto

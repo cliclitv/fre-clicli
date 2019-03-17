@@ -12,7 +12,7 @@
 </script>
 
 <style scoped lang="stylus">
-    @import "~common/stylus/variable"
+    @import "~public/stylus/variable"
     @keyframes spinner-circle-clipper
         0%
             transform: rotate(0deg)

@@ -36,7 +36,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .ugc
     margin: 40px 0
     .reach

@@ -21,12 +21,12 @@
 
 <script>
   import {addVideo, updateVideo, getVideos, getRealUrl, getPv} from 'api/video'
-  import {getStorage} from 'common/js/localstorage'
-  import {getAvatar} from "common/js/util"
+  import {getStorage} from 'public/js/localstorage'
+  import {getAvatar} from "public/js/util"
   import Player from 'widget/player/player.vue'
   import {mapState, mapMutations} from 'vuex'
   import {getDanmuku} from 'api/comment'
-  import {getAv} from "common/js/util"
+  import {getAv} from "public/js/util"
 
   export default {
     data() {
@@ -95,7 +95,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .video-list
     padding-top: 20px
     .addBtn

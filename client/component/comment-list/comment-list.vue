@@ -32,9 +32,9 @@
 
 <script>
   import {getComments, addComment} from 'api/comment'
-  import {getAv, getAvatar} from 'common/js/util'
+  import {getAv, getAvatar} from 'public/js/util'
   import Cookies from 'js-cookie'
-  import {getStorage} from "common/js/localstorage"
+  import {getStorage} from "public/js/localstorage"
   import {mapMutations} from 'vuex'
 
   export default {
@@ -88,7 +88,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .comment-list
     .add-comment
       margin: 30px 0

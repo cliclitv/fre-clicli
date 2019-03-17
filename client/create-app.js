@@ -7,9 +7,9 @@ import App from './app.vue'
 import createRouter from './router'
 import createStore from './store/index'
 
-import 'common/stylus/reset.styl'
-import 'common/stylus/index.styl'
-import 'common/stylus/responsive.styl'
+import 'public/stylus/reset.styl'
+import 'public/stylus/index.styl'
+import 'public/stylus/responsive.styl'
 
 
 

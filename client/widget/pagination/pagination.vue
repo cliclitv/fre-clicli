@@ -18,7 +18,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .pagination
     .next
       text-align center

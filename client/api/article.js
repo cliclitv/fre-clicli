@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {getStorage} from "common/js/localstorage"
+import {getStorage} from "public/js/localstorage"
 
 export const request = axios.create({
   baseURL: 'https://api.clicli.top'

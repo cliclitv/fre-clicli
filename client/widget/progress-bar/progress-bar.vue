@@ -45,7 +45,7 @@
 </script>
 
 <style scoped lang="stylus">
-    @import "~common/stylus/variable"
+    @import "~public/stylus/variable"
     .progress
         height: 3px
         background $blue-color

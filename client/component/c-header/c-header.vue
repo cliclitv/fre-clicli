@@ -61,8 +61,8 @@
   import BottomTip from 'widget/bottom-tip/bottom-tip.vue'
   import {mapMutations} from 'vuex'
   import {logout, auth, getUserByName} from "api/user"
-  import {getStorage, removeStorage, setStorage} from "common/js/localstorage"
-  import {getAvatar} from "common/js/util"
+  import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
+  import {getAvatar} from "public/js/util"
 
   export default {
 
@@ -140,7 +140,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .header
     position fixed
     top: 0

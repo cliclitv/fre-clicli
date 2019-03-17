@@ -15,9 +15,9 @@
 <script>
   import {getUserById} from "api/user"
   import {userArticle} from "api/article"
-  import {getAvatar} from "common/js/util"
+  import {getAvatar} from "public/js/util"
   import PostList from 'component/post-list/post-list.vue'
-  import titleMixin from 'common/mixin/title-mixin'
+  import titleMixin from 'public/mixin/title-mixin'
 
   export default {
     mixins: [titleMixin],
@@ -55,7 +55,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .user-info
     margin-top: 20px
 

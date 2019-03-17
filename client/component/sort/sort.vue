@@ -9,9 +9,9 @@
 <script>
   import PostList from 'component/post-list/post-list.vue'
   import {mapActions, mapState} from 'vuex'
-  import titleMixin from 'common/mixin/title-mixin'
+  import titleMixin from 'public/mixin/title-mixin'
   import Pagination from 'widget/pagination/pagination.vue'
-  import {translate} from "common/js/util"
+  import {translate} from "public/js/util"
 
   export default {
     mixins: [titleMixin],

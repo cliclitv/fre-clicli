@@ -8,7 +8,7 @@ module.exports = {
   resolve: {
     alias: {
       component: path.resolve(__dirname, '../client/component'),
-      common: path.resolve(__dirname, '../client/common'),
+      public: path.resolve(__dirname, '../client/public'),
       api: path.resolve(__dirname, '../client/api'),
       widget: path.resolve(__dirname, '../client/widget'),
       store: path.resolve(__dirname, '../client/store')

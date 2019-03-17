@@ -26,7 +26,7 @@
 </script>
 
 <style scoped lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .switch
     position relative
     margin-left 20px

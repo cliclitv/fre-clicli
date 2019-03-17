@@ -47,7 +47,7 @@
 </script>
 
 <style lang="stylus">
-  @import "~common/stylus/variable"
+  @import "~public/stylus/variable"
   .recommend-wrap
     position relative
     .recommend
