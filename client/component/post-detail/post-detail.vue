@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <video-list></video-list>
+    <video-list v-if="post.status==='public'"></video-list>
     <comment-list :count="commentCount"></comment-list>
   </div>
 </template>

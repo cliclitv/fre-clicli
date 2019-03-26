@@ -2,7 +2,7 @@
   <div id="app">
     <progress-bar></progress-bar>
     <c-header></c-header>
-    <login v-show="isLogin" @close="close" @error="error"></login>
+    <login v-show="isLogin" @close="close"></login>
     <div class="home wrap">
       <div class="main">
         <keep-alive>
@@ -22,7 +22,7 @@
   import CFooter from 'component/c-footer/c-footer.vue'
   import titleMixin from 'public/mixin/title-mixin'
   import Login from 'component/login/login.vue'
-  import {mapGetters,mapMutations} from 'vuex'
+  import {mapGetters, mapMutations} from 'vuex'
 
   export default {
     mixins: [titleMixin],
@@ -33,10 +33,6 @@
       ...mapGetters(['isLogin'])
     },
     methods: {
-      error({msg}) {
-        this.msg = msg
-        this.bg = '#f24848'
-      },
       close() {
         this.isOnLogin(false)
       },
@@ -55,6 +51,7 @@
   @import "~public/stylus/variable"
   .home
     margin 60px auto !important
+
   .main
     width 100%
     float: left
@@ -62,6 +59,7 @@
       font-size: 13px
       padding: 30px 0 10px 0
       font-weight: lighter
+      color: $color
 
   .left
     width 140px
