@@ -1,14 +1,14 @@
 <template>
   <div class="week-list">
     <ul class="day">
-      <li v-for="(item, key) in items" @click="handleClick(key)" :class="{active: activeIndex == key}"
+      <li v-for="(_, key) in items" @click="handleClick(key)" :class="{active: activeIndex == key}"
           class="item" v-html="getDay(key)">
       </li>
     </ul>
 
     <ul class="content">
       <li v-for="item in items[activeIndex]">
-        <router-link :to="'/play/av'+item.id">
+        <router-link :to="'/play/gv'+item.id">
           <img :src="getSuo(item.content)" :alt="item.title">
           <div class="text">
             <div class="title">{{item.title}}</div>

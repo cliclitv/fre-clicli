@@ -24,12 +24,16 @@ export function translate(sortName) {
       return '耽美'
     case 'moren':
       return '默认'
-    case 'lianzai':
-      return '连载'
     case 'wenzhang':
       return '文章'
     case 'yuanchuang':
       return '原创'
+    case 'juchangban':
+      return '剧场版'
+    case 'under':
+      return '已下架'
+    case 'public':
+      return '上线'
     default:
       return '其他'
   }

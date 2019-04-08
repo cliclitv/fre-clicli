@@ -2,7 +2,7 @@
   <div class="ugc-list">
     <ul class="masonry">
       <li v-for="item in ugcs" class="item">
-        <router-link :to="'/play/av'+item.id">
+        <router-link :to="'/play/gv'+item.id">
           <div class="post">
             <div class="user-info">
               <div class="avatar"><img :src="getAvatar(item.uqq)"></div>
