@@ -23,13 +23,13 @@
         </div>
       </div>
     </div>
-    <video-list v-if="post.status==='public'"></video-list>
+    <video-list v-if="post.status==='public'||post.status==='ugc'"></video-list>
     <comment-list :count="commentCount"></comment-list>
   </div>
 </template>
 
 <script>
-  import {getAvatar, getAv,translate} from "public/js/util"
+  import {getAvatar, getAv, translate} from "public/js/util"
   import {getCommentCount} from 'api/article'
   import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
