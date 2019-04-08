@@ -20,14 +20,14 @@ export function translate(sortName) {
       return '新番'
     case 'tuijian':
       return '推荐'
-    case 'danmei':
-      return '耽美'
     case 'moren':
       return '默认'
     case 'wenzhang':
       return '文章'
     case 'yuanchuang':
       return '原创'
+    case 'wanjie':
+      return '完结'
     case 'juchangban':
       return '剧场版'
     case 'under':
