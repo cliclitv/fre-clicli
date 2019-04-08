@@ -35,13 +35,13 @@
       getWeekList().then(res => {
         if (res.data.code === 201) {
           let ret = {
-            0: [],
             1: [],
             2: [],
             3: [],
             4: [],
             5: [],
             6: [],
+            0: [],
           }
           res.data.posts.forEach(item => {
             let day = new Date(item.time).getDay()
@@ -50,23 +50,28 @@
           this.items = ret
         }
       })
-      this.activeIndex = new Date().getDay() - 1
+      let date = new Date().getDay()
+      if (date === 0) {
+        this.activeIndex = 6
+      } else {
+        this.activeIndex = date
+      }
     },
     methods: {
       getSuo(content) {
         return getSuo(content)
       },
-      getDay(day){
-        if(day == 0) return '周一'
-        if(day == 1) return '周二'
-        if(day == 2) return '周三'
-        if(day == 3) return '周四'
-        if(day == 4) return '周五'
-        if(day == 5) return '周六'
-        if(day == 6) return '周日'
+      getDay(day) {
+        if (day == 1) return '周一'
+        if (day == 2) return '周二'
+        if (day == 3) return '周三'
+        if (day == 4) return '周四'
+        if (day == 5) return '周五'
+        if (day == 6) return '周六'
+        if (day == 0) return '周日'
       },
       handleClick(index) {
-        this.activeIndex = index
+        this.activeIndex = parseInt(index)
       }
     }
   }
