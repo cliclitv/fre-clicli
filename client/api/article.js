@@ -78,6 +78,7 @@ export function update(post) {
     uid: getStorage('user-info').id
   })
 }
+
 // 搜索
 export function searchPosts(key) {
   return request.get('/search/posts', {
@@ -94,5 +95,5 @@ export function getCommentCount(id) {
 
 // 获取周播表
 export function getWeekList() {
-  return axios.get('/week/')
+  return axios.get('https://api.clicli.top/posts/both?status=public&sort=xinfan&page=1&pageSize=100')
 }

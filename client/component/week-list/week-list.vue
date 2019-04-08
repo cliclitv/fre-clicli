@@ -1,19 +1,17 @@
 <template>
   <div class="week-list">
     <ul class="day">
-      <li v-for="(item, index) in items" @click="handleClick(index)" :class="{active: activeIndex === index}"
-          class="item">
-        {{item.day}}
+      <li v-for="(item, key) in items" @click="handleClick(key)" :class="{active: activeIndex == key}"
+          class="item" v-html="getDay(key)">
       </li>
     </ul>
 
-    <ul class="content" v-if="items.length">
-      <li v-for="item in items[activeIndex].content" v-if="items.length">
-        <router-link :to="'/play/av'+item.av">
-          <img :src="item.suo" :alt="item.title">
+    <ul class="content">
+      <li v-for="item in items[activeIndex]">
+        <router-link :to="'/play/av'+item.id">
+          <img :src="getSuo(item.content)" :alt="item.title">
           <div class="text">
             <div class="title">{{item.title}}</div>
-            <!--<div class="oid">更新至{{item.oid}}集</div>-->
           </div>
         </router-link>
       </li>
@@ -24,6 +22,7 @@
 
 <script>
   import {getWeekList} from 'api/article'
+  import {getSuo} from "public/js/util"
 
   export default {
     data() {
@@ -32,21 +31,40 @@
         items: []
       }
     },
-    created() {
-      let week = new Date().getDay()
-      if (week === 0) {
-        this.activeIndex = 6
-      } else {
-        this.activeIndex = week - 1
-      }
-
-    },
     mounted() {
       getWeekList().then(res => {
-        this.items = res.data.data
+        if (res.data.code === 201) {
+          let ret = {
+            0: [],
+            1: [],
+            2: [],
+            3: [],
+            4: [],
+            5: [],
+            6: [],
+          }
+          res.data.posts.forEach(item => {
+            let day = new Date(item.time).getDay()
+            ret[day].push(item)
+          })
+          this.items = ret
+        }
       })
+      this.activeIndex = new Date().getDay() - 1
     },
     methods: {
+      getSuo(content) {
+        return getSuo(content)
+      },
+      getDay(day){
+        if(day == 0) return '周一'
+        if(day == 1) return '周二'
+        if(day == 2) return '周三'
+        if(day == 3) return '周四'
+        if(day == 4) return '周五'
+        if(day == 5) return '周六'
+        if(day == 6) return '周日'
+      },
       handleClick(index) {
         this.activeIndex = index
       }
