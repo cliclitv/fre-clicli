@@ -23,17 +23,6 @@ export function getPost(id) {
   return request.get(`/post/${id}`)
 }
 
-// 更新文章
-export function update(post) {
-  return request.post(`/post/update/${post.id}`, {
-    title: post.title,
-    content: post.content,
-    status: post.status,
-    sort: post.sort,
-    uid: getStorage('user-info').id
-  })
-}
-
 // 搜索
 export function searchPosts(key) {
   return request.get('/search/posts', {

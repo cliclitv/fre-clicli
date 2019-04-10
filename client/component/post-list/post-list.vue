@@ -21,8 +21,7 @@
 </template>
 
 <script>
-  import {momentTime, getAvatar, getSuo} from "public/js/util"
-  import {getCommentCount} from 'api/article'
+  import {getAvatar, getSuo} from "public/js/util"
 
   export default {
     props: ['posts'],

@@ -30,7 +30,6 @@
 
 <script>
   import {getAvatar, getAv, translate} from "public/js/util"
-  import {getCommentCount} from 'api/article'
   import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'public/mixin/title-mixin'

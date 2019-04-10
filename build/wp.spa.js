@@ -39,7 +39,7 @@ module.exports = merge(baseConfig, {
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './client/template.html'
+      template: './client/index.html'
     }),
     new MiniCssExtractPlugin({
       filename: "../css/[name].css",
@@ -51,7 +51,13 @@ module.exports = merge(baseConfig, {
     hot: true,
     compress: true,
     port: 2333,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api/*': {
+        pathRewrite: {'^/api': ''},
+        target: 'http://localhost:4000'
+      }
+    }
   }
 })
 

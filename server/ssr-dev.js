@@ -32,7 +32,7 @@ const handleSSR = async (ctx) => {
   const clientManifestRes = await axios.get('http://localhost:2333/vue-ssr-client-manifest.json')
   const clientManifest = clientManifestRes.data
   const template = fs.readFileSync(
-    path.join(__dirname, './template.html'),
+    path.join(__dirname, './index.html'),
     'utf-8'
   )
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {

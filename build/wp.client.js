@@ -44,18 +44,12 @@ module.exports = merge(baseConfig, {
   devServer: {
     hot: true,
     compress: true,
-    port: 2333
+    port: 2333,
+    proxy: {
+      '/api/*': {
+        pathRewrite: {'^/api': ''},
+        target: 'http://localhost:4000'
+      }
+    }
   }
 })
-
-// MiniCssExtractPlugin 暂不支持 ssr，暂时移除，坐等更新
-// https://github.com/webpack-contrib/mini-css-extract-plugin/issues/90
-
-
-// const isDev = process.env.NODE_ENV === 'development'
-
-
-
-// new HtmlWebpackPlugin({
-//   template: path.join(__dirname, 'template.html')
-// }),
