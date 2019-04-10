@@ -1,7 +1,12 @@
+import axios from 'axios'
 import {getStorage} from "public/js/localstorage"
 
+export const request = axios.create({
+  baseURL: 'http://localhost:4000'
+})
+
 export function getPosts(status, sort, tag, uid, page, pageSize) {
-  return fetch.get('/posts', {
+  return request.get('/posts', {
     params: {
       status,
       sort,
@@ -26,6 +31,7 @@ export function searchPosts(key) {
     }
   })
 }
+
 // 获取周播表
 export function getWeekList() {
   return axios.get('https://api.clicli.top/posts/both?status=public&sort=xinfan&page=1&pageSize=100')

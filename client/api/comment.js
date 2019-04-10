@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://api.clicli.top'
+  baseURL: 'http://localhost:4000'
 })
 
 // 根据pid查找评论

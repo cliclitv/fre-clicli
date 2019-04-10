@@ -51,7 +51,7 @@ module.exports = merge(baseConfig, {
     hot: true,
     compress: true,
     port: 2333,
-    historyApiFallback: true
+    historyApiFallback: true,
   }
 })
 

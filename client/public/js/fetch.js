@@ -1,8 +1,9 @@
 import fetch from 'cross-fetch'
 
 export default class Fetch {
-  constructor(url, cb) {
-    this.perfix = ''
+  static perfix = ''
+
+  constructor(url, params) {
 
     fetch(`${this.perfix}${url}`).then(res => {
       if (res.status >= 400) {
