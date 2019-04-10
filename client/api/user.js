@@ -1,30 +1,30 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://api.clicli.top'
+  baseURL: '/api'
 })
 
 // 用户登录
-export function login(user) {
-  return axios.post('/api/login', {
-    name: user.name, pwd: user.pwd
+export function login({name, pwd}) {
+  return axios.post('/user/login', {
+    name, pwd
   })
 }
 
 
 // 用户注册
-export function register(user) {
-  return request.post('/register', {name: user.name, pwd: user.pwd, qq: user.qq, role: 'user', desc: ''})
+export function register({name, pwd, qq}) {
+  return request.post('/user/register', {name, pwd, qq, role: 'user', desc: ''})
 }
 
 // 更新用户信息
-export function update(user) {
-  return request.post(`/user/update/${user.id}`, {
-    name: user.name,
-    pwd: user.pwd,
-    qq: user.qq,
-    role: user.role,
-    desc: user.desc
+export function update({id, name, pwd, qq, role, desc}) {
+  return request.post(`/user/update/${id}`, {
+    name,
+    pwd,
+    qq,
+    role,
+    desc
   })
 }
 
