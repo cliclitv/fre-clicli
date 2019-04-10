@@ -24,7 +24,21 @@
     </div>
     <search-box></search-box>
     <ul class="menu">
-
+      <li>
+        <router-link to="/"><i class="icon-font icon-home"></i></router-link>
+      </li>
+      <li>
+        <router-link to="/ugc"><i class="icon-font icon-smile"></i></router-link>
+      </li>
+      <li>
+        <router-link to="/bgm"><i class="icon-font icon-explore"></i></router-link>
+      </li>
+      <li>
+        <router-link :to="'/u/'+user.id"><i class="icon-font icon-user"></i></router-link>
+      </li>
+      <li class="write">
+        <router-link :to="loginLink"><i class="icon-font icon-write"></i></router-link>
+      </li>
     </ul>
 
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
@@ -131,13 +145,23 @@
         font-size: 30px
     .menu
       display inline-block
-      a
-        color: $color
-    li
-      display inline-block
-      padding: 10px
-      color: $color
-      box-sizing: border-box
+      position absolute
+      right: 15px
+      .write
+        background $qing
+        padding: 4px 20px
+        margin 0 15px
+      li
+        display inline-block
+        padding: 0 15px
+        a
+          color: $color
+          .icon-font
+            font-size 24px
+          .icon-write
+            color: $bg-color
+        .router-link-active
+          color: #fff
     .router-link-exact-active li
       color: $blue-color
     .router-link-exact-active:nth-child(2) li
