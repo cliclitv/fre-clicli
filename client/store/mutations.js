@@ -11,7 +11,6 @@ export default {
   setVid(state, vid) {
     state.vid = vid
   },
-
   getDanmuku(state, danmuku) {
     state.danmuku = danmuku
   }

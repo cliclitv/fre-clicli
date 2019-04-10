@@ -18,13 +18,7 @@ export function translate(sortName) {
   switch (sortName) {
     case 'xinfan':
       return '新番'
-    case 'tuijian':
-      return '推荐'
-    case 'moren':
-      return '默认'
-    case 'wenzhang':
-      return '文章'
-    case 'yuanchuang':
+    case 'ugc':
       return '原创'
     case 'wanjie':
       return '完结'

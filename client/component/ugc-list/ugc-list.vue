@@ -1,7 +1,7 @@
 <template>
   <div class="ugc-list">
     <ul class="masonry">
-      <li v-for="item in ugcs" class="item">
+      <li v-for="item in posts" class="item">
         <router-link :to="'/play/gv'+item.id">
           <div class="post">
             <div class="user-info">
@@ -9,11 +9,15 @@
               <div class="name">{{item.uname}}</div>
             </div>
             <h1 class="title">{{item.title}}</h1>
-            <div class="content"><img :src="getSuo(item.content)"></div>
+            <div class="content">
+              <img :src="getSuo(item.content)">
+            </div>
             <div class="info">
-              <span v-text="translate(item.sort)"></span>
+              <span v-text="'# ' + translate(item.sort)"></span>
+              <span v-text="'# ' + item.tag"></span>
               <span>{{item.time}}</span>
             </div>
+            <h1 class="count">{{item.count.cv + ' 评论'}}</h1>
           </div>
         </router-link>
       </li>
@@ -27,7 +31,7 @@
   import marked from 'marked'
 
   export default {
-    props: ['ugcs'],
+    props: ['posts'],
     methods: {
       getAvatar(avatar) {
         return getAvatar(avatar)
@@ -53,29 +57,30 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~public/stylus/variable"
   .ugc-list
-    width 960px
-    float left
+    width 1260px
+    margin 0 auto
     .masonry
-      column-count: 2
+      column-count: 4
       column-gap: 0
       .item
         break-inside: avoid
         box-sizing: border-box
-        padding: 20px
-        background $d-color
+        background $write
         margin: 0 20px 20px 0
-        border-radius 5px
-        box-shadow 0 1px 3px 0 rgba(0, 0, 0, .8)
+        border-radius 2px
+        .title
+          padding: 10px
     .post
-      color: $color
+      color: #333
     .user-info
+      padding: 20px
       display flex
       align-items center
-      padding-bottom: 20px
+      border-bottom 1px solid #eee
       .avatar img
         height: 40px
         width 40px
-        border-radius 5px
+        border-radius 50%
         margin-right 10px
       h1
         font-size: 18px
@@ -84,18 +89,17 @@
     .content
       img
         width 100%
-        border-radius: 5px
-        padding: 5px
-        background $bg-color
         box-sizing border-box
+        min-height 200px
         margin: 5px 0
-    .info span
-      padding: 3px 8px
-      color: #fff
-      background $b-color
-      border-radius: 10px 0 10px 0
-      margin: 0 5px
-      font-size: 10px
-
-
+    .info
+      padding: 10px 5px
+      span
+        padding: 4px
+        color: #666
+        font-size: 10px
+    .count
+      font-size 14px
+      padding: 0 10px 10px
+      font-weight bold
 </style>

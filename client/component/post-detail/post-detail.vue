@@ -17,12 +17,13 @@
         <div class="info">
           <span>{{post.time}}</span>
           <span v-text="translate(post.sort)"></span>
-          <span v-text="translate(post.tag)"></span>
+          <span v-text="post.tag"></span>
         </div>
         <div class="content" v-html="marked(post.content)">
         </div>
       </div>
     </div>
+    <router-view></router-view>
     <video-list v-if="post.status==='public'||post.status==='ugc'"></video-list>
     <comment-list :count="commentCount"></comment-list>
   </div>
@@ -57,6 +58,7 @@
       getPv(getAv(this.$route.params.id)).then(res => {
         this.playCount = res.data.pv
       })
+      this.commentCount = this.post.count.cv
     },
     asyncData({store, route}) {
       return store.dispatch('getPost', getAv(route.params.id))

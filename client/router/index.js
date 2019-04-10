@@ -2,11 +2,9 @@ import Router from 'vue-router'
 
 const Home = () => import('component/home/home.vue')
 const ArticleDetail = () => import('component/post-detail/post-detail.vue')
-const Sort = () => import('component/sort/sort.vue')
 const Search = () => import('component/search/search.vue')
 const Ugc = () => import('component/ugc/ugc.vue')
 const UserCenter = () => import('component/user-center/user-center.vue')
-
 
 export default () => {
   return new Router({
@@ -28,8 +26,8 @@ export default () => {
         }
       },
       {
-        path: '/:type',
-        component: Home,
+        path: '/all',
+        component: Search,
         meta: {
           keepAlive: true
         }
@@ -39,21 +37,7 @@ export default () => {
         component: ArticleDetail,
         meta: {
           keepAlive: false
-        }
-      },
-      {
-        path: '/sort/:sort',
-        component: Sort,
-        meta: {
-          keepAlive: true
-        }
-      },
-      {
-        path: '/search/:key',
-        component: Search,
-        meta: {
-          keepAlive: true
-        }
+        },
       },
       {
         path: '/u/:id',

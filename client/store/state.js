@@ -3,5 +3,5 @@ export default {
   post: {},
   isLogin: false,
   vid: 1,
-  danmuku:[]
+  danmuku: []
 }
