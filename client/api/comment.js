@@ -8,7 +8,7 @@ const request = axios.create({
 export function getComments(pid, page, pageSize) {
   return request.get('/comments', {
     params: {
-      pid: pid,
+      pid,
       page,
       pageSize
     }
@@ -19,7 +19,7 @@ export function getComments(pid, page, pageSize) {
 export function getDanmuku(vid, page, pageSize) {
   return request.get('/comments', {
     params: {
-      vid: vid,
+      vid,
       page,
       pageSize
     }

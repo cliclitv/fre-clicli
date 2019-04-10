@@ -37,11 +37,6 @@ export function updateVideo(oid, title, content, pid, uid) {
   })
 }
 
-// 删除评论
-export function deleteComment() {
-  return request.delete('/danmu/delete')
-}
-
 // 根据地址获取真实链接
 export function getRealUrl(url) {
   if (url.indexOf('www.clicli') > -1) {

@@ -1,4 +1,4 @@
-import {getPostsByStatus, getPostsBySort, getOneArticle} from '../api/article'
+import {getPostsByStatus, getPostsBySort, getOneArticle} from '../api/post'
 import {userList} from '../api/user'
 
 
