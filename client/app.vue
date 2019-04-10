@@ -6,7 +6,7 @@
       <span>c站强势改版(⊙o⊙)…报错、补档、反馈要加群：607024802</span>
     </div>
     <login v-show="isLogin" @close="close"></login>
-    <div class="home wrap">
+    <div class="home">
       <div class="main">
         <keep-alive>
           <router-view :key="$route.fullPath" v-if="$route.meta.keepAlive"></router-view>

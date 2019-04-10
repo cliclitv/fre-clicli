@@ -3,7 +3,7 @@
     <div class="left-btn" @click="left" v-show="!showBtn"><i class="icon-font icon-left"></i></div>
     <div class="recommend">
       <div class="list" ref="list">
-        <post-list :posts="recommend" noInfo></post-list>
+        <post-list :posts="recommend" noInfo="true"></post-list>
       </div>
     </div>
     <div class="right-btn" @click="right" v-show="showBtn"><i class="icon-font icon-right"></i></div>
@@ -27,7 +27,7 @@
     },
     methods: {
       right() {
-        this.$refs.list.style.transform = 'translate3D(-1100px,0,0)'
+        this.$refs.list.style.transform = 'translate3D(-1110px,0,0)'
         this.showBtn = false
       },
       left() {
@@ -60,25 +60,24 @@
         left 0
         transition .5s ease-out
       .post-list
-        width 2200px
+        width 2220px
         padding: 0
         display inline-block
         .post
           margin 0
         .suo, .suo img
-          height 200px
-          opacity .9
+          height 300px
         .suo img:hover
           opacity 1
         li
           float left
-          width 275px
+          width 370px
     .left-btn, .right-btn
       background $qing
       padding: 0 5px
       position absolute
       text-align center
-      height 200px
+      height 300px
       top: 0
       cursor pointer
       display flex

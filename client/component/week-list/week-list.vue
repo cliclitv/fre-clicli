@@ -1,5 +1,6 @@
 <template>
   <div class="week-list">
+    <div class="mask" ref="mask"></div>
     <ul class="day">
       <li v-for="(_, key) in items" @click="handleClick(key)" :class="{active: activeIndex == key}"
           class="item" v-html="getDay(key)">
@@ -48,6 +49,9 @@
             ret[day].push(item)
           })
           this.items = ret
+          window.ret = ret
+          let bg = getSuo(window.ret[this.activeIndex][0].content)
+          this.$refs.mask.style.backgroundImage = `url(${bg})`
         }
       })
       let date = new Date().getDay()
@@ -72,6 +76,8 @@
       },
       handleClick(index) {
         this.activeIndex = parseInt(index)
+        let bg = getSuo(window.ret[this.activeIndex][0].content)
+        this.$refs.mask.style.backgroundImage = `url(${bg})`
       }
     }
   }
@@ -80,33 +86,32 @@
 <style scoped lang="stylus">
   @import "~public/stylus/variable"
   .week-list
+    height: 290px
+    overflow hidden
+    position: relative
+    margin: 30px 0
+    background: rgba(24, 77, 107, 0.7)
+    .mask
+      position absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right 0
+      opacity 0.5
+      z-index -1
+      background-size cover
+      filter blur(3px)
     .day
       text-align: center
       li
         position relative
         display: inline-block
-        color: #fff
         font-weight bold
         padding: 5px 25px
         margin: 15px
-        border-radius 5px
         cursor pointer
-        background $t-color
-        &.active
-          background $qing
-        &.active:before
-          content ''
-          position: absolute
-          bottom: -10px
-          left: 35px
-          display: inline-block
-          width: 0
-          height: 0
-          border-left: 5px solid transparent
-          border-top: 10px solid $blue-color
-          border-right: 5px solid transparent
+        border-bottom 2px solid $color
     .content
-      background $t-color
       padding: 10px
       margin: 10px 0
       display block
@@ -116,15 +121,14 @@
         box-sizing border-box
         display inline-block
         a
-          color: #fff
           display flex
           align-items center
+          color: $color
         img
           height 80px
           width 80px
           object-fit: cover
           border-radius 50%
-          border: 10px solid $bg-color
         .text
           flex: 1
           .oid
@@ -135,4 +139,7 @@
           .title, .oid
             padding: 0 10px
 
+  .active
+    border-bottom 2px solid $qing!important
+    color: $qing
 </style>

@@ -1,11 +1,16 @@
 <template>
   <div>
-    <recommend></recommend>
-    <week-list></week-list>
-    <div class="common-title"><span>最近更新</span></div>
-    <post-list :posts="uqq?articles:posts"></post-list>
-    <pagination @next="next" v-show="isShow"></pagination>
-    <div class="login-more" v-show="!uqq"><span>登录后加载更多…</span></div>
+    <div class="wrap">
+      <recommend></recommend>
+      <week-list></week-list>
+    </div>
+    <div class="list-wrap">
+      <div class="wrap">
+        <post-list :posts="uqq?articles:posts"></post-list>
+        <pagination @next="next" v-show="isShow"></pagination>
+        <div class="login-more" v-show="!uqq"><span>登录后加载更多…</span></div>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -83,23 +88,14 @@
 
 <style lang="stylus">
   @import "~public/stylus/variable"
-
-  .main
-    .common-title
-      font-size: 14px
-      background $b-color
-      padding: 10px 0
-      span
-        border-left $yellow 3px solid
-        padding: 0 30px
-      .recommend
-        border-left $red 3px solid
-        padding: 0 30px
+  .list-wrap
+    background $t-color
+    .post-list
+      background none
     .login-more
       font-size: 13px
       text-align center
       span
-        background $b-color
         padding: 10px 30px
         border-radius: 30px
         display inline-block

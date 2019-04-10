@@ -8,7 +8,7 @@
               <img :src="getSuo(item.content)">
             </div>
 
-            <div class="info" v-if="noInfo">
+            <div class="info" v-if="!noInfo">
               <div>{{item.time}}</div>
               <h1 class="title">{{item.title.substring(0,10)}}</h1>
             </div>
@@ -25,6 +25,9 @@
 
   export default {
     props: ['posts', 'noInfo'],
+    mounted(){
+      console.log(this.noInfo)
+    },
     methods: {
       getAvatar(avatar) {
         return getAvatar(avatar)
