@@ -40,7 +40,6 @@
         <router-link :to="loginLink"><i class="icon-font icon-write"></i></router-link>
       </li>
     </ul>
-
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
   </div>
 
@@ -58,7 +57,6 @@
   import SearchBox from 'widget/search-box/search-box.vue'
 
   export default {
-
     data() {
       return {
         banner: '',
@@ -162,9 +160,5 @@
             color: $bg-color
         .router-link-active
           color: #fff
-    .router-link-exact-active li
-      color: $blue-color
-    .router-link-exact-active:nth-child(2) li
-      color: $pink-color
 
 </style>

@@ -3,7 +3,7 @@
     <div class="left-btn" @click="left" v-show="!showBtn"><i class="icon-font icon-left"></i></div>
     <div class="recommend">
       <div class="list" ref="list">
-        <post-list :posts="recommend"></post-list>
+        <post-list :posts="recommend" noInfo></post-list>
       </div>
     </div>
     <div class="right-btn" @click="right" v-show="showBtn"><i class="icon-font icon-right"></i></div>
@@ -52,7 +52,6 @@
   .recommend-wrap
     position relative
     .recommend
-      margin-bottom 10px
       overflow hidden
       width 100%
       .list
@@ -62,32 +61,33 @@
         transition .5s ease-out
       .post-list
         width 2200px
+        padding: 0
         display inline-block
+        .post
+          margin 0
+        .suo, .suo img
+          height 200px
+          opacity .9
+        .suo img:hover
+          opacity 1
         li
           float left
-          width 216px
-        .post .info
-          border-left 2px solid $red
+          width 275px
     .left-btn, .right-btn
-      background #131629
+      background $qing
+      padding: 0 5px
       position absolute
       text-align center
-      padding: 15px
-      top: 30%
+      height 200px
+      top: 0
       cursor pointer
-      transition .3s
+      display flex
+      align-items: center
       i
         font-size 24px
-    .left-btn:hover, .right-btn:hover
-      background $red
     .left-btn
-      left: -55px
-      border-radius 36px 0 0 36px
+      left: -35px
     .right-btn
-      right -55px
-      border-radius 0 36px 36px 0
-
-    li:nth-child(5)
-      margin-right 20px
+      right -35px
 
 </style>

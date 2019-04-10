@@ -8,7 +8,7 @@
               <img :src="getSuo(item.content)">
             </div>
 
-            <div class="info">
+            <div class="info" v-if="noInfo">
               <div>{{item.time}}</div>
               <h1 class="title">{{item.title.substring(0,10)}}</h1>
             </div>
@@ -24,7 +24,7 @@
   import {getAvatar, getSuo} from "public/js/util"
 
   export default {
-    props: ['posts'],
+    props: ['posts', 'noInfo'],
     methods: {
       getAvatar(avatar) {
         return getAvatar(avatar)
@@ -40,7 +40,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~public/stylus/variable"
   .post-list
-    background $b-color
+    background $t-color
     padding: 20px
     li
       width 20%
@@ -66,9 +66,7 @@
         box-sizing border-box
         object-fit: cover
         background $bg-color
-        transition  .3s
-      .suo img:hover
-        transform scale(1.05)
+        transition .3s
 
 
 </style>

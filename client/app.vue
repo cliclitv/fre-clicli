@@ -2,6 +2,9 @@
   <div id="app">
     <progress-bar></progress-bar>
     <c-header></c-header>
+    <div class="cell">
+      <span>c站强势改版(⊙o⊙)…报错、补档、反馈要加群：607024802</span>
+    </div>
     <login v-show="isLogin" @close="close"></login>
     <div class="home wrap">
       <div class="main">
@@ -50,38 +53,12 @@
 <style lang="stylus">
   @import "~public/stylus/variable"
   .home
-    margin 60px auto !important
+    margin 30px auto !important
 
-  .main
-    width 100%
-    float: left
-    .common-title
-      font-size: 13px
-      padding: 30px 0 10px 0
-      font-weight: lighter
-      color: $color
-
-  .left
-    width 140px
-    padding: 10px 10px 0 0
-    float: left
-    vertical-align: top
-
-  .right
-    float: right
-    width 250px
-    vertical-align: top
-    padding: 10px 0 10px 10px
-    margin-top: 10px
-
-  .gao
-    float left
-    margin-left: 30px
+  .cell
     text-align center
-    background #fff
-    color: #000
-    padding: 5px 20px
-    border-radius 20px
-    margin-top: 20px
+    margin-top: 56px
+    border-bottom: 1px solid $b-color
+    padding: 10px
 
 </style>

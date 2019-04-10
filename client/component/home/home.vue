@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div class="gonggao">
-      <span>c站app发布啦，看导航！顺便报错、补档、反馈要加群：561285033</span>
-    </div>
-    <week-list></week-list>
-    <div class="common-title"><span class="recommend">推荐</span></div>
     <recommend></recommend>
+    <week-list></week-list>
     <div class="common-title"><span>最近更新</span></div>
     <post-list :posts="uqq?articles:posts"></post-list>
     <pagination @next="next" v-show="isShow"></pagination>
@@ -108,16 +104,6 @@
         border-radius: 30px
         display inline-block
         margin: 30px
-    .gonggao
-      margin-bottom: 20px
-      text-align center
-      span
-        background $pink-color
-        color #fff
-        padding: 5px
-        a
-          font-weight bold
-
     .ad
       transition .3s
       display none

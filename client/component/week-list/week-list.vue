@@ -91,9 +91,9 @@
         margin: 15px
         border-radius 5px
         cursor pointer
-        background $b-color
+        background $t-color
         &.active
-          background $blue-color
+          background $qing
         &.active:before
           content ''
           position: absolute
@@ -106,7 +106,7 @@
           border-top: 10px solid $blue-color
           border-right: 5px solid transparent
     .content
-      background $b-color
+      background $t-color
       padding: 10px
       margin: 10px 0
       display block
