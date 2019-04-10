@@ -13,7 +13,7 @@
 
 <script>
   import PostList from 'component/post-list/post-list.vue'
-  import {getPostsByType} from 'api/article'
+  import {getPosts} from 'api/post'
 
   export default {
     data() {
@@ -35,7 +35,8 @@
         this.showBtn = true
       },
       getRecommend() {
-        getPostsByType('tuijian', 1, 10).then(res => {
+        getPosts('public', 'bgm', '推荐', '', 1, 10).then(res => {
+          console.log(res.data)
           if (res.data.code === 201) this.recommend = res.data.posts
         })
       }

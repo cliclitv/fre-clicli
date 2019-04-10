@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import {request} from 'api/article'
+  import {request} from 'api/post'
 
   export default {
     data() {

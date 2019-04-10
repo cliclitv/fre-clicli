@@ -44,12 +44,6 @@ module.exports = merge(baseConfig, {
   devServer: {
     hot: true,
     compress: true,
-    port: 2333,
-    proxy: {
-      '/api/*': {
-        pathRewrite: {'^/api': ''},
-        target: 'http://localhost:4000'
-      }
-    }
+    port: 2333
   }
 })

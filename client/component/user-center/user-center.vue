@@ -13,7 +13,7 @@
 
 <script>
   import {getUserById} from "api/user"
-  import {userArticle} from "api/article"
+  import {getPosts} from "api/post"
   import {getAvatar} from "public/js/util"
   import PostList from 'component/post-list/post-list.vue'
   import titleMixin from 'public/mixin/title-mixin'
@@ -33,7 +33,7 @@
       getUserById(this.$route.params.id).then(res => {
         if (res.data.code === 201) {
           this.user = res.data.user
-          userArticle(res.data.user.id).then(res => {
+          getPosts('public', '', '', '', res.data.user.id).then(res => {
             this.userPosts = res.data.posts
           })
         }

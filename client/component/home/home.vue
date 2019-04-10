@@ -21,7 +21,7 @@
   import Pagination from 'widget/pagination/pagination.vue'
   import titleMixin from 'public/mixin/title-mixin'
   import {mapActions, mapState} from 'vuex'
-  import {getPostsByStatus} from 'api/article'
+  import {getPosts} from 'api/post'
   import Cookies from 'js-cookie'
   import Loading from 'widget/loading/loading.vue'
   import WeekList from 'component/week-list/week-list.vue'
@@ -57,7 +57,7 @@
       ...mapActions(['getArticleList']),
       getArticleList(flag) {
         this.isLoading = true
-        getPostsByStatus(this.page, this.pageSize).then(res => {
+        getPosts('public', 'bgm', '', '', this.page, this.pageSize).then(res => {
           if (res.data.code === 201) {
             this.isShow = true
             this.isLoading = false

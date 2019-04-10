@@ -1,12 +1,7 @@
-import axios from 'axios'
 import {getStorage} from "public/js/localstorage"
 
-export const request = axios.create({
-  baseURL: '/api'
-})
-
 export function getPosts(status, sort, tag, uid, page, pageSize) {
-  return request.get('/posts/both', {
+  return fetch.get('/posts', {
     params: {
       status,
       sort,

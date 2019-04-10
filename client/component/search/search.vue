@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import {searchPosts} from 'api/article'
+  import {searchPosts} from 'api/post'
   import PostList from 'component/post-list/post-list.vue'
   import titleMixin from 'public/mixin/title-mixin'
 

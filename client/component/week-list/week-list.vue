@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import {getWeekList} from 'api/article'
+  import {getWeekList} from 'api/post'
   import {getSuo} from "public/js/util"
 
   export default {

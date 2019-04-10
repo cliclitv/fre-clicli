@@ -1,6 +1,5 @@
 import {getPosts, getPost} from '../api/post'
 
-
 export default {
   getArticleList({commit}) {
     return getPosts('public', 'bgm', '', '', 1, 20).then((res) => {
