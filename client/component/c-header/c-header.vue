@@ -1,55 +1,32 @@
 <template>
   <div class="header">
-    <div class="bio">
-      <ul class="biu">
-        <router-link :to="'/u/'+user.id">
-          <li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>
-          <li v-show="isShow">{{user.name}}</li>
-        </router-link>
+    <!--<div class="wrap">-->
+    <!--<ul class="biu">-->
+    <!--<router-link :to="'/u/'+user.id">-->
+    <!--<li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>-->
+    <!--<li v-show="isShow">{{user.name}}</li>-->
+    <!--</router-link>-->
 
-        <li v-show="isShow" @click="onLogout">退出</li>
-        <li @click="onLogin" v-show="!isShow">登录</li>
-        <a :href="registerLink">
-          <li v-show="!isShow">注册</li>
-        </a>
-      </ul>
+    <!--<li v-show="isShow" @click="onLogout">退出</li>-->
+    <!--<li @click="onLogin" v-show="!isShow">登录</li>-->
+    <!--<a :href="registerLink">-->
+    <!--<li v-show="!isShow">注册</li>-->
+    <!--</a>-->
+    <!--</ul>-->
+    <!--<a :href="loginLink" target="_blank">-->
+    <!--<li class="pr">-->
+    <!--<span>{{pr}}</span>-->
+    <!--</li>-->
+    <!--</a>-->
+    <!--</div>-->
+    <div class="logo">
+      <i class="icon-font icon-logo"></i>
+    </div>
+    <search-box></search-box>
+    <ul class="menu">
 
-      <a :href="loginLink" target="_blank">
-        <li class="pr">
-          <span>{{pr}}</span>
-        </li>
-      </a>
-    </div>
-    <div class="wrap">
-      <div class="logo">
-        <router-link to="/" class="pc-logo">
-          <img src="https://i.loli.net/2018/10/01/5bb1c251c2415.png" alt="clicli">
-        </router-link>
-      </div>
-      <ul class="menu">
-        <router-link to="/" class="tab-item">
-          <li><i class="icon-font icon-tv"></i>主站</li>
-        </router-link>
-        <router-link to="/ugc" class="tab-item">
-          <li><i class="icon-font icon-smile"></i>原创</li>
-        </router-link>
-        <router-link to="/play/av99" class="tab-item">
-          <li>留言报错</li>
-        </router-link>
-        <router-link to="/play/av31" class="tab-item">
-          <li>使用说明</li>
-        </router-link>
-        <router-link to="/play/av30" class="tab-item">
-          <li>投稿教程</li>
-        </router-link>
-        <router-link to="/play/av276" class="tab-item">
-          <li>贴视频</li>
-        </router-link>
-        <a href="https://acgzone.github.io/clicli-hybrid-app" class="tab-item" target="_blank">
-          <li>APP下载</li>
-        </a>
-      </ul>
-    </div>
+    </ul>
+
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
   </div>
 
@@ -64,6 +41,7 @@
   import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
   import {getAvatar} from "public/js/util"
   import {I_LINK} from 'public/js/config'
+  import SearchBox from 'widget/search-box/search-box.vue'
 
   export default {
 
@@ -125,7 +103,8 @@
     },
 
     components: {
-      BottomTip
+      BottomTip,
+      SearchBox
     }
   }
 </script>
@@ -138,22 +117,20 @@
     left: 0
     right: 0
     z-index 9
-    background $b-color
+    background $bg-color
     padding: 10px
-    box-shadow 0 2px 10px 0 rgba(4, 21, 39, 0.2), 0 1px rgba(4, 21, 39, 0.2)
     border-bottom: 1px solid $b-color
+    display flex
+    align-items center
     .logo
-      position absolute
-      top: 18px
-      img
-        height: 40px
-        position: relative
-        top: -8px
-    .list
-      display none
+      color: #fff
+      display inline-block
+      height 32px
+      margin-right 15px
+      .icon-logo
+        font-size: 30px
     .menu
       display inline-block
-      margin-left 120px
       a
         color: $color
     li
@@ -165,59 +142,5 @@
       color: $blue-color
     .router-link-exact-active:nth-child(2) li
       color: $pink-color
-    .icon-tv
-      margin-right: 10px
-    .icon-smile
-      color: $pink-color
-      margin-right 10px
-
-  .bio
-    width 1120px
-    margin: 0 auto
-    position relative
-    a
-      display: flex
-      align-items: center
-      .avatar
-        line-height 0
-        img
-          height: 30px
-          width: 30px
-          border-radius 15px
-    .pr
-      position absolute
-      right 0
-      background $blue-color
-      font-size: 16px
-      padding: 5px 15px
-      top: -10px
-      z-index 9
-      span
-        position relative
-        top: 15px
-
-  .pr:before
-    content: ''
-    height 40px
-    width 64px
-    background $blue-color
-    position absolute
-    top: 30px
-    left: 0
-    border-radius 0 0 40px 40px
-
-  .biu
-    position absolute
-    top: 0
-    right: 80px
-    z-index: 9999999
-    color #fff
-    display flex
-    align-items center
-    li
-      display inline-block
-      padding: 0 10px
-      line-height 40px
-      cursor pointer
 
 </style>

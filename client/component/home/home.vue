@@ -3,7 +3,6 @@
     <div class="gonggao">
       <span>c站app发布啦，看导航！顺便报错、补档、反馈要加群：561285033</span>
     </div>
-    <search-box></search-box>
     <week-list></week-list>
     <div class="common-title"><span class="recommend">推荐</span></div>
     <recommend></recommend>
@@ -17,7 +16,6 @@
 
 <script>
   import PostList from 'component/post-list/post-list.vue'
-  import SearchBox from 'widget/search-box/search-box.vue'
   import Pagination from 'widget/pagination/pagination.vue'
   import titleMixin from 'public/mixin/title-mixin'
   import {mapActions, mapState} from 'vuex'
@@ -81,7 +79,6 @@
       PostList,
       Pagination,
       WeekList,
-      SearchBox,
       Loading,
       Recommend
     }

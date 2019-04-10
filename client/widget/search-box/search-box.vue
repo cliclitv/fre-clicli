@@ -1,12 +1,9 @@
 <template>
   <div class="search-box">
-    <div class="search">
-      <input type="text" placeholder="搜索一下下菊花又不会坏……" v-model="key" @keyup.enter="onSearch">
-      <div @click="onSearch" class="search-button">
-        <i class="icon-font icon-search"></i>
-      </div>
+    <div @click="onSearch" class="search-button">
+      <i class="icon-font icon-search"></i>
     </div>
-
+    <input type="text" placeholder="搜索一下下菊花又不会坏……" v-model="key" @keyup.enter="onSearch">
   </div>
 </template>
 
@@ -30,33 +27,23 @@
 <style scoped lang="stylus">
   @import "~public/stylus/variable"
   .search-box
-    width 100%
-    height 100px
-    position relative
-    .search
-      position absolute
-      top: 50%
-      left: 50%
-      transform translate(-50%, -50%)
+    display inline-block
     .search-button
-      display inline-block
+      position: relative
     input
       color: $color
-      padding: 10px 30px 10px 15px
-      border-radius 20px
+      padding: 8px 8px 8px 40px
+      border-radius 4px
       background $b-color
-      width 400px
+      width 600px
       border: 1px solid $b-color
       box-sizing: border-box
     input:focus
       border: 1px solid $blue-color
     .icon-search
-      background $blue-color
-      border-radius 50%
-      color: #fff
-      padding: 5px
-      position: relative
-      right: 38px
-      top: 1px
-
+      color: $grey
+      position: absolute
+      left: 10px
+      top: 6px
+      font-size 20px
 </style>
