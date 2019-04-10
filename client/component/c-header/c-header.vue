@@ -9,12 +9,12 @@
 
         <li v-show="isShow" @click="onLogout">退出</li>
         <li @click="onLogin" v-show="!isShow">登录</li>
-        <a href="https://admin.clicli.top/register">
+        <a :href="registerLink">
           <li v-show="!isShow">注册</li>
         </a>
       </ul>
 
-      <a :href="adminroute" target="_blank">
+      <a :href="loginLink" target="_blank">
         <li class="pr">
           <span>{{pr}}</span>
         </li>
@@ -63,6 +63,7 @@
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
   import {getAvatar} from "public/js/util"
+  import {I_LINK} from 'public/js/config'
 
   export default {
 
@@ -73,7 +74,8 @@
         isShow: false,
         msg: '',
         pr: '投稿',
-        adminroute: 'http://admin.clicli.top/login',
+        loginLink: `http://${I_LINK}/login`,
+        registerLink: `http://${I_LINK}/register`,
         bg: '#000'
       }
     },
@@ -95,7 +97,7 @@
             if (user) {
               this.isShow = true
               this.pr = '后台'
-              this.adminroute = 'http://admin.clicli.top'
+              this.loginLink = `${I_LINK}`
               this.user = user
             } else {
               const name = Base64.decode(Cookies.get('uname'))
@@ -112,23 +114,12 @@
         })
       },
       onLogout() {
-        Cookies.remove('uname', {
-          path: '/',
-          domain: 'clicli.top'
+        logout().then(() => {
+          removeStorage('user-info')
+          this.isShow = false
+          this.msg = '退出成功啦'
+          this.bg = '#3f659a'
         })
-        Cookies.remove('uid', {
-          path: '/',
-          domain: 'clicli.top'
-        })
-        Cookies.remove('uqq', {
-          path: '/',
-          domain: 'clicli.top'
-        })
-        removeStorage('user-info')
-        this.isShow = false
-        this.msg = '退出成功啦'
-        this.bg = '#3f659a'
-
       },
       ...mapMutations(['isOnLogin'])
     },
