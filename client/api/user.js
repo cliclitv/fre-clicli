@@ -29,8 +29,8 @@ export function update({id, name, pwd, qq, role, desc}) {
 }
 
 // 获取用户列表
-export function userList() {
-  return request.get('/users?role=user&page=1&pageSize=100')
+export function getUsers(role, page, pageSize) {
+  return request.get(`/users?role=${role}&page=${page}&pageSize=${pageSize}`)
 }
 
 // 根据ID查找用户信息

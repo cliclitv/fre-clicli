@@ -1,12 +1,22 @@
 <template>
   <div class="recommend-wrap">
-    <div class="left-btn" @click="left" v-show="!showBtn"><i class="icon-font icon-left"></i></div>
     <div class="recommend">
-      <div class="list" ref="list">
-        <post-list :posts="recommend" noInfo="true"></post-list>
-      </div>
+      <h3>我们为你推荐了：</h3>
+      <post-list :posts="recommend" noInfo="true"></post-list>
     </div>
-    <div class="right-btn" @click="right" v-show="showBtn"><i class="icon-font icon-right"></i></div>
+    <div class="uper">
+      <h2>推荐的 up 主</h2>
+      <ul>
+        <li v-for="item in authors">
+          <div class="avatar"><img :src="getAvatar(item.qq)"></div>
+          <div>
+            <div class="name">{{item.name}}</div>
+            <div class="desc">{{item.desc.substring(0,20) + ' ...'}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="clear"></div>
   </div>
 
 </template>
@@ -14,18 +24,25 @@
 <script>
   import PostList from 'component/post-list/post-list.vue'
   import {getPosts} from 'api/post'
+  import {getUsers} from 'api/user'
+  import {getAvatar} from 'public/js/util'
 
   export default {
     data() {
       return {
         recommend: [],
-        showBtn: true
+        showBtn: true,
+        authors: []
       }
     },
     mounted() {
       this.getRecommend()
+      this.getAuthors()
     },
     methods: {
+      getAvatar(content) {
+        return getAvatar(content)
+      },
       right() {
         this.$refs.list.style.transform = 'translate3D(-1110px,0,0)'
         this.showBtn = false
@@ -36,8 +53,12 @@
       },
       getRecommend() {
         getPosts('public', 'bgm', '推荐', '', 1, 10).then(res => {
-          console.log(res.data)
           if (res.data.code === 201) this.recommend = res.data.posts
+        })
+      },
+      getAuthors() {
+        getUsers('author', 7, 5).then(res => {
+          this.authors = res.data.users
         })
       }
     },
@@ -49,44 +70,36 @@
 
 <style lang="stylus">
   @import "~public/stylus/variable"
-  .recommend-wrap
-    position relative
-    .recommend
-      overflow hidden
-      width 100%
-      .list
-        width 100%
-        position relative
-        left 0
-        transition .5s ease-out
-      .post-list
-        width 2220px
-        padding: 0
-        display inline-block
-        .post
-          margin 0
-        .suo, .suo img
-          height 300px
-        .suo img:hover
-          opacity 1
-        li
-          float left
-          width 370px
-    .left-btn, .right-btn
-      background $qing
-      padding: 0 5px
-      position absolute
-      text-align center
-      height 300px
-      top: 0
-      cursor pointer
-      display flex
-      align-items: center
-      i
-        font-size 24px
-    .left-btn
-      left: -35px
-    .right-btn
-      right -35px
+  .recommend
+    background: #fff
+    border-radius 4px
+    width 740px
+    padding: 10px
+    float left
+    h3
+      color: #888
+      padding 0 15px
+    .suo, .suo img
+      height 150px !important
 
+  .uper
+    width 330px
+    float right
+    h2
+      font-size: 16px
+      color: #fff
+      font-weight bold
+      padding-bottom 10px
+      margin-bottom 10px
+      border-bottom: 1px solid $b-color
+    ul
+      li
+        border-bottom: 1px solid $b-color
+        display flex
+        padding 10px 0
+        .avatar img
+          height 40px
+          width 40px
+          border-radius 4px
+          margin-right 10px
 </style>

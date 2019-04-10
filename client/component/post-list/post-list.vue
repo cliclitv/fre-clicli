@@ -43,33 +43,29 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~public/stylus/variable"
   .post-list
-    background $t-color
-    padding: 20px
     li
-      width 20%
+      width 161px
+      padding: 12px
       display inline-block
     .post
-      margin: 15px
       border-radius: 4px
       .title
         font-size: 14px
         padding-top: 10px
         color: $color
       .info
-        padding: 10px
-        font-size: 10px
+        font-size: 12px
         color: rgba(255, 255, 255, .6)
-        border-left 2px solid $yellow
-        background $bg-color
-        margin: 10px 0
+        margin: 20px 0
 
       .suo, .suo img
         width 100%
-        height 250px
+        height 220px
         box-sizing border-box
         object-fit: cover
         background $bg-color
         transition .3s
+        border-radius 4px
 
 
 </style>

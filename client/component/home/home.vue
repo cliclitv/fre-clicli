@@ -30,7 +30,7 @@
     data() {
       return {
         page: 1,
-        pageSize: 20,
+        pageSize: 30,
         articles: [],
         uqq: Cookies.get('uqq'),
         isShow: false,
@@ -89,7 +89,9 @@
 <style lang="stylus">
   @import "~public/stylus/variable"
   .list-wrap
+    margin-top: 20px
     background $t-color
+    padding-top 30px
     .post-list
       background none
     .login-more

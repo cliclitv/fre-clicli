@@ -2,7 +2,7 @@ import {getPosts, getPost} from '../api/post'
 
 export default {
   getArticleList({commit}) {
-    return getPosts('public', 'bgm', '', '', 1, 20).then((res) => {
+    return getPosts('public', 'bgm', '', '', 1, 30).then((res) => {
       commit('loadArticleList', res.data.posts)
     })
   },
