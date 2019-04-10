@@ -17,7 +17,7 @@
         <div class="info">
           <span>{{post.time}}</span>
           <span v-text="translate(post.sort)"></span>
-          <span v-text="translate(post.type)"></span>
+          <span v-text="translate(post.tag)"></span>
         </div>
         <div class="content" v-html="marked(post.content)">
         </div>
@@ -54,11 +54,6 @@
     },
     beforeMount() {
       this.getPost(getAv(this.$route.params.id))
-      // getCommentCount(getAv(this.$route.params.id)).then(res => {
-      //   if (res.data.code === 201) {
-      //     this.commentCount = res.data.count.cv
-      //   }
-      // })
       getPv(getAv(this.$route.params.id)).then(res => {
         this.playCount = res.data.pv
       })
@@ -114,13 +109,13 @@
         width: 40px
         height 40px
         border-radius 30px
-        border: 10px solid $b-color
+        border: 10px solid $t-color
       span
         padding: 0 15px
 
     .post
       padding: 15px
-      background $b-color
+      background $t-color
       border-radius: 4px
       position relative
       .title
@@ -134,7 +129,7 @@
         span
           padding: 3px 8px
           font-size: 11px
-          background #35355a
+          background $l-color
           color: #fff
           border-radius 2px
           margin: 0 5px
@@ -163,13 +158,13 @@
             a
               font-weight normal
           li:hover
-            border: 1px solid $blue-color
+            border: 1px solid $qing
             box-sizing border-box
         a
           color: #fff
           font-weight bold
     .count
-      background $b-color
+      background $t-color
       padding: 5px 15px
       border-radius 25px
       float right

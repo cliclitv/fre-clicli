@@ -19,9 +19,11 @@
     <!--</li>-->
     <!--</a>-->
     <!--</div>-->
-    <div class="logo">
-      <i class="icon-font icon-logo"></i>
-    </div>
+    <router-link to="/">
+      <div class="logo">
+        <i class="icon-font icon-logo"></i>
+      </div>
+    </router-link>
     <search-box></search-box>
     <ul class="menu">
       <li>

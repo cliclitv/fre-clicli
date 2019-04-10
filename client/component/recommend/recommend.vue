@@ -71,7 +71,7 @@
 <style lang="stylus">
   @import "~public/stylus/variable"
   .recommend
-    background: #fff
+    background: #fbfeff
     border-radius 4px
     width 740px
     padding: 10px

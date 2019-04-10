@@ -34,10 +34,11 @@
     a:hover
       color: #fff
     .mail
-      background $pink-color
-      font-size: 14px
+      background $pink
       color: #fff
       padding: 2px 10px
       display inline-block
       margin-bottom: 10px
+      border-radius 4px
+      font-size: 12px
 </style>

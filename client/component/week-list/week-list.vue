@@ -91,6 +91,7 @@
     position: relative
     margin: 30px 0
     background: rgba(24, 77, 107, 0.7)
+    border-radius 4px
     .mask
       position absolute
       top: 0

@@ -66,7 +66,7 @@
   .on-login
     width: 300px
     padding: 20px
-    background: $b-color
+    background $b-color
     position fixed
     z-index: 999999
     top: 50%
@@ -79,20 +79,20 @@
       box-sizing border-box
       input
         width: 100%
-        border-bottom: 1px dashed $blue-color
+        border-bottom: 1px dashed $qing
         padding: 5px
         color: #fff
         background $b-color
         letter-spacing: 3px
         box-sizing border-box
       input:focus
-        border-bottom: 2px dashed $blue-color
+        border-bottom: 2px dashed $qing
       button
-        background: $blue-color
+        background: $qing
         width: 100%
         padding: 10px
         border-radius 20px
-        color: #fff
+        color: $bg-color
         outline none
         cursor pointer
 

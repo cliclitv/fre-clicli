@@ -47,7 +47,7 @@
       left: 0
       width: 50%
       height: 36px
-      background: $b-color
+      background: $t-color
       border-radius: 50%
       transition: all .2s ease
       display inline-block
@@ -60,7 +60,7 @@
     .switch-component:checked + .dan
       left: 50%
       color: #fff
-      background $pink-color
+      background $pink
 
 
 </style>

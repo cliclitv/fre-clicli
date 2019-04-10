@@ -174,7 +174,7 @@
       display inline-block
       margin-left: 20px
       button
-        background $blue-color
+        background $qing
         color: #fff
         padding 5px 15px
         cursor pointer
@@ -183,7 +183,7 @@
         font-size: 22px
         border-radius 5px
       button:hover
-        background $blue-color
+        background $qing
       .icon-send
         font-size: 24px
         margin-right: 20px
@@ -204,7 +204,7 @@
           border-radius 50%
           cursor pointer
         span
-          background $b-color
+          background $t-color
           padding: 5px 30px
           cursor pointer
           display inline-block
@@ -217,7 +217,7 @@
       cursor pointer
     .need-login
       span
-        background $pink-color
+        background $pink
         padding: 2px 8px
         border-radius 4px
         margin-right 20px

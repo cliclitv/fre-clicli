@@ -104,7 +104,7 @@
       flex: 1
       input
         width 100%
-        background $b-color
+        background $t-color
         border-radius 20px
         padding: 10px 20px
         box-sizing border-box
@@ -114,7 +114,7 @@
       text-align center
       span
         padding 2px 10px
-        background $pink-color
+        background $pink
         color: #fff
         margin-right 10px
         border-radius 4px
@@ -123,7 +123,7 @@
       padding: 10px 20px
       color: #fff
       margin-left: 10px
-      background $pink-color
+      background $pink
       border-radius 20px
       cursor pointer
       outline none
@@ -134,7 +134,7 @@
       padding: 20px
       font-size: 16px
       span
-        color: $pink-color
+        color: $pink
     li
       display: flex
       align-items center
@@ -164,13 +164,13 @@
             margin-right 10px
             cursor: pointer
             color: #fff
-            background $pink-color
+            background $pink
             border-radius 10px
       time
         font-size: 11px
 
   .comment-list li:nth-child(even) {
-    background #131629
+    background $t-color
     border-radius 5px
   }
 </style>

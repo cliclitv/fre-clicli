@@ -80,7 +80,7 @@
           this.url = res.data.url
           this.type =  res.data.type
         })
-        e.currentTarget.style.background = '#35355a'
+        e.currentTarget.style.background = '#21374f'
       },
       getAvatar(qq) {
         return getAvatar(qq)
@@ -103,7 +103,7 @@
       padding: 20px
       span
         padding: 5px 40px
-        background $blue-color
+        background $blue
         color: #fff
         border-radius 20px
         font-size: 16px
@@ -121,7 +121,7 @@
     .addVideo
       width: 500px
       padding: 20px
-      background: $b-color
+      background: $t-color
       position fixed
       z-index: 999999
       top: 50%
@@ -140,7 +140,7 @@
           letter-spacing: 3px
           box-sizing: border-box
         button
-          background: $blue-color
+          background: $blue
           width: 100%
           padding: 5px
           color: #fff
@@ -157,7 +157,7 @@
           .item
             cursor pointer
             margin: 10px
-            background $b-color
+            background $t-color
             padding: 5px
             border-radius 5px
             display flex

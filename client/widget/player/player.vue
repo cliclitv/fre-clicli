@@ -11,7 +11,7 @@
         </video>
       </div>
       <div class="close" @click="hide">
-        <i class="icon-font icon-close1"></i>
+        <i class="icon-font icon-close"></i>
       </div>
     </div>
     <comment @add="add"></comment>
@@ -130,13 +130,12 @@
       top: -15px
       right: -27px
       cursor pointer
-      .icon-close1
+      .icon-close
         font-size: 30px
-        background: $pink-color
+        background: $qing
         border-radius: 50%
-        border: 2px solid #fff
         padding: 10px
-        color: #fff
+        color: $bg-color
 
 
 </style>

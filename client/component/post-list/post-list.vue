@@ -25,9 +25,6 @@
 
   export default {
     props: ['posts', 'noInfo'],
-    mounted(){
-      console.log(this.noInfo)
-    },
     methods: {
       getAvatar(avatar) {
         return getAvatar(avatar)
@@ -66,6 +63,4 @@
         background $bg-color
         transition .3s
         border-radius 4px
-
-
 </style>
