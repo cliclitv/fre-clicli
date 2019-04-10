@@ -1,8 +1,8 @@
 # vue-clicli
 
-c站（clicli.us）pc 端主站源码，目前的 v2 稳定版本
+c站（clicli.us）pc 端主站源码，此分支为 v3 重构
 
->预计将在 vue3 发版后进行重构，大概率是年底，期间不做大重构
+>实在等不及 vue 3 啦，趁机重构了吧
 
 ### 策略
 
@@ -17,7 +17,7 @@ c站（clicli.us）pc 端主站源码，目前的 v2 稳定版本
 * vue-router
 * koa2
 
->配套后台：[clicli-admin](https://github.com/132yse/clicli-admin)
+>配套投稿中心：[clicli-admin](https://github.com/132yse/clicli-admin)
 
 ### 目录结构
 
