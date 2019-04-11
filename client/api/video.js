@@ -1,7 +1,8 @@
 import axios from 'axios'
+import {isDev, API_LINK} from 'public/js/util'
 
 const request = axios.create({
-  baseURL: 'http://localhost:4000'
+  baseURL: isDev ? 'http://localhost:4000' : API_LINK
 })
 
 // 根据pid查找评论

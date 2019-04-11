@@ -14,25 +14,11 @@ export function getSuo(content) {
   return m ? m[1].slice(2) : 'https://wx4.sinaimg.cn/mw690/0060lm7Tly1fvmtrka9p5j30b40b43yo.jpg'
 }
 
-export function translate(sortName) {
-  switch (sortName) {
-    case 'xinfan':
-      return '新番'
-    case 'ugc':
-      return '原创'
-    case 'wanjie':
-      return '完结'
-    case 'juchangban':
-      return '剧场版'
-    case 'under':
-      return '已下架'
-    case 'public':
-      return '上线'
-    default:
-      return '其他'
-  }
 
-}
+export let isDev = process.env.NODE_ENV === 'development'
+export const HOME_LINK = 'https://www.clicli.us'
+export const API_LINK = 'https://api.clicli.us'
+export const I_LINK = 'https://i.clicli.us'
 
 export function getAv(id) {
   return id.substring(2, id.length)

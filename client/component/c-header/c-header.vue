@@ -55,7 +55,7 @@
   import {logout, auth, getUserByName} from "api/user"
   import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
   import {getAvatar} from "public/js/util"
-  import {I_LINK} from 'public/js/config'
+  import {I_LINK} from 'public/js/util'
   import SearchBox from 'widget/search-box/search-box.vue'
 
   export default {

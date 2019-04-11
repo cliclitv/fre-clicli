@@ -1,10 +1,9 @@
 import axios from 'axios'
-import {getStorage} from "public/js/localstorage"
+import {isDev, API_LINK} from 'public/js/util'
 
-export const request = axios.create({
-  baseURL: 'http://localhost:4000'
+const request = axios.create({
+  baseURL: isDev ? 'http://localhost:4000' : API_LINK
 })
-
 export function getPosts(status, sort, tag, uid, page, pageSize) {
   return request.get('/posts', {
     params: {
