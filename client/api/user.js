@@ -34,22 +34,12 @@ export function getUsers(role, page, pageSize) {
   return request.get(`/users?role=${role}&page=${page}&pageSize=${pageSize}`)
 }
 
-// 根据ID查找用户信息
 
-export function getUserById(id) {
+export function getUser(uname, id) {
   return request.get('/user', {
     params: {
-      uid: id
-    }
-  })
-}
-
-// 根据用户名查找用户信息
-
-export function getUserByName(name) {
-  return request.get('/user', {
-    params: {
-      uname: name
+      uname,
+      id
     }
   })
 }

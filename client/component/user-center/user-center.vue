@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import {getUserById} from "api/user"
+  import {getUser} from "api/user"
   import {getPosts} from "api/post"
   import {getAvatar} from "public/js/util"
   import PostList from 'component/post-list/post-list.vue'
@@ -38,7 +38,7 @@
       }
     },
     beforeMount() {
-      getUserById(this.$route.params.id).then(res => {
+      getUser('', this.$route.params.id).then(res => {
         if (res.data.code === 201) {
           this.user = res.data.user
           getPosts('public', 'bgm', '', res.data.user.id, 1, 12).then(res => {

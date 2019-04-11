@@ -17,7 +17,7 @@
         <a><i class="icon-font icon-user"></i></a>
       </li>
       <li class="write">
-        <router-link :to="loginLink"><i class="icon-font icon-write"></i></router-link>
+        <router-link :to="adminLink"><i class="icon-font icon-write"></i></router-link>
       </li>
     </ul>
     <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
@@ -30,10 +30,9 @@
   import {Base64} from 'js-base64'
   import BottomTip from 'widget/bottom-tip/bottom-tip.vue'
   import {mapMutations} from 'vuex'
-  import {logout, auth, getUserByName} from "api/user"
+  import {logout, auth, getUser} from "api/user"
   import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
-  import {getAvatar} from "public/js/util"
-  import {I_LINK} from 'public/js/util'
+  import {getAvatar,ADMIN_LINK} from "public/js/util"
   import SearchBox from 'widget/search-box/search-box.vue'
 
   export default {
@@ -44,8 +43,7 @@
         isShow: false,
         msg: '',
         pr: '投稿',
-        loginLink: `http://${I_LINK}/login`,
-        registerLink: `http://${I_LINK}/register`,
+        adminLink: ADMIN_LINK,
         bg: '#000'
       }
     },
@@ -65,20 +63,15 @@
           if (res.data.code === 201) {
             const user = getStorage('user-info')
             if (user) {
-              this.isShow = true
-              this.pr = '后台'
-              this.loginLink = `${I_LINK}`
               this.user = user
             } else {
               const name = Base64.decode(Cookies.get('uname'))
-              getUserByName(name).then(res => {
+              getUser(name).then(res => {
                 setStorage('user-info', res.data.user)
                 this.user = res.data.user
               })
             }
-
           } else {
-            this.isShow = false
             removeStorage('user-info')
           }
         })

@@ -18,7 +18,7 @@ export function getSuo(content) {
 export let isDev = process.env.NODE_ENV === 'development'
 export const HOME_LINK = 'https://www.clicli.us'
 export const API_LINK = 'https://api.clicli.us'
-export const I_LINK = 'https://i.clicli.us'
+export const ADMIN_LINK = 'https://admin.clicli.us'
 
 export function getAv(id) {
   return id.substring(2, id.length)
