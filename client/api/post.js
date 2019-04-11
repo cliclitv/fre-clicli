@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {isDev, API_LINK} from 'public/js/util'
 
-const request = axios.create({
-  baseURL: isDev ? 'http://localhost:4000' : API_LINK
+export const request = axios.create({
+  baseURL: API_LINK
 })
 export function getPosts(status, sort, tag, uid, page, pageSize) {
   return request.get('/posts', {
@@ -33,5 +33,5 @@ export function searchPosts(key) {
 
 // 获取周播表
 export function getWeekList() {
-  return axios.get('https://api.clicli.top/posts/both?status=public&sort=xinfan&page=1&pageSize=100')
+  return request.get('/posts?status=public&sort=xinfan&page=1&pageSize=100')
 }

@@ -1,24 +1,5 @@
 <template>
   <div class="header">
-    <!--<div class="wrap">-->
-    <!--<ul class="biu">-->
-    <!--<router-link :to="'/u/'+user.id">-->
-    <!--<li class="avatar" v-show="isShow"><img :src="getAvatar(user.qq)"></li>-->
-    <!--<li v-show="isShow">{{user.name}}</li>-->
-    <!--</router-link>-->
-
-    <!--<li v-show="isShow" @click="onLogout">退出</li>-->
-    <!--<li @click="onLogin" v-show="!isShow">登录</li>-->
-    <!--<a :href="registerLink">-->
-    <!--<li v-show="!isShow">注册</li>-->
-    <!--</a>-->
-    <!--</ul>-->
-    <!--<a :href="loginLink" target="_blank">-->
-    <!--<li class="pr">-->
-    <!--<span>{{pr}}</span>-->
-    <!--</li>-->
-    <!--</a>-->
-    <!--</div>-->
     <router-link to="/">
       <div class="logo">
         <i class="icon-font icon-logo"></i>

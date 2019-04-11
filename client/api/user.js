@@ -2,7 +2,7 @@ import axios from 'axios'
 import {isDev, API_LINK} from 'public/js/util'
 
 const request = axios.create({
-  baseURL: isDev ? 'http://localhost:4000' : API_LINK
+  baseURL: API_LINK
 })
 
 // 用户登录
@@ -61,5 +61,5 @@ export function logout() {
 }
 
 export function auth() {
-  return axios.get('/auth')
+  return request.get('/auth')
 }
