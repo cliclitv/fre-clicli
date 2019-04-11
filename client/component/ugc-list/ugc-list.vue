@@ -1,7 +1,17 @@
 <template>
   <div class="ugc-list">
     <ul class="masonry">
-      <li v-for="item in posts" class="item">
+      <div class="option" v-if="is0ption">
+        <ul class="sort">
+          <h1>分类</h1>
+          <li v-for="item in sorts" :class="isActive(item)" @click="selectSort(item)">{{item}}</li>
+        </ul>
+        <ul class="tag">
+          <h1>标签</h1>
+          <li v-for="item in tags" :class="isActive(item)" @click="selectTag(item)">{{item}}</li>
+        </ul>
+      </div>
+      <li v-for="item in posts" class="item" v-if="posts">
         <router-link :to="'/play/gv'+item.id">
           <div class="post">
             <div class="user-info">
@@ -13,7 +23,7 @@
               <img :src="getSuo(item.content)">
             </div>
             <div class="info">
-              <span v-text="'# ' + translate(item.sort)"></span>
+              <span v-text="'# ' + item.sort"></span>
               <span v-text="'# ' + item.tag"></span>
               <span>{{item.time}}</span>
             </div>
@@ -21,17 +31,26 @@
           </div>
         </router-link>
       </li>
+      <p v-if="!posts">该索引下没有稿件\(^o^)/~</p>
     </ul>
     <div class="clear"></div>
   </div>
 </template>
 
 <script>
-  import {getAvatar, getSuo, translate} from "public/js/util"
+  import {getAvatar, getSuo} from "public/js/util"
   import marked from 'marked'
 
   export default {
-    props: ['posts'],
+    props: ['posts', 'is0ption'],
+    data() {
+      return {
+        tags: ['推荐', '转载', '耽美', '乙女', '后宫', '热血', '神魔', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它'],
+        sorts: ['原创', '新番', '完结', '剧场版'],
+        sort: '原创',
+        tag: '推荐'
+      }
+    },
     methods: {
       getAvatar(avatar) {
         return getAvatar(avatar)
@@ -48,6 +67,25 @@
         } else {
           return marked(content)
         }
+      },
+      isActive(item) {
+        return this.tag.indexOf(item) > -1 || this.sort === item ? 'active'
+          : ''
+      },
+      selectSort(item) {
+        this.sort = item
+      },
+      selectTag(item) {
+        this.tag.indexOf(item) > -1 ? this.tag = this.tag.replace(`${item}`, '').replace(/\s+/g, '')
+          : this.tag += ` ${item}`
+      }
+    },
+    watch: {
+      tag() {
+        this.$emit('refresh', this.sort, this.tag)
+      },
+      sort() {
+        this.$emit('refresh', this.sort, this.tag)
       }
     }
   }
@@ -70,6 +108,27 @@
         border-radius 2px
         .title
           padding: 10px
+    .option
+      padding: 0 20px 20px
+      .sort
+        margin-bottom 10px
+      li
+        display inline-block
+        background $t-color
+        color: #fff
+        border-radius 4px
+        padding: 2px 10px
+        margin: 10px 5px
+        cursor pointer
+      h1
+        font-weight bold
+        color: #fff
+        padding: 10px
+        border-bottom 1px solid $b-color
+        margin-bottom 10px
+      .active
+        background $qing
+        color: $bg-color
     .post
       color: #333
     .user-info

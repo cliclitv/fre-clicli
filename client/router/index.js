@@ -19,14 +19,14 @@ export default () => {
         }
       },
       {
-        path: '/ugc',
+        path: '/explore',
         component: Ugc,
         meta: {
           keepAlive: true
         }
       },
       {
-        path: '/all',
+        path: '/search/:key',
         component: Search,
         meta: {
           keepAlive: true

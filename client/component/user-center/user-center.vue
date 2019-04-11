@@ -10,7 +10,7 @@
       <post-list :posts="userBgms" key="this.$route.params.id"></post-list>
     </div>
 
-    <ugc-link :post="userUgcs"></ugc-link>
+    <ugc-list :post="userUgcs"></ugc-list>
 
   </div>
 

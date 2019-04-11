@@ -8,11 +8,14 @@
       <h2>推荐的 up 主</h2>
       <ul>
         <li v-for="item in authors">
-          <div class="avatar"><img :src="getAvatar(item.qq)"></div>
-          <div>
-            <div class="name">{{item.name}}</div>
-            <div class="desc">{{item.desc.substring(0,20) + ' ...'}}</div>
-          </div>
+          <router-link :to="'/u/'+item.id">
+            <div class="avatar"><img :src="getAvatar(item.qq)"></div>
+            <div>
+              <div class="name">{{item.name}}</div>
+              <div class="desc">{{item.desc.substring(0,20) + ' ...'}}</div>
+            </div>
+          </router-link>
+
         </li>
       </ul>
     </div>

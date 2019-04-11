@@ -16,7 +16,7 @@
         </router-link>
         <div class="info">
           <span>{{post.time}}</span>
-          <span v-text="translate(post.sort)"></span>
+          <span v-text="post.sort"></span>
           <span v-text="post.tag"></span>
         </div>
         <div class="content" v-html="marked(post.content)">
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import {getAvatar, getAv, translate} from "public/js/util"
+  import {getAvatar, getAv} from "public/js/util"
   import {getPv} from 'api/video'
   import {mapActions, mapGetters} from 'vuex'
   import titleMixin from 'public/mixin/title-mixin'
@@ -67,9 +67,6 @@
       ...mapActions(['getPost']),
       getAvatar(avatar) {
         return getAvatar(avatar)
-      },
-      translate(str) {
-        return translate(str)
       },
       marked(content) {
         let renderer = new marked.Renderer()

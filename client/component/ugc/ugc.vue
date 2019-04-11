@@ -1,6 +1,6 @@
 <template>
   <div class="ugc">
-    <ugc-list :posts="ugcs"></ugc-list>
+    <ugc-list :posts="ugcs" @refresh="refresh" isOption="true"></ugc-list>
   </div>
 </template>
 
@@ -20,6 +20,13 @@
       getPosts('public', 'ugc', '', '', 1, 30).then(res => {
         this.ugcs = res.data.posts
       })
+    },
+    methods: {
+      refresh(sort, tag) {
+        getPosts('public', sort, tag, '', 1, 30).then(res => {
+          this.ugcs = res.data.posts
+        })
+      }
     },
 
     components: {

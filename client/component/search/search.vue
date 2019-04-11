@@ -1,13 +1,13 @@
 <template>
     <div class="search">
-        <post-list :posts="posts" key="this.$route.params.sort"></post-list>
+        <ugc-list :posts="posts" key="this.$route.params.sort"></ugc-list>
     </div>
 
 </template>
 
 <script>
   import {searchPosts} from 'api/post'
-  import PostList from 'component/post-list/post-list.vue'
+  import UgcList from 'component/ugc-list/ugc-list.vue'
   import titleMixin from 'public/mixin/title-mixin'
 
   export default {
@@ -28,7 +28,7 @@
       return this.$route.params.key + '- clicli弹幕网'
     },
     components: {
-      PostList
+      UgcList
     }
   }
 </script>
