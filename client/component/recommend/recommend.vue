@@ -96,7 +96,7 @@
       margin-bottom 10px
       border-bottom: 1px solid $b-color
     ul
-      li
+      li a
         border-bottom: 1px solid $b-color
         display flex
         padding 10px 0

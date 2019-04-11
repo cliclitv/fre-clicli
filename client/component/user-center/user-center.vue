@@ -9,9 +9,10 @@
       <h2 v-show="!userBgms">{{user.name}} 还没有投递过稿件(＞﹏＜)</h2>
       <post-list :posts="userBgms" key="this.$route.params.id"></post-list>
     </div>
+    <div class="ugc-wrap">
+      <ugc-list :posts="userUgcs"></ugc-list>
 
-    <ugc-list :post="userUgcs"></ugc-list>
-
+    </div>
   </div>
 
 </template>
@@ -33,7 +34,7 @@
       return {
         user: {},
         userBgms: [],
-        useUgcs: []
+        userUgcs: []
       }
     },
     beforeMount() {
@@ -43,7 +44,7 @@
           getPosts('public', 'bgm', '', res.data.user.id, 1, 12).then(res => {
             this.userBgms = res.data.posts
           })
-          getPosts('public', 'ugc', '', res.data.user.id, 1, 12).then(res => {
+          getPosts('public', 'ugc', '', res.data.user.id, 1, 20).then(res => {
             this.userUgcs = res.data.posts
           })
         }
@@ -69,6 +70,10 @@
       text-align center
       font-weight lighter
       padding: 20px
+
+  .ugc-wrap
+    background $l-color
+    padding: 40px 0
 
   .post-list
     background $t-color

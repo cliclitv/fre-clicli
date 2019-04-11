@@ -58,9 +58,6 @@
       getSuo(content) {
         return getSuo(content)
       },
-      translate(name) {
-        return translate(name)
-      },
       marked(content) {
         if (typeof (content) === 'undefined') {
           return '少年祈祷中……'
