@@ -17,10 +17,9 @@
         <a><i class="icon-font icon-user"></i></a>
       </li>
       <li class="write">
-        <router-link :to="adminLink"><i class="icon-font icon-write"></i></router-link>
+        <a :href="adminLink" target="_blank"><i class="icon-font icon-write"></i></a>
       </li>
     </ul>
-    <bottom-tip :msg="msg" :bg="bg" v-show="this.msg"></bottom-tip>
   </div>
 
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="ugc-list">
     <ul class="masonry">
-      <div class="option" v-if="is0ption">
+      <div class="option" v-if="isShow">
         <ul class="sort">
           <h1>分类</h1>
           <li v-for="item in sorts" :class="isActive(item)" @click="selectSort(item)">{{item}}</li>
@@ -42,7 +42,10 @@
   import marked from 'marked'
 
   export default {
-    props: ['posts', 'is0ption'],
+    props: {
+      posts: Array,
+      isShow: Boolean
+    },
     data() {
       return {
         tags: ['推荐', '转载', '耽美', '乙女', '后宫', '热血', '神魔', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '其它'],

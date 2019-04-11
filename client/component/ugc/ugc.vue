@@ -1,6 +1,6 @@
 <template>
   <div class="ugc">
-    <ugc-list :posts="ugcs" @refresh="refresh" isOption="true"></ugc-list>
+    <ugc-list :posts="ugcs" @refresh="refresh" isShow></ugc-list>
   </div>
 </template>
 

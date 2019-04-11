@@ -1,6 +1,6 @@
 <template>
     <div class="search">
-        <ugc-list :posts="posts" key="this.$route.params.sort"></ugc-list>
+        <ugc-list :posts="posts" key="this.$route.params.sort" :isShow="false"></ugc-list>
     </div>
 
 </template>

@@ -10,7 +10,7 @@
       <post-list :posts="userBgms" key="this.$route.params.id"></post-list>
     </div>
     <div class="ugc-wrap">
-      <ugc-list :posts="userUgcs"></ugc-list>
+      <ugc-list :posts="userUgcs" :isShow="false"></ugc-list>
 
     </div>
   </div>
@@ -66,10 +66,6 @@
   @import "~public/stylus/variable"
   .user-info
     margin-top: 20px
-    h2
-      text-align center
-      font-weight lighter
-      padding: 20px
 
   .ugc-wrap
     background $l-color
@@ -110,5 +106,8 @@
     bottom: 0
     z-index -1
 
-
+  h2
+    text-align center
+    font-weight lighter
+    padding: 20px
 </style>
