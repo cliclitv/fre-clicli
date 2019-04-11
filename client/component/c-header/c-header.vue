@@ -11,13 +11,10 @@
         <router-link to="/"><i class="icon-font icon-home"></i></router-link>
       </li>
       <li>
-        <router-link to="/ugc"><i class="icon-font icon-smile"></i></router-link>
+        <router-link to="/explore"><i class="icon-font icon-explore"></i></router-link>
       </li>
-      <li>
-        <router-link to="/bgm"><i class="icon-font icon-explore"></i></router-link>
-      </li>
-      <li>
-        <router-link :to="'/u/'+user.id"><i class="icon-font icon-user"></i></router-link>
+      <li @click="onLogin()">
+        <a><i class="icon-font icon-user"></i></a>
       </li>
       <li class="write">
         <router-link :to="loginLink"><i class="icon-font icon-write"></i></router-link>

@@ -7,7 +7,7 @@ const request = axios.create({
 
 // 用户登录
 export function login({name, pwd}) {
-  return axios.post('/user/login', {
+  return request.post('/user/login', {
     name, pwd
   })
 }
