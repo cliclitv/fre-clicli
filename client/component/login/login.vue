@@ -38,7 +38,7 @@
             this.user = res.data.user
             setStorage('user-info', res.data.user)
             this.close()
-            // this.$router.go(0)
+            this.$router.go(0)
           } else {
             this.$emit('error', res.data)
           }

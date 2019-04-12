@@ -72,7 +72,7 @@ router.get('/upload/auth', async ctx => {
 
 router.get('*', async ctx => {
   ctx.type = 'html'
-  const cookie = ctx.cookies.get('uname')
+  const cookie = ctx.cookies.get('uqq')
   if (cookie) {
     let data = fs.readFileSync(path.join(__dirname, '../dist/spa/index.html'))
     ctx.body = data.toString()

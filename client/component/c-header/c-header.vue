@@ -31,7 +31,7 @@
   import {mapMutations} from 'vuex'
   import {logout, auth, getUser} from "api/user"
   import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
-  import {getAvatar,ADMIN_LINK} from "public/js/util"
+  import {getAvatar, ADMIN_LINK} from "public/js/util"
   import SearchBox from 'widget/search-box/search-box.vue'
 
   export default {
@@ -64,8 +64,7 @@
             if (user) {
               this.user = user
             } else {
-              const name = Base64.decode(Cookies.get('uname'))
-              getUser(name).then(res => {
+              getUser('', Cookies.get('uid')).then(res => {
                 setStorage('user-info', res.data.user)
                 this.user = res.data.user
               })
