@@ -46,22 +46,14 @@
       getAvatar(content) {
         return getAvatar(content)
       },
-      right() {
-        this.$refs.list.style.transform = 'translate3D(-1110px,0,0)'
-        this.showBtn = false
-      },
-      left() {
-        this.$refs.list.style.transform = 'translate3D(0,0,0)'
-        this.showBtn = true
-      },
       getRecommend() {
         getPosts('public', 'bgm', '推荐', '', 1, 8).then(res => {
           if (res.data.code === 201) this.recommend = res.data.posts
         })
       },
       getAuthors() {
-        let page = Math.floor(Math.random() * 10 + 1)
-        getUsers('author', page, 5).then(res => {
+        let page = Math.ceil(Math.random() * 23)
+        getUsers('up', page, 5).then(res => {
           this.authors = res.data.users
         })
       }
