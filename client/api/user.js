@@ -7,15 +7,13 @@ const request = axios.create({
 
 // 用户登录
 export function login({name, pwd}) {
-  return request.post('/user/login', {
-    name, pwd
-  })
+  return axios.post('/user/login', {name, pwd})
 }
 
 
 // 用户注册
 export function register({name, pwd, qq}) {
-  return request.post('/user/register', {name, pwd, qq, role: 'user', desc: ''})
+  return axios.post('/user/register', {name, pwd, qq, role: 'user', desc: '木有签名'})
 }
 
 // 更新用户信息
@@ -47,7 +45,7 @@ export function getUser(uname, id) {
 
 // 用户退出
 export function logout() {
-  return request.post('/user/logout')
+  return axios.post('/user/logout')
 }
 
 export function auth() {

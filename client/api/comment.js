@@ -29,7 +29,7 @@ export function getDanmuku(vid, page, pageSize) {
 
 // 添加评论
 export function addComment({content, pid, uid, vid, tuid, time, color}) {
-  return request.post('/comment/add', {
+  return axios.post('/comment/add', {
     content,
     pid: parseInt(pid),
     uid,
@@ -42,5 +42,5 @@ export function addComment({content, pid, uid, vid, tuid, time, color}) {
 
 // 删除评论
 export function deleteComment() {
-  return request.delete('/comment/delete')
+  return axios.delete('/comment/delete')
 }
