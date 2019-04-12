@@ -26,7 +26,6 @@
 
 <script>
   import Cookies from 'js-cookie'
-  import {Base64} from 'js-base64'
   import BottomTip from 'widget/bottom-tip/bottom-tip.vue'
   import {mapMutations} from 'vuex'
   import {logout, auth, getUser} from "api/user"

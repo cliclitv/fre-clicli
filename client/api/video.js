@@ -32,7 +32,7 @@ export function getRealUrl(url) {
   if (url.indexOf('www.clicli') > -1) {
     return axios.get(url)
   } else {
-    return axios.get('https://www.clicli.top/jx', {
+    return axios.get('/jx', {
       params: {
         url
       }
@@ -41,5 +41,5 @@ export function getRealUrl(url) {
 }
 
 export function getPv(pid) {
-  return axios.get(`https://www.clicli.top/get/pv?pid=${pid}`)
+  return axios.get(`/get/pv?pid=${pid}`)
 }

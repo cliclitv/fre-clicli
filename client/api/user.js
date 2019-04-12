@@ -16,11 +16,11 @@ export function getUsers(role, page, pageSize) {
 }
 
 
-export function getUser(uname, id) {
+export function getUser(uname, uid) {
   return request.get('/user', {
     params: {
       uname,
-      id
+      uid
     }
   })
 }
@@ -32,5 +32,5 @@ export function logout() {
 }
 
 export function auth() {
-  return request.get('/auth')
+  return axios.get('/auth')
 }

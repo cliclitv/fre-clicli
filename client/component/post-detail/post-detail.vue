@@ -25,7 +25,7 @@
     </div>
     <router-view></router-view>
     <video-list v-if="post.status==='public'||post.status==='ugc'"></video-list>
-    <comment-list :count="post.count.cv"></comment-list>
+    <comment-list :count="post.count.cv" v-if="post"></comment-list>
   </div>
 </template>
 

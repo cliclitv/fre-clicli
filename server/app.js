@@ -10,7 +10,10 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   router = require('./ssr-online')
 }
-
+app.use(async (ctx, next) => {
+  ctx.set('Access-Control-Allow-Origin', 'https://admin.clicli.us')
+  await next()
+})
 app.use(koaStatic(path.join(__dirname, '../dist')))
 app.use(router.routes())
 
