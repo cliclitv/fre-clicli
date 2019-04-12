@@ -14,7 +14,7 @@
         <router-link to="/explore"><i class="icon-font icon-explore"></i></router-link>
       </li>
       <li @click="onLogin()">
-        <a><i class="icon-font icon-user"></i></a>
+        <router-link :to="userLink"><i class="icon-font icon-user"></i></router-link>
       </li>
       <li class="write">
         <a :href="adminLink" target="_blank"><i class="icon-font icon-write"></i></a>
@@ -43,7 +43,8 @@
         msg: '',
         pr: '投稿',
         adminLink: ADMIN_LINK,
-        bg: '#000'
+        bg: '#000',
+        userLink: ''
       }
     },
     mounted() {
@@ -60,15 +61,12 @@
       auth() {
         auth().then(res => {
           if (res.data.code === 201) {
-            const user = getStorage('user-info')
-            if (user) {
-              this.user = user
-            } else {
-              getUser('', Cookies.get('uid')).then(res => {
+            this.userLink = `/u/${Cookies.get('uid')}`
+            getStorage('user-info') ? this.user = getStorage('user-info')
+              : getUser('', Cookies.get('uid')).then(res => {
                 setStorage('user-info', res.data.user)
                 this.user = res.data.user
               })
-            }
           } else {
             removeStorage('user-info')
           }
