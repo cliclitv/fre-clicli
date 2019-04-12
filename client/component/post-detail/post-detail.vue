@@ -4,7 +4,7 @@
       <div class="avatar">
         <img :src="getAvatar(post.uqq)">
         <span>{{post.uname}}</span>
-        <div class="count"><i class="icon-font icon-comment"></i>{{commentCount}}</div>
+        <div class="count" v-if="post.count"><i class="icon-font icon-comment"></i>{{post.count.cv}}</div>
         <div class="count"><i class="icon-font icon-eye"></i>{{playCount}}</div>
       </div>
     </router-link>
@@ -25,7 +25,7 @@
     </div>
     <router-view></router-view>
     <video-list v-if="post.status==='public'||post.status==='ugc'"></video-list>
-    <comment-list :count="commentCount"></comment-list>
+    <comment-list :count="post.count.cv"></comment-list>
   </div>
 </template>
 
@@ -43,7 +43,6 @@
     mixins: [titleMixin],
     data() {
       return {
-        commentCount: 0,
         playCount: 0
       }
     },
@@ -53,12 +52,11 @@
     computed: {
       ...mapGetters(['post'])
     },
-    beforeMount() {
+    mounted() {
       this.getPost(getAv(this.$route.params.id))
       getPv(getAv(this.$route.params.id)).then(res => {
         this.playCount = res.data.pv
       })
-      this.commentCount = this.post.count.cv
     },
     asyncData({store, route}) {
       return store.dispatch('getPost', getAv(route.params.id))
