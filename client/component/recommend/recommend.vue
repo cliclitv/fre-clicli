@@ -55,12 +55,13 @@
         this.showBtn = true
       },
       getRecommend() {
-        getPosts('public', 'bgm', '推荐', '', 1, 10).then(res => {
+        getPosts('public', 'bgm', '推荐', '', 1, 8).then(res => {
           if (res.data.code === 201) this.recommend = res.data.posts
         })
       },
       getAuthors() {
-        getUsers('author', 7, 5).then(res => {
+        let page = Math.floor(Math.random() * 10 + 1)
+        getUsers('author', page, 5).then(res => {
           this.authors = res.data.users
         })
       }

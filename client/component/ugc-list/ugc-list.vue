@@ -76,7 +76,7 @@
         this.sort = item
       },
       selectTag(item) {
-        this.tag.indexOf(item) > -1 ? this.tag = this.tag.replace(`${item}`, '').replace(/\s+/g, '')
+        this.tag.indexOf(item) > -1 ? this.tag = this.tag.replace(` ${item}`, '')
           : this.tag += ` ${item}`
       }
     },
