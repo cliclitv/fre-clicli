@@ -13,7 +13,7 @@
       </div>
       <button @click="onComment" @keyup.enter="onComment"><i class="icon-font icon-send"></i>发射！</button>
     </div>
-    <h2>共有 <span>{{count}}</span> 条弹幕&回复</h2>
+    <h2>共有 <span v-if="count">{{count}}</span> 条弹幕&回复</h2>
     <ul>
       <li v-for="item in comments">
         <div class="comment-avatar">
@@ -38,7 +38,6 @@
   import {mapMutations} from 'vuex'
 
   export default {
-    name: "comment-list",
     props: ['count'],
     data() {
       return {
@@ -64,11 +63,12 @@
         }).then(res => {
           this.content = ''
           this.getComment()
-          this.count ++
+          this.count++
           console.log(res.data.code)
         })
       },
       getComment() {
+        console.log(this.count)
         getComments(getAv(this.$route.params.id), 1, 100).then(res => {
           if (res.data.code === 201) {
             this.comments = res.data.comments

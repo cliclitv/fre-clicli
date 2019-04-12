@@ -4,6 +4,7 @@ export default {
   },
   loadPost(state, post) {
     state.post = post
+    state.count = post.count.cv
   },
   isOnLogin(state, isLogin) {
     state.isLogin = isLogin

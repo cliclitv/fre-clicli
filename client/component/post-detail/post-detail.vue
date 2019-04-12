@@ -25,7 +25,7 @@
     </div>
     <router-view></router-view>
     <video-list v-if="post.status==='public'||post.status==='ugc'"></video-list>
-    <comment-list :count="post.count.cv" v-if="post"></comment-list>
+    <comment-list :count="count" v-if="post.count"></comment-list>
   </div>
 </template>
 
@@ -50,7 +50,7 @@
       return this.$store.state.post.title + '- clicli弹幕网'
     },
     computed: {
-      ...mapGetters(['post'])
+      ...mapGetters(['post','count'])
     },
     mounted() {
       this.getPost(getAv(this.$route.params.id))

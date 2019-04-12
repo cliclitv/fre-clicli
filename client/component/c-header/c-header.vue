@@ -13,9 +13,13 @@
       <li>
         <router-link to="/explore"><i class="icon-font icon-explore"></i></router-link>
       </li>
-      <li @click="onLogin()">
+      <li @click="onLogin()" v-if="!isShow">
+        <a><i class="icon-font icon-user"></i></a>
+      </li>
+      <li v-if="isShow">
         <router-link :to="userLink"><i class="icon-font icon-user"></i></router-link>
       </li>
+
       <li class="write">
         <a :href="adminLink" target="_blank"><i class="icon-font icon-write"></i></a>
       </li>
@@ -40,9 +44,7 @@
         user: {},
         isShow: false,
         msg: '',
-        pr: '投稿',
         adminLink: ADMIN_LINK,
-        bg: '#000',
         userLink: ''
       }
     },
@@ -60,6 +62,7 @@
       auth() {
         auth().then(res => {
           if (res.data.code === 201) {
+            this.isShow = true
             this.userLink = `/u/${Cookies.get('uid')}`
             getStorage('user-info') ? this.user = getStorage('user-info')
               : getUser('', Cookies.get('uid')).then(res => {
@@ -67,6 +70,7 @@
                 this.user = res.data.user
               })
           } else {
+            this.isShow = false
             removeStorage('user-info')
           }
         })
@@ -75,8 +79,6 @@
         logout().then(() => {
           removeStorage('user-info')
           this.isShow = false
-          this.msg = '退出成功啦'
-          this.bg = '#3f659a'
         })
       },
       ...mapMutations(['isOnLogin'])
