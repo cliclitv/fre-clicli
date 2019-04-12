@@ -31,7 +31,6 @@
           </div>
         </router-link>
       </li>
-      <p v-if="!posts">该索引下没有稿件\(^o^)/~</p>
     </ul>
     <div class="clear"></div>
   </div>

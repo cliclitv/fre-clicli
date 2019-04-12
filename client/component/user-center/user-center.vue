@@ -44,7 +44,7 @@
           getPosts('public', 'bgm', '', res.data.user.id, 1, 12).then(res => {
             this.userBgms = res.data.posts
           })
-          getPosts('public', 'ugc', '', res.data.user.id, 1, 20).then(res => {
+          getPosts('public', '原创', '', res.data.user.id, 1, 20).then(res => {
             this.userUgcs = res.data.posts
           })
         }
@@ -62,48 +62,49 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   @import "~public/stylus/variable"
   .user-info
     margin-top: 20px
-  .avatar
-    position relative
-    text-align center
-    img
-      border-radius 50px
-      width 100px
-    li
-      font-size: 16px
+    .post-list
+      background $t-color
       padding: 10px
-      height 20px
-    p
-      display inline-block
-      font-size: 12px
-      padding: 5px 15px
-      height 16px
-      background $bg-color
-      border-radius 20px
-      margin-bottom: 15px
-  .avatar:before
-    content ''
-    width 100%
-    height: 135px
-    background $t-color
-    position absolute
-    display block
-    bottom: 0
-    z-index -1
-  h2
-    text-align center
-    font-weight lighter
-    padding: 20px
+      li
+        width 157px
+    .avatar
+      position relative
+      text-align center
+      img
+        border-radius 50px
+        width 100px
+      li
+        font-size: 16px
+        padding: 10px
+        height 20px
+      p
+        display inline-block
+        font-size: 12px
+        padding: 5px 15px
+        height 16px
+        background $bg-color
+        border-radius 20px
+        margin-bottom: 15px
+    .avatar:before
+      content ''
+      width 100%
+      height: 135px
+      background $t-color
+      position absolute
+      display block
+      bottom: 0
+      z-index -1
+    h2
+      text-align center
+      width 100%
+      font-weight lighter
+      padding: 20px
   .ugc-wrap
     background $l-color
     padding: 40px 0
 
-  .post-list
-    background $t-color
-    padding: 10px
-    li
-      width 157px
 </style>
