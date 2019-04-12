@@ -62,21 +62,10 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   @import "~public/stylus/variable"
   .user-info
     margin-top: 20px
-
-  .ugc-wrap
-    background $l-color
-    padding: 40px 0
-
-  .post-list
-    background $t-color
-    padding: 10px
-    li
-      width 157px
-
   .avatar
     position relative
     text-align center
@@ -95,7 +84,6 @@
       background $bg-color
       border-radius 20px
       margin-bottom: 15px
-
   .avatar:before
     content ''
     width 100%
@@ -105,9 +93,17 @@
     display block
     bottom: 0
     z-index -1
-
   h2
     text-align center
     font-weight lighter
     padding: 20px
+  .ugc-wrap
+    background $l-color
+    padding: 40px 0
+
+  .post-list
+    background $t-color
+    padding: 10px
+    li
+      width 157px
 </style>

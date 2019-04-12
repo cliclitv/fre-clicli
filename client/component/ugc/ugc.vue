@@ -17,7 +17,7 @@
     },
 
     mounted() {
-      getPosts('public', 'ugc', '', '', 1, 30).then(res => {
+      getPosts('public', '原创', '', '', 1, 30).then(res => {
         this.ugcs = res.data.posts
       })
     },

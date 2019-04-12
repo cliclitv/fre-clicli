@@ -36,10 +36,7 @@
       border-radius 4px
       background $b-color
       width 600px
-      border: 1px solid $b-color
       box-sizing: border-box
-    input:focus
-      border: 1px solid $blue-color
     .icon-search
       color: $grey
       position: absolute

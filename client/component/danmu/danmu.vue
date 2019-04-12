@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="submit">
-        <button @click="onComment"><i class="icon-font icon-send"></i>发射！</button>
+        <button @click="onComment"><i class="icon-font icon-send"></i>发射</button>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
       return {
         title: '',
         user: {},
-        isShow: !process.env.NODE_ENV === 'development',
+        isShow: process.env.NODE_ENV === 'development',
         optShow: false,
         uqq: Cookies.get('uqq'),
         data: {
@@ -140,7 +140,7 @@
     left: 0
     right: 0
     width 100%
-    background rgba(9, 13, 24, .8)
+    background $bg-color
     padding: 10px
     z-index 9999999
     .comment-box
@@ -160,14 +160,13 @@
       input
         border-radius 5px
         width 100%
-        background rgba(9, 13, 24, .8)
+        background $b-color
         padding: 8px
         resize: none
         box-sizing border-box
         color: #fff
         font-size: 20px
         outline: none
-        border: 2px solid #152e4d
     .option
       position relative
     .submit
@@ -175,21 +174,19 @@
       margin-left: 20px
       button
         background $qing
-        color: #fff
-        padding 5px 15px
+        color: $bg-color
+        padding 5px 20px
         cursor pointer
         outline none
-        transition .3s
-        font-size: 22px
-        border-radius 5px
-      button:hover
-        background $qing
+        font-size: 18px
+        border-radius 2px
+        font-weight bold
       .icon-send
-        font-size: 24px
-        margin-right: 20px
+        font-size: 20px
+        margin-right: 15px
     .dm-opt
       padding: 10px
-      background #090c13
+      background $bg-color
       position absolute
       bottom: 60px
       right -125px
