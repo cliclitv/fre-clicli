@@ -33,5 +33,5 @@ export function searchPosts(key) {
 
 // 获取周播表
 export function getWeekList() {
-  return request.get('/posts?status=public&sort=新番&page=1&pageSize=100')
+  return request.get('/posts?status=nowait&sort=新番&page=1&pageSize=100')
 }

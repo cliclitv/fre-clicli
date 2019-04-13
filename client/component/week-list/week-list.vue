@@ -6,7 +6,6 @@
           class="item" v-html="getDay(key)">
       </li>
     </ul>
-
     <ul class="content">
       <li v-for="item in items[activeIndex]">
         <router-link :to="'/play/gv'+item.id">
