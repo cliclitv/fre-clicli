@@ -2,8 +2,23 @@
   <div id="app">
     <progress-bar></progress-bar>
     <c-header></c-header>
-    <div class="cell">
-      <span>c站强势改版(⊙o⊙)…报错、补档、反馈要加群：607024802</span>
+    <div class="notice">
+      <ul>
+        <a href="https://acgzone.github.io/clicli-hybrid-app/" target="_blank" class="active">
+          <li>APP下载</li>
+        </a>
+        <router-link to="/play/gv905">
+          <li>投稿·视频教程</li>
+        </router-link>
+        <router-link to="/play/gv31">
+          <li>使用说明</li>
+        </router-link>
+        <router-link to="/play/gv99">
+          <li>补档</li>
+        </router-link>
+        <span>c站强势改版(σ｀д′)σ…最快……报错、补档、反馈、交流，请加群：607024802</span>
+      </ul>
+
     </div>
     <login v-show="isLogin" @close="close"></login>
     <div class="home">
@@ -55,10 +70,23 @@
   .home
     margin 30px auto !important
 
-  .cell
-    text-align center
+  .notice
     margin-top: 56px
     border-bottom: 1px solid $b-color
     padding: 10px
+    span
+      padding: 1px 10px
+      background $l-color
+      font-size 12px
+      border-radius 8px
+      margin-left 10px
+    ul a
+      color: $color
+      li
+        display inline-block
+        padding: 0 10px
+    .active li
+      color: #fff
+      font-weight: bold
 
 </style>

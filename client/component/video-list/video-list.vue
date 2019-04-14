@@ -39,8 +39,8 @@
         content: '',
         pid: getAv(this.$route.params.id),
         uid: 0,
-        url:'',
-        type:''
+        url: '',
+        type: ''
       }
     },
     mounted() {
@@ -60,15 +60,14 @@
       ...mapState(['vid'])
     },
     methods: {
-      show() {
-        this.addShow = true
-      },
       hide() {
         this.addShow = false
         this.playerShow = false
+        document.body.style.overflow = 'auto'
       },
       selectItem({id, content}, e) {
         this.playerShow = true
+        document.body.style.overflow = 'hidden'
         this.setVid(id)
         getPv(this.pid).then(res => {
           console.log(res.data.pv + '+1')
@@ -78,7 +77,7 @@
         })
         getRealUrl(content).then(res => {
           this.url = res.data.url
-          this.type =  res.data.type
+          this.type = res.data.type
         })
         e.currentTarget.style.background = '#21374f'
       },

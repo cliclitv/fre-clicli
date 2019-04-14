@@ -53,12 +53,7 @@
           this.$refs.mask.style.backgroundImage = `url(${bg})`
         }
       })
-      let date = new Date().getDay()
-      if (date === 0) {
-        this.activeIndex = 6
-      } else {
-        this.activeIndex = date
-      }
+      this.activeIndex = new Date().getDay()
     },
     methods: {
       getSuo(content) {
