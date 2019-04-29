@@ -8,17 +8,23 @@
     <search-box></search-box>
     <ul class="menu">
       <li>
-        <router-link to="/"><i class="icon-font icon-home"></i></router-link>
+        <router-link to="/" title="首页"><i class="icon-font icon-home"></i></router-link>
       </li>
       <li>
-        <router-link to="/explore"><i class="icon-font icon-explore"></i></router-link>
+        <router-link to="/explore" title="发现"><i class="icon-font icon-explore"></i></router-link>
       </li>
-      <li @click="onLogin()" v-if="!isShow">
-        <a><i class="icon-font icon-user"></i></a>
+      <li @click="showOpt" v-if="!isShow">
+        <a title="注册"><i class="icon-font icon-user"></i></a>
       </li>
-      <li v-if="isShow">
-        <router-link :to="userLink"><i class="icon-font icon-user"></i></router-link>
-      </li>
+      <ul v-show="isOpt">
+        <li @click="onLogin">登陆</li>
+        <a :href="adminLink+'/register/'" target="_blank">
+          <li>注册</li>
+        </a>
+      </ul>
+      <!--<li v-if="isShow">-->
+      <!--<router-link :to="userLink"><i class="icon-font icon-user"></i></router-link>-->
+      <!--</li>-->
       <a :href="adminLink" target="_blank">
         <li class="write">
           <i class="icon-font icon-write"></i>
@@ -46,7 +52,8 @@
         isShow: false,
         msg: '',
         adminLink: ADMIN_LINK,
-        userLink: ''
+        userLink: '',
+        isOpt: false
       }
     },
     mounted() {
@@ -59,6 +66,9 @@
       },
       getAvatar(qq) {
         return getAvatar(qq)
+      },
+      showOpt() {
+        this.isOpt = !this.isOpt
       },
       auth() {
         auth().then(res => {
@@ -131,5 +141,30 @@
             color: $bg-color
         .router-link-active
           color: #fff
+        a:hover:before
+          position: absolute
+          top: 20px
+          content: attr(title)
+          left: 0
+          color: #fff
+          background: $pink
+          width 50px
+          padding: 4px
+          text-align center
+          border-radius 4px
+      ul
+        position absolute
+        right: 65px
+        background #fff
+        color: #666
+        top: 45px
+        li
+          display block
+          text-align center
+          padding: 10px 40px
+          cursor pointer
+        li:hover
+          background $qing
+          color: $bg-color
 
 </style>
