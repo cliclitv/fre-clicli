@@ -13,15 +13,15 @@
       <li>
         <router-link to="/explore" title="发现"><i class="icon-font icon-explore"></i></router-link>
       </li>
-      <li @click="showOpt" v-if="!isShow">
+      <li @click="showOpt">
         <a title="注册"><i class="icon-font icon-user"></i></a>
       </li>
       <ul v-show="isOpt">
-        <li @click="onLogin">登陆</li>
-        <a :href="adminLink+'/register/'" target="_blank">
+        <li @click="onLogin"  v-if="!isShow">登陆</li>
+        <a :href="adminLink+'/register/'" target="_blank"  v-if="!isShow">
           <li>注册</li>
         </a>
-        <router-link :to="userLink"><li>登陆</li></router-link>
+        <router-link :to="userLink" v-show="isShow"><li>个人主页</li></router-link>
       </ul>
       <a :href="adminLink" target="_blank">
         <li class="write">
@@ -149,17 +149,19 @@
           width 50px
           padding: 4px
           text-align center
-          border-radius 4px
+          border-radius 4px 0 4px 0
+          font-size 12px
       ul
         position absolute
-        right: 65px
+        right: 45px
         background #fff
         color: #666
         top: 45px
         li
           display block
           text-align center
-          padding: 10px 40px
+          width 140px
+          padding: 5px
           cursor pointer
         li:hover
           background $qing

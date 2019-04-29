@@ -13,6 +13,9 @@
         <span style="color:#59cfdc">React</span> +
         <span style="color:#FF005E">Fre</span> .
       </p>
+      <p>
+        本站 ugc 服务器由 <a href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> 赞助
+      </p>
     </div>
   </div>
 </template>
@@ -25,9 +28,10 @@
   @import "~public/stylus/variable"
   .footer
     padding: 20px 0
-    margin-bottom: 60px
+    margin-bottom: 30px
     p
       text-align center
+      padding: 10px
     a
       color: rgba(255, 255, 255, .6)
       font-size: 12px
@@ -38,7 +42,6 @@
       color: #fff
       padding: 2px 10px
       display inline-block
-      margin-bottom: 10px
-      border-radius 4px
+      border-radius 10px 0 10px 0
       font-size: 12px
 </style>
