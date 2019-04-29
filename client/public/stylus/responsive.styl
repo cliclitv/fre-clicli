@@ -1,23 +1,10 @@
 @import "variable.styl"
 @media screen and (max-width: 480px)
-  .uper, .search-box, .logo, .notice, .recommend, .write
+  .uper, .search-box, .logo, .notice, .recommend, .write, .option, .comment
     display none !important
 
   .wrap
     width 100%
-
-  .post-list
-    padding: 5px !important
-    li
-      width 50% !important
-    .post
-      margin: 2px !important
-      .suo
-        height 230px !important
-        img
-          height 230px !important
-      .info
-        margin: 0 !important
 
   .header
     padding 0
@@ -32,20 +19,21 @@
         flex: 1
         display block
         text-align center
-        padding 10px 0
+        padding: 0 !important
         a
+          display block
           padding: 10px 0
-        .router-link-active
+        .router-link-exact-active
           border-bottom: 2px solid $qing
-          height 100%
         a:hover:before
           display none
 
   .home
-    margin 50px auto !important
+    margin 45px auto !important
 
   .week-list
-    ul.day
+    height auto !important
+    .day
       display flex
       align-items center
       justify-content center
@@ -53,12 +41,36 @@
         padding: 5px 0 !important
         margin: 10px !important
         flex: 1
+    .content
+      li
+        width 50% !important
+        img
+          width 60px !important
+          height 60px !important
 
-  .comment, #ep-canvas
-    display none
+  .post-list
+    ul
+      li
+        width 33.3% !important
+        padding: 0
+      .suo, .suo img
+        height 160px !important
+        border-radius 0 !important
+      .post
+        padding: 1px
+        .title
+          height 20px
+          overflow hidden
+        .info
+          margin: 10px 0
 
-  .menu::-webkit-scrollbar
-    display: none
+  .ugc-list
+    width 100% !important
+    .masonry
+      column-count 1 !important
+      .item
+        margin: 10px 0 !important
+        border-radius 0 !important
 
   .post-detail
     width 100% !important
@@ -73,21 +85,6 @@
         width 100% !important
         height 270px !important
     .close
-      top: -35px !important
-      right 0 !important
-      .icon-close1
-        background transparent !important
-        border: 0 !important
-
-  .right-btn
-    display none !important
-
-  .recommend-wrap
-    .recommend
-      .post-list
-        width 100% !important
-        box-sizing: border-box
-        li
-          float none !important
-    li:nth-child(5)
-      margin-right 0 !important
+      top: -60px !important
+      right 50% !important
+      transform translate(50%, 0)

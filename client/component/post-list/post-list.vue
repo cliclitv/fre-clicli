@@ -10,7 +10,7 @@
 
             <div class="info" v-if="!noInfo">
               <div>{{item.time.slice(0,-3)}}</div>
-              <h1 class="title">{{item.title.slice(0,10)}}</h1>
+              <h1 class="title">{{item.title}}</h1>
             </div>
           </div>
         </router-link>
@@ -50,6 +50,8 @@
         font-size: 14px
         padding-top: 10px
         color: $color
+        height 20px
+        overflow hidden
       .info
         font-size: 12px
         color: rgba(255, 255, 255, .6)
