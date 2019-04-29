@@ -9,7 +9,7 @@
             <div class="avatar">
               <img :src="getAvatar(item.uqq)">
             </div>
-            <div class="oid">第{{item.oid}}话</div>
+            <div class="oid">P{{item.oid}}</div>
             <div class="title">{{item.title}}</div>
           </div>
         </li>
