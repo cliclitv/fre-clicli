@@ -15,7 +15,7 @@
           <h1 class="title">{{post.title}}</h1>
         </router-link>
         <div class="info">
-          <span>{{post.time}}</span>
+          <span>{{post.time.slice(0,-3)}}</span>
           <span v-text="post.sort"></span>
           <span v-text="post.tag"></span>
         </div>

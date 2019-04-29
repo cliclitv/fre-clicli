@@ -25,7 +25,7 @@
             <div class="info">
               <span v-text="'# ' + item.sort"></span>
               <span v-text="'# ' + item.tag"></span>
-              <span>{{item.time}}</span>
+              <span class="right">{{item.time.slice(0,-3)}}</span>
             </div>
             <h1 class="count">{{item.count.cv + ' 评论'}}</h1>
           </div>

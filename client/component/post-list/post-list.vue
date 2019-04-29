@@ -9,8 +9,8 @@
             </div>
 
             <div class="info" v-if="!noInfo">
-              <div>{{item.time}}</div>
-              <h1 class="title">{{item.title.substring(0,10)}}</h1>
+              <div>{{item.time.slice(0,-3)}}</div>
+              <h1 class="title">{{item.title.slice(0,10)}}</h1>
             </div>
           </div>
         </router-link>
