@@ -67,11 +67,8 @@
       },
       selectItem({id, content}, e) {
         this.playerShow = true
-        document.body.style.overflow = 'hidden'
         this.setVid(id)
-        getPv(this.pid).then(res => {
-          console.log(res.data.pv + '+1')
-        })
+        getPv(this.pid)
         getDanmuku(id, 1, 100).then(res => {
           this.getDanmuku(res.data.comments)
         })
@@ -79,6 +76,7 @@
           this.url = res.data.url
           this.type = res.data.type
         })
+        document.body.style.overflow = 'hidden'
         e.currentTarget.style.background = '#21374f'
       },
       getAvatar(qq) {
