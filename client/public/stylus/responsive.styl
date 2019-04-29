@@ -1,7 +1,7 @@
 @import "variable.styl"
 @media screen and (max-width: 480px)
-  .bio
-    display none
+  .uper, .search-box, .logo, .notice, .recommend, .write
+    display none !important
 
   .wrap
     width 100%
@@ -20,42 +20,41 @@
         margin: 0 !important
 
   .header
+    padding 0
     .menu
-      margin-left: 60px !important
+      position relative
+      display flex
       width 100%
-      box-sizing border-box
-      height 40px
-      white-space: nowrap
-      overflow-x: scroll
-      float: left
-      -webkit-overflow-scrolling: touch
-      padding-right 70px
+      justify-content center
+      align-items center
+      right 0
+      li
+        flex: 1
+        display block
+        text-align center
+        padding 10px 0
+        a
+          padding: 10px 0
+        .router-link-active
+          border-bottom: 2px solid $qing
+          height 100%
+        a:hover:before
+          display none
+
+  .home
+    margin 50px auto !important
 
   .week-list
-    .content
+    ul.day
+      display flex
+      align-items center
+      justify-content center
       li
-        width 50% !important
-        img
-          height 60px !important
-          width 60px !important
+        padding: 5px 0 !important
+        margin: 10px !important
+        flex: 1
 
-  .search-box
-    height 50px !important
-    input
-      width 100% !important
-    .search
-      width 80% !important
-    .icon-search
-      position: absolute !important
-      right: 5px !important
-      top: 5px !important
-
-  .main
-    .gonggao
-      span
-        display inline-block
-
-  .comment,#ep-canvas
+  .comment, #ep-canvas
     display none
 
   .menu::-webkit-scrollbar
@@ -79,14 +78,16 @@
       .icon-close1
         background transparent !important
         border: 0 !important
+
   .right-btn
-    display none!important
+    display none !important
+
   .recommend-wrap
     .recommend
       .post-list
-        width 100%!important
+        width 100% !important
         box-sizing: border-box
         li
-          float none!important
+          float none !important
     li:nth-child(5)
-      margin-right 0!important
+      margin-right 0 !important
