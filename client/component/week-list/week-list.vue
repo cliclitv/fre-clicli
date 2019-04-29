@@ -3,11 +3,11 @@
     <div class="mask" ref="mask"></div>
     <ul class="day">
       <li v-for="(_, key) in items" @click="handleClick(key)" :class="{active: activeIndex == key}"
-          class="item" v-html="getDay(key)">
+          class="item" v-html="getDay(key)" :key="key">
       </li>
     </ul>
     <ul class="content">
-      <li v-for="item in items[activeIndex]">
+      <li v-for="item in items[activeIndex]" :key="item.id">
         <router-link :to="'/play/gv'+item.id">
           <img :src="getSuo(item.content)" :alt="item.title">
           <div class="text">
