@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="clicli弹幕网，简称c站或clicli，类似于早期的b站、a站，提供无修动漫、1080p动漫在线观看，1080p、不限码率的原创视频上传，c站APP下载，唯一域名：clicli.us">
+  <meta name="description"
+        content="clicli弹幕网，简称c站或clicli，类似于早期的b站、a站，提供无修动漫、1080p动漫在线观看，1080p、不限码率的原创视频上传，c站APP下载，唯一域名：clicli.us">
   <meta name="keywords" content="c站,cli,clicli,clicli弹幕网,c站APP,c站网址,b站c站">
   <title>{{title}}</title>
   <link rel="stylesheet" href="//at.alicdn.com/t/font_474499_ltccjmu9blk.css">
   <meta name="referrer" content="never"/>
-  <link rel="manifest" href="https://cdn.clicli.us/manifest.json"/>
+  <link rel="manifest" href="https://www.clicli.us/manifest.json"/>
 </head>
 <body>
 <!--vue-ssr-outlet-->
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs"></script>
 <script src="https://unpkg.com/hls.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+  }
+</script>
 <script type="module">
   import {Eplayer} from 'https://unpkg.com/eplayer@1.3.15'
 
