@@ -21,10 +21,8 @@
         <a :href="adminLink+'/register/'" target="_blank">
           <li>注册</li>
         </a>
+        <router-link :to="userLink"><li>登陆</li></router-link>
       </ul>
-      <!--<li v-if="isShow">-->
-      <!--<router-link :to="userLink"><i class="icon-font icon-user"></i></router-link>-->
-      <!--</li>-->
       <a :href="adminLink" target="_blank">
         <li class="write">
           <i class="icon-font icon-write"></i>
@@ -130,6 +128,8 @@
         background $qing
         padding: 4px 20px
         margin 0 15px
+        .icon-write
+          color: $bg-color
       li
         display inline-block
         padding: 0 15px
@@ -137,8 +137,6 @@
           color: $color
           .icon-font
             font-size 24px
-          .icon-write
-            color: $bg-color
         .router-link-active
           color: #fff
         a:hover:before
