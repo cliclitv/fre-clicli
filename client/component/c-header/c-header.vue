@@ -19,10 +19,11 @@
       <li v-if="isShow">
         <router-link :to="userLink"><i class="icon-font icon-user"></i></router-link>
       </li>
-
-      <li class="write">
-        <a :href="adminLink" target="_blank"><i class="icon-font icon-write"></i></a>
-      </li>
+      <a :href="adminLink" target="_blank">
+        <li class="write">
+          <i class="icon-font icon-write"></i>
+        </li>
+      </a>
     </ul>
   </div>
 
