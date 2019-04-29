@@ -8,7 +8,7 @@
         <input placeholder="回复一下下菊花又不会坏……" v-model="data.value" v-if="isShow" @keyup.enter="onComment">
         <div v-if="!isShow" class="need-login">
           <span @click="onLogin">登陆</span>
-          <a href="https://admin.clicli.us/register">注册</a>
+          <a :href="adminLink+'/register'">注册</a>
         </div>
       </div>
       <switch-button @closeDm="closeDm" @openDm="openDm"></switch-button>
@@ -46,7 +46,7 @@
   import {mapGetters, mapMutations} from 'vuex'
   import {CanvasBarrage} from 'public/js/CanvasBarrage'
   import SwitchButton from 'widget/switch-button/switch-button.vue'
-  import {getAv,getAvatar} from 'public/js/util'
+  import {getAv, getAvatar, ADMIN_LINK} from 'public/js/util'
 
   export default {
     data() {
@@ -55,6 +55,7 @@
         user: {},
         isShow: process.env.NODE_ENV === 'development',
         optShow: false,
+        adminLink: ADMIN_LINK,
         uqq: Cookies.get('uqq'),
         data: {
           color: '#fff',
