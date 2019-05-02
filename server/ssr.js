@@ -12,6 +12,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(router.routes())
 
 app.listen(3000, '0.0.0.0', () => {
-  console.log('clicli started on 3000')
+  console.log('ssr started on 3000')
 })
 
