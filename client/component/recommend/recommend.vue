@@ -52,7 +52,7 @@
         })
       },
       getAuthors() {
-        let page = Math.ceil(Math.random() * 18)
+        let page = Math.ceil(Math.random() * 16)
         getUsers('up', page, 5).then(res => {
           this.authors = res.data.users
         })
