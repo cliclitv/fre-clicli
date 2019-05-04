@@ -3681,7 +3681,7 @@ node-pre-gyp@^0.10.0:
 
 nodemon@^1.19.0:
   version "1.19.0"
-  resolved "https://registry.npm.taobao.org/nodemon/download/nodemon-1.19.0.tgz#358e005549a1e9e1148cb2b9b8b28957dc4e4527"
+  resolved "https://registry.npm.taobao.org/nodemon/download/nodemon-1.19.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnodemon%2Fdownload%2Fnodemon-1.19.0.tgz#358e005549a1e9e1148cb2b9b8b28957dc4e4527"
   integrity sha1-NY4AVUmh6eEUjLK5uLKJV9xORSc=
   dependencies:
     chokidar "^2.1.5"
