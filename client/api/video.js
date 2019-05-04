@@ -15,24 +15,12 @@ export function getVideos(pid, page, pageSize) {
     }
   })
 }
-
-// 添加视频
-export function addVideo(oid, title, content, pid, uid) {
-  return axios.post('/video/add', {
-    oid: parseInt(oid),
-    title,
-    content,
-    pid: parseInt(pid),
-    uid
-  })
-}
-
 // 根据地址获取真实链接
 export function getRealUrl(url) {
   if (url.indexOf('www.clicli') > -1) {
     return axios.get(url)
   } else {
-    return axios.get('/jx', {
+    return axios.get('https://jx.clicli.us/jx', {
       params: {
         url
       }
@@ -41,5 +29,5 @@ export function getRealUrl(url) {
 }
 
 export function getPv(pid) {
-  return axios.get(`/get/pv?pid=${pid}`)
+  return axios.get(`https://jx.clicli.us/get/pv?pid=${pid}`)
 }
