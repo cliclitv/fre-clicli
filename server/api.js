@@ -56,7 +56,7 @@ router.get('/get/pv', async function addPv(ctx) {
 router.get('/jx/', Jx.default)
 
 app.use(async (ctx, next) => {
-  ctx.set('Access-Control-Allow-Origin', 'https://admin.clicli.us')
+  ctx.set('Access-Control-Allow-Origin', '*')
   await next()
 })
 
