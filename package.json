@@ -10,8 +10,9 @@
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.client.js",
     "dev:spa": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.spa.js",
     "build": "cnpm run build:client && cnpm run build:server && cnpm run build:spa",
-    "dev": "cross-env NODE_ENV=development concurrently \"cnpm run dev:client\" \"nodemon server/app.js\" ",
-    "start": "node server/app.js"
+    "dev": "cross-env NODE_ENV=development concurrently \"cnpm run dev:client\" \"nodemon server/ssr.js\" ",
+    "start": "node server/ssr.js",
+    "api": "nodemon server/api.js"
   },
   "repository": {
     "type": "git",
