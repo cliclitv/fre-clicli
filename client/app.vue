@@ -16,7 +16,7 @@
         <router-link to="/play/gv99">
           <li>补档</li>
         </router-link>
-        <span>c站强势改版(σ｀д′)σ…最快……报错、补档、反馈、交流，请加群：607024802</span>
+        <span>一群满啦，投稿，补档，求番，加二群：561285033</span>
       </ul>
 
     </div>
