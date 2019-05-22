@@ -4,7 +4,7 @@
     <c-header></c-header>
     <div class="notice">
       <ul>
-        <a href="https://app.clicli.top" target="_blank" class="active">
+        <a href="https://app.clicli.me" target="_blank" class="active">
           <li>APP下载</li>
         </a>
         <router-link to="/play/gv905">

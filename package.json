@@ -35,6 +35,7 @@
     "koa-router": "^7.4.0",
     "marked": "^0.4.0",
     "mysql": "^2.16.0",
+    "puppeteer": "^1.16.0",
     "vue": "^2.5.22",
     "vue-router": "^3.0.2",
     "vue-server-renderer": "^2.5.22",
