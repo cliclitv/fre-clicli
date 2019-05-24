@@ -5,7 +5,7 @@
         <img :src="getAvatar(post.uqq)">
         <span>{{post.uname}}</span>
         <div class="count" v-if="post.count"><i class="icon-font icon-comment"></i>{{post.count.cv}}</div>
-        <div class="count"><i class="icon-font icon-eye"></i>{{playCount}}</div>
+        <div class="count"><i class="icon-font icon-eye"></i>{{playCount}} ℃</div>
       </div>
     </router-link>
     <div class="post">
@@ -50,7 +50,7 @@
       return this.$store.state.post.title + '- clicli弹幕网'
     },
     computed: {
-      ...mapGetters(['post','count'])
+      ...mapGetters(['post', 'count'])
     },
     mounted() {
       this.getPost(getAv(this.$route.params.id))
@@ -166,6 +166,8 @@
       border-radius 25px
       float right
       margin-right: 10px
+      .icon-font
+        margin-right: 8px
     .count:hover
-      background $blue-color
+      background $qing
 </style>
