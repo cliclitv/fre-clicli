@@ -27,16 +27,18 @@ c站（clicli.us）pc 端主站源码，此分支为 v3 重构
 
 ### 目录结构
 
+```
 client 文件夹集中了 vue 业务逻辑，server 文件夹集中了 ssr 相关逻辑
-
+   
 client 文件夹中，api 是接口相关的方法
-
+   
 component 为业务组件
-
+   
 widget 为基础组件，与业务解耦，可以用于其他 vue 项目
-
+   
 public 文件夹主要是公用的 js 、 stylus 等
-
+   
 router 为路由相关，store 为 vuex 相关
-
+   
 这个目录结构是我积累的最符合语义、维护性最高的结构，供参考
+```
