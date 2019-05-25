@@ -20,6 +20,13 @@ Vue.config.ignoredElements = [
 const router = createRouter()
 const store = createStore()
 
+router.beforeEach((to, from, next) => {
+  if (to.path) {
+    _hmt.push(['_trackPageview', '/#' + to.fullPath])
+  }
+  next()
+})
+
 
 new Vue({
   router,
