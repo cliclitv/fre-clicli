@@ -4,6 +4,7 @@ const app = new Koa()
 const Jx = require('./jx')
 const axios = require('axios')
 const util = require('./util/util')
+const Hcy = require('./api/hcy')
 
 const router = new Router()
 
@@ -54,6 +55,9 @@ router.get('/get/pv', async function addPv(ctx) {
 })
 
 router.get('/jx/', Jx.default)
+router.get('/hcy/list', Hcy.getList)
+router.get('/hcy/down/:fid', Hcy.getUrl)
+
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', '*')
