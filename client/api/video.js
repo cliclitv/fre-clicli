@@ -15,17 +15,15 @@ export function getVideos(pid, page, pageSize) {
     }
   })
 }
+
 // 根据地址获取真实链接
 export function getRealUrl(url) {
-  if (url.indexOf('www.clicli') > -1) {
-    return axios.get(url)
-  } else {
-    return axios.get('https://jx.clicli.us/jx', {
-      params: {
-        url
-      }
-    })
-  }
+  return axios.get('https://jx.clicli.us/jx', {
+    params: {
+      url
+    }
+  })
+
 }
 
 export function getPv(pid) {

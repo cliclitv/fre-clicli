@@ -56,7 +56,6 @@ router.get('/get/pv', async function addPv(ctx) {
 
 router.get('/jx/', Jx.default)
 router.get('/hcy/list', Hcy.getList)
-router.get('/hcy/down/:fid', Hcy.getUrl)
 
 
 app.use(async (ctx, next) => {
