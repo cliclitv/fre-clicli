@@ -23,7 +23,7 @@ c站（clicli.us）pc 端主站源码，此分支为 v3 重构
 * vue-router
 * koa2
 
->配套投稿中心：[clicli-admin](https://github.com/132yse/clicli-admin)
+>配套投稿中心：[clicli-admin](https://github.com/cliclitv/clicli-admin)
 
 ### 目录结构
 
