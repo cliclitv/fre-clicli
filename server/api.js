@@ -4,7 +4,7 @@ const app = new Koa()
 const Jx = require('./jx')
 const axios = require('axios')
 const util = require('./util/util')
-const Hcy = require('./api/hcy')
+// const Hcy = require('./api/hcy')
 
 const router = new Router()
 
@@ -13,7 +13,7 @@ const knex = require('knex')({
   connection: {
     host: 'localhost',
     user: 'root',
-    password: 'changhao2333',
+    password: 'Zchanghao1122',
     database: 'clicli'
   }
 })
@@ -55,7 +55,7 @@ router.get('/get/pv', async function addPv(ctx) {
 })
 
 router.get('/jx/', Jx.default)
-router.get('/hcy/list', Hcy.getList)
+// router.get('/hcy/list', Hcy.getList)
 
 
 app.use(async (ctx, next) => {
