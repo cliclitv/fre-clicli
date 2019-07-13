@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import App from './app.vue'
 import createRouter from './router'
 import createStore from './store/index'
+import {tongji} from 'public/js/util'
 
 import 'public/stylus/reset.styl'
 import 'public/stylus/index.styl'
@@ -19,16 +20,6 @@ Vue.config.ignoredElements = [
 
 const router = createRouter()
 const store = createStore()
-
-router.beforeEach((to, from, next) => {
-  if (_hmt) {
-    if (to.path) {
-      _hmt.push(['_trackPageview', '/#' + to.fullPath])
-    }
-  }
-  next()
-})
-
 
 new Vue({
   router,
