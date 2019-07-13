@@ -16,7 +16,7 @@
         <router-link to="/play/gv99">
           <li>补档</li>
         </router-link>
-        <span>一群满啦，投稿，补档，求番，加二群：561285033</span>
+        <span>c站搬运小分队招募，反馈、报错、补档、交流，加群：857500387</span>
       </ul>
 
     </div>
