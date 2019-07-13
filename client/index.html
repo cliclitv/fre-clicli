@@ -7,15 +7,10 @@
   <link rel="stylesheet" href="//at.alicdn.com/t/font_474499_ltccjmu9blk.css">
   <title>少年祈祷中……</title>
   <meta name="referrer" content="never"/>
-  <link rel="manifest" href="https://www.clicli.us/manifest.json"/>
+  <!--<link rel="manifest" href="https://www.clicli.us/manifest.json"/>-->
 </head>
 <body>
 <div id="app"></div>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-  }
-</script>
 <script src="https://code.bdstatic.com/npm/@webcomponents/webcomponentsjs@2.2.10"></script>
 <script src="https://code.bdstatic.com/npm/hls.js@0.12.4"></script>
 <script type="module">
@@ -24,10 +19,11 @@
 </script>
 <script>
   var _hmt = _hmt || []
-  (function() {
-    var hm = document.createElement("script")
-    hm.src = "https://hm.baidu.com/hm.js?8fc8aa49cffa79e5b92078fd15951dd1"
-    var s = document.getElementsByTagName("script")[0]
+  window._hmt = _hmt
+  (function () {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?8fc8aa49cffa79e5b92078fd15951dd1'
+    var s = document.getElementsByTagName('script')[0]
     s.parentNode.insertBefore(hm, s)
   })()
 </script>
