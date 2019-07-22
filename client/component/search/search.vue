@@ -19,7 +19,7 @@
     },
     beforeMount() {
       searchPosts(this.$route.params.key).then(res => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           this.posts = res.data.posts
         }
       })

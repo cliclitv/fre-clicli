@@ -38,7 +38,6 @@
   import BottomTip from 'widget/bottom-tip/bottom-tip.vue'
   import {mapMutations} from 'vuex'
   import {logout, auth, getUser} from "api/user"
-  import {getStorage, removeStorage, setStorage} from "public/js/localstorage"
   import {getAvatar, ADMIN_LINK} from "public/js/util"
   import SearchBox from 'widget/search-box/search-box.vue'
 
@@ -70,23 +69,17 @@
       },
       auth() {
         auth().then(res => {
-          if (res.data.code === 201) {
+          if (res.data.code === 200) {
             this.isShow = true
             this.userLink = `/u/${Cookies.get('uid')}`
-            getStorage('user-info') ? this.user = getStorage('user-info')
-              : getUser('', Cookies.get('uid')).then(res => {
-                setStorage('user-info', res.data.user)
-                this.user = res.data.user
-              })
+            this.user = res.data.user
           } else {
             this.isShow = false
-            removeStorage('user-info')
           }
         })
       },
       onLogout() {
         logout().then(() => {
-          removeStorage('user-info')
           this.isShow = false
         })
       },

@@ -21,7 +21,7 @@
 
 <script>
   import {addVideo, updateVideo, getVideos, getRealUrl, getPv} from 'api/video'
-  import {getStorage} from 'public/js/localstorage'
+  import Cookies from 'js-cookie'
   import {getAvatar} from "public/js/util"
   import Player from 'widget/player/player.vue'
   import {mapState, mapMutations} from 'vuex'
@@ -44,13 +44,13 @@
       }
     },
     mounted() {
-      const role = getStorage('user-info').role
-      this.uid = getStorage('user-info').id
-      if (role === 'admin' || role === 'editor' || role === 'author') {
+      const level = Cookies.get('level')
+      this.uid = Cookies.get('uid')
+      if (level > 2) {
         this.isShow = true
       }
       getVideos(this.pid, 1, 150).then(res => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           this.videos = res.data.videos
         }
       })

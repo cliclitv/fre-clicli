@@ -39,7 +39,7 @@
     },
     beforeMount() {
       getUser('', this.$route.params.id).then(res => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           this.user = res.data.user
           getPosts('public', 'bgm', '', res.data.user.id, 1, 12).then(res => {
             this.userBgms = res.data.posts

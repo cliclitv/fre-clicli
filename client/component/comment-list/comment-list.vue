@@ -69,7 +69,7 @@
       },
       getComment() {
         getComments(getAv(this.$route.params.id), 1, 100).then(res => {
-          if (res.data.code === 201) {
+          if (res.data.code === 200) {
             this.comments = res.data.comments
             this.content = ''
           }

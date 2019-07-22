@@ -48,7 +48,7 @@
       },
       getRecommend() {
         getPosts('public', '', '推荐', '', 1, 8).then(res => {
-          if (res.data.code === 201) this.recommend = res.data.posts
+          if (res.data.code === 200) this.recommend = res.data.posts
         })
       },
       getAuthors() {

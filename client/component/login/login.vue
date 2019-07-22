@@ -17,7 +17,6 @@
 
 <script>
   import {login} from "api/user"
-  import {getStorage, setStorage} from "public/js/localstorage"
 
   export default {
     data() {
@@ -34,9 +33,8 @@
       },
       onLogin() {
         login(this.$data).then((res) => {
-          if (res.data.code === 201) {
+          if (res.data.code === 200) {
             this.user = res.data.user
-            setStorage('user-info', res.data.user)
             this.close()
             this.$router.go(0)
           } else {

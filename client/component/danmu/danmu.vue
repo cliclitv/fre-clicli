@@ -42,7 +42,6 @@
 <script>
   import {addComment} from 'api/comment'
   import Cookies from 'js-cookie'
-  import {getStorage} from "public/js/localstorage"
   import {mapGetters, mapMutations} from 'vuex'
   import {CanvasBarrage} from 'public/js/CanvasBarrage'
   import SwitchButton from 'widget/switch-button/switch-button.vue'
@@ -64,7 +63,7 @@
       }
     },
     mounted() {
-      this.getUser()
+      this.isShow = true
     },
     computed: {
       ...mapGetters(['isLogin', 'vid', 'tuid'])
@@ -107,7 +106,7 @@
         })
         addComment({
           pid: getAv(this.$route.params.id),
-          uid: this.user.id,
+          uid: Cookies.get('uid'),
           content: this.data.value,
           vid: this.vid,
           time: time,
@@ -116,13 +115,6 @@
           this.data.value = ''
           console.log(res.data.code)
         })
-      },
-      getUser() {
-        const user = getStorage('user-info')
-        if (user) {
-          this.user = user
-          this.isShow = true
-        }
       },
       ...mapMutations(['isOnLogin', 'setCurrentTime'])
     },

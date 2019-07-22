@@ -33,7 +33,7 @@
     },
     mounted() {
       getWeekList().then(res => {
-        if (res.data.code === 201) {
+        if (res.data.code === 200) {
           let ret = {
             1: [],
             2: [],

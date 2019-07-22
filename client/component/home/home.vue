@@ -57,7 +57,7 @@
       getArticleList(flag) {
         this.isLoading = true
         getPosts('public', 'bgm', '', '', this.page, this.pageSize).then(res => {
-          if (res.data.code === 201) {
+          if (res.data.code === 200) {
             this.isShow = true
             this.isLoading = false
             if (flag) {
