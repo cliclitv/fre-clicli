@@ -11,8 +11,8 @@ export function login({name, pwd}) {
 }
 
 // 获取用户列表
-export function getUsers(role, page, pageSize) {
-  return request.get(`/users?role=${role}&page=${page}&pageSize=${pageSize}`)
+export function getUsers(level, page, pageSize) {
+  return request.get(`/users?level=${level}&page=${page}&pageSize=${pageSize}`)
 }
 
 

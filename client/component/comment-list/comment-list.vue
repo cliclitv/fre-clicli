@@ -13,7 +13,7 @@
       </div>
       <button @click="onComment" @keyup.enter="onComment"><i class="icon-font icon-send"></i>发射！</button>
     </div>
-    <h2>共有 <span v-if="count">{{count}}</span> 条弹幕&回复</h2>
+    <h2>共有 <span v-if="count">{{count}}</span> 条吐槽</h2>
     <ul>
       <li v-for="item in comments">
         <div class="comment-avatar">
