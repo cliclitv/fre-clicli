@@ -73,6 +73,7 @@
             this.isShow = true
             this.userLink = `/u/${Cookies.get('uid')}`
             this.user = res.data.user
+            this.$router.go(0)
           } else {
             this.isShow = false
           }
