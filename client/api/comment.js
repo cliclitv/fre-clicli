@@ -32,7 +32,7 @@ export function addComment({content, pid, uid, vid, tuid, time, color}) {
   return axios.post('/comment/add', {
     content,
     pid: parseInt(pid),
-    uid,
+    uid: parseInt(uid),
     vid: vid ? vid : 1,
     color: color ? color : '#fff',
     tuid: tuid ? tuid : 0,

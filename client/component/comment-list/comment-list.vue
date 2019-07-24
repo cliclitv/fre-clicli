@@ -57,7 +57,7 @@
         }
         addComment({
           pid: getAv(this.$route.params.id),
-          uid: getStorage('user-info').id,
+          uid: Cookies.get('uid'),
           content: this.content,
           vid: 1
         }).then(res => {
