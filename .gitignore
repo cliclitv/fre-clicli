@@ -1,6 +1,5 @@
 node_modules/
 .idea/
-dist/
 yarn-error.log
 server/api/
 server/jx.js
