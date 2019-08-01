@@ -39,20 +39,32 @@ router.get('/upload/auth', async ctx => {
 })
 
 router.get('/get/pv', async function addPv(ctx) {
-  const pid = parseInt(ctx.query.pid)
-  let ran = Math.floor(Math.random() * 100)
-  let pv = await knex.select('pv').where('pid', pid).from('pv')
+  const pid = parseInt(ctx.query.pid);
+  let pv = await knex.transaction(trx => {
+    return knex('pv')
+      .transacting(trx)
+      .forUpdate()
+      .where('pid', pid)
+      .select('pv')
+      .limit(1);
+  });
+  let pvNumber;
   if (!pv.length) {
-    await knex('pv').insert({pid, pv: ran})
+    let initialValue = Math.floor(Math.random() * 100);
+    await knex('pv').insert({ pid, pv: initialValue });
+    pvNumber = initialValue;
   } else {
-    await knex('pv').where('pid', pid).update({pv: pv[0].pv + 1})
+    await knex('pv')
+      .where('pid', pid)
+      .update({ pv: pv[0].pv + 1 });
+    pvNumber = pv[0].pv;
   }
   ctx.body = {
     code: 0,
     pid,
-    pv: pv.length ? pv[0].pv : ran
-  }
-})
+    pv: pvNumber
+  };
+});
 
 router.get('/jx/', Jx.default)
 // router.get('/hcy/list', Hcy.getList)
