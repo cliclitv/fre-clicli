@@ -12,7 +12,7 @@
     "build": "cnpm run build:client && cnpm run build:server && cnpm run build:spa",
     "dev": "cross-env NODE_ENV=development concurrently \"cnpm run dev:client\" \"nodemon server/ssr.js\" ",
     "start": "node server/ssr.js",
-    "api": "nodemon server/api.js"
+    "api": "cross-env DEBUG=knex:query nodemon server/api.js"
   },
   "repository": {
     "type": "git",
