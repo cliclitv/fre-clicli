@@ -5,4 +5,5 @@ yarn-error.log
 server/api/
 server/jx.js
 server/api.js
+server/cofnig.js
 .vscode
