@@ -1,8 +1,8 @@
 const Router = require('koa-router')
 const Koa = require('koa')
+const axios = require('axios')
 const app = new Koa()
 const Jx = require('./jx')
-const axios = require('axios')
 const util = require('./util/util')
 const Hcy = require('./api/hcy')
 const config = require('./config')
@@ -35,7 +35,7 @@ router.get('/upload/auth', async ctx => {
     })
 })
 
-router.get('/get/pv', async function addPv(ctx) {
+router.get('/get/pv', async ctx =>{
   const pid = parseInt(ctx.query.pid)
   let pvNumber = await knex.transaction(async trx => {
     let pvs = await knex('pv')
