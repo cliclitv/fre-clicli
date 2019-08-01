@@ -5,18 +5,11 @@ const Jx = require('./jx')
 const axios = require('axios')
 const util = require('./util/util')
 const Hcy = require('./api/hcy')
+const config = require('./config')
 
 const router = new Router()
 
-const knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host: 'localhost',
-    user: 'root',
-    password: 'Zchanghao1122',
-    database: 'clicli'
-  }
-})
+const knex = require('knex')(config.db)
 
 router.get('/upload/auth', async ctx => {
   let filename = ctx.query.fname
