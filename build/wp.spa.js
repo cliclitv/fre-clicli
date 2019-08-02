@@ -16,7 +16,7 @@ module.exports = merge(baseConfig, {
   output: {
     path: path.resolve(__dirname, '../dist/spa'),
     filename: 'js/[name].js',
-    publicPath: isDev ? 'http://localhost:2333/' : 'https://cdn.clicli.us/spa/'
+    publicPath: isDev ? 'http://localhost:2333/' : 'https://cdn.jsdelivr.net/gh/cliclitv/vue-clicli/dist/'
   },
   module: {
     rules: [

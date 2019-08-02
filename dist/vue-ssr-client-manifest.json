@@ -1,5 +1,5 @@
 {
-  "publicPath": "https://cdn.clicli.us/",
+  "publicPath": "https://cdn.jsdelivr.net/gh/cliclitv/vue-clicli/dist/",
   "all": [
     "js/0.js",
     "js/1.js",
