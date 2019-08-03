@@ -1,8 +1,8 @@
 <template>
   <div class="comment">
     <div class="wrap comment-box">
-      <div class="comment-avatar" v-if="user">
-        <img :src="getAvatar(user.qq)">
+      <div class="comment-avatar">
+        <img :src="getAvatar(uqq)">
       </div>
       <div class="add-text">
         <input placeholder="回复一下下菊花又不会坏……" v-model="data.value" v-if="isShow" @keyup.enter="onComment">
