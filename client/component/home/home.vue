@@ -3,7 +3,8 @@
     <div class="wrap">
       <recommend></recommend>
       <week-list></week-list>
-      <div class="ad-post"><a href="https://dwz.cn/n2dFSrjI" target="_blank"><img src="https://ae01.alicdn.com/kf/HTB1zCwTbhz1gK0jSZSgq6yvwpXaS.jpg" alt=""></a></div>
+      <div class="ad-post"><a :href="ad" target="_blank"><img
+        src="https://ae01.alicdn.com/kf/HTB1zCwTbhz1gK0jSZSgq6yvwpXaS.jpg" alt=""></a></div>
     </div>
     <div class="list-wrap">
       <div class="wrap">
@@ -35,7 +36,8 @@
         articles: [],
         uqq: Cookies.get('uqq'),
         isShow: false,
-        isLoading: false
+        isLoading: false,
+        ad: ''
       }
     },
     mixins: [titleMixin],
@@ -46,6 +48,9 @@
       if (this.uqq) {
         this.getArticleList()
       }
+    },
+    mounted() {
+      this.ad = window.adLink
     },
     computed: {
       ...mapState(['posts'])
@@ -92,9 +97,11 @@
   .list-wrap
     background $t-color
     padding-top 30px
+
   .ad-post
     padding-bottom: 30px
     text-align center
+
   img
     width 100%
     border-radius 2px

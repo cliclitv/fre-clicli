@@ -16,7 +16,7 @@
         <router-link to="/play/gv99">
           <li>补档</li>
         </router-link>
-        <span>c站搬运小分队招募，反馈、报错、补档、交流，加群：857500387</span>
+        <span>{{gonggao}}</span>
       </ul>
 
     </div>
@@ -46,6 +46,14 @@
     mixins: [titleMixin],
     title() {
       return 'c站-clicli弹幕网_(⁄•⁄ω⁄•⁄) 社保~ clicli.us'
+    },
+    data(){
+      return {
+        gonggao:''
+      }
+    },
+    mounted(){
+      this.gonggao=window.gonggao
     },
     computed: {
       ...mapGetters(['isLogin'])
