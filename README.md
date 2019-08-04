@@ -42,3 +42,11 @@ router 为路由相关，store 为 vuex 相关
    
 这个目录结构是我积累的最符合语义、维护性最高的结构，供参考
 ```
+### 打包发版流程
+
+```shell
+yarn build
+git push
+git branch
+
+```
