@@ -10,6 +10,7 @@ const koaStatic = require('koa-static')
 const path = require('path')
 
 const router = new Router()
+app.use(koaStatic(path.join(__dirname, '../dist')))
 const knex = require('knex')(config.db)
 
 router.get('/upload/auth', async ctx => {
@@ -73,7 +74,6 @@ app.use(async (ctx, next) => {
 })
 
 app.use(router.routes()).use(router.allowedMethods())
-app.use(koaStatic(path.join(__dirname, '../dist')))
 
 app.listen(5000, '0.0.0.0', () => {
   console.log('api started on 5000')

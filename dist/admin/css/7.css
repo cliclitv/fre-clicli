@@ -1,0 +1,45 @@
+.user-info {
+    padding: 200px 0;
+}
+
+.user-info .avatar {
+    text-align: center;
+    padding-bottom: 30px;
+
+}
+
+.avatar img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.uid {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.uid span{
+    background: #204f69;
+    padding: 0px 15px;
+}
+
+.quick-start {
+    padding: 100px;
+    color: #999;
+    text-align: center;
+}
+
+.quick-start span {
+    color: #467B96;
+    padding: 10px;
+}
