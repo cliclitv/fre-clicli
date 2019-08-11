@@ -1,7 +1,7 @@
 (function () {
   window.adLink = 'https://dwz.cn/jc0psWg2';
   window.adImg = '111';
-  window.gonggao = 'c站更换 cdn，招募投稿，加群：857500387';
+  window.gonggao = 'c站更换 cdn，招募投稿，加群：399395607';
 })();
 
 
