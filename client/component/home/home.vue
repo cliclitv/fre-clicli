@@ -4,7 +4,7 @@
       <recommend></recommend>
       <week-list></week-list>
       <div class="ad-post"><a :href="ad" target="_blank"><img
-        src="https://ae01.alicdn.com/kf/HTB1zCwTbhz1gK0jSZSgq6yvwpXaS.jpg" alt=""></a></div>
+        :src="adImg" alt=""></a></div>
     </div>
     <div class="list-wrap">
       <div class="wrap">
@@ -37,7 +37,8 @@
         uqq: Cookies.get('uqq'),
         isShow: false,
         isLoading: false,
-        ad: ''
+        ad: '',
+        adImg:''
       }
     },
     mixins: [titleMixin],
@@ -51,6 +52,7 @@
     },
     mounted() {
       this.ad = window.adLink
+      this.adImg = window.adImg
     },
     computed: {
       ...mapState(['posts'])
