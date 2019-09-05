@@ -4,9 +4,10 @@
       <recommend></recommend>
       <week-list></week-list>
       <div class="ad-post">
-        <div v-for="(v,k) in ads">
-          <a :href="v"><img :src="k"></a>
+        <div v-for="(v,k) in ads" class="ad">
+          <a :href="v"><span>正版手游</span><img :src="k"></a>
         </div>
+        <div class="clear"></div>
       </div>
     </div>
     <div class="list-wrap">
@@ -105,24 +106,40 @@
     padding-bottom: 30px
     text-align center
 
-  img
-    width 100%
-    border-radius 2px
-    .post-list
-      background none
-    .login-more
-      font-size: 13px
-      text-align center
-      span
-        padding: 10px 30px
-        border-radius: 30px
-        display inline-block
-        margin: 30px
+    img
+      width 100%
+      border-radius 2px
+      .post-list
+        background none
+      .login-more
+        font-size: 13px
+        text-align center
+        span
+          padding: 10px 30px
+          border-radius: 30px
+          display inline-block
+          margin: 30px
     .ad
       transition .3s
-      display none
+      a
+        display block
+        width: 360px
+        height 60px
+        float: left
+        margin: 5px
+        position relative
       img
         border-radius: 5px
+        width: 360px
+        height 60px
+      span
+        font-size: 10px
+        color: #fff
+        padding: 2px 5px
+        position absolute
+        bottom: 5px
+        left: 5px
+        background rgba(0, 0, 0, .5)
     .ad:hover
       opacity 1
 </style>
