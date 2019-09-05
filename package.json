@@ -10,7 +10,7 @@
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.client.js",
     "dev:spa": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/wp.spa.js",
     "build": "yarn build:client && yarn build:server && yarn build:spa",
-    "dev": "cross-env NODE_ENV=development concurrently \"cnpm run dev:client\" \"nodemon server/ssr.js\" ",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn run dev:client\" \"nodemon server/ssr.js\" ",
     "start": "node server/ssr.js",
     "api": "cross-env DEBUG=knex:query nodemon server/api.js"
   },

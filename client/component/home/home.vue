@@ -3,8 +3,11 @@
     <div class="wrap">
       <recommend></recommend>
       <week-list></week-list>
-      <div class="ad-post"><a :href="ad" target="_blank"><img
-        :src="adImg" alt=""></a></div>
+      <div class="ad-post">
+        <div v-for="(v,k) in ads">
+          <a :href="v"><img :src="k"></a>
+        </div>
+      </div>
     </div>
     <div class="list-wrap">
       <div class="wrap">
@@ -37,8 +40,7 @@
         uqq: Cookies.get('uqq'),
         isShow: false,
         isLoading: false,
-        ad: '',
-        adImg:''
+        ads: ''
       }
     },
     mixins: [titleMixin],
@@ -51,8 +53,7 @@
       }
     },
     mounted() {
-      this.ad = window.adLink
-      this.adImg = window.adImg
+      this.ads = window.ads
     },
     computed: {
       ...mapState(['posts'])
