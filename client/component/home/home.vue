@@ -3,13 +3,6 @@
     <div class="wrap">
       <recommend></recommend>
       <week-list></week-list>
-      <div class="ad-post">
-        <div v-for="(v,k) in ads" class="ad">
-          <a :href="v"><span>正版手游</span><img :src="k"></a>
-        </div>
-        <div class="clear"></div>
-      </div>
-    </div>
     <div class="list-wrap">
       <div class="wrap">
         <post-list :posts="uqq?articles:posts"></post-list>

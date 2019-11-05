@@ -3,7 +3,7 @@
     <div class="wrap">
       <p>
         <span class="mail">
-          版权、合作：admin@cli.moe
+          版权、合作：admin@clicli.us
         </span>
       </p>
       <p> clicli © 2018 Powered by
