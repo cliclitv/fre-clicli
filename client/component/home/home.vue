@@ -3,6 +3,7 @@
     <div class="wrap">
       <recommend></recommend>
       <week-list></week-list>
+    </div>
     <div class="list-wrap">
       <div class="wrap">
         <post-list :posts="uqq?articles:posts"></post-list>
@@ -112,27 +113,8 @@
           border-radius: 30px
           display inline-block
           margin: 30px
-    .ad
-      transition .3s
-      a
-        display block
-        width: 360px
-        height 60px
-        float: left
-        margin: 5px
-        position relative
-      img
-        border-radius: 5px
-        width: 360px
-        height 60px
-      span
-        font-size: 10px
-        color: #fff
-        padding: 2px 5px
-        position absolute
-        bottom: 5px
-        left: 5px
-        background rgba(0, 0, 0, .5)
-    .ad:hover
-      opacity 1
+
+  .login-more
+    padding: 30px
+    text-align center
 </style>
