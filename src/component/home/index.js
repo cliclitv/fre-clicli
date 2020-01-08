@@ -6,6 +6,7 @@ import Rank from 'component/rank'
 import WeekList from 'component/week-list'
 import UgcList from 'component/ugc-list'
 import PostList from 'component/post-list'
+import Ad from 'widget/ad'
 import './index.styl'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Recommend/>
         <Rank/>
       </div>
+      <Ad src={window.ads[0].src} href={window.ads[0].href}/>
       <WeekList/>
       <UgcList/>
       <PostList/>
