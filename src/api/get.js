@@ -1,4 +1,4 @@
-import {get} from "../public/js/fetch"
+import { get } from '../public/js/fetch'
 
 export function getPost(type, tag, page, pageSize, status, uid) {
   return get(`https://api.clicli.us/posts?status=${status || 'public'}&sort=${type}&tag=${tag}&uid=${uid || ''}&page=${page}&pageSize=${pageSize}`)
@@ -18,4 +18,8 @@ export function getVideoList(pid) {
 
 export function getPlayUrl(url) {
   return get(`https://jx.clicli.us/jx?url=${url}`)
+}
+
+export function getPv(pid) {
+  return get(`https://jx.clicli.us/get/pv?pid=${pid}`)
 }
