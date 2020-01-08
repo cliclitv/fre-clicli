@@ -475,6 +475,8 @@ img {
   border-radius: 40px 40px 40px 0;
   color: #fff;
   font-size: 14px;
+  text-align: center;
+  margin-left: 10px;
 }
 
 .ep {
