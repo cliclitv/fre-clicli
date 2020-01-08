@@ -4,7 +4,7 @@ module.exports = {
     connection: {
       host: 'localhost',
       user: 'root',
-      password: 'Zchanghao1122',
+      password: 'Zchanghao1234',
       database: 'clicli'
     }
   }

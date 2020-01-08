@@ -1,0 +1,47 @@
+@import "../../public/css/var.styl"
+
+.week-list
+  .headline
+    display flex
+    align-items center
+    ul
+    button
+      background none
+      border 0
+      margin: 10px
+      font-size 16px
+      padding: 5px
+      .active
+        color: $theme
+        position relative
+      .active:after
+        content ""
+        position absolute
+        height 3px
+        width: 10px
+        background $theme
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+    button:active
+      transform: scale(.97)
+  .posts
+    height 480px
+    overflow: auto
+    li
+      display inline-block
+      width 25%
+      text-align center
+      cursor: pointer
+      .post
+        padding: 10px
+      .cover,img
+        height 160px
+        width 100%
+        object-fit cover
+        box-shadow $shadow
+        border-radius 2px
+      .title
+        height 40px
+        overflow hidden
+        padding: 10px 0

@@ -1,0 +1,25 @@
+#wrap {
+  transition: .3s ease;
+  width: 760px;
+  height: 380px;
+  position: relative;
+  margin: 0 auto;
+}
+
+#wrap .imgs {
+  transition: .3s ease-out;
+  width: 4560px;
+  position: absolute;
+  list-style: none;
+  background: #000;
+}
+
+#wrap li {
+  opacity: 0.5;
+  float: left;
+}
+
+#wrap li img {
+  width: 100%;
+  height: 100%;
+}

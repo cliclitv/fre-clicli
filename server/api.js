@@ -4,7 +4,7 @@ const axios = require('axios')
 const app = new Koa()
 const Jx = require('./jx')
 const util = require('./util/util')
-const Hcy = require('./api/hcy')
+const Hcy = require('./hcy')
 const config = require('./config')
 const koaStatic = require('koa-static')
 const path = require('path')
@@ -75,6 +75,6 @@ app.use(async (ctx, next) => {
 
 app.use(router.routes()).use(router.allowedMethods())
 
-app.listen(5000, '0.0.0.0', () => {
+app.listen(8082, '0.0.0.0', () => {
   console.log('api started on 5000')
 })
