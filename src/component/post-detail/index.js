@@ -7,6 +7,8 @@ import snarkdown from 'snarkdown'
 
 export default function PostDetal(props) {
   const t = useRef(null)
+  const u = useRef(null)
+  const r = useRef(null)
   const [post, setPost] = useState({})
   const [pv, setPv] = useState(0)
   useEffect(() => {
@@ -15,15 +17,18 @@ export default function PostDetal(props) {
         setPost(res.result)
         setPv(ret.pv)
       })
-      t.current.innerHTML = snarkdown(res.result.content)
+      if (res.result.tag.indexOf('其它') > -1) {
+        u.current.innerHTML = snarkdown(res.result.content)
+        t.current.style.width = 250 + 'px'
+      } else {
+        t.current.innerHTML = snarkdown(res.result.content)
+      }
     })
   }, [props.gv])
 
   return (
     <div className='post-detail'>
-      <div className='left'>
-        <article ref={t}>少男祈祷中……</article>
-      </div>
+      <article className='left' ref={t}></article>
       <div className='right'>
         <div className='info'>
           <div className='user'>
@@ -41,8 +46,9 @@ export default function PostDetal(props) {
             <span>{post.tag || ''}</span>
             <span>{post.time || ''}</span>
           </div>
+          <article ref={u}></article>
         </div>
-        {post.status === 'public' ? <VideoList gv={props.gv} /> : <div class='copyright'>版权原因，该番剧未上架，请支持正版</div>}
+        {post.status === 'public' ? <VideoList gv={props.gv} /> : <div>版权原因，该番剧未上架，请支持正版</div>}
       </div>
     </div>
   )
