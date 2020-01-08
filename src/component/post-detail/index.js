@@ -35,14 +35,14 @@ export default function PostDetal(props) {
           </div>
           <div class='title'>
             <h1>{post.title || '少男祈祷中……'}</h1>
-            <span class='pv'>{pv} ℃</span>
+            <span class='pv'>{pv} ℃ </span>
           </div>
           <div>
             <span>{post.tag || ''}</span>
             <span>{post.time || ''}</span>
           </div>
         </div>
-        <VideoList gv={props.gv} />
+        {post.status === 'public' ? <VideoList gv={props.gv} /> : <div class='copyright'>版权原因，该番剧未上架，请支持正版</div>}
       </div>
     </div>
   )
