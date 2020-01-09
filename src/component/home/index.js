@@ -8,6 +8,7 @@ import UgcList from 'component/ugc-list'
 import PostList from 'component/post-list'
 import Ad from 'widget/ad'
 import './index.styl'
+import './m.styl'
 
 export default function Home() {
   return (

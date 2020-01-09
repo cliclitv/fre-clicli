@@ -16,8 +16,9 @@ export default function PostDetal(props) {
         setPost(res.result)
         setPv(ret.pv)
       })
-      if (res.result.tag.indexOf('其它') > -1) {
-        t.current.style.width = 250 + 'px'
+      const w = document.body.clientWidth
+      if (res.result.tag.indexOf('其它') > -1 || w < 480) {
+        t.current.style.display = 'none'
         u.current.style.display = 'block'
         u.current.innerHTML = snarkdown(res.result.content)
       } else {
@@ -46,7 +47,7 @@ export default function PostDetal(props) {
             <span>{post.tag || ''}</span>
             <span>{post.time || ''}</span>
           </div>
-          <article ref={u} class="other"></article>
+          <article ref={u} class='other'></article>
         </div>
         {post.status === 'public' ? <VideoList gv={props.gv} /> : <div className='copyright'>版权原因，该番剧未上架，请支持正版</div>}
       </div>
