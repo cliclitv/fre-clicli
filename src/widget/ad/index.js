@@ -4,7 +4,7 @@ export default function Ad(props) {
   return (
     <div class='wrap'>
       <a href={props.href} target='_blank'>
-        <img src={props.src} style={{ width: '100%', borderRadius: '2px' }} />
+        <section style={{ background: `url(${props.src}) center`, width: '100%', borderRadius: '2px', height: '80px' }} class='ad'></section>
       </a>
     </div>
   )
