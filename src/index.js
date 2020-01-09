@@ -1,10 +1,13 @@
 import { h, render } from 'fre'
-import Home from 'component/home'
 import { useRoutes } from './use-routes'
-import Page from './component/page'
+import Page from 'component/page'
+import Home from 'component/home'
+import Search from 'component/search'
+
 const routes = {
   '/': Home,
-  '/play/:gv': Page
+  '/play/:gv': Page,
+  '/search/:word': Search
 }
 
 function App() {
