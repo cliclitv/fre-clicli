@@ -9,7 +9,7 @@ export default function Header(props) {
     补档: 99
   }
   return (
-    <header style={{background: `url(${window.bg})`}}>
+    <header style={{background: `url(${window.bg}) center top`}}>
       <div className="header">
         <div className='wrap'>
           <nav className="nav">

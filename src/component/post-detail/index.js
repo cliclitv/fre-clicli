@@ -8,7 +8,6 @@ import snarkdown from 'snarkdown'
 export default function PostDetal(props) {
   const t = useRef(null)
   const u = useRef(null)
-  const r = useRef(null)
   const [post, setPost] = useState({})
   const [pv, setPv] = useState(0)
   useEffect(() => {

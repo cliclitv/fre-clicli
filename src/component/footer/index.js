@@ -10,10 +10,10 @@ export default function Footer() {
           <h1>CliCli 弹幕网</h1>
         </div>
         <ul className="links">
-          <li><a href="">关于我们</a></li>
-          <li><a href={window.concat[3]}>开源仓库</a></li>
-          <li><a href={window.concat[3]}>up主招募</a></li>
-          <li><a href="">友情链接</a></li>
+          <li><a href={window.concat[0]}>使用说明</a></li>
+          <li><a href={window.concat[1]}>开源仓库</a></li>
+          <li><a href={window.concat[2]}>up主招募</a></li>
+          <li><a href={window.concat[3]}>版权广告</a></li>
         </ul>
         <ul className="icons">
           <a href={window.concat[0]}>
