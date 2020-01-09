@@ -12,7 +12,7 @@ export default function Eplayer(props) {
         if (Hls.isSupported()) {
           let hls = new Hls()
           hls.loadSource(url)
-          hls.attachMedia(video)
+          hls.attachMedia(s.current)
         }
         break
       default:
