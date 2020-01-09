@@ -1,6 +1,7 @@
 import {h} from 'fre'
 import {clink, alink} from 'public/js/const'
 import './index.styl'
+import Search from 'widget/search'
 
 export default function Header(props) {
   const obj = {
@@ -24,12 +25,6 @@ export default function Header(props) {
               </a>
             ))}
           </nav>
-          {/*<div className='search'>*/}
-          {/*  <input type='text' placeholder='搜索一下下菊花又不会坏(⊙o⊙)…'/>*/}
-          {/*</div>*/}
-          <div style={{textAlign: 'center'}}>
-            <div className="call">{'@' + window.call[0] +'： '+ window.call[1]}</div>
-          </div>
           <div className="biu">
             <a href={`${alink}/login`}>登陆</a>
             <a href={`${alink}/register`}>注册</a>
@@ -38,6 +33,7 @@ export default function Header(props) {
         </div>
         <div className="wrap">
           <div className='logo'></div>
+          <Search/>
         </div>
       </div>
     </header>

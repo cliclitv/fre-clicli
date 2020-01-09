@@ -1,5 +1,4 @@
 import { h } from 'fre'
-import { clink } from 'public/js/const'
 
 export default function Ad(props) {
   return (
