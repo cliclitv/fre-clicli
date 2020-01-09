@@ -22,6 +22,7 @@ export default function Home() {
       <WeekList/>
       <UgcList title='个人投稿'/>
       <PostList/>
+      <Ad src={window.ads[1].src} href={window.ads[1].href}/>
       <Footer/>
     </div>
   )
