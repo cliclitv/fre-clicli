@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js',
+    filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production' ? 'https://www.clicli.me' : '/'
   },
   resolve: {
@@ -50,7 +50,7 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: '[name].css',
     })
   ],
   devServer: {

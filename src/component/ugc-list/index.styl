@@ -1,4 +1,4 @@
-@import "../../public/css/var.styl"
+@import '../../public/css/var.styl'
 
 .ugc-list
   background $bbb
@@ -6,11 +6,11 @@
   .posts
     li
       display inline-block
-      width 25%
+      width 275px
       text-align center
+      margin-right: 20px
       .post
         background #fff
-        margin: 10px
         border-radius 2px
         box-shadow $shadow
       .cover, .cover img
@@ -19,13 +19,15 @@
         object-fit cover
       .title
         overflow hidden
-        padding-left: 10px
+        padding-left 10px
         height 18px
       .info
         display flex
-        padding: 10px
+        padding 10px
         align-items center
-      .uqq,.uqq img
+      .uqq, .uqq img
         height 40px
         width 40px
         border-radius 50%
+    a:last-child li
+      margin-right 0!important
