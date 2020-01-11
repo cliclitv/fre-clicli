@@ -33,7 +33,7 @@ export default function Rank(props) {
           <li>
             <span className={index < 3 ? 'active' : ''}>{index + 1}</span>
             <a target="_blank" href={`${clink}/play/gv${item.id}`}>
-              <div className='title'>{item.title}</div>
+              <div className='title' title={item.title}>{item.title}</div>
             </a>
           </li>
         </a>

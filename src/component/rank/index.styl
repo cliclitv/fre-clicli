@@ -1,5 +1,3 @@
-@import "../../public/css/var.styl"
-
 .rank
   width 310px
   .title
@@ -18,6 +16,7 @@
     padding 0 7px 14px 7px
     .title
       font-size: 16px
+      transition: 0.3s
     .bom
       position absolute
       display flex
@@ -33,6 +32,9 @@
         font-weight: bold
         position: relative
         bottom: -18px
+  .current:hover
+    .title
+      color $theme
   li
     display flex
     padding: 7px
@@ -43,5 +45,12 @@
       color: $grey
     .active
       color: $theme
-
-
+    .title
+      transition 0.3s
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+      width 280px
+  li:hover
+    .title
+      color: $theme
