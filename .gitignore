@@ -62,3 +62,5 @@ typings/
 
 .idea/
 server/config.js
+
+dist/
