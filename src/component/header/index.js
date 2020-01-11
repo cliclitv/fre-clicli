@@ -26,7 +26,7 @@ export default function Header(props) {
             ))}
           </nav>
           <div className="biu">
-            <a href={`${alink}/login`}>登陆</a>
+            <a href={`${alink}/login`}>登录</a>
             <a href={`${alink}/register`}>注册</a>
             <a className="user-center" href={alink}>投稿</a>
           </div>
