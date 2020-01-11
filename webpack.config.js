@@ -28,7 +28,12 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', {
+          loader: 'stylus-loader',
+          options: {
+            import: [path.resolve(__dirname, 'src/public/css/var.styl')]
+          }
+        }]
       },
       {
         test: /\.css$/,
