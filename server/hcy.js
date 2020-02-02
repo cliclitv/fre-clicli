@@ -34,6 +34,7 @@ module.exports = {
   },
   async getUrl(ctx, base) {
     let pa = Base64.decode(base).split(',')
+    console.log(pa)
     let url = `https://caiyun.feixin.10086.cn/webdisk2/downLoadAction!downloadToPC.action?contentID=${pa[1]}&shareContentIDs=${pa[1]}&catalogList=&downloadSize=214446914`
     const cookie = await axios.get(`https://api.clicli.us/cookie/${pa[0]}`).then(res => {
       return res.data.result.hcy

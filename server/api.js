@@ -5,13 +5,13 @@ const app = new Koa()
 const Jx = require('./jx')
 const util = require('./util/util')
 const Hcy = require('./hcy')
-const config = require('./config')
+// const config = require('./config')
 const koaStatic = require('koa-static')
 const path = require('path')
 
 const router = new Router()
 app.use(koaStatic(path.join(__dirname, '../dist')))
-const knex = require('knex')(config.db)
+// const knex = require('knex')(config.db)
 
 router.get('/upload/auth', async ctx => {
   let filename = ctx.query.fname
@@ -76,5 +76,5 @@ app.use(async (ctx, next) => {
 app.use(router.routes()).use(router.allowedMethods())
 
 app.listen(8082, '0.0.0.0', () => {
-  console.log('api started on 5000')
+  console.log('api started on 8082')
 })
