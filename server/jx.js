@@ -1,7 +1,7 @@
 const axios = require('axios')
 const util = require('./util/util')
 const Hcy = require('./hcy')
-const San = require('./360')
+const San = require('./san')
 
 axios.interceptors.response.use({}, err => {
   if (err.response.status === 302) return err.response

@@ -1,9 +1,5 @@
 const Base64 = require('js-base64').Base64
 const axios = require('axios')
-// axios.interceptors.response.use({}, err => {
-//   console.log(err)
-//   if (err.response.status === 302) return err.response
-// })
 
 module.exports = {
   async getList(ctx) {
