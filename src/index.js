@@ -15,4 +15,4 @@ function App() {
   return res
 }
 
-render(<App />, document.body)
+render(<App />, document.getElementById('root'))
