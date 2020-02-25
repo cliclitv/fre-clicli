@@ -3,7 +3,7 @@ import './index.styl'
 import VideoList from 'component/video-list'
 import { getPostDetail, getPv } from '../../api/get'
 import { getAvatar } from '../../public/js/util'
-import snarkdown from 'snarkdown'
+import snarkdown from './snarkdown'
 
 export default function PostDetal(props) {
   const t = useRef(null)
