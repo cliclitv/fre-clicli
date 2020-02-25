@@ -42,9 +42,9 @@
     <div id="root"></div>
     <script>
       devtoolsDetector.addListener(function(isOpen, detail) {
-        isOpen ? (window.location.href = 'https://www.clicli.me') : null
-      })
-      devtoolsDetector.lanuch()
+        window.location.href = 'https://www.clicli.me';
+      });
+      devtoolsDetector.lanuch();
     </script>
     <script src="https://code.bdstatic.com/npm/@webcomponents/webcomponentsjs@2.2.10"></script>
     <script src="https://code.bdstatic.com/npm/hls.js@0.12.4"></script>
