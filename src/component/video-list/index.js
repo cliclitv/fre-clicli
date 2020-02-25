@@ -1,7 +1,8 @@
-import {h, useState, useEffect, useRef} from 'fre'
+import { h, useState, useEffect, useRef } from 'fre'
+import { addListener, lanuch } from 'devtools-detector'
 import Eplayer from '../../widget/eplayer'
-import {getVideoList} from '../../api/get'
-import {getAvatar} from '../../public/js/util'
+import { getVideoList } from '../../api/get'
+import { getAvatar } from '../../public/js/util'
 import './index.styl'
 
 export default function VideoList(props) {
@@ -22,14 +23,19 @@ export default function VideoList(props) {
     setContent(url)
     document.body.style.overflow = 'hidden'
   }
-  return (<div className='video-list'>
-    {video&&video.map(item => {
-      return <li className='item' onClick={() => show(item.content)}>
-        <img src={getAvatar(item.uqq)} alt={item.uqq}></img>
-        <span>P {item.oid}</span>
-        <span>{item.title}</span>
-      </li>
-    })}
-    {content && <Eplayer url={content} hide={hide}/>}
-  </div>)
+  return (
+    <div className='video-list'>
+      {video &&
+        video.map(item => {
+          return (
+            <li className='item' onClick={() => show(item.content)}>
+              <img src={getAvatar(item.uqq)} alt={item.uqq}></img>
+              <span>P {item.oid}</span>
+              <span>{item.title}</span>
+            </li>
+          )
+        })}
+      {content && <Eplayer url={content} hide={hide} />}
+    </div>
+  )
 }

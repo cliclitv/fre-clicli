@@ -1904,6 +1904,11 @@ detect-node@^2.0.4:
   resolved "https://registry.npm.taobao.org/detect-node/download/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   integrity sha1-AU7o+PZpxcWAI9pkuBecCDooxGw=
 
+devtools-detector@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/devtools-detector/-/devtools-detector-1.0.21.tgz#b8cf984d94778f52689351c51cf667aa460b7702"
+  integrity sha512-5TiKi1EyUs8KkW3TS5fFtYZ1xJihCVPmbXJKm4RunEFXHKWpOACCL1iBt4zfjz3igkn2rBdqwNwQsQNLO+btLA==
+
 diffie-hellman@^5.0.0:
   version "5.0.3"
   resolved "https://registry.npm.taobao.org/diffie-hellman/download/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
