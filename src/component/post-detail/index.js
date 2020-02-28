@@ -40,7 +40,7 @@ export default function PostDetal(props) {
             <span className='uid'>uid：{post.uid || 0}</span>
           </div>
           <div class='title'>
-            <h1>{post.title || '少男祈祷中……'}</h1>
+            <h1>{post.title || '少年祈祷中……'}</h1>
             <span class='pv'>{pv} ℃ </span>
           </div>
           <div>

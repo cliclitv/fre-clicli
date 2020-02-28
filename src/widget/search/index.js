@@ -1,12 +1,18 @@
-import { h, useState } from 'fre'
+import { h, useState, useEffect } from 'fre'
 import { clink } from 'public/js/const'
 import './index.styl'
 
 export default function Search(props) {
   const [word, setWord] = useState('')
+  useEffect(() => {
+    document.onkeydown = e => {
+      if (e.keyCode == 13 && word) {
+        window.location.href = `${clink}/search/${word}`
+      }
+    }
+  })
   const inputWord = e => {
     setWord(e.target.value)
-    console.log(word)
   }
   return (
     <div className='search'>
