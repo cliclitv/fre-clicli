@@ -25,7 +25,7 @@ export default function VideoList(props) {
   }
   return (
     <div className='video-list'>
-      {video.length < 25
+      {video.length < 27
         ? video.map(item => {
             return (
               <li className='item' onClick={() => show(item.content)}>
