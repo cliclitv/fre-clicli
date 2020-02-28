@@ -1,4 +1,4 @@
-import {h} from 'fre'
+import { h } from 'fre'
 import Header from 'component/header'
 import Recommend from 'component/recommend'
 import Footer from 'component/footer'
@@ -13,17 +13,17 @@ import './m.styl'
 export default function Home() {
   return (
     <div>
-      <Header/>
-      <div className="wrap" style={{display: 'flex'}}>
-        <Recommend/>
-        <Rank/>
+      <Header />
+      <div className='wrap' style={{ display: 'flex' }}>
+        <Recommend />
+        <Rank />
       </div>
-      <Ad src={window.ads[0].src} href={window.ads[0].href}/>
-      <WeekList/>
-      <UgcList title='个人投稿'/>
-      <PostList/>
-      <Ad src={window.ads[1].src} href={window.ads[1].href}/>
-      <Footer/>
+      <Ad src={(window.ads[0] || {}).src} href={(window.ads[0] || {}).href} />
+      <WeekList />
+      <UgcList title='个人投稿' />
+      <PostList />
+      <Ad src={(window.ads[1] || {}).src} href={(window.ads[1] || {}).href} />
+      <Footer />
     </div>
   )
 }
