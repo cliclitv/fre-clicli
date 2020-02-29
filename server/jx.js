@@ -15,6 +15,20 @@ exports.default = async ctx => {
       return Hcy.getUrl(ctx, content)
     case 'san':
       return San.getUrl(ctx, content)
+    case 'weibo':
+      await axios
+        .get(`https://m.weibo.cn/statuses/show?id=${content}`, {
+          headers: {}
+        })
+        .then(res => {
+          // const ret =  res.data.match(/weibocdn([\s\S]+?)ssig/)[0]
+          ctx.body = {
+            code: 0,
+            url: res.data.data.page_info.media_info.stream_url_hd.replace('http','https'),
+            type: 'mp4'
+          }
+        })
+      break
     case 'ksyun':
       await axios
         .get(`http://www.zzzfun.com/static/danmu/ksyun.php?${content}`, {
@@ -23,23 +37,6 @@ exports.default = async ctx => {
           }
         })
         .then(res => {
-          let ret = res.data.match(/source src="(\S*)"/)[1]
-          ctx.body = {
-            code: 0,
-            url: ret,
-            type: 'mp4'
-          }
-        })
-      break
-    case 's_360':
-      await axios
-        .get(`http://www.zzzfun.com/static/danmu/san.php?v360?v=${content}`, {
-          headers: {
-            Referer: 'http://www.zzzfun.com'
-          }
-        })
-        .then(res => {
-          console.log(res.data)
           let ret = res.data.match(/source src="(\S*)"/)[1]
           ctx.body = {
             code: 0,
