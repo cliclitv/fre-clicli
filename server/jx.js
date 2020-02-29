@@ -24,7 +24,7 @@ exports.default = async ctx => {
           // const ret =  res.data.match(/weibocdn([\s\S]+?)ssig/)[0]
           ctx.body = {
             code: 0,
-            url: res.data.data.page_info.media_info.stream_url_hd.replace('http','https'),
+            url: res.data.data.page_info.urls.mp4_720p_mp4.replace('http','https'),
             type: 'mp4'
           }
         })
