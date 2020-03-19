@@ -10,19 +10,17 @@ import Ad from 'widget/ad'
 import './index.styl'
 import './m.styl'
 
-export default function Home({push}) {
+export default function Home({ push }) {
   return (
     <div>
-      <Header />
+      <Header push={push}/>
       <div className='wrap' style={{ display: 'flex' }}>
-        <Recommend push={push}/>
-        <Rank />
+        <Recommend push={push} />
+        <Rank push={push} />
       </div>
-      <Ad src={(window.ads[0] || {}).src} href={(window.ads[0] || {}).href} />
-      <WeekList />
-      <UgcList title='个人投稿' />
-      <PostList />
-      <Ad src={(window.ads[1] || {}).src} href={(window.ads[1] || {}).href} />
+      <WeekList push={push} />
+      <UgcList title='个人投稿' push={push} />
+      <PostList push={push} />
       <Footer />
     </div>
   )

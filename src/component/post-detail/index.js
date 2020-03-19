@@ -36,16 +36,16 @@ export default function PostDetal(props) {
             <span className='avatar'>
               <img src={getAvatar(post.uqq)} alt={post.uqq}></img>
             </span>
-            <span className='uname'>{post.uname || ''}</span>
-            <span className='uid'>uid：{post.uid || 0}</span>
+            <span className='uname'>{post.uname}</span>
+            <span className='uid'>uid：{post.uid}</span>
           </div>
           <div class='title'>
             <h1>{post.title || '少年祈祷中……'}</h1>
             <span class='pv'>{pv} ℃ </span>
           </div>
           <div>
-            <span>{post.tag || ''}</span>
-            <span>{post.time || ''}</span>
+            <span>{post.tag}</span>
+            <span>{post.time}</span>
           </div>
           <article ref={u} class='other'></article>
         </div>

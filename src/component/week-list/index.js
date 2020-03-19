@@ -1,10 +1,10 @@
-import {h, useEffect, useState} from 'fre'
-import {getPost} from 'api/get'
-import {getSuo} from 'public/js/util'
+import { h, useEffect, useState } from 'fre'
+import { getPost } from 'api/get'
+import { getSuo } from 'public/js/util'
 import './index.styl'
-import {clink} from 'public/js/const'
+import { clink } from 'public/js/const'
 
-export default function WeekList() {
+export default function WeekList({ push }) {
   const [posts, setPosts] = useState([])
   const [day, setDay] = useState(new Date().getDay())
   useEffect(() => {
@@ -27,30 +27,34 @@ export default function WeekList() {
     5: '周五',
     6: '周六'
   }
-  return <div className="week-list">
-    <div className="wrap">
-      <div className="headline">
-        <h1>更新表</h1>
-        <ul>
-          {posts && Object.keys(posts).map((item, index) => <button
-            className={index === day ? 'active' : ''}
-            onClick={() => setDay(index)}>{map[item]}</button>)}
+  return (
+    <div className='week-list'>
+      <div className='wrap'>
+        <div className='headline'>
+          <h1>更新表</h1>
+          <ul>
+            {posts &&
+              Object.keys(posts).map((item, index) => (
+                <button className={index === day ? 'active' : ''} onClick={() => setDay(index)}>
+                  {map[item]}
+                </button>
+              ))}
+          </ul>
+        </div>
+        <ul className='posts'>
+          {posts[day] &&
+            posts[day].map(item => (
+              <li onClick={() => props.push(`/play/gv${item.id}`)} key={item.id}>
+                <div className='post'>
+                  <div className='cover'>
+                    <img src={getSuo(item.content)} />
+                  </div>
+                  <div className='title'>{item.title}</div>
+                </div>
+              </li>
+            ))}
         </ul>
       </div>
-      <ul className="posts">
-        {posts[day] && posts[day].map((item) => (
-          <a href={`${clink}/play/gv${item.id}`} key={item.id}>
-            <li>
-              <div className="post">
-                <div className="cover">
-                  <img src={getSuo(item.content)}/>
-                </div>
-                <div className="title">{item.title}</div>
-              </div>
-            </li>
-          </a>)
-        )}
-      </ul>
     </div>
-  </div>
+  )
 }

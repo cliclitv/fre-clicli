@@ -6,14 +6,14 @@ import Search from 'component/search'
 
 const App = () => {
   const [location, setLocation] = useLocation()
-  const page = location.match(/gv(\S*)+/)
-  const page = location.match(/search\/(\S*)+/)
+  const p = location.match(/gv(\S*)+/)
+  const s = location.match(/search\/(\S*)+/)
   if (location === '/') {
     return <Home push={setLocation} />
-  } else if (page) {
-    return <Page gv={page[1]}/>
-  }else if(search){
-    <Search key={search[1]}/>
+  } else if (p) {
+    return <Page gv={p[1]}/>
+  }else if(s){
+    <Search key={s[1]}/>
   }else{
     return 404
   }
