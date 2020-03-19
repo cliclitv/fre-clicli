@@ -7,7 +7,7 @@ export default function Search({ push }) {
   useEffect(() => {
     document.onkeydown = e => {
       if (e.keyCode == 13 && word) {
-        push(`${clink}/search/${word}`)
+        push(`/search/${word}`)
       }
     }
   })
