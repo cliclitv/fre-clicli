@@ -10,7 +10,7 @@ export default function Header({ push }) {
     补档: 99
   }
   return (
-    <header style={{ background: `url(${window.bg}) center top` }}>
+    <header>
       <div className='header'>
         <div className='wrap'>
           <nav className='nav'>
