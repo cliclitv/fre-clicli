@@ -10,12 +10,12 @@ import Ad from 'widget/ad'
 import './index.styl'
 import './m.styl'
 
-export default function Home() {
+export default function Home({push}) {
   return (
     <div>
       <Header />
       <div className='wrap' style={{ display: 'flex' }}>
-        <Recommend />
+        <Recommend push={push}/>
         <Rank />
       </div>
       <Ad src={(window.ads[0] || {}).src} href={(window.ads[0] || {}).href} />

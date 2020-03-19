@@ -6,7 +6,7 @@ import {getAv} from '../../public/js/util'
 import './index.styl'
 
 export default function Page(props) {
-  const gv = getAv(props.gv)
+  const gv = props.gv
   return <div>
     <Tab/>
     <div className='wrap'>

@@ -15,12 +15,12 @@ export default function Recommend(props) {
     <h1>编辑推荐</h1>
     <ul>
       {posts.length > 0 && posts.map(item => {
-        return <a href={`${clink}/play/gv${item.id}`} key={item.id} ><li>
+        return <li onClick={()=>props.push(`/play/gv${item.id}`)} key={item.id} ><li>
           <div className="cover">
             <img src={getSuo(item.content)}/>
           </div>
           <div className="title">{item.title}</div>
-        </li></a>
+        </li></li>
       })}
     </ul>
   </div>

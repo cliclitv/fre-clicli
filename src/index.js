@@ -4,20 +4,13 @@ import Page from 'component/page'
 import Home from 'component/home'
 import Search from 'component/search'
 
-const routes = {
-  '/': Home,
-  '/play/:gv': Page,
-  '/search/:word': Search
-}
-
 const App = () => {
   const [location, setLocation] = useLocation()
-
-  switch (location) {
-    case '/':
-      return <Home/>
-    case '/play/:gv':
-      return <button onClick={() => setLocation('/play/gv123')}>go home</button>
+  const reg = location.match(/gv(\S*)+/)
+  if (location === '/') {
+    return <Home push={setLocation} />
+  } else if (reg) {
+    return <Page gv={reg[1]}/>
   }
   return 404
 }

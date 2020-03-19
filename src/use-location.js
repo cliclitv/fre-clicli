@@ -20,7 +20,6 @@ export const useLocation = ({ base = '' } = {}) => {
   }, [])
   const navigate = (to, replace) =>
     history[replace ? 'replaceState' : 'pushState'](0, 0, base + to)
-
   return [path, navigate]
 }
 
