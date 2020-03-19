@@ -1,31 +1,25 @@
-import {h} from 'fre'
+import { h } from 'fre'
 import './index.styl'
 
 export default function Footer() {
+  const concat = {
+    APP下载: 'https://app.clicli.me',
+    使用说明: 'https://www.clicli.me/play/gv31',
+    github: 'https://github.com/cliclitv',
+    微博: 'https://weibo.com/u/6759984025',
+    qq群: 'https://jq.qq.com/?_wv=1027&k=5e55m5L'
+  }
   return (
-    <div className="footer">
-      <div className="wrap">
-        <div className="title">
-          <img src="https://pic.superbed.cn/item/5cc52b543a213b04172979c8.png"/>
-          <h1>CliCli 弹幕网</h1>
-        </div>
-        <ul className="links">
-          <li><a href={window.concat[0]}>使用说明</a></li>
-          <li><a href={window.concat[1]}>开源仓库</a></li>
-          <li><a href={window.concat[2]}>up主招募</a></li>
-          <li><a href={window.concat[3]}>版权广告</a></li>
+    <div className='footer'>
+      <div className='wrap'>
+        <ul className='links'>
+          {Object.keys(concat).forEach(key => (
+            <a href={concat[key]}>key</a>
+          ))}
         </ul>
-        <ul className="icons">
-          <a href={window.concat[0]}>
-            <li><i className="icon-font icon-qq"></i>QQ群</li>
-          </a>
-          <a href={window.concat[1]}>
-            <li><i className="icon-font icon-weibo"></i>微博</li>
-          </a>
-          <a href={window.concat[2]}>
-            <li><i className="icon-font icon-xiazai"></i>下载客户端</li>
-          </a>
-        </ul>
+        <p>
+          <span className='mail'>admin@clicli.us</span> © 2020 clicli Proudly use <a href='https://github.com/yisar/fre'>Fre.js</a>
+        </p>
       </div>
     </div>
   )
