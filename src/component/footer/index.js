@@ -13,8 +13,8 @@ export default function Footer() {
     <div className='footer'>
       <div className='wrap'>
         <ul className='links'>
-          {Object.keys(concat).forEach(key => (
-            <a href={concat[key]}>key</a>
+          {Object.keys(concat).map(key => (
+            <a href={concat[key]}>{key}</a>
           ))}
         </ul>
         <p>
