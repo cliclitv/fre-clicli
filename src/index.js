@@ -11,12 +11,11 @@ const App = () => {
   if (location === '/') {
     return <Home push={setLocation} />
   } else if (p) {
-    return <Page gv={p[1]}/>
-  }else if(s){
-    <Search key={s[1]}/>
-  }else{
+    return <Page gv={p[1]} />
+  } else if (s) {
+    return <Search key={s[1]} />
+  } else {
     return 404
   }
-  
 }
 render(<App />, document.getElementById('root'))
