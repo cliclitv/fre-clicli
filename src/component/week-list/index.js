@@ -44,7 +44,7 @@ export default function WeekList({ push }) {
         <ul className='posts'>
           {posts[day] &&
             posts[day].map(item => (
-              <li onClick={() => props.push(`/play/gv${item.id}`)} key={item.id}>
+              <li onClick={() => push(`/play/gv${item.id}`)} key={item.id}>
                 <div className='post'>
                   <div className='cover'>
                     <img src={getSuo(item.content)} />

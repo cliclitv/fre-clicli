@@ -13,7 +13,7 @@ const App = () => {
   } else if (p) {
     return <Page gv={p[1]} />
   } else if (s) {
-    return <Search key={s[1]} />
+    return <Search word={s[1]} push={setLocation}/>
   } else {
     return 404
   }

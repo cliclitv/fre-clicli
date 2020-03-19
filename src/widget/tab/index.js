@@ -19,7 +19,7 @@ export default function Tab() {
             <li className='item'>{key}</li>
           </a>
         ))}
-        <div style={{float:'right'}}>
+        <div class='tab-right'>
           <a href='https://app.clicli.me'>
             <li>APP下载</li>
           </a>

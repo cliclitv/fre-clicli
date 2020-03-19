@@ -7,7 +7,7 @@ export default function List(props) {
   return (
     <div>
       <Tab />
-      <UgcList title='搜索结果' word={props.word} />
+      <UgcList title='搜索结果' word={props.word} push={props.push}/>
       <Footer />
     </div>
   )
