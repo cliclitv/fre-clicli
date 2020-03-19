@@ -2384,10 +2384,10 @@ fre@^1.10.2:
   resolved "https://registry.yarnpkg.com/fre/-/fre-1.10.2.tgz#9804946d8ac389f42e567ae36a8fadbb4eed0669"
   integrity sha512-17eOWEqzaSjNstbs4YIFosrUfMxwQeZv+3BR8JTTRHc6MCSwfMMQy4ej85JkmJBSnfwPKHC0PXvcRY6zH7gyRw==
 
-fre@^1.12.3:
-  version "1.12.3"
-  resolved "https://registry.yarnpkg.com/fre/-/fre-1.12.3.tgz#630ffef5438d2edd54e5c481663fadad526f9c86"
-  integrity sha512-b6PF8zSVThurxoSG5/9otOlYu5rCbr9kgHIh4PqxELVNdOW70qSmp+bjB7xFKdsSPd2xVbx919d7QdKuhIkPRQ==
+fre@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/fre/-/fre-1.13.2.tgz#3ba0e243591e746787655884dc44e6ba5a240b86"
+  integrity sha512-lSCu7E1kCdUxi9GCh/U08TVi4oa0FGnsoijTmPtXj5qWbwAvWaXgYDoSMZ8t1mziF4uiE9dYWpnLwItgCUgZQA==
 
 fresh@0.5.2:
   version "0.5.2"

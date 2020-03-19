@@ -3,7 +3,6 @@ import { getPost, getSearch } from 'api/get'
 import { getAvatar, getSuo } from 'public/js/util'
 import './index.styl'
 import { clink } from 'public/js/const'
-import { push } from '../../use-routes'
 
 export default function UGCList(props) {
   const [posts, setPosts] = useState([])

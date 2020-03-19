@@ -3,8 +3,6 @@ import {getRank} from 'api/get'
 import {getSuo} from 'public/js/util'
 import './index.styl'
 import {clink} from 'public/js/const'
-import {push} from '../../use-routes'
-
 export default function Rank(props) {
   const [posts, setPosts] = useState([])
   useEffect(() => {

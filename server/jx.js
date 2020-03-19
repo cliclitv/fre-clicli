@@ -21,10 +21,9 @@ exports.default = async ctx => {
           headers: {}
         })
         .then(res => {
-          // const ret =  res.data.match(/weibocdn([\s\S]+?)ssig/)[0]
           ctx.body = {
             code: 0,
-            url: res.data.data.page_info.urls.mp4_720p_mp4.replace('http','https'),
+            url: res.data.data.page_info.urls.mp4_720p_mp4.replace('http', 'https'),
             type: 'mp4'
           }
         })
@@ -86,12 +85,22 @@ exports.default = async ctx => {
           return obj.video.vid
         })
       let link = `https://qt.qq.com/php_cgi/cod_video/php/get_video_url.php?json=1&multirate=1&filetype=40&game_id=123456&vid=${vid}`
-      await axios.get(link).then(res => {
-        ctx.body = {
-          code: res.data.code,
-          url: res.data.data[0].data[0]
-        }
-      })
+      const ip = ctx.request.ip
+      const ua = ctx.request['user-agent']
+      console.log(ip)
+      await axios
+        .get(link, {
+          headers: {
+            'User-Agent': ua,
+            'X-Forwarded-For': ip
+          }
+        })
+        .then(res => {
+          ctx.body = {
+            code: res.data.code,
+            url: res.data.data[0].data[0]
+          }
+        })
       break
     default:
       ctx.body = {

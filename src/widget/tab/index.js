@@ -1,6 +1,5 @@
 import { h } from 'fre'
 import './index.styl'
-import { push } from '../../use-routes'
 import { clink } from 'public/js/const'
 
 export default function Tab() {
