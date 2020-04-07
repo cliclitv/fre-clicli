@@ -2,7 +2,6 @@ import { h, useEffect, useState } from 'fre'
 import { getPost } from 'api/get'
 import { getSuo } from 'public/js/util'
 import './index.styl'
-import { clink } from 'public/js/const'
 
 export default function WeekList({ push }) {
   const [posts, setPosts] = useState([])
@@ -33,9 +32,9 @@ export default function WeekList({ push }) {
         <div className='headline'>
           <h1>更新表</h1>
           <ul>
-            {posts &&
-              Object.keys(posts).map((item, index) => (
-                <button className={index === day ? 'active' : ''} onClick={() => setDay(index)}>
+            {map &&
+              Object.keys(map).map((item, index) => (
+                <button className={item == day ? 'active' : ''} onClick={() => setDay(index)}>
                   {map[item]}
                 </button>
               ))}
