@@ -5,6 +5,7 @@ export function get(url) {
       .then(data => {
         resolve(data)
       }).catch(e=>{
+        console.log(e)
         reject(e)
     })
   })
