@@ -14,7 +14,7 @@ export default function PostDetal(props) {
     getPostDetail(props.gv).then(res => {
       getPv(props.gv).then(ret => {
         setPost(res.result)
-        setPv(ret.pv)
+        setPv(ret.result.pv)
       })
       const w = document.body.clientWidth
       if (res.result.tag.indexOf('其它') > -1 || w < 480) {

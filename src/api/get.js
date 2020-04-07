@@ -21,7 +21,7 @@ export function getPlayUrl(url) {
 }
 
 export function getPv(pid) {
-  return get(`https://jx.clicli.us/pv/${pid}`)
+  return get(`https://api.clicli.us/pv/${pid}`)
 }
 
 export function getSearch(key) {
