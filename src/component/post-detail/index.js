@@ -12,8 +12,8 @@ export default function PostDetal(props) {
   const [pv, setPv] = useState(0)
   useEffect(() => {
     getPostDetail(props.gv).then(res => {
+      setPost(res.result)
       getPv(props.gv).then(ret => {
-        setPost(res.result)
         setPv(ret.result.pv)
       })
       const w = document.body.clientWidth
