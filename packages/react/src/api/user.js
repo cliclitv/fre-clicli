@@ -2,6 +2,8 @@ import axios from 'axios'
 import {isDev, API_LINK} from 'common/js/util'
 import Cookies from "js-cookie"
 
+axios.defaults.withCredentials = true
+
 const request = axios.create({
   baseURL: 'http://api.clicli.cc'
 })
