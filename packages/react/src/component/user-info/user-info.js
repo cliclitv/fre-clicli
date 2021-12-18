@@ -29,9 +29,9 @@ class UserInfo extends React.Component {
   }
 
   render() {
-    const qq = getAvatar(this.state.user.qq)
-    const router = `/article/` + this.state.user.id
-    const info = `/editor-user/` + this.state.user.qq
+    const qq = getAvatar(this.state?.user?.qq||10010)
+    const router = `/article/` + this.state?.user?.id
+    const info = `/editor-user/` + this.state?.user?.qq
     return (
       <div className="user-info">
         <div className="avatar">
