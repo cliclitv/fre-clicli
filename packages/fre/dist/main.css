@@ -617,6 +617,7 @@ img {
 }
 ::-webkit-scrollbar {
   background: #fff;
+  width: 5px;
 }
 ::-webkit-scrollbar-thumb {
   background: #946ce6;
