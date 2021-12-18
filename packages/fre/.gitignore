@@ -64,5 +64,3 @@ typings/
 server/config.js
 server/hcy.js
 server/san.js
-
-dist/
