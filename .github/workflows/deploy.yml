@@ -9,7 +9,7 @@ jobs:
       - name: Set up Node
         uses: actions/checkout@v2
       - name: Build Dist
-        run: yarn instal && yarn fre
+        run: yarn fre
   publish:
     runs-on: ubuntu-latest
     steps:
