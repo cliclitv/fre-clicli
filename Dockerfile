@@ -1,6 +1,7 @@
 FROM nginx
 
-COPY /packages/fre/dist/ /root/fre/
-COPY /packages/fre/dist/ /usr/share/nginx/html/
+USER root
 
-EXPOSE 80
+COPY ./packages/fre/dist/ /usr/share/nginx/html/
+
+EXPOSE 8080
