@@ -37,4 +37,4 @@ jobs:
           port: 22
           script: |
             docker pull yisar/clicli_fe
-            docker-compose restart -d  
+            docker-compose restart web
