@@ -1,6 +1,6 @@
 # fre-clicli
 
-c 站前端 monorepo
+c 站前端 monorepo 
 
 ### run
 
