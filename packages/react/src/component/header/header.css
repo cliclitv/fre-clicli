@@ -1,0 +1,57 @@
+
+header {
+  background: #7e5fd9;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+header li {
+  display: inline-block;
+  color: #fff;
+  padding: 10px 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+header li:hover {
+  background: #6c43b6;
+}
+
+header li:hover ul {
+  display: block;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  white-space: nowrap;
+  background: #6c43b6;
+  padding: 10px 0 15px 0;
+}
+
+header li:hover ul li {
+  display: block;
+  font-size: 13px;
+}
+
+header li:hover ul li:hover {
+  font-weight: bold;
+}
+
+header li ul {
+  display: none;
+}
+
+header .logout {
+  background: #9579e8;
+  float: right;
+  border-right: 1px solid #7e5fd9;
+}
+
+header .logout:hover {
+  background: #9579e8;
+  font-weight: bold;
+}
+
+

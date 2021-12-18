@@ -1,0 +1,98 @@
+.editor-user {
+  width: 800px;
+  margin: 50px auto;
+}
+
+.editor-user h1 {
+  color: #7e5fd9;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.editor-user li {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.editor-user span {
+  cursor: pointer;
+}
+
+.editor-user ul {
+  width: 500px;
+  margin: 50px auto;
+}
+
+.editor-user li input, textarea {
+  padding: 10px;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
+  border: 0;
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.editor-user li textarea {
+  height: 50px;
+}
+
+.editor-user button {
+  background: #7e5fd9;
+  padding: 8px 30px;
+  color: #fff;
+  margin: 20px;
+  border: 0;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.6);
+  cursor: pointer;
+}
+
+.editor-user select {
+  padding: 5px 17px;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
+  border: 0;
+  color: #666;
+  margin: 10px 0;
+  display: block;
+}
+
+.per {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60px;
+  width: 60px;
+  color: #fff;
+  font-size: 20px;
+  background: #608ea8;
+  text-align: center;
+  border-radius: 30px;
+  line-height: 60px;
+}
+
+#uploader{
+  position: relative;
+}
+
+#uploader input{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 35px;
+}
+
+#uploader span{
+  position: absolute;
+  top: 15px;
+  left: 0;
+  background: #6c43b6;
+  color: #fff;
+  width: 100px;
+  text-align: center;
+  line-height: 35px;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.6);
+  cursor: pointer;
+  height: 35px;
+}

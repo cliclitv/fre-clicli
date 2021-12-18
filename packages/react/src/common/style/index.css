@@ -1,0 +1,17 @@
+body {
+  font: 14px 微软雅黑;
+  color: #444;
+  background: #f4f6fa;
+}
+
+a {
+  color: #7e5fd9;
+}
+
+.center {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}

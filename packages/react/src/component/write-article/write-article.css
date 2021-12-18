@@ -1,0 +1,97 @@
+.write-article {
+  width: 800px;
+  margin: 100px auto;
+}
+
+.write-article h1 {
+  color: #7e5fd9;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.write-article li input {
+  padding: 10px;
+  width: 100%;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
+  border: 0;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+.write-article span input {
+  padding: 4px 10px;
+  border: 0;
+  background: #ffeec7;
+  box-sizing: border-box;
+  border-radius: 4px;
+  outline: none;
+}
+.write-article button {
+  background: #7e5fd9;
+  padding: 8px 30px;
+  color: #fff;
+  margin: 20px 0;
+  border: 0;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.6);
+  cursor: pointer;
+  float: right;
+}
+
+.write-article select {
+  padding: 5px 17px;
+  box-shadow: 1px 1px 1px rgba(70, 75, 150, 0.2);
+  border: 0;
+  color: #666;
+  margin: 20px 20px 20px 0;
+  position: relative;
+  top: 3px;
+}
+
+.write-article span {
+  color: #666;
+  font-size: 13px;
+}
+
+.write-article .video-list li {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background: #fff;
+  list-style: none;
+  display: inline-block;
+  margin: 10px 15px 0 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1px solid #7e5fd9;
+}
+
+.write-article .video-list .add {
+  font-weight: bold;
+  background: #7e5fd9;
+  color: #fff;
+}
+
+.write-article .video-list .add div {
+  position: relative;
+  top: -2px;
+}
+
+.write-article .tags {
+  padding-bottom: 20px;
+}
+
+.write-article .tags li {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #b6cedc;
+  color: #6c43b6;
+  border-radius: 4px;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
+}
+
+.write-article .tags .active {
+  background: #6c43b6;
+  color: #fff;
+}
+

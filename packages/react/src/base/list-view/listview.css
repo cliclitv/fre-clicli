@@ -1,0 +1,44 @@
+.article-list {
+    width: 900px;
+    margin: 50px auto;
+}
+
+.article-list h1 {
+    color: #7e5fd9;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.listview {
+    box-shadow: 0px 1px 0px rgba(70, 75, 150, 0.2)
+}
+
+.listview li {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px #ddd dashed;
+}
+
+.listview ul li:last-child {
+    border: 0
+}
+
+.listview li .title {
+    flex: 3;
+    color: #7e5fd9;
+}
+
+.listview li .sort, .listview li .status, .listview li .action {
+    flex: 1;
+}
+
+.listview li .action i {
+    color: #7e5fd9;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.reach-box input{
+    background: #fff!important;
+    margin: 20px 0;
+}

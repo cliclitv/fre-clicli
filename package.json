@@ -30,8 +30,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fre": "pnpm run build --filter @clicli/fre",
-    "start": "pnpm run start --filter @clicli/fre"
+    "build:fre": "pnpm run build --filter @clicli/fre",
+    "dev:fre": "pnpm run start --filter @clicli/fre",
+    "build:admin":"pnpm run build --filter @clicli/admin",
+    "dev:admin":"pnpm run dev --filter @clicli/admin"
   },
   "repository": {
     "type": "git",
