@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node
+        uses: actions/checkout@v2
+      - name: Build Dist
+        run: yarn instal && yarn fre
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Image
+        env:
+          DockerUsername: ${{ secrets.DOCKER_USERNAME }}
+          DockerPassword: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DockerUsername -p $DockerPassword
+          docker build -t yisar/clicli_fe .
+          docker push yisar/clicli_fe
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [publish]
+    steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: 22
+          script: docker-compose up -d  
