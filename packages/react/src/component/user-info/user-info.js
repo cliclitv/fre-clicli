@@ -13,7 +13,9 @@ class UserInfo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: {}
+      user: {
+        qq:10010
+      }
     }
   }
 
