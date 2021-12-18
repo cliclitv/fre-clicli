@@ -14,7 +14,9 @@ jobs:
           DockerPassword: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           yarn install
-          yarn fre
+          yarn build:fre
+          cd ./packages/react
+          yarn build
           docker login -u $DockerUsername -p $DockerPassword
           docker build -t yisar/clicli_fe .
           docker push yisar/clicli_fe

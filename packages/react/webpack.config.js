@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'development' ? '/' : 'https://s-sh-16-clicli.oss.dogecdn.com/admin/'
+    publicPath:'/'
   },
   resolve: {
     alias: {
