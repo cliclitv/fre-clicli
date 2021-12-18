@@ -13,6 +13,7 @@ jobs:
           yarn install
           yarn build:fre
           cd ./packages/react
+          yarn install
           yarn build
   publish:
     runs-on: ubuntu-latest
