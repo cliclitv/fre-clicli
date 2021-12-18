@@ -35,4 +35,6 @@ jobs:
           username: ${{ secrets.DEPLOY_USERNAME }}
           password: ${{ secrets.DEPLOY_PASSWORD }}
           port: 22
-          script: docker-compose up -d  
+          script: |
+            docker pull yisar/clicli_fe
+            docker-compose up -d  
