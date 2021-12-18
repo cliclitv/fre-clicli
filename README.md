@@ -1,13 +1,7 @@
-# fre-clicli-home
-> 新版c站首页，fre 强力驱动
+# fre-clicli
 
-### 技术栈
-* webpack4
-* fre
-* stylus
+c 站前端 monorepo
 
-### 启动
+### run
 
-```console
-yarn start
-```
+本仓库是使用 pnpm 构建的 monorepo，可以单独打开 packages 下面的文件夹单独进行开发
