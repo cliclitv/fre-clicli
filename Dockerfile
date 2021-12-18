@@ -1,6 +1,6 @@
 FROM nginx
 
 COPY /packages/fre/dist/ /usr/share/nginx/html/
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY /conf.d /etc/nginx/conf.d
 
 EXPOSE 80
