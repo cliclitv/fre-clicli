@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "8d8f9066483da8d91442";
+/******/ 	var hotCurrentHash = "30fe843a25749271905f";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1094,7 +1094,7 @@ function getAvatar(avatar) {
     return "http://q1.qlogo.cn/g?b=qq&nk=".concat(avatar, "&s=5");
   } else {
     var hash = md5_default()(avatar);
-    return "https://cdn.v2ex.com/gravatar/".concat(hash);
+    return "https://sdn.geekzu.org/avatar/".concat(hash);
   }
 }
 function replaceContent(content) {
@@ -1102,8 +1102,8 @@ function replaceContent(content) {
   return content;
 }
 var isDev = "production" === 'development';
-var HOME_LINK = 'https://www.clicli.cc';
-var API_LINK = 'http://api.clicli.cc';
+var HOME_LINK = '//www.clicli.cc';
+var API_LINK = '//api.clicli.cc';
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
 var helpers_extends = __webpack_require__(17);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
