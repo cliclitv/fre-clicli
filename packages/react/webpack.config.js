@@ -77,7 +77,7 @@ module.exports = {
     proxy: {
       '/api/*': {
         pathRewrite: {'^/api': ''},
-        target: 'http://api.clicli.cc'
+        target: 'https://api.clicli.cc'
       }
     }
   }

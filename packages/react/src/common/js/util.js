@@ -17,5 +17,5 @@ export function replaceContent(content) {
 }
 
 export let isDev = process.env.NODE_ENV === 'development'
-export const HOME_LINK = 'https://www.clicli.cc'
-export const API_LINK = 'http://api.clicli.cc'
+export const HOME_LINK = '//www.clicli.cc'
+export const API_LINK = '//api.clicli.cc'
