@@ -17,7 +17,7 @@ export function getVideoList(pid) {
 }
 
 export function getPlayUrl(url) {
-  return get(`//jx.clicli.cc/jx?url=${url}`)
+  return get(`//api.clicli.cc/jx?url=${url}`)
 }
 
 export function getPv(pid) {

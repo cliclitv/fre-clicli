@@ -25,7 +25,7 @@ export default function Eplayer(props) {
         steam(res.type, res.url)
         s.current.load()
       } else {
-        t.current.setAttribute('type', res.type)
+        t.current.setAttribute('type', res.mtype)
         t.current.setAttribute('src', res.url)
       }
     })
