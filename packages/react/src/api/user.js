@@ -40,7 +40,7 @@ export function update(user) {
 
 // 获取用户列表
 export function userList(level) {
-  return axois.get('//api.clicli.cc/users', {
+  return axios.get('//api.clicli.cc/users', {
     params: {
       level,
       page: 1,

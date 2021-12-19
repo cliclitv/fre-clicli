@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 axios.defaults.withCredentials = true
 
 export function getPosts(status, sort, tag, uid, page, pageSize) {
-  return axois.get(`//api.clicli.cc/posts`, {
+  return axios.get(`//api.clicli.cc/posts`, {
     params: {
       status, sort, tag, uid, page, pageSize
     }
@@ -13,7 +13,7 @@ export function getPosts(status, sort, tag, uid, page, pageSize) {
 }
 
 export function getPost(id) {
-  return axois.get(`//api.clicli.cc/post/${id}`)
+  return axios.get(`//api.clicli.cc/post/${id}`)
 }
 
 export function add({title, content, status, sort, tag, uid}) {

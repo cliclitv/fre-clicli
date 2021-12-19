@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "98d7b5f4dac0a212e27f";
+/******/ 	var hotCurrentHash = "8d8f9066483da8d91442";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1149,7 +1149,7 @@ function update(user) {
 } // 获取用户列表
 
 function userList(level) {
-  return axois.get('//api.clicli.cc/users', {
+  return axios_default.a.get('//api.clicli.cc/users', {
     params: {
       level: level,
       page: 1,
@@ -1521,7 +1521,7 @@ var editor_user_EditorUser = adminAuth(editor_user_class = /*#__PURE__*/function
 
 axios_default.a.defaults.withCredentials = true;
 function getPosts(status, sort, tag, uid, page, pageSize) {
-  return axois.get("//api.clicli.cc/posts", {
+  return axios_default.a.get("//api.clicli.cc/posts", {
     params: {
       status: status,
       sort: sort,
@@ -1533,7 +1533,7 @@ function getPosts(status, sort, tag, uid, page, pageSize) {
   });
 }
 function getPost(id) {
-  return axois.get("//api.clicli.cc/post/".concat(id));
+  return axios_default.a.get("//api.clicli.cc/post/".concat(id));
 }
 function add(_ref) {
   var title = _ref.title,
