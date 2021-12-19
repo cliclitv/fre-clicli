@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "bab2d6477d63bd486dec";
+/******/ 	var hotCurrentHash = "3428932c3ed3c105121e";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1875,18 +1875,19 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
     value: function handleClick() {
       var _this3 = this;
 
-      // if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
-      //   this.setState({
-      //     msg: '都要填写都要填(〃＞皿＜)！',
-      //     bg: '#ef736e'
-      //   })
-      //   setTimeout(() => {
-      //     this.setState({
-      //       msg: ''
-      //     })
-      //   }, 5000)
-      //   return
-      // }
+      if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
+        this.setState({
+          msg: '都要填写都要填(〃＞皿＜)！',
+          bg: '#ef736e'
+        });
+        setTimeout(function () {
+          _this3.setState({
+            msg: ''
+          });
+        }, 5000);
+        return;
+      }
+
       if (this.props.location.pathname !== '/write-article') {
         post_update(this.state).then(function (res) {
           if (res.data.code === 200) {

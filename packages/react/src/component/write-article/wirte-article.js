@@ -67,18 +67,18 @@ class WriteArticle extends React.Component {
   }
 
   handleClick() {
-    // if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
-    //   this.setState({
-    //     msg: '都要填写都要填(〃＞皿＜)！',
-    //     bg: '#ef736e'
-    //   })
-    //   setTimeout(() => {
-    //     this.setState({
-    //       msg: ''
-    //     })
-    //   }, 5000)
-    //   return
-    // }
+    if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
+      this.setState({
+        msg: '都要填写都要填(〃＞皿＜)！',
+        bg: '#ef736e'
+      })
+      setTimeout(() => {
+        this.setState({
+          msg: ''
+        })
+      }, 5000)
+      return
+    }
 
     if (this.props.location.pathname !== '/write-article') {
       update(this.state).then((res) => {
