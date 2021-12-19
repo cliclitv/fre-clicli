@@ -1007,6 +1007,7 @@ span.CodeMirror-selectedtext {
   white-space: pre;
 word-wrap: break-word;
 overflow: scroll;
+outline: none;
 }
 
 .write-article .tags li {
