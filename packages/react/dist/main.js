@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "b8794190957539674261";
+/******/ 	var hotCurrentHash = "e32d3d5ac2048b13cfc4";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1435,7 +1435,7 @@ var editor_user_EditorUser = adminAuth(editor_user_class = /*#__PURE__*/function
 
       getUser('', 0, this.state.qq).then(function (res) {
         if (res.data.code === 200) {
-          _this2.setState(res.data.user);
+          _this2.setState(res.data.result);
         }
       });
     }

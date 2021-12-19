@@ -28,7 +28,7 @@ class EditorUser extends React.Component {
   loadUser() {
     getUser('', 0, this.state.qq).then(res => {
       if (res.data.code === 200) {
-        this.setState(res.data.user)
+        this.setState(res.data.result)
       }
     })
   }
