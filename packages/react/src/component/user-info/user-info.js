@@ -1,9 +1,9 @@
 import React from 'react'
 
-import {Link} from 'react-router-dom'
-import {adminAuth} from "hoc/auth/auth"
-import {getUser} from 'api/user'
-import {getAvatar} from "common/js/util"
+import { Link } from 'react-router-dom'
+import { adminAuth } from "hoc/auth/auth"
+import { getUser } from 'api/user'
+import { getAvatar } from "common/js/util"
 
 import './user-info.css'
 import Cookies from "js-cookie"
@@ -14,28 +14,32 @@ class UserInfo extends React.Component {
     super(props)
     this.state = {
       user: {
-        qq:10010
+        qq: 10010,
+        name:'emmm',
+        id:2
       }
     }
   }
 
   componentDidMount() {
-    Cookies.get('uid') ? getUser('', Cookies.get('uid')).then(res => {
-      this.setState({
-        user: res.data.user
+    const uid = Cookies.get('uid') || "2"
+    if (uid) {
+      getUser('', uid).then(res => {
+        this.setState({
+          user: res.data.result
+        })
       })
-    }) : null
-
+    }
   }
 
   render() {
-    const qq = getAvatar(this.state?.user?.qq||10010)
-    const router = `/article/` + this.state?.user?.id
-    const info = `/editor-user/` + this.state?.user?.qq
+    const qq = getAvatar(this.state.user.qq)
+    const router = `/article/` + this.state.user.id
+    const info = `/editor-user/` + this.state.user.qq
     return (
       <div className="user-info">
         <div className="avatar">
-          <img src={qq} alt="作者头像"/>
+          <img src={qq} alt="作者头像" />
         </div>
         <div className="name">欢迎！{this.state.user.name} sama~</div>
         <div className="uid"><span>uid : {this.state.user.id}</span></div>
@@ -44,7 +48,7 @@ class UserInfo extends React.Component {
           {this.props.state.level > 1 ? <span>
             <Link to="/write-article">投稿</Link>
           </span> : null}
-          {this.props.state.level>1 ? <span><Link to={router}>查看稿件</Link></span> : null}
+          {this.props.state.level > 1 ? <span><Link to={router}>查看稿件</Link></span> : null}
           <span><Link to={info}>设置</Link></span>
         </div>
       </div>

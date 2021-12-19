@@ -55,7 +55,8 @@ module.exports = {
     splitChunks: {
       chunks: 'all'
     },
-    runtimeChunk: true
+    runtimeChunk: false,
+    minimize:false
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
