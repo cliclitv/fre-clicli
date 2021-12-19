@@ -8,7 +8,7 @@ export default function Eplayer(props) {
   const isMobile = document.body.clientWidth < 480
   const steam = (type, url) => {
     switch (type) {
-      case 'hls':
+      case 'm3u8':
         if (Hls.isSupported()) {
           let hls = new Hls()
           hls.loadSource(url)
@@ -22,10 +22,11 @@ export default function Eplayer(props) {
   useEffect(() => {
     getPlayUrl(props.url).then(res => {
       if (isMobile) {
-        steam(res.type, res.url)
+        steam(res.result.mtype, res.result.url)
         s.current.load()
       } else {
-        t.current.setAttribute('type', res.result.mtype)
+        const type = res.result.mtype === "m3u8" ? "hls" : res.result.mtype
+        t.current.setAttribute('type', type)
         t.current.setAttribute('src', res.result.url)
       }
     })
