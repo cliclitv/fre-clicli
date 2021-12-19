@@ -4,8 +4,8 @@ import './index.styl'
 export default function Footer() {
   const concat = {
     风车动漫: 'https://www.92wuc.com',
-    APP下载: 'https://app.clicli.me',
-    使用说明: 'https://www.clicli.me/play/gv31',
+    APP下载: 'https://app.clicli.cc',
+    使用说明: 'https://www.clicli.cc/play/gv31',
     github: 'https://github.com/cliclitv',
     微博: 'https://weibo.com/u/6759984025',
     qq群: 'https://jq.qq.com/?_wv=1027&k=5e55m5L',

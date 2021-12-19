@@ -17,7 +17,7 @@ export default function Header({ push }) {
             <a href={clink}>
               <li className='active'>主站</li>
             </a>
-            <a href='https://app.clicli.me'>
+            <a href='https://app.clicli.cc'>
               <li>APP 下载</li>
             </a>
             {Object.keys(obj).map(key => (

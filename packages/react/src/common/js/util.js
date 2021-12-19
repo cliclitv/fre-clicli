@@ -7,7 +7,7 @@ export function getAvatar(avatar) {
     return `http://q1.qlogo.cn/g?b=qq&nk=${avatar}&s=5`
   } else {
     let hash = md5(avatar)
-    return `https://cdn.v2ex.com/gravatar/${hash}`
+    return `https://sdn.geekzu.org/avatar/${hash}`
   }
 }
 

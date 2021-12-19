@@ -20,10 +20,10 @@ export default function Tab() {
           </a>
         ))}
         <div class='tab-right'>
-          <a href='https://app.clicli.me'>
+          <a href='https://app.clicli.cc'>
             <li>APP下载</li>
           </a>
-          <a href='https://admin.clicli.me'>
+          <a href='https://admin.clicli.cc'>
             <li>投稿中心</li>
           </a>
         </div>
