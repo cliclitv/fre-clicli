@@ -27,6 +27,8 @@ export default function PostDetal(props) {
     })
   }, [props.gv])
 
+  const videos = post.videos.split('\n').map(v=>v.split(' '))
+
   return (
     <div className='post-detail'>
       <article className='left' ref={t}></article>
@@ -49,7 +51,7 @@ export default function PostDetal(props) {
           </div>
           <article ref={u} class='other'></article>
         </div>
-        {post.status === 'public' ? <VideoList gv={props.gv} /> : <div className='copyright'>版权原因，该番剧未上架，请支持正版</div>}
+        {post.status === 'public' ? <VideoList videos={videos} /> : <div className='copyright'>版权原因，该番剧未上架，请支持正版</div>}
       </div>
     </div>
   )

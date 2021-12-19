@@ -6,13 +6,7 @@ import { getAvatar } from '../../public/js/util'
 import './index.styl'
 
 export default function VideoList(props) {
-  const [video, setVideo] = useState([])
   const [content, setContent] = useState(null)
-  useEffect(() => {
-    getVideoList(props.gv).then(res => {
-      setVideo(res.videos)
-    })
-  }, [props.gv])
 
   function hide() {
     setContent(null)
@@ -25,18 +19,17 @@ export default function VideoList(props) {
   }
   return (
     <div className='video-list'>
-      {video.length < 27
-        ? video.map(item => {
+      {props.videos.length < 27
+        ? props.videos.map((item,index) => {
             return (
-              <li className='item' onClick={() => show(item.content)}>
-                <img src={getAvatar(item.uqq)} alt={item.uqq}></img>
-                <span>P {item.oid}</span>
-                <span>{item.title}</span>
+              <li className='item' onClick={() => show(item[1])}>
+                <span>P {index}</span>
+                <span>{item[0]}</span>
               </li>
             )
           })
-        : video.map(item=>{
-          return <li className='item2' onClick={() => show(item.content)}><span>P {item.oid}</span></li>
+        : props.videos.map((item,index)=>{
+          return <li className='item2' onClick={() => show(item[1])}><span>P {index}</span></li>
         })}
       {content && <Eplayer url={content} hide={hide} />}
     </div>
