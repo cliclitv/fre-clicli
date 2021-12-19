@@ -33,7 +33,7 @@ class WriteArticle extends React.Component {
 
   componentDidMount() {
     this.loadArticle()
-    this.loadVideo()
+    // this.loadVideo()
     this.props.location.pathname === '/write-article' ? this.setState({text: '添加'}) : this.setState({text: '更新'})
   }
 
@@ -174,23 +174,6 @@ class WriteArticle extends React.Component {
               {tags.map((item, index) => <li onClick={() => this.selectTag(item)} key={index}
                                              className={this.state.tag.indexOf(item) > -1 ? 'active' : ''}>{item}</li>)}
             </ul>
-          </div>
-          <div className="video-list">
-            {this.state.videos ? this.state.videos.map(item => {
-              return (
-                <Link to={`/editor-video/` + item.id} key={item.id}>
-                  <li>
-                    <div className="title">{item.oid}</div>
-                  </li>
-                </Link>
-              )
-            }) : null}
-            {this.props.location.pathname === '/write-article' ? null : <Link to={`/add-video/${this.state.id}`}>
-              <li className="add">
-                <div>＋</div>
-              </li>
-            </Link>}
-
           </div>
           <div>
             <button onClick={this.handleClick.bind(this)}>{this.state.text}稿件</button>

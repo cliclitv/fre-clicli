@@ -1,12 +1,7 @@
 import axios from 'axios'
-import {isDev, API_LINK} from 'common/js/util'
 import Cookies from "js-cookie"
 
 axios.defaults.withCredentials = true
-
-const request = axios.create({
-  baseURL: 'http://api.clicli.cc'
-})
 
 // 用户登录
 export function login(user) {
@@ -45,7 +40,7 @@ export function update(user) {
 
 // 获取用户列表
 export function userList(level) {
-  return request.get('//api.clicli.cc/users', {
+  return axois.get('//api.clicli.cc/users', {
     params: {
       level,
       page: 1,
@@ -62,11 +57,11 @@ export function logout() {
 
 // 获取用户cookie
 export function getCookie(uid) {
-  return request.get(`//api.clicli.cc/cookie/${uid}`)
+  return axios.get(`//api.clicli.cc/cookie/${uid}`)
 }
 
 export function getUser(uname, uid, uqq) {
-  return request.get('//api.clicli.cc/user', {
+  return axios.get('//api.clicli.cc/user', {
     params: {
       uname,
       uid,

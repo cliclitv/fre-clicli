@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "e32d3d5ac2048b13cfc4";
+/******/ 	var hotCurrentHash = "98d7b5f4dac0a212e27f";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1115,11 +1115,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 // CONCATENATED MODULE: ./src/api/user.js
 
 
-
-axios_default.a.defaults.withCredentials = true;
-var request = axios_default.a.create({
-  baseURL: 'http://api.clicli.cc'
-}); // 用户登录
+axios_default.a.defaults.withCredentials = true; // 用户登录
 
 function login(user) {
   return axios_default.a.post('//api.clicli.cc/user/login', {
@@ -1153,7 +1149,7 @@ function update(user) {
 } // 获取用户列表
 
 function userList(level) {
-  return request.get('//api.clicli.cc/users', {
+  return axois.get('//api.clicli.cc/users', {
     params: {
       level: level,
       page: 1,
@@ -1167,10 +1163,10 @@ function logout() {
 } // 获取用户cookie
 
 function getCookie(uid) {
-  return request.get("//api.clicli.cc/cookie/".concat(uid));
+  return axios_default.a.get("//api.clicli.cc/cookie/".concat(uid));
 }
 function getUser(uname, uid, uqq) {
-  return request.get('//api.clicli.cc/user', {
+  return axios_default.a.get('//api.clicli.cc/user', {
     params: {
       uname: uname,
       uid: uid,
@@ -1523,11 +1519,9 @@ var editor_user_EditorUser = adminAuth(editor_user_class = /*#__PURE__*/function
 
 
 
-var post_request = axios_default.a.create({
-  baseURL: API_LINK
-});
+axios_default.a.defaults.withCredentials = true;
 function getPosts(status, sort, tag, uid, page, pageSize) {
-  return post_request.get("/posts", {
+  return axois.get("//api.clicli.cc/posts", {
     params: {
       status: status,
       sort: sort,
@@ -1539,7 +1533,7 @@ function getPosts(status, sort, tag, uid, page, pageSize) {
   });
 }
 function getPost(id) {
-  return post_request.get("/post/".concat(id));
+  return axois.get("//api.clicli.cc/post/".concat(id));
 }
 function add(_ref) {
   var title = _ref.title,
@@ -1548,7 +1542,7 @@ function add(_ref) {
       sort = _ref.sort,
       tag = _ref.tag,
       uid = _ref.uid;
-  return axios_default.a.post('/post/add', {
+  return axios_default.a.post('//api.clicli.cc/post/add', {
     title: title,
     content: content,
     status: status,
@@ -1571,7 +1565,7 @@ function post_update(_ref2) {
       tag = _ref2.tag,
       uid = _ref2.uid,
       time = _ref2.time;
-  return axios_default.a.post("/post/update/".concat(id), {
+  return axios_default.a.post("//api.clicli.cc/post/update/".concat(id), {
     title: title,
     content: content,
     status: status,
@@ -1587,7 +1581,7 @@ function post_update(_ref2) {
 } // 删除一篇文章
 
 function deletePost(id) {
-  return axios_default.a.post("/post/delete/".concat(id), {}, {
+  return axios_default.a.post("//api.clicli.cc/post/delete/".concat(id), {}, {
     headers: {
       'token': js_cookie_default.a.get('token')
     }
@@ -1824,8 +1818,8 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
   createClass_default()(WriteArticle, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.loadArticle();
-      this.loadVideo();
+      this.loadArticle(); // this.loadVideo()
+
       this.props.location.pathname === '/write-article' ? this.setState({
         text: '添加'
       }) : this.setState({
@@ -2020,20 +2014,7 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
           key: index,
           className: _this5.state.tag.indexOf(item) > -1 ? 'active' : ''
         }, item);
-      }))), /*#__PURE__*/react_default.a.createElement("div", {
-        className: "video-list"
-      }, this.state.videos ? this.state.videos.map(function (item) {
-        return /*#__PURE__*/react_default.a.createElement(Link["a" /* default */], {
-          to: "/editor-video/" + item.id,
-          key: item.id
-        }, /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement("div", {
-          className: "title"
-        }, item.oid)));
-      }) : null, this.props.location.pathname === '/write-article' ? null : /*#__PURE__*/react_default.a.createElement(Link["a" /* default */], {
-        to: "/add-video/".concat(this.state.id)
-      }, /*#__PURE__*/react_default.a.createElement("li", {
-        className: "add"
-      }, /*#__PURE__*/react_default.a.createElement("div", null, "\uFF0B")))), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("button", {
+      }))), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("button", {
         onClick: this.handleClick.bind(this)
       }, this.state.text, "\u7A3F\u4EF6"))));
     }
@@ -2703,13 +2684,10 @@ var confirm_Confirm = /*#__PURE__*/function (_React$Component) {
 /* harmony default export */ var base_confirm_confirm = (confirm_Confirm);
 // CONCATENATED MODULE: ./src/api/comment.js
 
-
-var comment_request = axios_default.a.create({
-  baseURL: API_LINK
-}); // 根据pid查找评论
+ // 根据pid查找评论
 
 function getCommentByPid(pid, page, pageSize) {
-  return comment_request.get('/comments', {
+  return request.get('/comments', {
     params: {
       pid: pid,
       page: page,
@@ -2719,7 +2697,7 @@ function getCommentByPid(pid, page, pageSize) {
 } // 根据 uid 查找评论
 
 function getCommentByUid(uid, page, pageSize) {
-  return comment_request.get('/comments', {
+  return request.get('/comments', {
     params: {
       uid: uid,
       page: page,
