@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "30fe843a25749271905f";
+/******/ 	var hotCurrentHash = "51c545b8c8d10b2cd590";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1541,14 +1541,16 @@ function add(_ref) {
       status = _ref.status,
       sort = _ref.sort,
       tag = _ref.tag,
-      uid = _ref.uid;
+      uid = _ref.uid,
+      videos = _ref.videos;
   return axios_default.a.post('//api.clicli.cc/post/add', {
     title: title,
     content: content,
     status: status,
     sort: sort,
     tag: tag,
-    uid: uid
+    uid: uid,
+    videos: videos
   }, {
     headers: {
       'token': js_cookie_default.a.get('token')
@@ -1564,7 +1566,8 @@ function post_update(_ref2) {
       sort = _ref2.sort,
       tag = _ref2.tag,
       uid = _ref2.uid,
-      time = _ref2.time;
+      time = _ref2.time,
+      videos = _ref2.videos;
   return axios_default.a.post("//api.clicli.cc/post/update/".concat(id), {
     title: title,
     content: content,
@@ -1572,7 +1575,8 @@ function post_update(_ref2) {
     sort: sort,
     tag: tag,
     uid: uid,
-    time: time
+    time: time,
+    videos: videos
   }, {
     headers: {
       'token': js_cookie_default.a.get('token')
@@ -1818,8 +1822,7 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
   createClass_default()(WriteArticle, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.loadArticle(); // this.loadVideo()
-
+      this.loadArticle();
       this.props.location.pathname === '/write-article' ? this.setState({
         text: '添加'
       }) : this.setState({
@@ -1851,7 +1854,8 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
               sort = _res$data$result.sort,
               tag = _res$data$result.tag,
               status = _res$data$result.status,
-              time = _res$data$result.time;
+              time = _res$data$result.time,
+              videos = _res$data$result.videos;
 
           _this2.setState({
             title: title,
@@ -1860,20 +1864,8 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
             tag: tag,
             status: status,
             time: time.slice(0, -3),
+            videos: videos,
             defaultValue: content
-          });
-        });
-      }
-    }
-  }, {
-    key: "loadVideo",
-    value: function loadVideo() {
-      var _this3 = this;
-
-      if (this.state.id) {
-        getVideos(this.state.id, 1, 100).then(function (res) {
-          _this3.setState({
-            videos: res.data.videos
           });
         });
       }
@@ -1881,25 +1873,24 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
   }, {
     key: "handleClick",
     value: function handleClick() {
-      var _this4 = this;
+      var _this3 = this;
 
-      if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
-        this.setState({
-          msg: '都要填写都要填(〃＞皿＜)！',
-          bg: '#ef736e'
-        });
-        setTimeout(function () {
-          _this4.setState({
-            msg: ''
-          });
-        }, 5000);
-        return;
-      }
-
+      // if (!this.state.title || !this.state.content || !this.state.status || !this.state.sort || !this.state.tag) {
+      //   this.setState({
+      //     msg: '都要填写都要填(〃＞皿＜)！',
+      //     bg: '#ef736e'
+      //   })
+      //   setTimeout(() => {
+      //     this.setState({
+      //       msg: ''
+      //     })
+      //   }, 5000)
+      //   return
+      // }
       if (this.props.location.pathname !== '/write-article') {
         post_update(this.state).then(function (res) {
           if (res.data.code === 200) {
-            _this4.setState({
+            _this3.setState({
               msg: '更新成功啦！',
               text: '更新',
               bg: '#b4d896'
@@ -1907,9 +1898,9 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
           }
 
           setTimeout(function () {
-            _this4.props.history.push("/article/".concat(_this4.state.uid));
+            _this3.props.history.push("/article/".concat(_this3.state.uid));
 
-            _this4.setState({
+            _this3.setState({
               msg: ''
             });
           }, 5000);
@@ -1917,16 +1908,16 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
       } else {
         add(this.state).then(function (res) {
           if (res.data.code === 200) {
-            _this4.setState({
+            _this3.setState({
               msg: '添加成功啦',
               bg: '#b4d896'
             });
           }
 
           setTimeout(function () {
-            _this4.props.history.push("/article/".concat(_this4.state.uid));
+            _this3.props.history.push("/article/".concat(_this3.state.uid));
 
-            _this4.setState({
+            _this3.setState({
               msg: ''
             });
           }, 5000);
@@ -1949,7 +1940,7 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this4 = this;
 
       var tags = ['推荐', '转载', '漫画改', '小说改', '耽美', '乙女', '百合', '后宫', '热血', '战斗', '运动', '奇幻', '神魔', '搞笑', '冒险', '校园', '恐怖', '穿越', '推理', '科幻', '日常', '古风', '恋爱', 'r15', '泡面番', '治愈', '鬼畜', 'AMV/MAD', '音乐·PV', '游戏·GMV', 'VOCALOID', '影视', '特摄', '真人剧', '其它'];
       return /*#__PURE__*/react_default.a.createElement("div", null, this.state.msg ? /*#__PURE__*/react_default.a.createElement(top_tip_top_tip, {
@@ -1962,17 +1953,34 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
         placeholder: "\u8BF7\u8F93\u5165\u6807\u9898",
         value: this.state.title,
         onChange: function onChange(e) {
-          return _this5.handleChange('title', e.target.value);
+          return _this4.handleChange('title', e.target.value);
         }
       })), /*#__PURE__*/react_default.a.createElement(markdown_markdown, {
         handleMde: function handleMde(content) {
-          return _this5.changeMde(content);
+          return _this4.changeMde(content);
         },
         value: this.state.content,
         defaultValue: this.state.defaultValue
-      }), /*#__PURE__*/react_default.a.createElement("span", null, /*#__PURE__*/react_default.a.createElement("select", {
+      }), /*#__PURE__*/react_default.a.createElement("div", {
+        className: "videos"
+      }, /*#__PURE__*/react_default.a.createElement("div", {
+        style: {
+          paddingTop: '20px'
+        }
+      }, "\u5206P"), /*#__PURE__*/react_default.a.createElement("textarea", {
+        className: "videos-area",
+        value: this.state.videos,
+        placeholder: "\u8BF7\u8F93\u5165\u6807\u9898+\u7A7A\u683C+\u76F4\u94FE\uFF0C\u5982\uFF1A\u7B2C\u4E00\u8BDD https://clicli.cc/001.mp4\n\u591A\u4E2A\u5206P\u7528\u56DE\u8F66\u9694\u5F00",
         onChange: function onChange(e) {
-          return _this5.handleChange('sort', e.target.value);
+          return _this4.setState({
+            videos: e.target.value
+          });
+        },
+        rows: 10,
+        cols: 1000
+      })), /*#__PURE__*/react_default.a.createElement("span", null, /*#__PURE__*/react_default.a.createElement("select", {
+        onChange: function onChange(e) {
+          return _this4.handleChange('sort', e.target.value);
         },
         value: this.state.sort
       }, /*#__PURE__*/react_default.a.createElement("option", {
@@ -1987,7 +1995,7 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
         value: "\u5F71\u89C6"
       }, "\u5F71\u89C6"))), /*#__PURE__*/react_default.a.createElement("span", null, /*#__PURE__*/react_default.a.createElement("select", {
         onChange: function onChange(e) {
-          return _this5.handleChange('status', e.target.value);
+          return _this4.handleChange('status', e.target.value);
         },
         value: this.state.status
       }, /*#__PURE__*/react_default.a.createElement("option", {
@@ -2002,17 +2010,17 @@ var wirte_article_WriteArticle = adminAuth(wirte_article_class = /*#__PURE__*/fu
         type: "text",
         value: this.state.time,
         onChange: function onChange(e) {
-          return _this5.handleChange('time', e.target.value);
+          return _this4.handleChange('time', e.target.value);
         }
       })), /*#__PURE__*/react_default.a.createElement("div", {
         className: "tags"
       }, /*#__PURE__*/react_default.a.createElement("ul", null, tags.map(function (item, index) {
         return /*#__PURE__*/react_default.a.createElement("li", {
           onClick: function onClick() {
-            return _this5.selectTag(item);
+            return _this4.selectTag(item);
           },
           key: index,
-          className: _this5.state.tag.indexOf(item) > -1 ? 'active' : ''
+          className: _this4.state.tag.indexOf(item) > -1 ? 'active' : ''
         }, item);
       }))), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("button", {
         onClick: this.handleClick.bind(this)

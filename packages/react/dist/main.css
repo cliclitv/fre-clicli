@@ -1003,10 +1003,16 @@ span.CodeMirror-selectedtext {
   padding-bottom: 20px;
 }
 
+.write-article .videos-area{
+  white-space: pre;
+word-wrap: break-word;
+overflow: scroll;
+}
+
 .write-article .tags li {
   display: inline-block;
   padding: 2px 10px;
-  background: #b6cedc;
+  background: #e0d8f7;;
   color: #6c43b6;
   border-radius: 4px;
   margin: 10px 10px 0 0;

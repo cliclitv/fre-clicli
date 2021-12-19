@@ -16,14 +16,15 @@ export function getPost(id) {
   return axios.get(`//api.clicli.cc/post/${id}`)
 }
 
-export function add({title, content, status, sort, tag, uid}) {
+export function add({title, content, status, sort, tag, uid, videos}) {
   return axios.post('//api.clicli.cc/post/add', {
     title,
     content,
     status,
     sort,
     tag,
-    uid
+    uid,
+    videos
   }, {
     headers: {
       'token': Cookies.get('token')
@@ -32,7 +33,7 @@ export function add({title, content, status, sort, tag, uid}) {
 }
 
 // 更新文章
-export function update({id, title, content, status, sort, tag, uid, time}) {
+export function update({id, title, content, status, sort, tag, uid, time,videos}) {
   return axios.post(`//api.clicli.cc/post/update/${id}`, {
     title,
     content,
@@ -40,7 +41,8 @@ export function update({id, title, content, status, sort, tag, uid, time}) {
     sort,
     tag,
     uid,
-    time
+    time,
+    videos
   }, {
     headers: {
       'token': Cookies.get('token')
