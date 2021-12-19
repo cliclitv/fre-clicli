@@ -27,7 +27,7 @@ export default function PostDetal(props) {
     })
   }, [props.gv])
 
-  const videos = post.videos.split('\n').map(v=>v.split(' '))
+  const videos = post.videos ? post.videos.split('\n').map(v => v.split(' ')) : []
 
   return (
     <div className='post-detail'>

@@ -1,8 +1,6 @@
 import { h, useState, useEffect, useRef } from 'fre'
-import { addListener, lanuch } from 'devtools-detector'
 import Eplayer from '../../widget/eplayer'
-import { getVideoList } from '../../api/get'
-import { getAvatar } from '../../public/js/util'
+
 import './index.styl'
 
 export default function VideoList(props) {
